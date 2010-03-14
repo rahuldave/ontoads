@@ -5,8 +5,8 @@ layout: nil
 <feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>ADS Ontologies</title>
- <link href="http://.github.com/website/atom.xml" rel="self"/>
- <link href="http://.github.com/website/"/>
+ <link href="http://rahuldave.github.com/ontoads/atom.xml" rel="self"/>
+ <link href="http://rahuldave.github.com/ontoads/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
  <id>http://.github.com/website/</id>
  <author>
@@ -17,9 +17,9 @@ layout: nil
  {% for post in site.posts %}
  <entry>
    <title>{{ post.title }}</title>
-   <link href="http://.github.com/website{{ post.url }}"/>
+   <link href="http://rahuldave.github.com/ontoads{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>http://.github.com/website{{ post.id }}</id>
+   <id>http://rahuldave.github.com/ontoads{{ post.id }}</id>
    <content type="html">{{ post.content | xml_escape }}</content>
  </entry>
  {% endfor %}
