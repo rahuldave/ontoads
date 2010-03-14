@@ -17,6 +17,9 @@
           <li id="navi_intro">
             <a href="/ontoads/">Intro</a>
           </li>
+          <li id="navi_why">
+            <a href="/ontoads/why.html">Why?</a>
+          </li>
           <li id="navi_source">
             <a href="http://github.com/rahuldave/ontoads">Source</a>
           </li>
@@ -25,6 +28,16 @@
       <div id="page_body">
         <div id="content">
           {{ content }}
+          <div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+   dsq.src = 'http://adsontologies.disqus.com/embed.js';
+   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=adsontologies">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
         </div>
         <div id="sidebar">
           <div class="item">
@@ -46,5 +59,19 @@
       </div>
     </div>
     <a href="http://github.com/rahuldave/ontoads"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+    <script type="text/javascript">
+//<![CDATA[
+(function() {
+	var links = document.getElementsByTagName('a');
+	var query = '?';
+	for(var i = 0; i < links.length; i++) {
+	if(links[i].href.indexOf('#disqus_thread') >= 0) {
+		query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+	}
+	}
+	document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/adsontologies/get_num_replies.js' + query + '"></' + 'script>');
+})();
+//]]>
+</script>
   </body>
 </html>
