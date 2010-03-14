@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Why?
+permalink: articles/why.html
 ---
 
 junk page
