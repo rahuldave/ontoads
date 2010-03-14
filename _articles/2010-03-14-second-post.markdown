@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Welcome to 'ADS Ontologies'
+title: Hello World Twice
 ---
 
-ADS Ontologies is going to be an awesome project.
+Raindrops keep falling from the west.
