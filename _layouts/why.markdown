@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Why?
-permalink: /articles/why.html
+permalink: why.html
 ---
 
 ## Why does ADS want to do this?
