@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+  <!ENTITY astro "http://sweet.jpl.nasa.gov/2.0/astroBody.owl">
+  <!ENTITY geom "http://sweet.jpl.nasa.gov/2.0/spaceObject.owl">
+  <!ENTITY sysd "http://sweet.jpl.nasa.gov/2.0/sciSystemDynamics.owl">
+  <!ENTITY phys "http://sweet.jpl.nasa.gov/2.0/phys.owl">
+  <!ENTITY dyna "http://sweet.jpl.nasa.gov/2.0/physDynamics.owl">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+
+<rdf:RDF xml:base="&astro;"
+         xmlns:owl="&owl;"
+         xmlns:astro="&astro;"
+         xmlns:geom="&geom;"
+         xmlns:phys="&phys;"
+         xmlns:dyna="&dyna;"
+         xmlns:sysd="&sysd;"
+         xmlns:rdf="&rdf;"
+         xmlns:rdfs="&rdfs;"
+	 xmlns:xsd = "&xsd;">
+
+<!-- Ontology Information -->
+  <owl:Ontology rdf:about=""
+                owl:versionInfo="2.0">
+     <owl:imports rdf:resource="&geom;"/>
+     <owl:imports rdf:resource="&phys;"/>
+     <owl:imports rdf:resource="&dyna;"/>
+     <owl:imports rdf:resource="&sysd;"/>
+  </owl:Ontology>
+
+<!-- Annotation Properties -->
+  <owl:AnnotationProperty rdf:about="&owl;versionInfo"/>
+
+<!-- Realms -->
+
+  <owl:Class rdf:about="#Asteroid">
+    <rdfs:subClassOf rdf:resource="#AstronomicalBody"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#AstronomicalBody">
+    <rdfs:subClassOf rdf:resource="&geom;#Body"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="&dyna;#hasRotationPeriod"/>
+        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="&dyna;#hasRevolutionPeriod"/>
+        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Comet">
+    <rdfs:subClassOf rdf:resource="#AstronomicalBody"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Galaxy">
+    <rdfs:subClassOf rdf:resource="#AstronomicalBody"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#GlobalOscillation">
+    <rdfs:subClassOf rdf:resource="&sysd;#Oscillation"/>
+    <rdfs:subClassOf rdf:resource="&phys;#FarFieldForce"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Meteor">
+    <rdfs:subClassOf rdf:resource="#Extraterrestrial"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Moon">
+    <rdfs:subClassOf rdf:resource="#AstronomicalBody"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#hasPlanet"/>
+        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Planet">
+    <rdfs:subClassOf rdf:resource="#AstronomicalBody"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#hasStar"/>
+        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Satellite">
+    <rdfs:subClassOf rdf:resource="#AstronomicalBody"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Star">
+    <rdfs:subClassOf rdf:resource="#AstronomicalBody"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Extraterrestrial">
+    <rdfs:subClassOf rdf:resource="#AstronomicalBody"/>
+    <rdfs:comment xml:lang="en">A body or substance which does not originate from Earth. [Wikipedia]</rdfs:comment>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:about="#hasPlanet">
+    <rdfs:range rdf:resource="#Planet"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="#hasStar">
+    <rdfs:range rdf:resource="#Star"/>
+  </owl:ObjectProperty>
+
+</rdf:RDF>

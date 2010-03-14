@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+  <!ENTITY geom "http://sweet.jpl.nasa.gov/2.0/spaceObject.owl"> 
+  <!ENTITY top "http://sweet.jpl.nasa.gov/2.0/top.owl"> 
+  <!ENTITY reg "http://sweet.jpl.nasa.gov/2.0/geogRegion.owl">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="&reg;"
+         xmlns:geom="&geom;"
+         xmlns:top="&top;"
+         xmlns:reg="&reg;"
+         xmlns:owl="&owl;"
+         xmlns:rdf="&rdf;"
+         xmlns:rdfs="&rdfs;"
+	 xmlns:xsd = "&xsd;">
+
+<!-- Ontology Information -->
+  <owl:Ontology rdf:about=""
+                owl:versionInfo="2.0">
+     <owl:imports rdf:resource="&geom;"/>
+     <owl:imports rdf:resource="&top;"/>
+  </owl:Ontology>
+
+<!-- Classes -->
+
+  <owl:Class rdf:about="#AdministrativeRegion">
+    <rdfs:subClassOf rdf:resource="&geom;#Region"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#City">
+    <rdfs:subClassOf rdf:resource="#AdministrativeRegion"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+       <owl:onProperty rdf:resource="&top;#partOf"/>
+        <owl:allValuesFrom rdf:resource="#State"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#CombinedStatisticalArea">
+   <rdfs:subClassOf rdf:resource="#MetropolitanArea"/>
+    <owl:equivalentClass rdf:resource="#CSA"/>
+  </owl:Class>
+  <owl:Class rdf:about="#CSA"/>
+
+  <owl:Class rdf:about="#Continent">
+    <rdfs:subClassOf rdf:resource="#AdministrativeRegion"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Country">
+    <rdfs:subClassOf rdf:resource="#AdministrativeRegion"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#County">
+    <rdfs:subClassOf rdf:resource="#AdministrativeRegion"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+       <owl:onProperty rdf:resource="&top;#partOf"/>
+        <owl:allValuesFrom rdf:resource="#State"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class> 
+
+  <owl:Class rdf:about="#MetropolitanArea">
+   <rdfs:subClassOf rdf:resource="#AdministrativeRegion"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="&top;#partOf"/>
+        <owl:allValuesFrom rdf:resource="#Country"/>
+      </owl:Restriction>
+   </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#MetropolitanStatisticalArea">
+   <rdfs:subClassOf rdf:resource="#MetropolitanArea"/>
+    <owl:equivalentClass rdf:resource="#MSA"/>
+  </owl:Class>
+  <owl:Class rdf:about="#MSA"/>
+
+  <owl:Class rdf:about="#Province">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="&top;#partOf"/>
+        <owl:allValuesFrom rdf:resource="#Country"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#AdministrativeRegion"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#State">
+   <rdfs:subClassOf rdf:resource="#AdministrativeRegion"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="&top;#partOf"/>
+        <owl:allValuesFrom rdf:resource="#Country"/>
+      </owl:Restriction>
+   </rdfs:subClassOf>
+  </owl:Class>
+
+  <owl:Class rdf:about="#SpecialAdministrationRegion">
+   <rdfs:subClassOf rdf:resource="#AdministrativeRegion"/>
+    <owl:equivalentClass rdf:resource="#SAR"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="&top;#partOf"/>
+        <owl:allValuesFrom rdf:resource="#Country"/>
+      </owl:Restriction>
+   </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#SAR"/>
+
+  <owl:Class rdf:about="#StandardMetropolitanStatisticalArea">
+   <rdfs:subClassOf rdf:resource="#MetropolitanArea"/>
+    <owl:equivalentClass rdf:resource="#SMSA"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SMSA"/>
+
+  <owl:Class rdf:about="#UrbanArea">
+   <rdfs:subClassOf rdf:resource="#AdministrativeRegion"/>
+    <rdfs:comment xml:lang="en">An urban area is an area with an increased density of human-created structures in comparison to the areas surrounding it. This term is at one end of the spectrum of suburban and rural areas. An urban area is more frequently called a city or town. </rdfs:comment>
+  </owl:Class>
+
+</rdf:RDF>

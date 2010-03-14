@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Created by Paolo Ciccarese http://www.hcklab.org/people/pc/ on October 7th, 2008 -->
+
+<!DOCTYPE rdf:RDF [
+    <!-- Other namespaces -->
+    <!ENTITY xsd  "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdf  "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY owl  "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc   "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY ns   "http://www.w3.org/2003/06/sw-vocab-status/ns">
+    <!ENTITY sw-vocab-status "http://www.w3.org/2003/06/sw-vocab-status/">
+    
+    <!-- Main namespace -->
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/">
+    
+    <!-- Files -->
+    <!ENTITY previousfile "http://swan.mindinformatics.org/ontologies/1.1/foaf-essential.owl">
+  	<!ENTITY path "http://swan.mindinformatics.org/ontologies/1.2/foaf-essential.owl">
+  	<!ENTITY local "file:///home/rdave/Projects/adsonto/packages/pellet-1.3/foaf-essential.owl">  	
+  	<!ENTITY file "&local;">
+]>
+<rdf:RDF xml:base="&foaf;"
+         xmlns:dc="&dc;"
+         xmlns:owl="&owl;"
+         xmlns:rdf="&rdf;"
+         xmlns:rdfs="&rdfs;"
+         xmlns:sw-vocab-status="&sw-vocab-status;">
+
+  	<owl:Ontology rdf:about="&file;">
+  		<rdf:type rdf:resource="&owl;Ontology"/>
+  		<rdfs:label rdf:datatype="&xsd;string">FOAF Essential v. 1.2</rdfs:label>
+        <owl:versionInfo rdf:datatype="&xsd;string">1.2</owl:versionInfo>
+        <owl:priorVersion rdf:resource="&previousfile;"/>
+        
+        <dc:language>en</dc:language>
+        <dc:title xml:lang="en">FOAF Essential ontology</dc:title>
+        <dc:creator rdf:resource="http://www.hcklab.org/people/paolo-ciccarese/" /> 
+        <dc:contributor rdf:datatype="&xsd;string">Paolo Ciccarese</dc:contributor>
+        <dc:contributor rdf:datatype="&xsd;string">Alan Ruttenberg</dc:contributor>
+        <dc:publisher rdf:datatype="&xsd;string">http://swan.mindinformatics.org</dc:publisher>
+        <dc:date rdf:datatype="&xsd;string">January 18, 2009</dc:date>
+        <dc:format rdf:datatype="&xsd;string">rdf/xml</dc:format>
+  	</owl:Ontology>
+  
+  	<rdf:Description rdf:about="&previousfile;">
+    	<rdf:type rdf:resource="&owl;Ontology"/>
+  	</rdf:Description>
+  
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+     
+  	<rdf:Description rdf:about="&dc;title">
+  	  	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;date">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+ 	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;creator">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;format">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;language">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;publisher">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;contributor">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&sw-vocab-status;nsterm_status">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+
+  
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+  	<owl:Class rdf:about="Agent" rdfs:label="(foaf) Agent">
+    	<sw-vocab-status:nsterm_status rdf:datatype="&xsd;string">unstable</sw-vocab-status:nsterm_status>
+    	<rdfs:comment rdf:datatype="&xsd;string">An agent (eg. person, group, software or physical artifact).</rdfs:comment>
+    	<rdfs:isDefinedBy rdf:resource="&foaf;"/>
+    	<owl:disjointWith rdf:resource="Document"/>
+    	<owl:disjointWith rdf:resource="Project"/>
+    	<owl:disjointWith rdf:resource="OnlineAccount"/>
+  	</owl:Class>
+
+  	<owl:Class rdf:about="Document" rdfs:label="(foaf) Document">
+    	<sw-vocab-status:nsterm_status rdf:datatype="&xsd;string">testing</sw-vocab-status:nsterm_status>
+    	<rdfs:comment rdf:datatype="&xsd;string">A document.</rdfs:comment>
+    	<rdfs:isDefinedBy rdf:resource="&foaf;"/>
+    	<owl:disjointWith rdf:resource="Agent"/>
+    	<owl:disjointWith rdf:resource="Project"/>
+    	<owl:disjointWith rdf:resource="OnlineAccount"/>
+  	</owl:Class>
+
+  	<owl:Class rdf:about="Group" rdfs:label="(foaf) Group">
+    	<sw-vocab-status:nsterm_status rdf:datatype="&xsd;string">unstable</sw-vocab-status:nsterm_status>
+    	<rdfs:comment rdf:datatype="&xsd;string">A class of Agents.</rdfs:comment>
+    	<rdfs:isDefinedBy rdf:resource="&foaf;"/>
+    	<rdfs:subClassOf rdf:resource="Agent"/>
+    	<owl:disjointWith rdf:resource="Organization"/>
+    	<owl:disjointWith rdf:resource="Person"/>
+  	</owl:Class>
+
+  	<owl:Class rdf:about="Image" rdfs:label="(foaf) Image">
+    	<sw-vocab-status:nsterm_status rdf:datatype="&xsd;string">testing</sw-vocab-status:nsterm_status>
+    	<rdfs:comment rdf:datatype="&xsd;string">An image.</rdfs:comment>
+    	<rdfs:isDefinedBy rdf:resource="&foaf;"/>
+    	<rdfs:subClassOf rdf:resource="Document"/>
+    	<owl:disjointWith rdf:resource="PersonalProfileDocument"/>
+  	</owl:Class>
+  
+  	<owl:Class rdf:about="Organization" rdfs:label="(foaf) Organization">
+    	<sw-vocab-status:nsterm_status rdf:datatype="&xsd;string">unstable</sw-vocab-status:nsterm_status>
+    	<rdfs:comment rdf:datatype="&xsd;string">An organization.</rdfs:comment>
+    	<rdfs:isDefinedBy rdf:resource="&foaf;"/>
+    	<rdfs:subClassOf rdf:resource="Agent"/>
+    	<owl:disjointWith rdf:resource="Person"/>
+    	<owl:disjointWith rdf:resource="Group"/>
+  	</owl:Class>
+
+  	<owl:Class rdf:about="Person" rdfs:label="(foaf) Person">
+    	<sw-vocab-status:nsterm_status rdf:datatype="&xsd;string">stable</sw-vocab-status:nsterm_status>
+    	<rdfs:comment rdf:datatype="&xsd;string">A person.</rdfs:comment>
+    	<rdfs:isDefinedBy rdf:resource="&foaf;"/>
+    	<rdfs:subClassOf rdf:resource="Agent"/>
+  		<owl:disjointWith rdf:resource="Group"/>  
+    	<owl:disjointWith rdf:resource="Organization"/>
+  	</owl:Class>
+
+  	<owl:Class rdf:about="PersonalProfileDocument" rdfs:label="(foaf) PersonalProfileDocument">
+    	<sw-vocab-status:nsterm_status rdf:datatype="&xsd;string">testing</sw-vocab-status:nsterm_status>
+    	<rdfs:comment rdf:datatype="&xsd;string">A personal profile RDF document.</rdfs:comment>
+    	<rdfs:isDefinedBy rdf:resource="&foaf;"/>
+    	<rdfs:subClassOf rdf:resource="Document"/>
+    	<owl:disjointWith rdf:resource="Image"/>
+  	</owl:Class>
+
+  	<owl:Class rdf:about="Project" rdfs:label="(foaf) Project">
+    	<sw-vocab-status:nsterm_status rdf:datatype="&xsd;string">unstable</sw-vocab-status:nsterm_status>
+    	<rdfs:comment rdf:datatype="&xsd;string">A project (a collective endeavour of some kind).</rdfs:comment>
+    	<rdfs:isDefinedBy rdf:resource="&foaf;"/>
+    	<owl:disjointWith rdf:resource="Document"/>
+    	<owl:disjointWith rdf:resource="Agent"/>
+    	<owl:disjointWith rdf:resource="OnlineAccount"/>
+  	</owl:Class>
+  
+  	<owl:Class rdf:about="OnlineAccount" rdfs:label="(foaf) OnlineAccount">
+    	<sw-vocab-status:nsterm_status rdf:datatype="&xsd;string">unstable</sw-vocab-status:nsterm_status>
+    	<rdfs:comment rdf:datatype="&xsd;string">An online account.</rdfs:comment>
+    	<rdfs:isDefinedBy rdf:resource="&foaf;"/>
+    	<owl:disjointWith rdf:resource="Agent"/>
+    	<owl:disjointWith rdf:resource="Document"/>
+    	<owl:disjointWith rdf:resource="Project"/>
+  	</owl:Class>
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+  	<owl:DatatypeProperty rdf:about="aimChatID">
+   	 	<rdfs:domain rdf:resource="Agent"/>
+    	<rdfs:subPropertyOf rdf:resource="nick"/>
+  	</owl:DatatypeProperty>
+
+  	<owl:DatatypeProperty rdf:about="birthday">
+    	<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    <rdfs:domain rdf:resource="Person"/>
+  	</owl:DatatypeProperty>
+
+  	<owl:DatatypeProperty rdf:about="family_name">
+    	<rdfs:domain rdf:resource="Person"/>
+  	</owl:DatatypeProperty>
+
+  	<owl:DatatypeProperty rdf:about="firstName">
+    	<rdfs:domain rdf:resource="Person"/>
+  	</owl:DatatypeProperty>
+
+  	<owl:DatatypeProperty rdf:about="geekcode">
+    	<rdfs:domain rdf:resource="Person"/>
+ 	</owl:DatatypeProperty>
+
+  	<owl:DatatypeProperty rdf:about="gender">
+    	<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+    	<rdfs:domain rdf:resource="Person"/>
+  	</owl:DatatypeProperty>
+
+  	<owl:DatatypeProperty rdf:about="givenname">
+    	<rdfs:domain rdf:resource="Person"/>
+  	</owl:DatatypeProperty>
+
+  	<owl:DatatypeProperty rdf:about="icqChatID">
+  		<!--rdf:type rdf:resource="&owl;InverseFunctionalProperty"/-->
+    	<rdfs:domain rdf:resource="Agent"/>
+    	<rdfs:subPropertyOf rdf:resource="nick"/>
+  	</owl:DatatypeProperty>
+
+  	<owl:DatatypeProperty rdf:about="jabberID">
+    	<rdfs:domain rdf:resource="Agent"/>
+    	<rdfs:subPropertyOf rdf:resource="nick"/>
+  	</owl:DatatypeProperty>
+
+  	<owl:DatatypeProperty rdf:about="mbox_sha1sum">
+  		<!--rdf:type rdf:resource="&owl;InverseFunctionalProperty"/-->
+    	<rdfs:domain rdf:resource="Agent"/>
+  	</owl:DatatypeProperty>
+
+  	<owl:DatatypeProperty rdf:about="msnChatID">
+  		<!--rdf:type rdf:resource="&owl;InverseFunctionalProperty"/-->
+    	<rdfs:domain rdf:resource="Agent"/>
+    	<rdfs:subPropertyOf rdf:resource="nick"/>
+  	</owl:DatatypeProperty>
+
+  	<owl:DatatypeProperty rdf:about="myersBriggs">
+    	<rdfs:domain rdf:resource="Person"/>
+  	</owl:DatatypeProperty>
+
+  	<owl:DatatypeProperty rdf:about="name">
+    	<rdfs:domain>
+    	    <owl:Class>
+	    		<owl:unionOf rdf:parseType="Collection">
+	    			<rdfs:Class rdf:about="Agent"/>
+	    			<rdfs:Class rdf:about="Project"/>
+	    			<rdfs:Class rdf:about="Document"/>
+	    		</owl:unionOf>
+    		</owl:Class>
+    	</rdfs:domain>
+  	</owl:DatatypeProperty>
+
+  	<owl:DatatypeProperty rdf:about="nick">
+    	<rdfs:domain rdf:resource="Person"/>
+  	</owl:DatatypeProperty>
+
+  	<owl:DatatypeProperty rdf:about="plan">
+    	<rdfs:domain rdf:resource="Person"/>
+  	</owl:DatatypeProperty>
+
+  	<owl:DatatypeProperty rdf:about="sha1">
+    	<rdfs:domain rdf:resource="Document"/>
+  	</owl:DatatypeProperty>
+
+  	<owl:DatatypeProperty rdf:about="surname">
+    	<rdfs:domain rdf:resource="Person"/>
+  	</owl:DatatypeProperty>
+
+  	<owl:DatatypeProperty rdf:about="title">
+    	<rdfs:domain rdf:resource="Person"/>
+  	</owl:DatatypeProperty>
+
+  	<owl:DatatypeProperty rdf:about="yahooChatID">
+    	<rdfs:domain rdf:resource="Agent"/>
+    	<rdfs:subPropertyOf rdf:resource="nick"/>
+  	</owl:DatatypeProperty>
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+  <owl:ObjectProperty rdf:about="currentProject">
+    <rdfs:domain rdf:resource="Person"/>
+        <rdfs:range>
+	    	<owl:Class>
+	  			<owl:complementOf>
+	  				<owl:Class>
+	    				<owl:unionOf rdf:parseType="Collection">
+	    					<owl:Class rdf:about="Agent"/>
+	    					<owl:Class rdf:about="OnlineAccount"/>
+	    				</owl:unionOf>
+	    			</owl:Class>
+	  			</owl:complementOf>
+			</owl:Class>
+    	</rdfs:range>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="depiction">
+    <rdfs:domain rdf:resource="&owl;Thing"/>
+    <rdfs:range rdf:resource="Image"/>
+    <owl:inverseOf rdf:resource="depicts"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="depicts">
+    <rdfs:domain rdf:resource="Image"/>
+    <rdfs:range rdf:resource="&owl;Thing"/>
+    <owl:inverseOf rdf:resource="depiction"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="fundedBy">
+    <rdfs:domain rdf:resource="&owl;Thing"/>
+        <rdfs:range>
+	    	<owl:Class>
+	  			<owl:complementOf>
+	  				<owl:Class>
+	    				<owl:unionOf rdf:parseType="Collection">
+	    					<owl:Class rdf:about="Document"/>
+	    					<owl:Class rdf:about="OnlineAccount"/>
+	    				</owl:unionOf>
+	    			</owl:Class>
+	  			</owl:complementOf>
+			</owl:Class>
+    	</rdfs:range>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="homepage">
+  	<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+    <rdfs:range rdf:resource="Document"/>
+    <rdfs:subPropertyOf rdf:resource="page"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="img">
+    <rdfs:domain rdf:resource="Person"/>
+    <rdfs:range rdf:resource="Image"/>
+    <rdfs:subPropertyOf rdf:resource="depiction"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="interest">
+    <rdfs:domain rdf:resource="Person"/>
+    <rdfs:range rdf:resource="Document"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="isPrimaryTopicOf">
+    <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+    <rdfs:domain rdf:resource="&owl;Thing"/>
+    <rdfs:range rdf:resource="Document"/>
+    <owl:inverseOf rdf:resource="primaryTopic"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="knows">
+    <rdfs:domain rdf:resource="Person"/>
+    <rdfs:range rdf:resource="Person"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="logo">
+    	<rdfs:domain>
+    	    <owl:Class>
+	    		<owl:unionOf rdf:parseType="Collection">
+	    			<rdfs:Class rdf:about="Agent"/>
+	    			<rdfs:Class rdf:about="Project"/>
+	    		</owl:unionOf>
+    		</owl:Class>
+    	</rdfs:domain>
+    <rdfs:range rdf:resource="Image"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="made">
+    <rdfs:domain rdf:resource="Agent"/>
+    <rdfs:range>
+    	<owl:Class>
+  			<owl:complementOf>
+    			<owl:Class rdf:about="Agent"/>
+  			</owl:complementOf>
+		</owl:Class>
+	</rdfs:range>
+    <owl:inverseOf rdf:resource="maker"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="maker">
+    <rdfs:domain rdf:resource="&owl;Thing"/>
+    <rdfs:range rdf:resource="Agent"/>
+    <owl:inverseOf rdf:resource="made"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="mbox">
+  	<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+    <rdfs:domain rdf:resource="Agent"/>
+        <rdfs:range>
+	    	<owl:Class>
+	  			<owl:complementOf>
+	  				<owl:Class>
+	    				<owl:unionOf rdf:parseType="Collection">
+	    					<owl:Class rdf:about="Agent"/>
+	    					<owl:Class rdf:about="Project"/>
+	    					<owl:Class rdf:about="Document"/>
+	    				</owl:unionOf>
+	    			</owl:Class>
+	  			</owl:complementOf>
+			</owl:Class>
+    	</rdfs:range>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="member">
+    <rdfs:domain rdf:resource="Group"/>
+    <rdfs:range rdf:resource="Agent"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="page">
+    <rdfs:domain rdf:resource="&owl;Thing"/>
+    <rdfs:range rdf:resource="Document"/>
+    <owl:inverseOf rdf:resource="topic"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="pastProject">
+    <rdfs:domain rdf:resource="Person"/>
+    <rdfs:range rdf:resource="Project"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="phone">
+    	<rdfs:domain>
+			<rdfs:Class rdf:about="Agent"/>
+    	</rdfs:domain>
+    	<rdfs:range>
+	    	<owl:Class>
+	  			<owl:complementOf>
+	  				<owl:Class>
+	    				<owl:unionOf rdf:parseType="Collection">
+	    					<owl:Class rdf:about="Agent"/>
+	    					<owl:Class rdf:about="Project"/>
+	    					<owl:Class rdf:about="Document"/>
+	    					<owl:Class rdf:about="OnlineAccount"/>
+	    				</owl:unionOf>
+	    			</owl:Class>
+	  			</owl:complementOf>
+			</owl:Class>
+    	</rdfs:range>
+  </owl:ObjectProperty>
+
+  <owl:FunctionalProperty rdf:about="primaryTopic">
+    <rdf:type rdf:resource="&owl;ObjectProperty"/>
+    <rdfs:domain rdf:resource="Document"/>
+    <rdfs:range rdf:resource="&owl;Thing"/>
+    <owl:inverseOf rdf:resource="isPrimaryTopicOf"/>
+  </owl:FunctionalProperty>
+
+  <owl:ObjectProperty rdf:about="publications">
+    <rdfs:domain rdf:resource="Person"/>
+    <rdfs:range rdf:resource="Document"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="schoolHomepage">
+    <rdfs:domain rdf:resource="Person"/>
+    <rdfs:range rdf:resource="Document"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="thumbnail">
+    <rdfs:domain rdf:resource="Image"/>
+    <rdfs:range rdf:resource="Image"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="tipjar">
+    <rdfs:domain rdf:resource="Agent"/>
+    <rdfs:range rdf:resource="Document"/>
+    <rdfs:subPropertyOf rdf:resource="page"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="topic">
+    <rdfs:domain rdf:resource="Document"/>
+    <rdfs:range rdf:resource="&owl;Thing"/>
+    <owl:inverseOf rdf:resource="page"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="topic_interest">
+    <rdfs:domain rdf:resource="Person"/>
+    <rdfs:range rdf:resource="&owl;Thing"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="weblog">
+  	<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+    <rdfs:domain rdf:resource="Agent"/>
+    <rdfs:range rdf:resource="Document"/>
+    <rdfs:subPropertyOf rdf:resource="page"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="workInfoHomepage">
+    <rdfs:domain rdf:resource="Person"/>
+    <rdfs:range rdf:resource="Document"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="workplaceHomepage">
+    <rdfs:domain rdf:resource="Person"/>
+    <rdfs:range rdf:resource="Document"/>
+  </owl:ObjectProperty>
+  
+</rdf:RDF>

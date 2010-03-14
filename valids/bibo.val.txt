@@ -1,0 +1,79 @@
+Input file: file:///home/rdave/Projects/adsonto/packages/pellet-1.3/bibo.xml.owl
+OWL Species: DL
+DL Expressivity: ALCHIF(D)
+Consistent: Yes
+Time: 1413 ms (Loading: 909 Species Validation: 267 Consistency: 8 Classification: 214 Realization: 13 )
+
+Classification:
+
+ owl:Thing
+    rdf:List
+    bibo:Collection
+       bibo:MultiVolumeBook
+       bibo:Periodical
+          bibo:CourtReporter
+          bibo:Journal
+          bibo:Newspaper
+          bibo:Magazine
+          bibo:Code
+       bibo:Website
+       bibo:Series
+    terms:Agent = foaf:Agent
+    bibo:Event
+    bibo:DocumentStatus - (status:draft, status:accepted, status:legal, status:forthcoming, status:nonPeerReviewed, status:peerReviewed, status:unpublished, status:published, status:rejected)
+    event:Event
+       bibo:Interview
+       bibo:PersonalCommunication
+       bibo:Hearing
+       bibo:Performance
+       bibo:Conference
+       bibo:Workshop
+    rdf:Seq
+    rdfs:Resource
+    foaf:Person - (bibo:fgiasson, bibo:bdarcus)
+    foaf:Organization
+    bibo:Document = foaf:Document
+       bibo:Book
+          bibo:Proceedings
+       bibo:LegalDocument
+          bibo:Legislation
+             bibo:Bill
+             bibo:Statute
+          bibo:LegalCaseDocument
+             bibo:LegalDecision
+             bibo:Brief
+       bibo:Note
+       bibo:CollectedDocument
+          bibo:EditedBook
+          bibo:Issue
+       bibo:Webpage
+       bibo:Standard
+       bibo:Report
+       bibo:Manual
+       bibo:ReferenceSource
+       foaf:Image = bibo:Image
+          bibo:Map
+       bibo:PersonalCommunicationDocument
+          bibo:Email
+          bibo:Letter
+       bibo:Patent
+       bibo:AudioVisualDocument
+          bibo:Film
+       bibo:DocumentPart
+          bibo:Slide
+          bibo:BookSection
+             bibo:Chapter
+          bibo:Excerpt
+             bibo:Quote
+       bibo:AudioDocument
+       bibo:Thesis
+       bibo:Manuscript
+       bibo:Article
+          bibo:AcademicArticle
+       bibo:Slideshow
+    bibo:ThesisDegree - (degrees:ma, degrees:phd, degrees:ms)
+
+
+Non OWL-Lite features used:
+Union Class: owl:unionOf construct is used unionOf(bibo:Collection bibo:Document)
+Union Class: owl:unionOf construct is used unionOf(rdf:List rdf:Seq)

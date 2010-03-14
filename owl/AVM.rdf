@@ -1,0 +1,2204 @@
+<!--?xml version="1.0" encoding="utf-8"?-->
+
+<!DOCTYPE rdf:RDF [
+  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+  <!ENTITY dc   "http://purl.org/dc/elements/1.1/" > 
+  <!ENTITY dct   "http://purl.org/dc/terms/" > 
+
+  <!ENTITY skos "http://www.w3.org/2008/05/skos#">
+  <!ENTITY foaf "http://xmlns.com/foaf/0.1/"> 
+      <!-- Main namespace --> 
+  <!ENTITY avm "http://www.ivoa.net/rdf/Vocabularies/AVM">
+  
+  <!ENTITY local "file:///home/rdave/Projects/adsonto/packages/pellet-1.3/AVM.rdf"> 
+  	<!ENTITY path "http://semantics.ads.org/ontologies/0.1/AVM.owl"> 
+  	<!ENTITY file "local;"> 
+  <!ENTITY foaf-local "file:///home/rdave/Projects/adsonto/packages/pellet-1.3/foaf-essential.owl">	
+  <!ENTITY foaf-path "http://swan.mindinformatics.org/ontologies/1.2/foaf-essential.owl">
+  <!ENTITY foaf-file "&foaf-local;">
+  <!ENTITY skos-local "file:///home/rdave/Projects/adsonto/packages/pellet-1.3/skos-essential.owl">	
+  <!ENTITY skos-path "http://swan.mindinformatics.org/ontologies/1.2/skos-essential.owl">
+  <!ENTITY skos-file "&skos-path;">
+]>
+
+<rdf:RDF
+   xmlns:dct="&dct;"
+   xmlns:dc="&dc;"
+   xmlns:foaf="&foaf;"
+   xmlns:rdf="&rdf;"
+   xmlns:rdfs="&rdfs;"
+   xmlns:owl="&owl;"
+   xmlns:skos="&skos;" 
+   xml:base="&avm;">
+
+    <owl:Ontology rdf:about="&file;"> 
+		<rdf:type rdf:resource="&owl;Ontology"/> 
+		<rdfs:label rdf:datatype="&xsd;string">AVM: ADS OWL_DL version</rdfs:label> 
+ 
+    	<owl:imports rdf:resource="&foaf-file;"/> 
+    	<owl:imports rdf:resource="&skos-file;"/>
+    	<dc:language>en</dc:language> 
+    	<dc:title xml:lang="en">AVM ontology</dc:title> 
+    	<dc:creator rdf:resource="http://www.ads.org/people/rahul-dave/" /> 
+    	<dc:contributor rdf:datatype="&xsd;string">Rahul Dave</dc:contributor> 
+    	<dc:publisher rdf:resource="http://semantics.ads.org" /> 
+        <dc:date rdf:datatype="&xsd;string">Thursday 04 March 2010</dc:date> 
+        <dc:format rdf:datatype="&xsd;string">rdf/xml</dc:format>    
+    </owl:Ontology>   
+   <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+     
+  	<rdf:Description rdf:about="&dc;title">
+  	  	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;date">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+ 	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;creator">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;format">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;language">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;publisher">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;contributor">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+ 
+ <rdf:Description rdf:about="&dct;title">
+  	  	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dct;description">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+ 	</rdf:Description>
+  	<rdf:Description rdf:about="&dct;creator">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dct;created">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dct;references">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	 <owl:AnnotationProperty rdf:about="&skos;notation"/>
+  	 
+  	 
+  <skos:ConceptScheme rdf:about="">
+    <dct:created>2009-10-07</dct:created>
+    <!--Improper use of dct below screated anonymous bnode for dct-creator i think and broke owl-dl compatability-->
+    <!--dct:creator>
+      <rdf:Description>
+        <foaf:name>The IVOA Semantics Working Group</foaf:name>
+      </rdf:Description>
+    </dct:creator-->
+    <dct:description xml:lang="en">This vocabulary is published by the Virtual Astronomy
+Multimedia Project to allow images to be
+tagged with keywords that are relevant for the public.  It consists of
+a set of keywords organised into an enumerated hierarchical structure.
+Each term consists of a taxonomic number and a label.  There are no
+definitions, scope notes, or cross references.
+
+For further information, see the
+specification at http://www.virtualastronomy.org, in particular the
+reference document http://www.virtualastronomy.org/AVM_Version1.1May312008.pdf
+    </dct:description>
+    <dct:references rdf:resource="http://www.virtualastronomy.org/AVM_Version1.1May312008.pdf"/>
+    <dct:title xml:lang="en">The list of AVM keywords in SKOS format (Version 1.19)</dct:title>
+    <skos:hasTopConcept rdf:resource="#avm-1"/>
+    <skos:hasTopConcept rdf:resource="#avm-2"/>
+    <skos:hasTopConcept rdf:resource="#avm-3"/>
+    <skos:hasTopConcept rdf:resource="#avm-4"/>
+    <skos:hasTopConcept rdf:resource="#avm-5"/>
+    <skos:hasTopConcept rdf:resource="#avm-6"/>
+    <skos:hasTopConcept rdf:resource="#avm-7"/>
+    <skos:hasTopConcept rdf:resource="#avm-8"/>
+    <skos:hasTopConcept rdf:resource="#avm-9"/>
+  </skos:ConceptScheme>
+  
+  <!--rdf:Description rdf:about="#_notation">
+    <rdf:type rdf:resource="&rdf;datatype"/>
+    <dct:description>The notation here is described in the document http://www.virtualastronomy.org/AVM_Version1.1May312008.pdf</dct:description>
+  </rdf:Description-->
+  
+  <skos:Concept rdf:about="#avm-1">
+    <skos:altLabel xml:lang="en">Planet</skos:altLabel>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-1-1-1"/>
+    <skos:narrower rdf:resource="#avm-1-1-2"/>
+    <skos:narrower rdf:resource="#avm-1-2-1"/>
+    <skos:narrower rdf:resource="#avm-1-2-2"/>
+    <skos:narrower rdf:resource="#avm-1-3-1"/>
+    <skos:narrower rdf:resource="#avm-1-3-2"/>
+    <skos:narrower rdf:resource="#avm-1-3-3"/>
+    <skos:narrower rdf:resource="#avm-1-4"/>
+    <skos:narrower rdf:resource="#avm-1-5"/>
+    <skos:notation>1</skos:notation>
+    <skos:prefLabel xml:lang="en">1. Planet</skos:prefLabel>
+  </skos:Concept>
+  <skos:Collection rdf:about="#avm-1-1">
+    <rdfs:label xml:lang="en">1.1. [Type]</rdfs:label>
+    <skos:member rdf:resource="#avm-1-1-1"/>
+    <skos:member rdf:resource="#avm-1-1-2"/>
+  </skos:Collection>
+  <skos:Concept rdf:about="#avm-1-1-1">
+    <skos:altLabel xml:lang="en">Planet: [Type]: Terrestrial</skos:altLabel>
+    <skos:altLabel xml:lang="en">Terrestrial</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.1.1</skos:notation>
+    <skos:prefLabel xml:lang="en">1.1.1. Terrestrial</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-1-2">
+    <skos:altLabel xml:lang="en">Gas Giant</skos:altLabel>
+    <skos:altLabel xml:lang="en">Planet: [Type]: Gas Giant</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.1.2</skos:notation>
+    <skos:prefLabel xml:lang="en">1.1.2. Gas Giant</skos:prefLabel>
+  </skos:Concept>
+  <skos:Collection rdf:about="#avm-1-2">
+    <rdfs:label xml:lang="en">1.2. [Feature]</rdfs:label>
+    <skos:member rdf:resource="#avm-1-2-1"/>
+    <skos:member rdf:resource="#avm-1-2-2"/>
+  </skos:Collection>
+  <skos:Concept rdf:about="#avm-1-2-1">
+    <skos:altLabel xml:lang="en">Planet: [Feature]: Surface</skos:altLabel>
+    <skos:altLabel xml:lang="en">Surface</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-1-2-1-1"/>
+    <skos:narrower rdf:resource="#avm-1-2-1-2"/>
+    <skos:narrower rdf:resource="#avm-1-2-1-3"/>
+    <skos:narrower rdf:resource="#avm-1-2-1-4"/>
+    <skos:narrower rdf:resource="#avm-1-2-1-5"/>
+    <skos:narrower rdf:resource="#avm-1-2-1-6"/>
+    <skos:narrower rdf:resource="#avm-1-2-1-7"/>
+    <skos:notation>1.2.1</skos:notation>
+    <skos:prefLabel xml:lang="en">1.2.1. Surface</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-2-1-1">
+    <skos:altLabel xml:lang="en">Mountain</skos:altLabel>
+    <skos:altLabel xml:lang="en">Planet: [Feature]: Surface: Mountain</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1-2-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.2.1.1</skos:notation>
+    <skos:prefLabel xml:lang="en">1.2.1.1. Mountain</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-2-1-2">
+    <skos:altLabel xml:lang="en">Canyon</skos:altLabel>
+    <skos:altLabel xml:lang="en">Planet: [Feature]: Surface: Canyon</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1-2-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.2.1.2</skos:notation>
+    <skos:prefLabel xml:lang="en">1.2.1.2. Canyon</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-2-1-3">
+    <skos:altLabel xml:lang="en">Planet: [Feature]: Surface: Volcanic</skos:altLabel>
+    <skos:altLabel xml:lang="en">Volcanic</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1-2-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.2.1.3</skos:notation>
+    <skos:prefLabel xml:lang="en">1.2.1.3. Volcanic</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-2-1-4">
+    <skos:altLabel xml:lang="en">Impact</skos:altLabel>
+    <skos:altLabel xml:lang="en">Planet: [Feature]: Surface: Impact</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1-2-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.2.1.4</skos:notation>
+    <skos:prefLabel xml:lang="en">1.2.1.4. Impact</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-2-1-5">
+    <skos:altLabel xml:lang="en">Erosion</skos:altLabel>
+    <skos:altLabel xml:lang="en">Planet: [Feature]: Surface: Erosion</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1-2-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.2.1.5</skos:notation>
+    <skos:prefLabel xml:lang="en">1.2.1.5. Erosion</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-2-1-6">
+    <skos:altLabel xml:lang="en">Liquid</skos:altLabel>
+    <skos:altLabel xml:lang="en">Planet: [Feature]: Surface: Liquid</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1-2-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.2.1.6</skos:notation>
+    <skos:prefLabel xml:lang="en">1.2.1.6. Liquid</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-2-1-7">
+    <skos:altLabel xml:lang="en">Ice</skos:altLabel>
+    <skos:altLabel xml:lang="en">Planet: [Feature]: Surface: Ice</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1-2-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.2.1.7</skos:notation>
+    <skos:prefLabel xml:lang="en">1.2.1.7. Ice</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-2-2">
+    <skos:altLabel xml:lang="en">Atmosphere</skos:altLabel>
+    <skos:altLabel xml:lang="en">Planet: [Feature]: Atmosphere</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-1-2-2-1"/>
+    <skos:narrower rdf:resource="#avm-1-2-2-2"/>
+    <skos:narrower rdf:resource="#avm-1-2-2-3"/>
+    <skos:narrower rdf:resource="#avm-1-2-2-4"/>
+    <skos:notation>1.2.2</skos:notation>
+    <skos:prefLabel xml:lang="en">1.2.2. Atmosphere</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-2-2-1">
+    <skos:altLabel xml:lang="en">Cloud</skos:altLabel>
+    <skos:altLabel xml:lang="en">Planet: [Feature]: Atmosphere: Cloud</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1-2-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.2.2.1</skos:notation>
+    <skos:prefLabel xml:lang="en">1.2.2.1. Cloud</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-2-2-2">
+    <skos:altLabel xml:lang="en">Planet: [Feature]: Atmosphere: Storm</skos:altLabel>
+    <skos:altLabel xml:lang="en">Storm</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1-2-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.2.2.2</skos:notation>
+    <skos:prefLabel xml:lang="en">1.2.2.2. Storm</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-2-2-3">
+    <skos:altLabel xml:lang="en">Belt</skos:altLabel>
+    <skos:altLabel xml:lang="en">Planet: [Feature]: Atmosphere: Belt</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1-2-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.2.2.3</skos:notation>
+    <skos:prefLabel xml:lang="en">1.2.2.3. Belt</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-2-2-4">
+    <skos:altLabel xml:lang="en">Aurora</skos:altLabel>
+    <skos:altLabel xml:lang="en">Planet: [Feature]: Atmosphere: Aurora</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1-2-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.2.2.4</skos:notation>
+    <skos:prefLabel xml:lang="en">1.2.2.4. Aurora</skos:prefLabel>
+  </skos:Concept>
+  <skos:Collection rdf:about="#avm-1-3">
+    <rdfs:label xml:lang="en">1.3. [Special Cases]</rdfs:label>
+    <skos:member rdf:resource="#avm-1-3-1"/>
+    <skos:member rdf:resource="#avm-1-3-2"/>
+    <skos:member rdf:resource="#avm-1-3-3"/>
+  </skos:Collection>
+  <skos:Concept rdf:about="#avm-1-3-1">
+    <skos:altLabel xml:lang="en">Planet: [Special Cases]: Transiting</skos:altLabel>
+    <skos:altLabel xml:lang="en">Transiting</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.3.1</skos:notation>
+    <skos:prefLabel xml:lang="en">1.3.1. Transiting</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-3-2">
+    <skos:altLabel xml:lang="en">Hot Jupiter</skos:altLabel>
+    <skos:altLabel xml:lang="en">Planet: [Special Cases]: Hot Jupiter</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.3.2</skos:notation>
+    <skos:prefLabel xml:lang="en">1.3.2. Hot Jupiter</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-3-3">
+    <skos:altLabel xml:lang="en">Planet: [Special Cases]: Pulsar planet</skos:altLabel>
+    <skos:altLabel xml:lang="en">Pulsar planet</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.3.3</skos:notation>
+    <skos:prefLabel xml:lang="en">1.3.3. Pulsar planet</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-4">
+    <skos:altLabel xml:lang="en">Planet: Satellite</skos:altLabel>
+    <skos:altLabel xml:lang="en">Satellite</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-1-4-1-1"/>
+    <skos:narrower rdf:resource="#avm-1-4-1-2"/>
+    <skos:notation>1.4</skos:notation>
+    <skos:prefLabel xml:lang="en">1.4. Satellite</skos:prefLabel>
+  </skos:Concept>
+  <skos:Collection rdf:about="#avm-1-4-1">
+    <rdfs:label xml:lang="en">1.4.1. [Feature]</rdfs:label>
+    <skos:member rdf:resource="#avm-1-4-1-1"/>
+    <skos:member rdf:resource="#avm-1-4-1-2"/>
+  </skos:Collection>
+  <skos:Concept rdf:about="#avm-1-4-1-1">
+    <skos:altLabel xml:lang="en">Planet: Satellite: [Feature]: Surface</skos:altLabel>
+    <skos:altLabel xml:lang="en">Surface</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1-4"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-1-4-1-1-1"/>
+    <skos:narrower rdf:resource="#avm-1-4-1-1-2"/>
+    <skos:narrower rdf:resource="#avm-1-4-1-1-3"/>
+    <skos:narrower rdf:resource="#avm-1-4-1-1-4"/>
+    <skos:narrower rdf:resource="#avm-1-4-1-1-5"/>
+    <skos:narrower rdf:resource="#avm-1-4-1-1-6"/>
+    <skos:narrower rdf:resource="#avm-1-4-1-1-7"/>
+    <skos:notation>1.4.1.1</skos:notation>
+    <skos:prefLabel xml:lang="en">1.4.1.1. Surface</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-4-1-1-1">
+    <skos:altLabel xml:lang="en">Mountain</skos:altLabel>
+    <skos:altLabel xml:lang="en">Planet: Satellite: [Feature]: Surface: Mountain</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1-4-1-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.4.1.1.1</skos:notation>
+    <skos:prefLabel xml:lang="en">1.4.1.1.1. Mountain</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-4-1-1-2">
+    <skos:altLabel xml:lang="en">Canyon</skos:altLabel>
+    <skos:altLabel xml:lang="en">Planet: Satellite: [Feature]: Surface: Canyon</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1-4-1-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.4.1.1.2</skos:notation>
+    <skos:prefLabel xml:lang="en">1.4.1.1.2. Canyon</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-4-1-1-3">
+    <skos:altLabel xml:lang="en">Planet: Satellite: [Feature]: Surface: Volcanic</skos:altLabel>
+    <skos:altLabel xml:lang="en">Volcanic</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1-4-1-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.4.1.1.3</skos:notation>
+    <skos:prefLabel xml:lang="en">1.4.1.1.3. Volcanic</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-4-1-1-4">
+    <skos:altLabel xml:lang="en">Impact</skos:altLabel>
+    <skos:altLabel xml:lang="en">Planet: Satellite: [Feature]: Surface: Impact</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1-4-1-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.4.1.1.4</skos:notation>
+    <skos:prefLabel xml:lang="en">1.4.1.1.4. Impact</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-4-1-1-5">
+    <skos:altLabel xml:lang="en">Erosion</skos:altLabel>
+    <skos:altLabel xml:lang="en">Planet: Satellite: [Feature]: Surface: Erosion</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1-4-1-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.4.1.1.5</skos:notation>
+    <skos:prefLabel xml:lang="en">1.4.1.1.5. Erosion</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-4-1-1-6">
+    <skos:altLabel xml:lang="en">Liquid</skos:altLabel>
+    <skos:altLabel xml:lang="en">Planet: Satellite: [Feature]: Surface: Liquid</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1-4-1-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.4.1.1.6</skos:notation>
+    <skos:prefLabel xml:lang="en">1.4.1.1.6. Liquid</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-4-1-1-7">
+    <skos:altLabel xml:lang="en">Ice</skos:altLabel>
+    <skos:altLabel xml:lang="en">Planet: Satellite: [Feature]: Surface: Ice</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1-4-1-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.4.1.1.7</skos:notation>
+    <skos:prefLabel xml:lang="en">1.4.1.1.7. Ice</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-4-1-2">
+    <skos:altLabel xml:lang="en">Atmosphere</skos:altLabel>
+    <skos:altLabel xml:lang="en">Planet: Satellite: [Feature]: Atmosphere</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1-4"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.4.1.2</skos:notation>
+    <skos:prefLabel xml:lang="en">1.4.1.2. Atmosphere</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-1-5">
+    <skos:altLabel xml:lang="en">Planet: Ring</skos:altLabel>
+    <skos:altLabel xml:lang="en">Ring</skos:altLabel>
+    <skos:broader rdf:resource="#avm-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>1.5</skos:notation>
+    <skos:prefLabel xml:lang="en">1.5. Ring</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-2">
+    <skos:altLabel xml:lang="en">Interplanetary Body</skos:altLabel>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-2-1"/>
+    <skos:narrower rdf:resource="#avm-2-2"/>
+    <skos:narrower rdf:resource="#avm-2-3"/>
+    <skos:narrower rdf:resource="#avm-2-4"/>
+    <skos:notation>2</skos:notation>
+    <skos:prefLabel xml:lang="en">2. Interplanetary Body</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-2-1">
+    <skos:altLabel xml:lang="en">Dwarf planet</skos:altLabel>
+    <skos:altLabel xml:lang="en">Interplanetary Body: Dwarf planet</skos:altLabel>
+    <skos:broader rdf:resource="#avm-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>2.1</skos:notation>
+    <skos:prefLabel xml:lang="en">2.1. Dwarf planet</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-2-2">
+    <skos:altLabel xml:lang="en">Comet</skos:altLabel>
+    <skos:altLabel xml:lang="en">Interplanetary Body: Comet</skos:altLabel>
+    <skos:broader rdf:resource="#avm-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-2-2-1"/>
+    <skos:narrower rdf:resource="#avm-2-2-2"/>
+    <skos:narrower rdf:resource="#avm-2-2-3"/>
+    <skos:notation>2.2</skos:notation>
+    <skos:prefLabel xml:lang="en">2.2. Comet</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-2-2-1">
+    <skos:altLabel xml:lang="en">Interplanetary Body: Comet: Nucleus</skos:altLabel>
+    <skos:altLabel xml:lang="en">Nucleus</skos:altLabel>
+    <skos:broader rdf:resource="#avm-2-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>2.2.1</skos:notation>
+    <skos:prefLabel xml:lang="en">2.2.1. Nucleus</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-2-2-2">
+    <skos:altLabel xml:lang="en">Coma</skos:altLabel>
+    <skos:altLabel xml:lang="en">Interplanetary Body: Comet: Coma</skos:altLabel>
+    <skos:broader rdf:resource="#avm-2-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>2.2.2</skos:notation>
+    <skos:prefLabel xml:lang="en">2.2.2. Coma</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-2-2-3">
+    <skos:altLabel xml:lang="en">Interplanetary Body: Comet: Tail</skos:altLabel>
+    <skos:altLabel xml:lang="en">Tail</skos:altLabel>
+    <skos:broader rdf:resource="#avm-2-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-2-2-3-1"/>
+    <skos:narrower rdf:resource="#avm-2-2-3-2"/>
+    <skos:notation>2.2.3</skos:notation>
+    <skos:prefLabel xml:lang="en">2.2.3. Tail</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-2-2-3-1">
+    <skos:altLabel xml:lang="en">Dust</skos:altLabel>
+    <skos:altLabel xml:lang="en">Interplanetary Body: Comet: Tail: Dust</skos:altLabel>
+    <skos:broader rdf:resource="#avm-2-2-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>2.2.3.1</skos:notation>
+    <skos:prefLabel xml:lang="en">2.2.3.1. Dust</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-2-2-3-2">
+    <skos:altLabel xml:lang="en">Gas</skos:altLabel>
+    <skos:altLabel xml:lang="en">Interplanetary Body: Comet: Tail: Gas</skos:altLabel>
+    <skos:broader rdf:resource="#avm-2-2-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>2.2.3.2</skos:notation>
+    <skos:prefLabel xml:lang="en">2.2.3.2. Gas</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-2-3">
+    <skos:altLabel xml:lang="en">Asteroid</skos:altLabel>
+    <skos:altLabel xml:lang="en">Interplanetary Body: Asteroid</skos:altLabel>
+    <skos:broader rdf:resource="#avm-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>2.3</skos:notation>
+    <skos:prefLabel xml:lang="en">2.3. Asteroid</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-2-4">
+    <skos:altLabel xml:lang="en">Interplanetary Body: Meteoroid</skos:altLabel>
+    <skos:altLabel xml:lang="en">Meteoroid</skos:altLabel>
+    <skos:broader rdf:resource="#avm-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>2.4</skos:notation>
+    <skos:prefLabel xml:lang="en">2.4. Meteoroid</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3">
+    <skos:altLabel xml:lang="en">Star</skos:altLabel>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-3-1-1"/>
+    <skos:narrower rdf:resource="#avm-3-1-10"/>
+    <skos:narrower rdf:resource="#avm-3-1-2"/>
+    <skos:narrower rdf:resource="#avm-3-1-3"/>
+    <skos:narrower rdf:resource="#avm-3-1-4"/>
+    <skos:narrower rdf:resource="#avm-3-1-5"/>
+    <skos:narrower rdf:resource="#avm-3-1-6"/>
+    <skos:narrower rdf:resource="#avm-3-1-7"/>
+    <skos:narrower rdf:resource="#avm-3-1-8"/>
+    <skos:narrower rdf:resource="#avm-3-1-9"/>
+    <skos:narrower rdf:resource="#avm-3-2-1"/>
+    <skos:narrower rdf:resource="#avm-3-2-2"/>
+    <skos:narrower rdf:resource="#avm-3-2-3"/>
+    <skos:narrower rdf:resource="#avm-3-2-4"/>
+    <skos:narrower rdf:resource="#avm-3-2-5"/>
+    <skos:narrower rdf:resource="#avm-3-2-6"/>
+    <skos:narrower rdf:resource="#avm-3-3-1"/>
+    <skos:narrower rdf:resource="#avm-3-3-2"/>
+    <skos:narrower rdf:resource="#avm-3-3-3"/>
+    <skos:narrower rdf:resource="#avm-3-3-4"/>
+    <skos:narrower rdf:resource="#avm-3-3-5"/>
+    <skos:narrower rdf:resource="#avm-3-3-6"/>
+    <skos:narrower rdf:resource="#avm-3-3-7"/>
+    <skos:narrower rdf:resource="#avm-3-3-8"/>
+    <skos:narrower rdf:resource="#avm-3-3-9"/>
+    <skos:narrower rdf:resource="#avm-3-4-1"/>
+    <skos:narrower rdf:resource="#avm-3-4-2"/>
+    <skos:narrower rdf:resource="#avm-3-4-3"/>
+    <skos:narrower rdf:resource="#avm-3-5-1"/>
+    <skos:narrower rdf:resource="#avm-3-5-2"/>
+    <skos:narrower rdf:resource="#avm-3-5-3"/>
+    <skos:narrower rdf:resource="#avm-3-6-1"/>
+    <skos:narrower rdf:resource="#avm-3-6-2"/>
+    <skos:narrower rdf:resource="#avm-3-6-3"/>
+    <skos:narrower rdf:resource="#avm-3-6-4"/>
+    <skos:narrower rdf:resource="#avm-3-7"/>
+    <skos:notation>3</skos:notation>
+    <skos:prefLabel xml:lang="en">3. Star</skos:prefLabel>
+  </skos:Concept>
+  <skos:Collection rdf:about="#avm-3-1">
+    <rdfs:label xml:lang="en">3.1. [Evolutionary Stage]</rdfs:label>
+    <skos:member rdf:resource="#avm-3-1-1"/>
+    <skos:member rdf:resource="#avm-3-1-10"/>
+    <skos:member rdf:resource="#avm-3-1-2"/>
+    <skos:member rdf:resource="#avm-3-1-3"/>
+    <skos:member rdf:resource="#avm-3-1-4"/>
+    <skos:member rdf:resource="#avm-3-1-5"/>
+    <skos:member rdf:resource="#avm-3-1-6"/>
+    <skos:member rdf:resource="#avm-3-1-7"/>
+    <skos:member rdf:resource="#avm-3-1-8"/>
+    <skos:member rdf:resource="#avm-3-1-9"/>
+  </skos:Collection>
+  <skos:Concept rdf:about="#avm-3-1-1">
+    <skos:altLabel xml:lang="en">Protostar</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Evolutionary Stage]: Protostar</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.1.1</skos:notation>
+    <skos:prefLabel xml:lang="en">3.1.1. Protostar</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-1-10">
+    <skos:altLabel xml:lang="en">Black Hole</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Evolutionary Stage]: Black Hole</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.1.10</skos:notation>
+    <skos:prefLabel xml:lang="en">3.1.10. Black Hole</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-1-2">
+    <skos:altLabel xml:lang="en">Star: [Evolutionary Stage]: Young Stellar Object</skos:altLabel>
+    <skos:altLabel xml:lang="en">Young Stellar Object</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.1.2</skos:notation>
+    <skos:prefLabel xml:lang="en">3.1.2. Young Stellar Object</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-1-3">
+    <skos:altLabel xml:lang="en">Main Sequence</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Evolutionary Stage]: Main Sequence</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.1.3</skos:notation>
+    <skos:prefLabel xml:lang="en">3.1.3. Main Sequence</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-1-4">
+    <skos:altLabel xml:lang="en">Red Giant</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Evolutionary Stage]: Red Giant</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.1.4</skos:notation>
+    <skos:prefLabel xml:lang="en">3.1.4. Red Giant</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-1-5">
+    <skos:altLabel xml:lang="en">Red Supergiant</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Evolutionary Stage]: Red Supergiant</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.1.5</skos:notation>
+    <skos:prefLabel xml:lang="en">3.1.5. Red Supergiant</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-1-6">
+    <skos:altLabel xml:lang="en">Blue Supergiant</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Evolutionary Stage]: Blue Supergiant</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.1.6</skos:notation>
+    <skos:prefLabel xml:lang="en">3.1.6. Blue Supergiant</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-1-7">
+    <skos:altLabel xml:lang="en">Star: [Evolutionary Stage]: White Dwarf</skos:altLabel>
+    <skos:altLabel xml:lang="en">White Dwarf</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.1.7</skos:notation>
+    <skos:prefLabel xml:lang="en">3.1.7. White Dwarf</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-1-8">
+    <skos:altLabel xml:lang="en">Star: [Evolutionary Stage]: Supernova</skos:altLabel>
+    <skos:altLabel xml:lang="en">Supernova</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.1.8</skos:notation>
+    <skos:prefLabel xml:lang="en">3.1.8. Supernova</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-1-9">
+    <skos:altLabel xml:lang="en">Neutron Star</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Evolutionary Stage]: Neutron Star</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-3-1-9-1"/>
+    <skos:narrower rdf:resource="#avm-3-1-9-2"/>
+    <skos:notation>3.1.9</skos:notation>
+    <skos:prefLabel xml:lang="en">3.1.9. Neutron Star</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-1-9-1">
+    <skos:altLabel xml:lang="en">Pulsar</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Evolutionary Stage]: Neutron Star: Pulsar</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-1-9"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.1.9.1</skos:notation>
+    <skos:prefLabel xml:lang="en">3.1.9.1. Pulsar</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-1-9-2">
+    <skos:altLabel xml:lang="en">Magnetar</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Evolutionary Stage]: Neutron Star: Magnetar</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-1-9"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.1.9.2</skos:notation>
+    <skos:prefLabel xml:lang="en">3.1.9.2. Magnetar</skos:prefLabel>
+  </skos:Concept>
+  <skos:Collection rdf:about="#avm-3-2">
+    <rdfs:label xml:lang="en">3.2. [Type]</rdfs:label>
+    <skos:member rdf:resource="#avm-3-2-1"/>
+    <skos:member rdf:resource="#avm-3-2-2"/>
+    <skos:member rdf:resource="#avm-3-2-3"/>
+    <skos:member rdf:resource="#avm-3-2-4"/>
+    <skos:member rdf:resource="#avm-3-2-5"/>
+    <skos:member rdf:resource="#avm-3-2-6"/>
+  </skos:Collection>
+  <skos:Concept rdf:about="#avm-3-2-1">
+    <skos:altLabel xml:lang="en">Star: [Type]: Variable</skos:altLabel>
+    <skos:altLabel xml:lang="en">Variable</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-3-2-1-1"/>
+    <skos:narrower rdf:resource="#avm-3-2-1-2"/>
+    <skos:narrower rdf:resource="#avm-3-2-1-3"/>
+    <skos:narrower rdf:resource="#avm-3-2-1-4"/>
+    <skos:narrower rdf:resource="#avm-3-2-1-5"/>
+    <skos:narrower rdf:resource="#avm-3-2-1-6"/>
+    <skos:notation>3.2.1</skos:notation>
+    <skos:prefLabel xml:lang="en">3.2.1. Variable</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-2-1-1">
+    <skos:altLabel xml:lang="en">Pulsating</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Type]: Variable: Pulsating</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-2-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.2.1.1</skos:notation>
+    <skos:prefLabel xml:lang="en">3.2.1.1. Pulsating</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-2-1-2">
+    <skos:altLabel xml:lang="en">Irregular</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Type]: Variable: Irregular</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-2-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.2.1.2</skos:notation>
+    <skos:prefLabel xml:lang="en">3.2.1.2. Irregular</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-2-1-3">
+    <skos:altLabel xml:lang="en">Eclipsing</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Type]: Variable: Eclipsing</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-2-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.2.1.3</skos:notation>
+    <skos:prefLabel xml:lang="en">3.2.1.3. Eclipsing</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-2-1-4">
+    <skos:altLabel xml:lang="en">Flare Star</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Type]: Variable: Flare Star</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-2-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.2.1.4</skos:notation>
+    <skos:prefLabel xml:lang="en">3.2.1.4. Flare Star</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-2-1-5">
+    <skos:altLabel xml:lang="en">Nova</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Type]: Variable: Nova</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-2-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.2.1.5</skos:notation>
+    <skos:prefLabel xml:lang="en">3.2.1.5. Nova</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-2-1-6">
+    <skos:altLabel xml:lang="en">Star: [Type]: Variable: X-Ray Binary (Star)</skos:altLabel>
+    <skos:altLabel xml:lang="en">X-Ray Binary (Star)</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-2-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.2.1.6</skos:notation>
+    <skos:prefLabel xml:lang="en">3.2.1.6. X-Ray Binary (Star)</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-2-2">
+    <skos:altLabel xml:lang="en">Carbon</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Type]: Carbon</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.2.2</skos:notation>
+    <skos:prefLabel xml:lang="en">3.2.2. Carbon</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-2-3">
+    <skos:altLabel xml:lang="en">Brown Dwarf</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Type]: Brown Dwarf</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.2.3</skos:notation>
+    <skos:prefLabel xml:lang="en">3.2.3. Brown Dwarf</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-2-4">
+    <skos:altLabel xml:lang="en">Star: [Type]: Wolf-Rayet</skos:altLabel>
+    <skos:altLabel xml:lang="en">Wolf-Rayet</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.2.4</skos:notation>
+    <skos:prefLabel xml:lang="en">3.2.4. Wolf-Rayet</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-2-5">
+    <skos:altLabel xml:lang="en">Blue Straggler</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Type]: Blue Straggler</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.2.5</skos:notation>
+    <skos:prefLabel xml:lang="en">3.2.5. Blue Straggler</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-2-6">
+    <skos:altLabel xml:lang="en">Exotic</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Type]: Exotic</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-3-2-6-1"/>
+    <skos:notation>3.2.6</skos:notation>
+    <skos:prefLabel xml:lang="en">3.2.6. Exotic</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-2-6-1">
+    <skos:altLabel xml:lang="en">Star: [Type]: Exotic: X-Ray Binary</skos:altLabel>
+    <skos:altLabel xml:lang="en">X-Ray Binary</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-2-6"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.2.6.1</skos:notation>
+    <skos:prefLabel xml:lang="en">3.2.6.1. X-Ray Binary</skos:prefLabel>
+  </skos:Concept>
+  <skos:Collection rdf:about="#avm-3-3">
+    <rdfs:label xml:lang="en">3.3. [Spectral Type]</rdfs:label>
+    <skos:member rdf:resource="#avm-3-3-1"/>
+    <skos:member rdf:resource="#avm-3-3-2"/>
+    <skos:member rdf:resource="#avm-3-3-3"/>
+    <skos:member rdf:resource="#avm-3-3-4"/>
+    <skos:member rdf:resource="#avm-3-3-5"/>
+    <skos:member rdf:resource="#avm-3-3-6"/>
+    <skos:member rdf:resource="#avm-3-3-7"/>
+    <skos:member rdf:resource="#avm-3-3-8"/>
+    <skos:member rdf:resource="#avm-3-3-9"/>
+  </skos:Collection>
+  <skos:Concept rdf:about="#avm-3-3-1">
+    <skos:altLabel xml:lang="en">O</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Spectral Type]: O</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.3.1</skos:notation>
+    <skos:prefLabel xml:lang="en">3.3.1. O</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-3-2">
+    <skos:altLabel xml:lang="en">B</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Spectral Type]: B</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.3.2</skos:notation>
+    <skos:prefLabel xml:lang="en">3.3.2. B</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-3-3">
+    <skos:altLabel xml:lang="en">A</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Spectral Type]: A</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.3.3</skos:notation>
+    <skos:prefLabel xml:lang="en">3.3.3. A</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-3-4">
+    <skos:altLabel xml:lang="en">F</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Spectral Type]: F</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.3.4</skos:notation>
+    <skos:prefLabel xml:lang="en">3.3.4. F</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-3-5">
+    <skos:altLabel xml:lang="en">G</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Spectral Type]: G</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.3.5</skos:notation>
+    <skos:prefLabel xml:lang="en">3.3.5. G</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-3-6">
+    <skos:altLabel xml:lang="en">K</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Spectral Type]: K</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.3.6</skos:notation>
+    <skos:prefLabel xml:lang="en">3.3.6. K</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-3-7">
+    <skos:altLabel xml:lang="en">M</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Spectral Type]: M</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.3.7</skos:notation>
+    <skos:prefLabel xml:lang="en">3.3.7. M</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-3-8">
+    <skos:altLabel xml:lang="en">L</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Spectral Type]: L</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.3.8</skos:notation>
+    <skos:prefLabel xml:lang="en">3.3.8. L</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-3-9">
+    <skos:altLabel xml:lang="en">Star: [Spectral Type]: T</skos:altLabel>
+    <skos:altLabel xml:lang="en">T</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.3.9</skos:notation>
+    <skos:prefLabel xml:lang="en">3.3.9. T</skos:prefLabel>
+  </skos:Concept>
+  <skos:Collection rdf:about="#avm-3-4">
+    <rdfs:label xml:lang="en">3.4. [Population]</rdfs:label>
+    <skos:member rdf:resource="#avm-3-4-1"/>
+    <skos:member rdf:resource="#avm-3-4-2"/>
+    <skos:member rdf:resource="#avm-3-4-3"/>
+  </skos:Collection>
+  <skos:Concept rdf:about="#avm-3-4-1">
+    <skos:altLabel xml:lang="en">I</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Population]: I</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.4.1</skos:notation>
+    <skos:prefLabel xml:lang="en">3.4.1. I</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-4-2">
+    <skos:altLabel xml:lang="en">II</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Population]: II</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.4.2</skos:notation>
+    <skos:prefLabel xml:lang="en">3.4.2. II</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-4-3">
+    <skos:altLabel xml:lang="en">III</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Population]: III</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.4.3</skos:notation>
+    <skos:prefLabel xml:lang="en">3.4.3. III</skos:prefLabel>
+  </skos:Concept>
+  <skos:Collection rdf:about="#avm-3-5">
+    <rdfs:label xml:lang="en">3.5. [Feature]</rdfs:label>
+    <skos:member rdf:resource="#avm-3-5-1"/>
+    <skos:member rdf:resource="#avm-3-5-2"/>
+    <skos:member rdf:resource="#avm-3-5-3"/>
+  </skos:Collection>
+  <skos:Concept rdf:about="#avm-3-5-1">
+    <skos:altLabel xml:lang="en">Photosphere</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Feature]: Photosphere</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-3-5-1-1"/>
+    <skos:narrower rdf:resource="#avm-3-5-1-2"/>
+    <skos:notation>3.5.1</skos:notation>
+    <skos:prefLabel xml:lang="en">3.5.1. Photosphere</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-5-1-1">
+    <skos:altLabel xml:lang="en">Granulation</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Feature]: Photosphere: Granulation</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-5-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.5.1.1</skos:notation>
+    <skos:prefLabel xml:lang="en">3.5.1.1. Granulation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-5-1-2">
+    <skos:altLabel xml:lang="en">Star: [Feature]: Photosphere: Sunspot</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sunspot</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-5-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.5.1.2</skos:notation>
+    <skos:prefLabel xml:lang="en">3.5.1.2. Sunspot</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-5-2">
+    <skos:altLabel xml:lang="en">Chromosphere</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Feature]: Chromosphere</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-3-5-2-1"/>
+    <skos:narrower rdf:resource="#avm-3-5-2-2"/>
+    <skos:notation>3.5.2</skos:notation>
+    <skos:prefLabel xml:lang="en">3.5.2. Chromosphere</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-5-2-1">
+    <skos:altLabel xml:lang="en">Flare</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Feature]: Chromosphere: Flare</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-5-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.5.2.1</skos:notation>
+    <skos:prefLabel xml:lang="en">3.5.2.1. Flare</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-5-2-2">
+    <skos:altLabel xml:lang="en">Facula</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Feature]: Chromosphere: Facula</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-5-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.5.2.2</skos:notation>
+    <skos:prefLabel xml:lang="en">3.5.2.2. Facula</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-5-3">
+    <skos:altLabel xml:lang="en">Corona</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Feature]: Corona</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-3-5-3-1"/>
+    <skos:notation>3.5.3</skos:notation>
+    <skos:prefLabel xml:lang="en">3.5.3. Corona</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-5-3-1">
+    <skos:altLabel xml:lang="en">Prominence</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Feature]: Corona: Prominence</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-5-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.5.3.1</skos:notation>
+    <skos:prefLabel xml:lang="en">3.5.3.1. Prominence</skos:prefLabel>
+  </skos:Concept>
+  <skos:Collection rdf:about="#avm-3-6">
+    <rdfs:label xml:lang="en">3.6. [Grouping]</rdfs:label>
+    <skos:member rdf:resource="#avm-3-6-1"/>
+    <skos:member rdf:resource="#avm-3-6-2"/>
+    <skos:member rdf:resource="#avm-3-6-3"/>
+    <skos:member rdf:resource="#avm-3-6-4"/>
+  </skos:Collection>
+  <skos:Concept rdf:about="#avm-3-6-1">
+    <skos:altLabel xml:lang="en">Binary</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Grouping]: Binary</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.6.1</skos:notation>
+    <skos:prefLabel xml:lang="en">3.6.1. Binary</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-6-2">
+    <skos:altLabel xml:lang="en">Star: [Grouping]: Triple</skos:altLabel>
+    <skos:altLabel xml:lang="en">Triple</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.6.2</skos:notation>
+    <skos:prefLabel xml:lang="en">3.6.2. Triple</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-6-3">
+    <skos:altLabel xml:lang="en">Multiple</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Grouping]: Multiple</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.6.3</skos:notation>
+    <skos:prefLabel xml:lang="en">3.6.3. Multiple</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-6-4">
+    <skos:altLabel xml:lang="en">Cluster</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Grouping]: Cluster</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-3-6-4-1"/>
+    <skos:narrower rdf:resource="#avm-3-6-4-2"/>
+    <skos:notation>3.6.4</skos:notation>
+    <skos:prefLabel xml:lang="en">3.6.4. Cluster</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-6-4-1">
+    <skos:altLabel xml:lang="en">Open</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Grouping]: Cluster: Open</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-6-4"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.6.4.1</skos:notation>
+    <skos:prefLabel xml:lang="en">3.6.4.1. Open</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-6-4-2">
+    <skos:altLabel xml:lang="en">Globular</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: [Grouping]: Cluster: Globular</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-6-4"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.6.4.2</skos:notation>
+    <skos:prefLabel xml:lang="en">3.6.4.2. Globular</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-7">
+    <skos:altLabel xml:lang="en">Circumstellar Material</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: Circumstellar Material</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-3-7-1"/>
+    <skos:narrower rdf:resource="#avm-3-7-2"/>
+    <skos:narrower rdf:resource="#avm-3-7-3"/>
+    <skos:notation>3.7</skos:notation>
+    <skos:prefLabel xml:lang="en">3.7. Circumstellar Material</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-7-1">
+    <skos:altLabel xml:lang="en">Planetary System</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: Circumstellar Material: Planetary System</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-7"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.7.1</skos:notation>
+    <skos:prefLabel xml:lang="en">3.7.1. Planetary System</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-7-2">
+    <skos:altLabel xml:lang="en">Disk</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: Circumstellar Material: Disk</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-7"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-3-7-2-1"/>
+    <skos:narrower rdf:resource="#avm-3-7-2-2"/>
+    <skos:narrower rdf:resource="#avm-3-7-2-3"/>
+    <skos:notation>3.7.2</skos:notation>
+    <skos:prefLabel xml:lang="en">3.7.2. Disk</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-7-2-1">
+    <skos:altLabel xml:lang="en">Protoplanetary</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: Circumstellar Material: Disk: Protoplanetary</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-7-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.7.2.1</skos:notation>
+    <skos:prefLabel xml:lang="en">3.7.2.1. Protoplanetary</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-7-2-2">
+    <skos:altLabel xml:lang="en">Accretion</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: Circumstellar Material: Disk: Accretion</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-7-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.7.2.2</skos:notation>
+    <skos:prefLabel xml:lang="en">3.7.2.2. Accretion</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-7-2-3">
+    <skos:altLabel xml:lang="en">Debris</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: Circumstellar Material: Disk: Debris</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-7-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.7.2.3</skos:notation>
+    <skos:prefLabel xml:lang="en">3.7.2.3. Debris</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-7-3">
+    <skos:altLabel xml:lang="en">Outflow</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: Circumstellar Material: Outflow</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-7"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-3-7-3-1"/>
+    <skos:narrower rdf:resource="#avm-3-7-3-2"/>
+    <skos:notation>3.7.3</skos:notation>
+    <skos:prefLabel xml:lang="en">3.7.3. Outflow</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-7-3-1">
+    <skos:altLabel xml:lang="en">Solar Wind</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: Circumstellar Material: Outflow: Solar Wind</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-7-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.7.3.1</skos:notation>
+    <skos:prefLabel xml:lang="en">3.7.3.1. Solar Wind</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-3-7-3-2">
+    <skos:altLabel xml:lang="en">Coronal Mass Ejection</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star: Circumstellar Material: Outflow: Coronal Mass Ejection</skos:altLabel>
+    <skos:broader rdf:resource="#avm-3-7-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>3.7.3.2</skos:notation>
+    <skos:prefLabel xml:lang="en">3.7.3.2. Coronal Mass Ejection</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-4">
+    <skos:altLabel xml:lang="en">Nebula</skos:altLabel>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-4-1-1"/>
+    <skos:narrower rdf:resource="#avm-4-1-2"/>
+    <skos:narrower rdf:resource="#avm-4-1-3"/>
+    <skos:narrower rdf:resource="#avm-4-1-4"/>
+    <skos:narrower rdf:resource="#avm-4-1-5"/>
+    <skos:narrower rdf:resource="#avm-4-2-1"/>
+    <skos:narrower rdf:resource="#avm-4-2-2"/>
+    <skos:narrower rdf:resource="#avm-4-2-3"/>
+    <skos:notation>4</skos:notation>
+    <skos:prefLabel xml:lang="en">4. Nebula</skos:prefLabel>
+  </skos:Concept>
+  <skos:Collection rdf:about="#avm-4-1">
+    <rdfs:label xml:lang="en">4.1. [Type]</rdfs:label>
+    <skos:member rdf:resource="#avm-4-1-1"/>
+    <skos:member rdf:resource="#avm-4-1-2"/>
+    <skos:member rdf:resource="#avm-4-1-3"/>
+    <skos:member rdf:resource="#avm-4-1-4"/>
+    <skos:member rdf:resource="#avm-4-1-5"/>
+  </skos:Collection>
+  <skos:Concept rdf:about="#avm-4-1-1">
+    <skos:altLabel xml:lang="en">Interstellar Medium</skos:altLabel>
+    <skos:altLabel xml:lang="en">Nebula: [Type]: Interstellar Medium</skos:altLabel>
+    <skos:broader rdf:resource="#avm-4"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>4.1.1</skos:notation>
+    <skos:prefLabel xml:lang="en">4.1.1. Interstellar Medium</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-4-1-2">
+    <skos:altLabel xml:lang="en">Nebula: [Type]: Star Formation</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star Formation</skos:altLabel>
+    <skos:broader rdf:resource="#avm-4"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>4.1.2</skos:notation>
+    <skos:prefLabel xml:lang="en">4.1.2. Star Formation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-4-1-3">
+    <skos:altLabel xml:lang="en">Nebula: [Type]: Planetary</skos:altLabel>
+    <skos:altLabel xml:lang="en">Planetary</skos:altLabel>
+    <skos:broader rdf:resource="#avm-4"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>4.1.3</skos:notation>
+    <skos:prefLabel xml:lang="en">4.1.3. Planetary</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-4-1-4">
+    <skos:altLabel xml:lang="en">Nebula: [Type]: Supernova Remnant</skos:altLabel>
+    <skos:altLabel xml:lang="en">Supernova Remnant</skos:altLabel>
+    <skos:broader rdf:resource="#avm-4"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>4.1.4</skos:notation>
+    <skos:prefLabel xml:lang="en">4.1.4. Supernova Remnant</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-4-1-5">
+    <skos:altLabel xml:lang="en">Jet</skos:altLabel>
+    <skos:altLabel xml:lang="en">Nebula: [Type]: Jet</skos:altLabel>
+    <skos:broader rdf:resource="#avm-4"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>4.1.5</skos:notation>
+    <skos:prefLabel xml:lang="en">4.1.5. Jet</skos:prefLabel>
+  </skos:Concept>
+  <skos:Collection rdf:about="#avm-4-2">
+    <rdfs:label xml:lang="en">4.2. [Appearance]</rdfs:label>
+    <skos:member rdf:resource="#avm-4-2-1"/>
+    <skos:member rdf:resource="#avm-4-2-2"/>
+    <skos:member rdf:resource="#avm-4-2-3"/>
+  </skos:Collection>
+  <skos:Concept rdf:about="#avm-4-2-1">
+    <skos:altLabel xml:lang="en">Emission</skos:altLabel>
+    <skos:altLabel xml:lang="en">Nebula: [Appearance]: Emission</skos:altLabel>
+    <skos:broader rdf:resource="#avm-4"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-4-2-1-1"/>
+    <skos:notation>4.2.1</skos:notation>
+    <skos:prefLabel xml:lang="en">4.2.1. Emission</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-4-2-1-1">
+    <skos:altLabel xml:lang="en">H II Region</skos:altLabel>
+    <skos:altLabel xml:lang="en">Nebula: [Appearance]: Emission: H II Region</skos:altLabel>
+    <skos:broader rdf:resource="#avm-4-2-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>4.2.1.1</skos:notation>
+    <skos:prefLabel xml:lang="en">4.2.1.1. H II Region</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-4-2-2">
+    <skos:altLabel xml:lang="en">Nebula: [Appearance]: Reflection</skos:altLabel>
+    <skos:altLabel xml:lang="en">Reflection</skos:altLabel>
+    <skos:broader rdf:resource="#avm-4"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-4-2-2-1"/>
+    <skos:notation>4.2.2</skos:notation>
+    <skos:prefLabel xml:lang="en">4.2.2. Reflection</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-4-2-2-1">
+    <skos:altLabel xml:lang="en">Light Echo</skos:altLabel>
+    <skos:altLabel xml:lang="en">Nebula: [Appearance]: Reflection: Light Echo</skos:altLabel>
+    <skos:broader rdf:resource="#avm-4-2-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>4.2.2.1</skos:notation>
+    <skos:prefLabel xml:lang="en">4.2.2.1. Light Echo</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-4-2-3">
+    <skos:altLabel xml:lang="en">Dark</skos:altLabel>
+    <skos:altLabel xml:lang="en">Nebula: [Appearance]: Dark</skos:altLabel>
+    <skos:broader rdf:resource="#avm-4"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-4-2-3-1"/>
+    <skos:narrower rdf:resource="#avm-4-2-3-2"/>
+    <skos:narrower rdf:resource="#avm-4-2-3-3"/>
+    <skos:notation>4.2.3</skos:notation>
+    <skos:prefLabel xml:lang="en">4.2.3. Dark</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-4-2-3-1">
+    <skos:altLabel xml:lang="en">Molecular Cloud</skos:altLabel>
+    <skos:altLabel xml:lang="en">Nebula: [Appearance]: Dark: Molecular Cloud</skos:altLabel>
+    <skos:broader rdf:resource="#avm-4-2-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>4.2.3.1</skos:notation>
+    <skos:prefLabel xml:lang="en">4.2.3.1. Molecular Cloud</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-4-2-3-2">
+    <skos:altLabel xml:lang="en">Bok Globule</skos:altLabel>
+    <skos:altLabel xml:lang="en">Nebula: [Appearance]: Dark: Bok Globule</skos:altLabel>
+    <skos:broader rdf:resource="#avm-4-2-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>4.2.3.2</skos:notation>
+    <skos:prefLabel xml:lang="en">4.2.3.2. Bok Globule</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-4-2-3-3">
+    <skos:altLabel xml:lang="en">Nebula: [Appearance]: Dark: Proplyd</skos:altLabel>
+    <skos:altLabel xml:lang="en">Proplyd</skos:altLabel>
+    <skos:broader rdf:resource="#avm-4-2-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>4.2.3.3</skos:notation>
+    <skos:prefLabel xml:lang="en">4.2.3.3. Proplyd</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5">
+    <skos:altLabel xml:lang="en">Galaxy</skos:altLabel>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-5-1-1"/>
+    <skos:narrower rdf:resource="#avm-5-1-2"/>
+    <skos:narrower rdf:resource="#avm-5-1-3"/>
+    <skos:narrower rdf:resource="#avm-5-1-4"/>
+    <skos:narrower rdf:resource="#avm-5-1-5"/>
+    <skos:narrower rdf:resource="#avm-5-1-6"/>
+    <skos:narrower rdf:resource="#avm-5-1-7"/>
+    <skos:narrower rdf:resource="#avm-5-1-8"/>
+    <skos:narrower rdf:resource="#avm-5-2-1"/>
+    <skos:narrower rdf:resource="#avm-5-2-2"/>
+    <skos:narrower rdf:resource="#avm-5-3-1"/>
+    <skos:narrower rdf:resource="#avm-5-3-2"/>
+    <skos:narrower rdf:resource="#avm-5-3-3"/>
+    <skos:narrower rdf:resource="#avm-5-3-4"/>
+    <skos:narrower rdf:resource="#avm-5-4-1"/>
+    <skos:narrower rdf:resource="#avm-5-4-2"/>
+    <skos:narrower rdf:resource="#avm-5-4-3"/>
+    <skos:narrower rdf:resource="#avm-5-4-4"/>
+    <skos:narrower rdf:resource="#avm-5-4-5"/>
+    <skos:narrower rdf:resource="#avm-5-4-6"/>
+    <skos:narrower rdf:resource="#avm-5-4-7"/>
+    <skos:narrower rdf:resource="#avm-5-4-8"/>
+    <skos:narrower rdf:resource="#avm-5-4-9"/>
+    <skos:narrower rdf:resource="#avm-5-5-1"/>
+    <skos:narrower rdf:resource="#avm-5-5-2"/>
+    <skos:narrower rdf:resource="#avm-5-5-3"/>
+    <skos:narrower rdf:resource="#avm-5-5-4"/>
+    <skos:notation>5</skos:notation>
+    <skos:prefLabel xml:lang="en">5. Galaxy</skos:prefLabel>
+  </skos:Concept>
+  <skos:Collection rdf:about="#avm-5-1">
+    <rdfs:label xml:lang="en">5.1. [Type]</rdfs:label>
+    <skos:member rdf:resource="#avm-5-1-1"/>
+    <skos:member rdf:resource="#avm-5-1-2"/>
+    <skos:member rdf:resource="#avm-5-1-3"/>
+    <skos:member rdf:resource="#avm-5-1-4"/>
+    <skos:member rdf:resource="#avm-5-1-5"/>
+    <skos:member rdf:resource="#avm-5-1-6"/>
+    <skos:member rdf:resource="#avm-5-1-7"/>
+    <skos:member rdf:resource="#avm-5-1-8"/>
+  </skos:Collection>
+  <skos:Concept rdf:about="#avm-5-1-1">
+    <skos:altLabel xml:lang="en">Galaxy: [Type]: Spiral</skos:altLabel>
+    <skos:altLabel xml:lang="en">Spiral</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.1.1</skos:notation>
+    <skos:prefLabel xml:lang="en">5.1.1. Spiral</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-1-2">
+    <skos:altLabel xml:lang="en">Barred</skos:altLabel>
+    <skos:altLabel xml:lang="en">Galaxy: [Type]: Barred</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.1.2</skos:notation>
+    <skos:prefLabel xml:lang="en">5.1.2. Barred</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-1-3">
+    <skos:altLabel xml:lang="en">Galaxy: [Type]: Lenticular</skos:altLabel>
+    <skos:altLabel xml:lang="en">Lenticular</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.1.3</skos:notation>
+    <skos:prefLabel xml:lang="en">5.1.3. Lenticular</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-1-4">
+    <skos:altLabel xml:lang="en">Elliptical</skos:altLabel>
+    <skos:altLabel xml:lang="en">Galaxy: [Type]: Elliptical</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.1.4</skos:notation>
+    <skos:prefLabel xml:lang="en">5.1.4. Elliptical</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-1-5">
+    <skos:altLabel xml:lang="en">Galaxy: [Type]: Ring</skos:altLabel>
+    <skos:altLabel xml:lang="en">Ring</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.1.5</skos:notation>
+    <skos:prefLabel xml:lang="en">5.1.5. Ring</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-1-6">
+    <skos:altLabel xml:lang="en">Galaxy: [Type]: Irregular</skos:altLabel>
+    <skos:altLabel xml:lang="en">Irregular</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.1.6</skos:notation>
+    <skos:prefLabel xml:lang="en">5.1.6. Irregular</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-1-7">
+    <skos:altLabel xml:lang="en">Galaxy: [Type]: Interacting</skos:altLabel>
+    <skos:altLabel xml:lang="en">Interacting</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.1.7</skos:notation>
+    <skos:prefLabel xml:lang="en">5.1.7. Interacting</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-1-8">
+    <skos:altLabel xml:lang="en">Galaxy: [Type]: Gravitationally Lensed</skos:altLabel>
+    <skos:altLabel xml:lang="en">Gravitationally Lensed</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.1.8</skos:notation>
+    <skos:prefLabel xml:lang="en">5.1.8. Gravitationally Lensed</skos:prefLabel>
+  </skos:Concept>
+  <skos:Collection rdf:about="#avm-5-2">
+    <rdfs:label xml:lang="en">5.2. [Size]</rdfs:label>
+    <skos:member rdf:resource="#avm-5-2-1"/>
+    <skos:member rdf:resource="#avm-5-2-2"/>
+  </skos:Collection>
+  <skos:Concept rdf:about="#avm-5-2-1">
+    <skos:altLabel xml:lang="en">Galaxy: [Size]: Giant</skos:altLabel>
+    <skos:altLabel xml:lang="en">Giant</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.2.1</skos:notation>
+    <skos:prefLabel xml:lang="en">5.2.1. Giant</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-2-2">
+    <skos:altLabel xml:lang="en">Dwarf</skos:altLabel>
+    <skos:altLabel xml:lang="en">Galaxy: [Size]: Dwarf</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.2.2</skos:notation>
+    <skos:prefLabel xml:lang="en">5.2.2. Dwarf</skos:prefLabel>
+  </skos:Concept>
+  <skos:Collection rdf:about="#avm-5-3">
+    <rdfs:label xml:lang="en">5.3. [Activity]</rdfs:label>
+    <skos:member rdf:resource="#avm-5-3-1"/>
+    <skos:member rdf:resource="#avm-5-3-2"/>
+    <skos:member rdf:resource="#avm-5-3-3"/>
+    <skos:member rdf:resource="#avm-5-3-4"/>
+  </skos:Collection>
+  <skos:Concept rdf:about="#avm-5-3-1">
+    <skos:altLabel xml:lang="en">Galaxy: [Activity]: Normal</skos:altLabel>
+    <skos:altLabel xml:lang="en">Normal</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.3.1</skos:notation>
+    <skos:prefLabel xml:lang="en">5.3.1. Normal</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-3-2">
+    <skos:altLabel xml:lang="en">AGN</skos:altLabel>
+    <skos:altLabel xml:lang="en">Galaxy: [Activity]: AGN</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-5-3-2-1"/>
+    <skos:narrower rdf:resource="#avm-5-3-2-2"/>
+    <skos:narrower rdf:resource="#avm-5-3-2-3"/>
+    <skos:narrower rdf:resource="#avm-5-3-2-4"/>
+    <skos:notation>5.3.2</skos:notation>
+    <skos:prefLabel xml:lang="en">5.3.2. AGN</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-3-2-1">
+    <skos:altLabel xml:lang="en">Galaxy: [Activity]: AGN: Quasar</skos:altLabel>
+    <skos:altLabel xml:lang="en">Quasar</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5-3-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.3.2.1</skos:notation>
+    <skos:prefLabel xml:lang="en">5.3.2.1. Quasar</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-3-2-2">
+    <skos:altLabel xml:lang="en">Galaxy: [Activity]: AGN: Seyfert</skos:altLabel>
+    <skos:altLabel xml:lang="en">Seyfert</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5-3-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.3.2.2</skos:notation>
+    <skos:prefLabel xml:lang="en">5.3.2.2. Seyfert</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-3-2-3">
+    <skos:altLabel xml:lang="en">Blazar</skos:altLabel>
+    <skos:altLabel xml:lang="en">Galaxy: [Activity]: AGN: Blazar</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5-3-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.3.2.3</skos:notation>
+    <skos:prefLabel xml:lang="en">5.3.2.3. Blazar</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-3-2-4">
+    <skos:altLabel xml:lang="en">Galaxy: [Activity]: AGN: Liner</skos:altLabel>
+    <skos:altLabel xml:lang="en">Liner</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5-3-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.3.2.4</skos:notation>
+    <skos:prefLabel xml:lang="en">5.3.2.4. Liner</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-3-3">
+    <skos:altLabel xml:lang="en">Galaxy: [Activity]: Starburst</skos:altLabel>
+    <skos:altLabel xml:lang="en">Starburst</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.3.3</skos:notation>
+    <skos:prefLabel xml:lang="en">5.3.3. Starburst</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-3-4">
+    <skos:altLabel xml:lang="en">Galaxy: [Activity]: Ultraluminous</skos:altLabel>
+    <skos:altLabel xml:lang="en">Ultraluminous</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.3.4</skos:notation>
+    <skos:prefLabel xml:lang="en">5.3.4. Ultraluminous</skos:prefLabel>
+  </skos:Concept>
+  <skos:Collection rdf:about="#avm-5-4">
+    <rdfs:label xml:lang="en">5.4. [Component]</rdfs:label>
+    <skos:member rdf:resource="#avm-5-4-1"/>
+    <skos:member rdf:resource="#avm-5-4-2"/>
+    <skos:member rdf:resource="#avm-5-4-3"/>
+    <skos:member rdf:resource="#avm-5-4-4"/>
+    <skos:member rdf:resource="#avm-5-4-5"/>
+    <skos:member rdf:resource="#avm-5-4-6"/>
+    <skos:member rdf:resource="#avm-5-4-7"/>
+    <skos:member rdf:resource="#avm-5-4-8"/>
+    <skos:member rdf:resource="#avm-5-4-9"/>
+  </skos:Collection>
+  <skos:Concept rdf:about="#avm-5-4-1">
+    <skos:altLabel xml:lang="en">Bulge</skos:altLabel>
+    <skos:altLabel xml:lang="en">Galaxy: [Component]: Bulge</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.4.1</skos:notation>
+    <skos:prefLabel xml:lang="en">5.4.1. Bulge</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-4-2">
+    <skos:altLabel xml:lang="en">Bar</skos:altLabel>
+    <skos:altLabel xml:lang="en">Galaxy: [Component]: Bar</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.4.2</skos:notation>
+    <skos:prefLabel xml:lang="en">5.4.2. Bar</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-4-3">
+    <skos:altLabel xml:lang="en">Disk</skos:altLabel>
+    <skos:altLabel xml:lang="en">Galaxy: [Component]: Disk</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.4.3</skos:notation>
+    <skos:prefLabel xml:lang="en">5.4.3. Disk</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-4-4">
+    <skos:altLabel xml:lang="en">Galaxy: [Component]: Halo</skos:altLabel>
+    <skos:altLabel xml:lang="en">Halo</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.4.4</skos:notation>
+    <skos:prefLabel xml:lang="en">5.4.4. Halo</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-4-5">
+    <skos:altLabel xml:lang="en">Galaxy: [Component]: Ring</skos:altLabel>
+    <skos:altLabel xml:lang="en">Ring</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.4.5</skos:notation>
+    <skos:prefLabel xml:lang="en">5.4.5. Ring</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-4-6">
+    <skos:altLabel xml:lang="en">Central Black Hole</skos:altLabel>
+    <skos:altLabel xml:lang="en">Galaxy: [Component]: Central Black Hole</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.4.6</skos:notation>
+    <skos:prefLabel xml:lang="en">5.4.6. Central Black Hole</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-4-7">
+    <skos:altLabel xml:lang="en">Galaxy: [Component]: Spiral Arm</skos:altLabel>
+    <skos:altLabel xml:lang="en">Spiral Arm</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.4.7</skos:notation>
+    <skos:prefLabel xml:lang="en">5.4.7. Spiral Arm</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-4-8">
+    <skos:altLabel xml:lang="en">Dust Lane</skos:altLabel>
+    <skos:altLabel xml:lang="en">Galaxy: [Component]: Dust Lane</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.4.8</skos:notation>
+    <skos:prefLabel xml:lang="en">5.4.8. Dust Lane</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-4-9">
+    <skos:altLabel xml:lang="en">Center/Core</skos:altLabel>
+    <skos:altLabel xml:lang="en">Galaxy: [Component]: Center/Core</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.4.9</skos:notation>
+    <skos:prefLabel xml:lang="en">5.4.9. Center/Core</skos:prefLabel>
+  </skos:Concept>
+  <skos:Collection rdf:about="#avm-5-5">
+    <rdfs:label xml:lang="en">5.5. [Grouping]</rdfs:label>
+    <skos:member rdf:resource="#avm-5-5-1"/>
+    <skos:member rdf:resource="#avm-5-5-2"/>
+    <skos:member rdf:resource="#avm-5-5-3"/>
+    <skos:member rdf:resource="#avm-5-5-4"/>
+  </skos:Collection>
+  <skos:Concept rdf:about="#avm-5-5-1">
+    <skos:altLabel xml:lang="en">Galaxy: [Grouping]: Pair</skos:altLabel>
+    <skos:altLabel xml:lang="en">Pair</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.5.1</skos:notation>
+    <skos:prefLabel xml:lang="en">5.5.1. Pair</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-5-2">
+    <skos:altLabel xml:lang="en">Galaxy: [Grouping]: Multiple</skos:altLabel>
+    <skos:altLabel xml:lang="en">Multiple</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.5.2</skos:notation>
+    <skos:prefLabel xml:lang="en">5.5.2. Multiple</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-5-3">
+    <skos:altLabel xml:lang="en">Cluster</skos:altLabel>
+    <skos:altLabel xml:lang="en">Galaxy: [Grouping]: Cluster</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.5.3</skos:notation>
+    <skos:prefLabel xml:lang="en">5.5.3. Cluster</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-5-5-4">
+    <skos:altLabel xml:lang="en">Galaxy: [Grouping]: Supercluster</skos:altLabel>
+    <skos:altLabel xml:lang="en">Supercluster</skos:altLabel>
+    <skos:broader rdf:resource="#avm-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>5.5.4</skos:notation>
+    <skos:prefLabel xml:lang="en">5.5.4. Supercluster</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-6">
+    <skos:altLabel xml:lang="en">Cosmology</skos:altLabel>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-6-1-1"/>
+    <skos:narrower rdf:resource="#avm-6-1-2"/>
+    <skos:narrower rdf:resource="#avm-6-1-3"/>
+    <skos:narrower rdf:resource="#avm-6-2-1"/>
+    <skos:narrower rdf:resource="#avm-6-2-2"/>
+    <skos:narrower rdf:resource="#avm-6-2-3"/>
+    <skos:notation>6</skos:notation>
+    <skos:prefLabel xml:lang="en">6. Cosmology</skos:prefLabel>
+  </skos:Concept>
+  <skos:Collection rdf:about="#avm-6-1">
+    <rdfs:label xml:lang="en">6.1. [Morphology]</rdfs:label>
+    <skos:member rdf:resource="#avm-6-1-1"/>
+    <skos:member rdf:resource="#avm-6-1-2"/>
+    <skos:member rdf:resource="#avm-6-1-3"/>
+  </skos:Collection>
+  <skos:Concept rdf:about="#avm-6-1-1">
+    <skos:altLabel xml:lang="en">Cosmology: [Morphology]: Deep Field</skos:altLabel>
+    <skos:altLabel xml:lang="en">Deep Field</skos:altLabel>
+    <skos:broader rdf:resource="#avm-6"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>6.1.1</skos:notation>
+    <skos:prefLabel xml:lang="en">6.1.1. Deep Field</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-6-1-2">
+    <skos:altLabel xml:lang="en">Cosmology: [Morphology]: Large-Scale Structure</skos:altLabel>
+    <skos:altLabel xml:lang="en">Large-Scale Structure</skos:altLabel>
+    <skos:broader rdf:resource="#avm-6"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>6.1.2</skos:notation>
+    <skos:prefLabel xml:lang="en">6.1.2. Large-Scale Structure</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-6-1-3">
+    <skos:altLabel xml:lang="en">Cosmic Background</skos:altLabel>
+    <skos:altLabel xml:lang="en">Cosmology: [Morphology]: Cosmic Background</skos:altLabel>
+    <skos:broader rdf:resource="#avm-6"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>6.1.3</skos:notation>
+    <skos:prefLabel xml:lang="en">6.1.3. Cosmic Background</skos:prefLabel>
+  </skos:Concept>
+  <skos:Collection rdf:about="#avm-6-2">
+    <rdfs:label xml:lang="en">6.2. [Phenomenon]</rdfs:label>
+    <skos:member rdf:resource="#avm-6-2-1"/>
+    <skos:member rdf:resource="#avm-6-2-2"/>
+    <skos:member rdf:resource="#avm-6-2-3"/>
+  </skos:Collection>
+  <skos:Concept rdf:about="#avm-6-2-1">
+    <skos:altLabel xml:lang="en">Cosmology: [Phenomenon]: Lensing</skos:altLabel>
+    <skos:altLabel xml:lang="en">Lensing</skos:altLabel>
+    <skos:broader rdf:resource="#avm-6"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>6.2.1</skos:notation>
+    <skos:prefLabel xml:lang="en">6.2.1. Lensing</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-6-2-2">
+    <skos:altLabel xml:lang="en">Cosmology: [Phenomenon]: Gamma Ray Burst</skos:altLabel>
+    <skos:altLabel xml:lang="en">Gamma Ray Burst</skos:altLabel>
+    <skos:broader rdf:resource="#avm-6"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>6.2.2</skos:notation>
+    <skos:prefLabel xml:lang="en">6.2.2. Gamma Ray Burst</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-6-2-3">
+    <skos:altLabel xml:lang="en">Cosmology: [Phenomenon]: Dark Matter</skos:altLabel>
+    <skos:altLabel xml:lang="en">Dark Matter</skos:altLabel>
+    <skos:broader rdf:resource="#avm-6"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>6.2.3</skos:notation>
+    <skos:prefLabel xml:lang="en">6.2.3. Dark Matter</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7">
+    <skos:altLabel xml:lang="en">Sky Phenomenon</skos:altLabel>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-7-1"/>
+    <skos:narrower rdf:resource="#avm-7-2"/>
+    <skos:narrower rdf:resource="#avm-7-3"/>
+    <skos:notation>7</skos:notation>
+    <skos:prefLabel xml:lang="en">7. Sky Phenomenon</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-1">
+    <skos:altLabel xml:lang="en">Night Sky</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Night Sky</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-7-1-1"/>
+    <skos:narrower rdf:resource="#avm-7-1-2"/>
+    <skos:narrower rdf:resource="#avm-7-1-3"/>
+    <skos:narrower rdf:resource="#avm-7-1-4"/>
+    <skos:narrower rdf:resource="#avm-7-1-5"/>
+    <skos:narrower rdf:resource="#avm-7-1-6"/>
+    <skos:notation>7.1</skos:notation>
+    <skos:prefLabel xml:lang="en">7.1. Night Sky</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-1-1">
+    <skos:altLabel xml:lang="en">Constellation</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Night Sky: Constellation</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.1.1</skos:notation>
+    <skos:prefLabel xml:lang="en">7.1.1. Constellation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-1-2">
+    <skos:altLabel xml:lang="en">Asterism</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Night Sky: Asterism</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.1.2</skos:notation>
+    <skos:prefLabel xml:lang="en">7.1.2. Asterism</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-1-3">
+    <skos:altLabel xml:lang="en">Milky Way</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Night Sky: Milky Way</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.1.3</skos:notation>
+    <skos:prefLabel xml:lang="en">7.1.3. Milky Way</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-1-4">
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Night Sky: Trail</skos:altLabel>
+    <skos:altLabel xml:lang="en">Trail</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-7-1-4-1"/>
+    <skos:narrower rdf:resource="#avm-7-1-4-2"/>
+    <skos:narrower rdf:resource="#avm-7-1-4-3"/>
+    <skos:notation>7.1.4</skos:notation>
+    <skos:prefLabel xml:lang="en">7.1.4. Trail</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-1-4-1">
+    <skos:altLabel xml:lang="en">Meteor</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Night Sky: Trail: Meteor</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-1-4"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.1.4.1</skos:notation>
+    <skos:prefLabel xml:lang="en">7.1.4.1. Meteor</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-1-4-2">
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Night Sky: Trail: Star</skos:altLabel>
+    <skos:altLabel xml:lang="en">Star</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-1-4"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.1.4.2</skos:notation>
+    <skos:prefLabel xml:lang="en">7.1.4.2. Star</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-1-4-3">
+    <skos:altLabel xml:lang="en">Satellite</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Night Sky: Trail: Satellite</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-1-4"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.1.4.3</skos:notation>
+    <skos:prefLabel xml:lang="en">7.1.4.3. Satellite</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-1-5">
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Night Sky: Zodiacal Light</skos:altLabel>
+    <skos:altLabel xml:lang="en">Zodiacal Light</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-7-1-5-1"/>
+    <skos:notation>7.1.5</skos:notation>
+    <skos:prefLabel xml:lang="en">7.1.5. Zodiacal Light</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-1-5-1">
+    <skos:altLabel xml:lang="en">Gegenschein</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Night Sky: Zodiacal Light: Gegenschein</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-1-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.1.5.1</skos:notation>
+    <skos:prefLabel xml:lang="en">7.1.5.1. Gegenschein</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-1-6">
+    <skos:altLabel xml:lang="en">Night glow</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Night Sky: Night glow</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.1.6</skos:notation>
+    <skos:prefLabel xml:lang="en">7.1.6. Night glow</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-2">
+    <skos:altLabel xml:lang="en">Eclipse</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Eclipse</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-7-2-1"/>
+    <skos:narrower rdf:resource="#avm-7-2-2"/>
+    <skos:narrower rdf:resource="#avm-7-2-3"/>
+    <skos:narrower rdf:resource="#avm-7-2-4"/>
+    <skos:notation>7.2</skos:notation>
+    <skos:prefLabel xml:lang="en">7.2. Eclipse</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-2-1">
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Eclipse: Solar</skos:altLabel>
+    <skos:altLabel xml:lang="en">Solar</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-7-2-1-1"/>
+    <skos:narrower rdf:resource="#avm-7-2-1-2"/>
+    <skos:narrower rdf:resource="#avm-7-2-1-3"/>
+    <skos:notation>7.2.1</skos:notation>
+    <skos:prefLabel xml:lang="en">7.2.1. Solar</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-2-1-1">
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Eclipse: Solar: Total</skos:altLabel>
+    <skos:altLabel xml:lang="en">Total</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-2-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.2.1.1</skos:notation>
+    <skos:prefLabel xml:lang="en">7.2.1.1. Total</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-2-1-2">
+    <skos:altLabel xml:lang="en">Partial</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Eclipse: Solar: Partial</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-2-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.2.1.2</skos:notation>
+    <skos:prefLabel xml:lang="en">7.2.1.2. Partial</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-2-1-3">
+    <skos:altLabel xml:lang="en">Annular</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Eclipse: Solar: Annular</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-2-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.2.1.3</skos:notation>
+    <skos:prefLabel xml:lang="en">7.2.1.3. Annular</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-2-2">
+    <skos:altLabel xml:lang="en">Lunar</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Eclipse: Lunar</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-7-2-2-1"/>
+    <skos:narrower rdf:resource="#avm-7-2-2-2"/>
+    <skos:narrower rdf:resource="#avm-7-2-2-3"/>
+    <skos:notation>7.2.2</skos:notation>
+    <skos:prefLabel xml:lang="en">7.2.2. Lunar</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-2-2-1">
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Eclipse: Lunar: Total</skos:altLabel>
+    <skos:altLabel xml:lang="en">Total</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-2-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.2.2.1</skos:notation>
+    <skos:prefLabel xml:lang="en">7.2.2.1. Total</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-2-2-2">
+    <skos:altLabel xml:lang="en">Partial</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Eclipse: Lunar: Partial</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-2-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.2.2.2</skos:notation>
+    <skos:prefLabel xml:lang="en">7.2.2.2. Partial</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-2-2-3">
+    <skos:altLabel xml:lang="en">Penumbral</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Eclipse: Lunar: Penumbral</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-2-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.2.2.3</skos:notation>
+    <skos:prefLabel xml:lang="en">7.2.2.3. Penumbral</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-2-3">
+    <skos:altLabel xml:lang="en">Occultation</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Eclipse: Occultation</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.2.3</skos:notation>
+    <skos:prefLabel xml:lang="en">7.2.3. Occultation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-2-4">
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Eclipse: Transit</skos:altLabel>
+    <skos:altLabel xml:lang="en">Transit</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.2.4</skos:notation>
+    <skos:prefLabel xml:lang="en">7.2.4. Transit</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3">
+    <skos:altLabel xml:lang="en">Light Phenomenon</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-7-3-1"/>
+    <skos:narrower rdf:resource="#avm-7-3-2"/>
+    <skos:narrower rdf:resource="#avm-7-3-3"/>
+    <skos:narrower rdf:resource="#avm-7-3-4"/>
+    <skos:narrower rdf:resource="#avm-7-3-5"/>
+    <skos:narrower rdf:resource="#avm-7-3-6"/>
+    <skos:narrower rdf:resource="#avm-7-3-7"/>
+    <skos:notation>7.3</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3. Light Phenomenon</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-1">
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Sunrise-Sunset</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sunrise-Sunset</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-7-3-1-1"/>
+    <skos:narrower rdf:resource="#avm-7-3-1-2"/>
+    <skos:narrower rdf:resource="#avm-7-3-1-3"/>
+    <skos:notation>7.3.1</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.1. Sunrise-Sunset</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-1-1">
+    <skos:altLabel xml:lang="en">Green flash</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Sunrise-Sunset: Green flash</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.3.1.1</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.1.1. Green flash</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-1-2">
+    <skos:altLabel xml:lang="en">Refractive Distortion</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Sunrise-Sunset: Refractive Distortion</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.3.1.2</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.1.2. Refractive Distortion</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-1-3">
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Sunrise-Sunset: Sun Pillar</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sun Pillar</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.3.1.3</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.1.3. Sun Pillar</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-2">
+    <skos:altLabel xml:lang="en">Cloud</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Cloud</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-7-3-2-1"/>
+    <skos:narrower rdf:resource="#avm-7-3-2-2"/>
+    <skos:narrower rdf:resource="#avm-7-3-2-3"/>
+    <skos:narrower rdf:resource="#avm-7-3-2-4"/>
+    <skos:narrower rdf:resource="#avm-7-3-2-5"/>
+    <skos:notation>7.3.2</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.2. Cloud</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-2-1">
+    <skos:altLabel xml:lang="en">Iridescent</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Cloud: Iridescent</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.3.2.1</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.2.1. Iridescent</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-2-2">
+    <skos:altLabel xml:lang="en">Noctilucent</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Cloud: Noctilucent</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.3.2.2</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.2.2. Noctilucent</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-2-3">
+    <skos:altLabel xml:lang="en">Nacreous</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Cloud: Nacreous</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.3.2.3</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.2.3. Nacreous</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-2-4">
+    <skos:altLabel xml:lang="en">Corona</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Cloud: Corona</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.3.2.4</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.2.4. Corona</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-2-5">
+    <skos:altLabel xml:lang="en">Glory</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Cloud: Glory</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.3.2.5</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.2.5. Glory</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-3">
+    <skos:altLabel xml:lang="en">Rainbow</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Rainbow</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-7-3-3-1"/>
+    <skos:narrower rdf:resource="#avm-7-3-3-2"/>
+    <skos:notation>7.3.3</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.3. Rainbow</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-3-1">
+    <skos:altLabel xml:lang="en">Moonbow</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Rainbow: Moonbow</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.3.3.1</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.3.1. Moonbow</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-3-2">
+    <skos:altLabel xml:lang="en">Fogbow</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Rainbow: Fogbow</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.3.3.2</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.3.2. Fogbow</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-4">
+    <skos:altLabel xml:lang="en">Halo</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Halo</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-7-3-4-1"/>
+    <skos:narrower rdf:resource="#avm-7-3-4-2"/>
+    <skos:narrower rdf:resource="#avm-7-3-4-3"/>
+    <skos:notation>7.3.4</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.4. Halo</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-4-1">
+    <skos:altLabel xml:lang="en">Circle</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Halo: Circle</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3-4"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.3.4.1</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.4.1. Circle</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-4-2">
+    <skos:altLabel xml:lang="en">Parhelia</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Halo: Parhelia</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3-4"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.3.4.2</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.4.2. Parhelia</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-4-3">
+    <skos:altLabel xml:lang="en">Arc</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Halo: Arc</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3-4"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.3.4.3</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.4.3. Arc</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-5">
+    <skos:altLabel xml:lang="en">Ray-Shadow</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Ray-Shadow</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-7-3-5-1"/>
+    <skos:narrower rdf:resource="#avm-7-3-5-2"/>
+    <skos:narrower rdf:resource="#avm-7-3-5-3"/>
+    <skos:notation>7.3.5</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.5. Ray-Shadow</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-5-1">
+    <skos:altLabel xml:lang="en">Crepuscular ray</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Ray-Shadow: Crepuscular ray</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.3.5.1</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.5.1. Crepuscular ray</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-5-2">
+    <skos:altLabel xml:lang="en">Anti-crepuscular ray</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Ray-Shadow: Anti-crepuscular ray</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.3.5.2</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.5.2. Anti-crepuscular ray</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-5-3">
+    <skos:altLabel xml:lang="en">Earth shadow</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Ray-Shadow: Earth shadow</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3-5"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.3.5.3</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.5.3. Earth shadow</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-6">
+    <skos:altLabel xml:lang="en">Lightning</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Lightning</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.3.6</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.6. Lightning</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-7-3-7">
+    <skos:altLabel xml:lang="en">Aurora</skos:altLabel>
+    <skos:altLabel xml:lang="en">Sky Phenomenon: Light Phenomenon: Aurora</skos:altLabel>
+    <skos:broader rdf:resource="#avm-7-3"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>7.3.7</skos:notation>
+    <skos:prefLabel xml:lang="en">7.3.7. Aurora</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-8">
+    <skos:altLabel xml:lang="en">Technology</skos:altLabel>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-8-1"/>
+    <skos:narrower rdf:resource="#avm-8-2"/>
+    <skos:notation>8</skos:notation>
+    <skos:prefLabel xml:lang="en">8. Technology</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-8-1">
+    <skos:altLabel xml:lang="en">Observatory</skos:altLabel>
+    <skos:altLabel xml:lang="en">Technology: Observatory</skos:altLabel>
+    <skos:broader rdf:resource="#avm-8"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-8-1-1"/>
+    <skos:narrower rdf:resource="#avm-8-1-2"/>
+    <skos:narrower rdf:resource="#avm-8-1-3"/>
+    <skos:narrower rdf:resource="#avm-8-1-4"/>
+    <skos:notation>8.1</skos:notation>
+    <skos:prefLabel xml:lang="en">8.1. Observatory</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-8-1-1">
+    <skos:altLabel xml:lang="en">Facility</skos:altLabel>
+    <skos:altLabel xml:lang="en">Technology: Observatory: Facility</skos:altLabel>
+    <skos:broader rdf:resource="#avm-8-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>8.1.1</skos:notation>
+    <skos:prefLabel xml:lang="en">8.1.1. Facility</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-8-1-2">
+    <skos:altLabel xml:lang="en">Technology: Observatory: Telescope</skos:altLabel>
+    <skos:altLabel xml:lang="en">Telescope</skos:altLabel>
+    <skos:broader rdf:resource="#avm-8-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>8.1.2</skos:notation>
+    <skos:prefLabel xml:lang="en">8.1.2. Telescope</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-8-1-3">
+    <skos:altLabel xml:lang="en">Instrument</skos:altLabel>
+    <skos:altLabel xml:lang="en">Technology: Observatory: Instrument</skos:altLabel>
+    <skos:broader rdf:resource="#avm-8-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>8.1.3</skos:notation>
+    <skos:prefLabel xml:lang="en">8.1.3. Instrument</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-8-1-4">
+    <skos:altLabel xml:lang="en">Detector</skos:altLabel>
+    <skos:altLabel xml:lang="en">Technology: Observatory: Detector</skos:altLabel>
+    <skos:broader rdf:resource="#avm-8-1"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>8.1.4</skos:notation>
+    <skos:prefLabel xml:lang="en">8.1.4. Detector</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-8-2">
+    <skos:altLabel xml:lang="en">Spacecraft</skos:altLabel>
+    <skos:altLabel xml:lang="en">Technology: Spacecraft</skos:altLabel>
+    <skos:broader rdf:resource="#avm-8"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-8-2-1"/>
+    <skos:narrower rdf:resource="#avm-8-2-2"/>
+    <skos:narrower rdf:resource="#avm-8-2-3"/>
+    <skos:narrower rdf:resource="#avm-8-2-4"/>
+    <skos:narrower rdf:resource="#avm-8-2-5"/>
+    <skos:notation>8.2</skos:notation>
+    <skos:prefLabel xml:lang="en">8.2. Spacecraft</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-8-2-1">
+    <skos:altLabel xml:lang="en">Orbiter</skos:altLabel>
+    <skos:altLabel xml:lang="en">Technology: Spacecraft: Orbiter</skos:altLabel>
+    <skos:broader rdf:resource="#avm-8-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>8.2.1</skos:notation>
+    <skos:prefLabel xml:lang="en">8.2.1. Orbiter</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-8-2-2">
+    <skos:altLabel xml:lang="en">Probe</skos:altLabel>
+    <skos:altLabel xml:lang="en">Technology: Spacecraft: Probe</skos:altLabel>
+    <skos:broader rdf:resource="#avm-8-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>8.2.2</skos:notation>
+    <skos:prefLabel xml:lang="en">8.2.2. Probe</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-8-2-3">
+    <skos:altLabel xml:lang="en">Lander</skos:altLabel>
+    <skos:altLabel xml:lang="en">Technology: Spacecraft: Lander</skos:altLabel>
+    <skos:broader rdf:resource="#avm-8-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>8.2.3</skos:notation>
+    <skos:prefLabel xml:lang="en">8.2.3. Lander</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-8-2-4">
+    <skos:altLabel xml:lang="en">Manned</skos:altLabel>
+    <skos:altLabel xml:lang="en">Technology: Spacecraft: Manned</skos:altLabel>
+    <skos:broader rdf:resource="#avm-8-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>8.2.4</skos:notation>
+    <skos:prefLabel xml:lang="en">8.2.4. Manned</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-8-2-5">
+    <skos:altLabel xml:lang="en">Launch Vehicle</skos:altLabel>
+    <skos:altLabel xml:lang="en">Technology: Spacecraft: Launch Vehicle</skos:altLabel>
+    <skos:broader rdf:resource="#avm-8-2"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>8.2.5</skos:notation>
+    <skos:prefLabel xml:lang="en">8.2.5. Launch Vehicle</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-9">
+    <skos:altLabel xml:lang="en">People</skos:altLabel>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#avm-9-1"/>
+    <skos:narrower rdf:resource="#avm-9-2"/>
+    <skos:narrower rdf:resource="#avm-9-3"/>
+    <skos:notation>9</skos:notation>
+    <skos:prefLabel xml:lang="en">9. People</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-9-1">
+    <skos:altLabel xml:lang="en">People: Scientist</skos:altLabel>
+    <skos:altLabel xml:lang="en">Scientist</skos:altLabel>
+    <skos:broader rdf:resource="#avm-9"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>9.1</skos:notation>
+    <skos:prefLabel xml:lang="en">9.1. Scientist</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-9-2">
+    <skos:altLabel xml:lang="en">Astronaut</skos:altLabel>
+    <skos:altLabel xml:lang="en">People: Astronaut</skos:altLabel>
+    <skos:broader rdf:resource="#avm-9"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>9.2</skos:notation>
+    <skos:prefLabel xml:lang="en">9.2. Astronaut</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#avm-9-3">
+    <skos:altLabel xml:lang="en">Other/General</skos:altLabel>
+    <skos:altLabel xml:lang="en">People: Other/General</skos:altLabel>
+    <skos:broader rdf:resource="#avm-9"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:notation>9.3</skos:notation>
+    <skos:prefLabel xml:lang="en">9.3. Other/General</skos:prefLabel>
+  </skos:Concept>
+</rdf:RDF>

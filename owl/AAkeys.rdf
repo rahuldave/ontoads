@@ -1,0 +1,2450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE rdf:RDF [
+  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+  <!ENTITY dc   "http://purl.org/dc/elements/1.1/" > 
+  <!ENTITY dct   "http://purl.org/dc/terms/" > 
+
+  <!ENTITY skos "http://www.w3.org/2008/05/skos#">
+  <!ENTITY foaf "http://xmlns.com/foaf/0.1/"> 
+      <!-- Main namespace --> 
+  <!ENTITY aakeys "http://www.ivoa.net/rdf/Vocabularies/AAKeys">
+  
+  <!ENTITY local "file:///home/rdave/Projects/adsonto/packages/pellet-1.3/AAkeys.rdf"> 
+  	<!ENTITY path "http://semantics.ads.org/ontologies/0.1/AAkeys.owl"> 
+  	<!ENTITY file "local;"> 
+  <!ENTITY foaf-local "file:///home/rdave/Projects/adsonto/packages/pellet-1.3/foaf-essential.owl">	
+  <!ENTITY foaf-path "http://swan.mindinformatics.org/ontologies/1.2/foaf-essential.owl">
+  <!ENTITY foaf-file "&foaf-local;">
+  <!ENTITY skos-local "file:///home/rdave/Projects/adsonto/packages/pellet-1.3/skos-essential.owl">	
+  <!ENTITY skos-path "http://swan.mindinformatics.org/ontologies/1.2/skos-essential.owl">
+  <!ENTITY skos-file "&skos-path;">
+]>
+<rdf:RDF
+   xmlns:dct="&dct;"
+   xmlns:dc="&dc;"
+   xmlns:foaf="&foaf;"
+   xmlns:rdf="&rdf;"
+   xmlns:rdfs="&rdfs;"
+   xmlns:skos="&skos;"
+   xmlns:owl="&owl;"
+   xml:base="&aakeys;">
+   
+      <owl:Ontology rdf:about="&file;"> 
+		<rdf:type rdf:resource="&owl;Ontology"/> 
+		<rdfs:label rdf:datatype="&xsd;string">AAKeys: ADS OWL_DL version</rdfs:label> 
+ 
+    	<owl:imports rdf:resource="&foaf-file;"/> 
+    	<owl:imports rdf:resource="&skos-file;"/>
+    	<dc:language>en</dc:language> 
+    	<dc:title xml:lang="en">AAKeys ontology</dc:title> 
+    	<dc:creator rdf:resource="http://www.ads.org/people/rahul-dave/" /> 
+    	<dc:contributor rdf:datatype="&xsd;string">Rahul Dave</dc:contributor> 
+    	<dc:publisher rdf:resource="http://semantics.ads.org" /> 
+        <dc:date rdf:datatype="&xsd;string">Tuesday 09 March 2010</dc:date> 
+        <dc:format rdf:datatype="&xsd;string">rdf/xml</dc:format>    
+    </owl:Ontology>   
+   <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+     
+  	<rdf:Description rdf:about="&dc;title">
+  	  	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;date">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+ 	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;creator">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;format">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;language">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;publisher">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dc;contributor">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+ 
+    <rdf:Description rdf:about="&dct;title">
+  	  	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dct;description">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+ 	</rdf:Description>
+  	<rdf:Description rdf:about="&dct;creator">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dct;created">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	<rdf:Description rdf:about="&dct;references">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description>
+  	
+    <!--rdf:Description rdf:about="&skos;scopeNote">
+    	<rdf:type rdf:resource="&owl;AnnotationProperty"/>
+  	</rdf:Description-->
+    <owl:AnnotationProperty rdf:about="&skos;scopeNote"/>
+  <skos:ConceptScheme rdf:about="">
+    <dct:created>2009-10-07</dct:created>
+    <!--dct:creator>
+      <rdf:Description>
+        <foaf:name>IVOA Semantics Working Group</foaf:name>
+      </rdf:Description>
+    </dct:creator-->
+    <dct:description xml:lang="en">This vocabulary is based on a set of keywords maintained jointly by the
+publishers of the journals Astronomy and Astrophysics
+(A&amp;amp;A), Monthly Notices of the Royal Astronomical Society
+(MNRAS) and the Astrophysical Journal (ApJ), and updated on
+an annual basis.  The different
+journals are slightly inconsistent with each other; we have rather
+arbitrarily used the 2008 list from the A&amp;amp;A web site.  The intended
+usage of the vocabulary is to tag articles with descriptive keywords
+to aid searching for articles on a particular topic.
+
+The keywords are organised into categories which have been modelled as
+hierarchical relationships.
+Additionally, some of the keywords are grouped into skos:Collections which
+has been mirrored in the SKOS version.
+The vocabulary contains no definitions or related links as these are
+not provided in the original keyword list, and only a handful of
+alternative labels and scope notes that are present in the original
+keyword list.</dct:description>
+    <dct:title xml:lang="en">Vocabulary for Astronomy &amp; Astrophysics Journal keywords (Version 1.19)</dct:title>
+    <skos:hasTopConcept rdf:resource="#AstrometryAndCelestialMechanics"/>
+    <skos:hasTopConcept rdf:resource="#AstronomicalDataBases"/>
+    <skos:hasTopConcept rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:hasTopConcept rdf:resource="#Cosmology"/>
+    <skos:hasTopConcept rdf:resource="#Galaxies"/>
+    <skos:hasTopConcept rdf:resource="#InterstellarMediumNebulae"/>
+    <skos:hasTopConcept rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:hasTopConcept rdf:resource="#SolarSystem"/>
+    <skos:hasTopConcept rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:hasTopConcept rdf:resource="#Stars"/>
+    <skos:hasTopConcept rdf:resource="#TheGalaxy"/>
+    <skos:hasTopConcept rdf:resource="#TheSun"/>
+  </skos:ConceptScheme>
+  
+  <skos:Concept rdf:about="#AccelerationOfParticles">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Acceleration of particles</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#AccretionAccretionDisks">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Accretion, accretion disks</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Astrobiology">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Astrobiology</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Astrochemistry">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Astrochemistry</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Astrometry">
+    <skos:broader rdf:resource="#AstrometryAndCelestialMechanics"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Astrometry</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#AstrometryAndCelestialMechanics">
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#Astrometry"/>
+    <skos:narrower rdf:resource="#CelestialMechanics"/>
+    <skos:narrower rdf:resource="#Eclipses"/>
+    <skos:narrower rdf:resource="#Ephemerides"/>
+    <skos:narrower rdf:resource="#Occultations"/>
+    <skos:narrower rdf:resource="#ReferenceSystems"/>
+    <skos:narrower rdf:resource="#Time"/>
+    <skos:prefLabel xml:lang="en">Astrometry and celestial mechanics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#AstronomicalDataBases">
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#AstronomicalDataBasesMiscellaneous"/>
+    <skos:narrower rdf:resource="#Atlases"/>
+    <skos:narrower rdf:resource="#Catalogs"/>
+    <skos:narrower rdf:resource="#Surveys"/>
+    <skos:prefLabel xml:lang="en">Astronomical data bases</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#AstronomicalDataBasesMiscellaneous">
+    <skos:broader rdf:resource="#AstronomicalDataBases"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Astronomical data bases: miscellaneous</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#AstronomicalInstrumentationMethodsAndTechniques">
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#AtmosphericEffects"/>
+    <skos:narrower rdf:resource="#Balloons"/>
+    <skos:narrower rdf:resource="#InstrumentationAdaptiveOptics"/>
+    <skos:narrower rdf:resource="#InstrumentationDetectors"/>
+    <skos:narrower rdf:resource="#InstrumentationHighAngularResolution"/>
+    <skos:narrower rdf:resource="#InstrumentationInterferometers"/>
+    <skos:narrower rdf:resource="#InstrumentationMiscellaneous"/>
+    <skos:narrower rdf:resource="#InstrumentationPhotometers"/>
+    <skos:narrower rdf:resource="#InstrumentationPolarimeters"/>
+    <skos:narrower rdf:resource="#InstrumentationSpectrographs"/>
+    <skos:narrower rdf:resource="#LightPollution"/>
+    <skos:narrower rdf:resource="#MethodsAnalytical"/>
+    <skos:narrower rdf:resource="#MethodsDataAnalysis"/>
+    <skos:narrower rdf:resource="#MethodsLaboratory"/>
+    <skos:narrower rdf:resource="#MethodsMiscellaneous"/>
+    <skos:narrower rdf:resource="#MethodsNbodySimulations"/>
+    <skos:narrower rdf:resource="#MethodsNumerical"/>
+    <skos:narrower rdf:resource="#MethodsObservational"/>
+    <skos:narrower rdf:resource="#MethodsStatistical"/>
+    <skos:narrower rdf:resource="#SiteTesting"/>
+    <skos:narrower rdf:resource="#SpaceVehicles"/>
+    <skos:narrower rdf:resource="#SpaceVehiclesInstruments"/>
+    <skos:narrower rdf:resource="#TechniquesHighAngularResolution"/>
+    <skos:narrower rdf:resource="#TechniquesImageProcessing"/>
+    <skos:narrower rdf:resource="#TechniquesInterferometric"/>
+    <skos:narrower rdf:resource="#TechniquesMiscellaneous"/>
+    <skos:narrower rdf:resource="#TechniquesPhotometric"/>
+    <skos:narrower rdf:resource="#TechniquesPolarimetric"/>
+    <skos:narrower rdf:resource="#TechniquesRadarAstronomy"/>
+    <skos:narrower rdf:resource="#TechniquesRadialVelocities"/>
+    <skos:narrower rdf:resource="#TechniquesSpectroscopic"/>
+    <skos:narrower rdf:resource="#Telescopes"/>
+    <skos:prefLabel xml:lang="en">Astronomical instrumentation, methods and techniques</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Atlases">
+    <skos:broader rdf:resource="#AstronomicalDataBases"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Atlases</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#AtmosphericEffects">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Atmospheric effects</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#AtomicData">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Atomic data</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#AtomicProcesses">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Atomic processes</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Balloons">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Balloons</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#BlackHolePhysics">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Black hole physics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Catalogs">
+    <skos:broader rdf:resource="#AstronomicalDataBases"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Catalogs</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#CelestialMechanics">
+    <skos:broader rdf:resource="#AstrometryAndCelestialMechanics"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Celestial mechanics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Chaos">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Chaos</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#CometsGeneral">
+    <skos:broader rdf:resource="#SolarSystem"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Comets: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Conduction">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Conduction</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Convection">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Convection</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Cosmology">
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#CosmologyCosmicMicrowaveBackground"/>
+    <skos:narrower rdf:resource="#CosmologyCosmologicalParameters"/>
+    <skos:narrower rdf:resource="#CosmologyDarkMatter"/>
+    <skos:narrower rdf:resource="#CosmologyDiffuseRadiation"/>
+    <skos:narrower rdf:resource="#CosmologyDistanceScale"/>
+    <skos:narrower rdf:resource="#CosmologyEarlyUniverse"/>
+    <skos:narrower rdf:resource="#CosmologyLargescaleStructureOfUniverse"/>
+    <skos:narrower rdf:resource="#CosmologyMiscellaneous"/>
+    <skos:narrower rdf:resource="#CosmologyObservations"/>
+    <skos:narrower rdf:resource="#CosmologyTheory"/>
+    <skos:prefLabel xml:lang="en">Cosmology</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#CosmologyCosmicMicrowaveBackground">
+    <skos:altLabel xml:lang="en">CMB</skos:altLabel>
+    <skos:broader rdf:resource="#Cosmology"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Cosmic microwave background</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#CosmologyCosmologicalParameters">
+    <skos:broader rdf:resource="#Cosmology"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Cosmological parameters</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#CosmologyDarkMatter">
+    <skos:broader rdf:resource="#Cosmology"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Dark matter</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#CosmologyDiffuseRadiation">
+    <skos:broader rdf:resource="#Cosmology"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Diffuse radiation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#CosmologyDistanceScale">
+    <skos:broader rdf:resource="#Cosmology"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Distance scale</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#CosmologyEarlyUniverse">
+    <skos:broader rdf:resource="#Cosmology"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Early universe</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#CosmologyLargescaleStructureOfUniverse">
+    <skos:broader rdf:resource="#Cosmology"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Large-scale structure of Universe</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#CosmologyMiscellaneous">
+    <skos:broader rdf:resource="#Cosmology"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Cosmology: miscellaneous</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#CosmologyObservations">
+    <skos:broader rdf:resource="#Cosmology"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Cosmology: observations</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#CosmologyTheory">
+    <skos:broader rdf:resource="#Cosmology"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Cosmology: theory</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#DenseMatter">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Dense matter</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Diffusion">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Diffusion</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Earth">
+    <skos:broader rdf:resource="#SolarSystem"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Earth</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Eclipses">
+    <skos:broader rdf:resource="#AstrometryAndCelestialMechanics"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Eclipses</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#ElementaryParticles">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Elementary particles</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Ephemerides">
+    <skos:broader rdf:resource="#AstrometryAndCelestialMechanics"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Ephemerides</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#EquationOfState">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Equation of state</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Galaxies">
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#GalaxiesAbundances"/>
+    <skos:narrower rdf:resource="#GalaxiesActive"/>
+    <skos:narrower rdf:resource="#GalaxiesBlLacertaeObjectsGeneral"/>
+    <skos:narrower rdf:resource="#GalaxiesBulges"/>
+    <skos:narrower rdf:resource="#GalaxiesClustersGeneral"/>
+    <skos:narrower rdf:resource="#GalaxiesCoolingFlows"/>
+    <skos:narrower rdf:resource="#GalaxiesDistancesAndRedshifts"/>
+    <skos:narrower rdf:resource="#GalaxiesDwarf"/>
+    <skos:narrower rdf:resource="#GalaxiesEllipticalAndLenticularCd"/>
+    <skos:narrower rdf:resource="#GalaxiesEvolution"/>
+    <skos:narrower rdf:resource="#GalaxiesFormation"/>
+    <skos:narrower rdf:resource="#GalaxiesFundamentalParameters"/>
+    <skos:narrower rdf:resource="#GalaxiesGeneral"/>
+    <skos:narrower rdf:resource="#GalaxiesHalos"/>
+    <skos:narrower rdf:resource="#GalaxiesHighredshift"/>
+    <skos:narrower rdf:resource="#GalaxiesInteractions"/>
+    <skos:narrower rdf:resource="#GalaxiesIntergalacticMedium"/>
+    <skos:narrower rdf:resource="#GalaxiesIrregular"/>
+    <skos:narrower rdf:resource="#GalaxiesIsm"/>
+    <skos:narrower rdf:resource="#GalaxiesJets"/>
+    <skos:narrower rdf:resource="#GalaxiesKinematicsAndDynamics"/>
+    <skos:narrower rdf:resource="#GalaxiesLocalGroup"/>
+    <skos:narrower rdf:resource="#GalaxiesLuminosityFunctionMassFunction"/>
+    <skos:narrower rdf:resource="#GalaxiesMagellanicClouds"/>
+    <skos:narrower rdf:resource="#GalaxiesMagneticFields"/>
+    <skos:narrower rdf:resource="#GalaxiesNuclei"/>
+    <skos:narrower rdf:resource="#GalaxiesPeculiar"/>
+    <skos:narrower rdf:resource="#GalaxiesPhotometry"/>
+    <skos:narrower rdf:resource="#GalaxiesQuasarsAbsorptionLines"/>
+    <skos:narrower rdf:resource="#GalaxiesQuasarsEmissionLines"/>
+    <skos:narrower rdf:resource="#GalaxiesQuasarsGeneral"/>
+    <skos:narrower rdf:resource="#GalaxiesSeyfert"/>
+    <skos:narrower rdf:resource="#GalaxiesSpiral"/>
+    <skos:narrower rdf:resource="#GalaxiesStarClusters"/>
+    <skos:narrower rdf:resource="#GalaxiesStarburst"/>
+    <skos:narrower rdf:resource="#GalaxiesStatistics"/>
+    <skos:narrower rdf:resource="#GalaxiesStellarContent"/>
+    <skos:narrower rdf:resource="#GalaxiesStructure"/>
+    <skos:prefLabel xml:lang="en">Galaxies</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesAbundances">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: abundances</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesActive">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: active</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesBlLacertaeObjectsGeneral">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">BL Lacertae objects: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesBulges">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: bulges</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesClustersGeneral">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: clusters: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesCoolingFlows">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Cooling flows</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesDistancesAndRedshifts">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: distances and redshifts</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesDwarf">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: dwarf</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesEllipticalAndLenticularCd">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: elliptical and lenticular, cD</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesEvolution">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: evolution</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesFormation">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: formation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesFundamentalParameters">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: fundamental parameters</skos:prefLabel>
+    <skos:scopeNote>Classification, colors, luminosities, masses, radii, temperatures, etc.</skos:scopeNote>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesGeneral">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesHalos">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: halos</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesHighredshift">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: high-redshift</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesInteractions">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: interactions</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesIntergalacticMedium">
+    <skos:altLabel xml:lang="en">IGM</skos:altLabel>
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Intergalactic medium</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesIrregular">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: irregular</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesIsm">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: ISM</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesJets">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: jets</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesKinematicsAndDynamics">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: kinematics and dynamics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesLocalGroup">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Local Group</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesLuminosityFunctionMassFunction">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: luminosity function, mass function</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesMagellanicClouds">
+    <skos:altLabel xml:lang="en">LMC</skos:altLabel>
+    <skos:altLabel xml:lang="en">SMC</skos:altLabel>
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Magellanic Clouds</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesMagneticFields">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: magnetic fields</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesNuclei">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: nuclei</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesPeculiar">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: peculiar</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesPhotometry">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: photometry</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesQuasarsAbsorptionLines">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Quasars: absorption lines</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesQuasarsEmissionLines">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Quasars: emission lines</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesQuasarsGeneral">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Quasars: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesSeyfert">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: Seyfert</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesSpiral">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: spiral</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesStarClusters">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: star clusters</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesStarburst">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: starburst</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesStatistics">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: statistics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesStellarContent">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: stellar content</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxiesStructure">
+    <skos:broader rdf:resource="#Galaxies"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxies: structure</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxyAbundances">
+    <skos:broader rdf:resource="#TheGalaxy"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxy: abundances</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxyBulge">
+    <skos:broader rdf:resource="#TheGalaxy"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxy: bulge</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxyCenter">
+    <skos:broader rdf:resource="#TheGalaxy"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxy: center</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxyDisk">
+    <skos:broader rdf:resource="#TheGalaxy"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxy: disk</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxyEvolution">
+    <skos:broader rdf:resource="#TheGalaxy"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxy: evolution</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxyFormation">
+    <skos:broader rdf:resource="#TheGalaxy"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxy: formation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxyFundamentalParameters">
+    <skos:broader rdf:resource="#TheGalaxy"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxy: fundamental parameters</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxyGeneral">
+    <skos:broader rdf:resource="#TheGalaxy"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxy: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxyGlobularClustersGeneral">
+    <skos:broader rdf:resource="#TheGalaxy"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Globular clusters: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxyHalo">
+    <skos:broader rdf:resource="#TheGalaxy"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxy: halo</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxyKinematicsAndDynamics">
+    <skos:broader rdf:resource="#TheGalaxy"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxy: kinematics and dynamics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxyNucleus">
+    <skos:broader rdf:resource="#TheGalaxy"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxy: nucleus</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxyOpenClustersAndAssociationsgeneral">
+    <skos:broader rdf:resource="#TheGalaxy"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Open clusters and associations:general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxySolarNeighbourhood">
+    <skos:broader rdf:resource="#TheGalaxy"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Solar neighbourhood</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxyStellarContent">
+    <skos:broader rdf:resource="#TheGalaxy"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxy: stellar content</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GalaxyStructure">
+    <skos:broader rdf:resource="#TheGalaxy"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Galaxy: structure</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GammaRaysBursts">
+    <skos:altLabel xml:lang="en">GRB</skos:altLabel>
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Gamma rays: bursts</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GammaRaysObservations">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Gamma rays: observations</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GammaRaysTheory">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Gamma rays: theory</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Gravitation">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Gravitation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GravitationalLensing">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Gravitational lensing</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#GravitationalWaves">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Gravitational waves</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Hydrodynamics">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Hydrodynamics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#InfraredGalaxies">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Infrared: galaxies</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#InfraredGeneral">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Infrared: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#InfraredIsm">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Infrared: ISM</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#InfraredSolarSystem">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Infrared: solar system</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#InfraredStars">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Infrared: stars</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Instabilities">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Instabilities</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#InstrumentationAdaptiveOptics">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Instrumentation: adaptive optics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#InstrumentationDetectors">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Instrumentation: detectors</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#InstrumentationHighAngularResolution">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Instrumentation: high angular resolution</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#InstrumentationInterferometers">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Instrumentation: interferometers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#InstrumentationMiscellaneous">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Instrumentation: miscellaneous</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#InstrumentationPhotometers">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Instrumentation: photometers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#InstrumentationPolarimeters">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Instrumentation: polarimeters</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#InstrumentationSpectrographs">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Instrumentation: spectrographs</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#InterplanetaryMedium">
+    <skos:broader rdf:resource="#SolarSystem"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Interplanetary medium</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#InterstellarMediumNebulae">
+    <skos:altLabel xml:lang="en">ISM, nebulae</skos:altLabel>
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#IsmAbundances"/>
+    <skos:narrower rdf:resource="#IsmAtoms"/>
+    <skos:narrower rdf:resource="#IsmBubbles"/>
+    <skos:narrower rdf:resource="#IsmClouds"/>
+    <skos:narrower rdf:resource="#IsmCosmicRays"/>
+    <skos:narrower rdf:resource="#IsmDustExtinction"/>
+    <skos:narrower rdf:resource="#IsmEvolution"/>
+    <skos:narrower rdf:resource="#IsmGeneral"/>
+    <skos:narrower rdf:resource="#IsmHerbigharoObjects"/>
+    <skos:narrower rdf:resource="#IsmHiiRegions"/>
+    <skos:narrower rdf:resource="#IsmJetsAndOutflows"/>
+    <skos:narrower rdf:resource="#IsmKinematicsAndDynamics"/>
+    <skos:narrower rdf:resource="#IsmLinesAndBands"/>
+    <skos:narrower rdf:resource="#IsmMagneticFields"/>
+    <skos:narrower rdf:resource="#IsmMolecules"/>
+    <skos:narrower rdf:resource="#IsmPlanetaryNebulaeGeneral"/>
+    <skos:narrower rdf:resource="#IsmReflectionNebulae"/>
+    <skos:narrower rdf:resource="#IsmStructure"/>
+    <skos:narrower rdf:resource="#IsmSupernovaRemnants"/>
+    <skos:prefLabel xml:lang="en">Interstellar medium, nebulae</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#IsmAbundances">
+    <skos:broader rdf:resource="#InterstellarMediumNebulae"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">ISM: abundances</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#IsmAtoms">
+    <skos:broader rdf:resource="#InterstellarMediumNebulae"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">ISM: atoms</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#IsmBubbles">
+    <skos:broader rdf:resource="#InterstellarMediumNebulae"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">ISM: bubbles</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#IsmClouds">
+    <skos:broader rdf:resource="#InterstellarMediumNebulae"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">ISM: clouds</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#IsmCosmicRays">
+    <skos:broader rdf:resource="#InterstellarMediumNebulae"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Cosmic rays</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#IsmDustExtinction">
+    <skos:broader rdf:resource="#InterstellarMediumNebulae"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Dust, extinction</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#IsmEvolution">
+    <skos:broader rdf:resource="#InterstellarMediumNebulae"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Evolution</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#IsmGeneral">
+    <skos:broader rdf:resource="#InterstellarMediumNebulae"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">ISM: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#IsmHerbigharoObjects">
+    <skos:broader rdf:resource="#InterstellarMediumNebulae"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Herbig-Haro objects</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#IsmHiiRegions">
+    <skos:broader rdf:resource="#InterstellarMediumNebulae"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">HII regions</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#IsmJetsAndOutflows">
+    <skos:broader rdf:resource="#InterstellarMediumNebulae"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">ISM: jets and outflows</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#IsmKinematicsAndDynamics">
+    <skos:broader rdf:resource="#InterstellarMediumNebulae"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">ISM: kinematics and dynamics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#IsmLinesAndBands">
+    <skos:broader rdf:resource="#InterstellarMediumNebulae"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">ISM: lines and bands</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#IsmMagneticFields">
+    <skos:broader rdf:resource="#InterstellarMediumNebulae"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">ISM: magnetic fields</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#IsmMolecules">
+    <skos:broader rdf:resource="#InterstellarMediumNebulae"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">ISM: molecules</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#IsmPlanetaryNebulaeGeneral">
+    <skos:altLabel xml:lang="en">PN</skos:altLabel>
+    <skos:broader rdf:resource="#InterstellarMediumNebulae"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Planetary nebulae: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#IsmReflectionNebulae">
+    <skos:broader rdf:resource="#InterstellarMediumNebulae"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Reflection nebulae</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#IsmStructure">
+    <skos:broader rdf:resource="#InterstellarMediumNebulae"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">ISM: structure</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#IsmSupernovaRemnants">
+    <skos:altLabel xml:lang="en">SNR</skos:altLabel>
+    <skos:broader rdf:resource="#InterstellarMediumNebulae"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">ISM: supernova remnants</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#KuiperBelt">
+    <skos:broader rdf:resource="#SolarSystem"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Kuiper Belt</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#LightPollution">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Light pollution</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#LineFormation">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Line: formation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#LineIdentification">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Line: identification</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#LineProfiles">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Line: profiles</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#MagneticFields">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Magnetic fields</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Magnetohydrodynamics">
+    <skos:altLabel xml:lang="en">Magnetohydrodynamics</skos:altLabel>
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">MHD</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Masers">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Masers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#MeteorsMeteoroids">
+    <skos:broader rdf:resource="#SolarSystem"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Meteors, meteoroids</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#MethodsAnalytical">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Methods: analytical</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#MethodsDataAnalysis">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Methods: data analysis</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#MethodsLaboratory">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Methods: laboratory</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#MethodsMiscellaneous">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Methods: miscellaneous</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#MethodsNbodySimulations">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Methods: N-body simulations</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#MethodsNumerical">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Methods: numerical</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#MethodsObservational">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Methods: observational</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#MethodsStatistical">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Methods: statistical</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#MinorPlanetsAsteroids">
+    <skos:broader rdf:resource="#SolarSystem"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Minor planets, asteroids</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#MolecularData">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Molecular data</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#MolecularProcesses">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Molecular processes</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Moon">
+    <skos:broader rdf:resource="#SolarSystem"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Moon</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Neutrinos">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Neutrinos</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#NuclearReactionsNucleosynthesisAbundances">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Nuclear reactions, nucleosynthesis, abundances</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Occultations">
+    <skos:broader rdf:resource="#AstrometryAndCelestialMechanics"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Occultations</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#OortCloud">
+    <skos:broader rdf:resource="#SolarSystem"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Oort Cloud</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#PhysicalDataAndProcesses">
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#AccelerationOfParticles"/>
+    <skos:narrower rdf:resource="#AccretionAccretionDisks"/>
+    <skos:narrower rdf:resource="#Astrobiology"/>
+    <skos:narrower rdf:resource="#Astrochemistry"/>
+    <skos:narrower rdf:resource="#AtomicData"/>
+    <skos:narrower rdf:resource="#AtomicProcesses"/>
+    <skos:narrower rdf:resource="#BlackHolePhysics"/>
+    <skos:narrower rdf:resource="#Chaos"/>
+    <skos:narrower rdf:resource="#Conduction"/>
+    <skos:narrower rdf:resource="#Convection"/>
+    <skos:narrower rdf:resource="#DenseMatter"/>
+    <skos:narrower rdf:resource="#Diffusion"/>
+    <skos:narrower rdf:resource="#ElementaryParticles"/>
+    <skos:narrower rdf:resource="#EquationOfState"/>
+    <skos:narrower rdf:resource="#Gravitation"/>
+    <skos:narrower rdf:resource="#GravitationalLensing"/>
+    <skos:narrower rdf:resource="#GravitationalWaves"/>
+    <skos:narrower rdf:resource="#Hydrodynamics"/>
+    <skos:narrower rdf:resource="#Instabilities"/>
+    <skos:narrower rdf:resource="#LineFormation"/>
+    <skos:narrower rdf:resource="#LineIdentification"/>
+    <skos:narrower rdf:resource="#LineProfiles"/>
+    <skos:narrower rdf:resource="#MagneticFields"/>
+    <skos:narrower rdf:resource="#Magnetohydrodynamics"/>
+    <skos:narrower rdf:resource="#Masers"/>
+    <skos:narrower rdf:resource="#MolecularData"/>
+    <skos:narrower rdf:resource="#MolecularProcesses"/>
+    <skos:narrower rdf:resource="#Neutrinos"/>
+    <skos:narrower rdf:resource="#NuclearReactionsNucleosynthesisAbundances"/>
+    <skos:narrower rdf:resource="#Plasmas"/>
+    <skos:narrower rdf:resource="#Polarization"/>
+    <skos:narrower rdf:resource="#RadiationMechanismsGeneral"/>
+    <skos:narrower rdf:resource="#RadiationMechanismsNonthermal"/>
+    <skos:narrower rdf:resource="#RadiationMechanismsThermal"/>
+    <skos:narrower rdf:resource="#RadiativeTransfer"/>
+    <skos:narrower rdf:resource="#Relativity"/>
+    <skos:narrower rdf:resource="#Scattering"/>
+    <skos:narrower rdf:resource="#ShockWaves"/>
+    <skos:narrower rdf:resource="#StellarDynamics"/>
+    <skos:narrower rdf:resource="#Turbulence"/>
+    <skos:narrower rdf:resource="#Waves"/>
+    <skos:prefLabel xml:lang="en">Physical data and processes</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#PlanetsAndSatellitesFormation">
+    <skos:broader rdf:resource="#SolarSystem"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Planets and satellites: formation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#PlanetsAndSatellitesGeneral">
+    <skos:broader rdf:resource="#SolarSystem"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Planets and satellites: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#PlanetsRings">
+    <skos:broader rdf:resource="#SolarSystem"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Planets: rings</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Plasmas">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Plasmas</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Polarization">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Polarization</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#RadiationMechanismsGeneral">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Radiation mechanisms: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#RadiationMechanismsNonthermal">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Radiation mechanisms: non-thermal</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#RadiationMechanismsThermal">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Radiation mechanisms: thermal</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#RadiativeTransfer">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Radiative transfer</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#RadioContinuumGalaxies">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Radio continuum: galaxies</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#RadioContinuumGeneral">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Radio continuum: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#RadioContinuumIsm">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Radio continuum: ISM</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#RadioContinuumSolarSystem">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Radio continuum: solar system</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#RadioContinuumStars">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Radio continuum: stars</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#RadioLinesGalaxies">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Radio lines: galaxies</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#RadioLinesGeneral">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Radio lines: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#RadioLinesIsm">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Radio lines: ISM</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#RadioLinesSolarSystem">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Radio lines: solar system</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#RadioLinesStars">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Radio lines: stars</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#ReferenceSystems">
+    <skos:broader rdf:resource="#AstrometryAndCelestialMechanics"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Reference systems</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Relativity">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Relativity</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Scattering">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Scattering</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#ShockWaves">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Shock waves</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SiteTesting">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Site testing</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SolarSystem">
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#CometsGeneral"/>
+    <skos:narrower rdf:resource="#Earth"/>
+    <skos:narrower rdf:resource="#InterplanetaryMedium"/>
+    <skos:narrower rdf:resource="#KuiperBelt"/>
+    <skos:narrower rdf:resource="#MeteorsMeteoroids"/>
+    <skos:narrower rdf:resource="#MinorPlanetsAsteroids"/>
+    <skos:narrower rdf:resource="#Moon"/>
+    <skos:narrower rdf:resource="#OortCloud"/>
+    <skos:narrower rdf:resource="#PlanetsAndSatellitesFormation"/>
+    <skos:narrower rdf:resource="#PlanetsAndSatellitesGeneral"/>
+    <skos:narrower rdf:resource="#PlanetsRings"/>
+    <skos:narrower rdf:resource="#SolarSystemFormation"/>
+    <skos:narrower rdf:resource="#SolarSystemGeneral"/>
+    <skos:prefLabel xml:lang="en">Solar system</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SolarSystemFormation">
+    <skos:broader rdf:resource="#SolarSystem"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Solar system: formation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SolarSystemGeneral">
+    <skos:broader rdf:resource="#SolarSystem"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Solar system: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SourcesAsAFunctionOfWavelength">
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#GammaRaysBursts"/>
+    <skos:narrower rdf:resource="#GammaRaysObservations"/>
+    <skos:narrower rdf:resource="#GammaRaysTheory"/>
+    <skos:narrower rdf:resource="#InfraredGalaxies"/>
+    <skos:narrower rdf:resource="#InfraredGeneral"/>
+    <skos:narrower rdf:resource="#InfraredIsm"/>
+    <skos:narrower rdf:resource="#InfraredSolarSystem"/>
+    <skos:narrower rdf:resource="#InfraredStars"/>
+    <skos:narrower rdf:resource="#RadioContinuumGalaxies"/>
+    <skos:narrower rdf:resource="#RadioContinuumGeneral"/>
+    <skos:narrower rdf:resource="#RadioContinuumIsm"/>
+    <skos:narrower rdf:resource="#RadioContinuumSolarSystem"/>
+    <skos:narrower rdf:resource="#RadioContinuumStars"/>
+    <skos:narrower rdf:resource="#RadioLinesGalaxies"/>
+    <skos:narrower rdf:resource="#RadioLinesGeneral"/>
+    <skos:narrower rdf:resource="#RadioLinesIsm"/>
+    <skos:narrower rdf:resource="#RadioLinesSolarSystem"/>
+    <skos:narrower rdf:resource="#RadioLinesStars"/>
+    <skos:narrower rdf:resource="#Submillimeter"/>
+    <skos:narrower rdf:resource="#UltravioletGalaxies"/>
+    <skos:narrower rdf:resource="#UltravioletGeneral"/>
+    <skos:narrower rdf:resource="#UltravioletIsm"/>
+    <skos:narrower rdf:resource="#UltravioletSolarSystem"/>
+    <skos:narrower rdf:resource="#UltravioletStars"/>
+    <skos:narrower rdf:resource="#XraysBinaries"/>
+    <skos:narrower rdf:resource="#XraysBursts"/>
+    <skos:narrower rdf:resource="#XraysDiffuseBackground"/>
+    <skos:narrower rdf:resource="#XraysGalaxies"/>
+    <skos:narrower rdf:resource="#XraysGalaxiesClusters"/>
+    <skos:narrower rdf:resource="#XraysGeneral"/>
+    <skos:narrower rdf:resource="#XraysIsm"/>
+    <skos:narrower rdf:resource="#XraysStars"/>
+    <skos:prefLabel xml:lang="en">Sources as a function of wavelength</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SpaceVehicles">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Space vehicles</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SpaceVehiclesInstruments">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Space vehicles: instruments</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Stars">
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#StarsAbundances"/>
+    <skos:narrower rdf:resource="#StarsActivity"/>
+    <skos:narrower rdf:resource="#StarsAgbAndPostagb"/>
+    <skos:narrower rdf:resource="#StarsAtmospheres"/>
+    <skos:narrower rdf:resource="#StarsBinariesClose"/>
+    <skos:narrower rdf:resource="#StarsBinariesEclipsing"/>
+    <skos:narrower rdf:resource="#StarsBinariesGeneral"/>
+    <skos:narrower rdf:resource="#StarsBinariesSpectroscopic"/>
+    <skos:narrower rdf:resource="#StarsBinariesSymbiotic"/>
+    <skos:narrower rdf:resource="#StarsBinariesVisual"/>
+    <skos:narrower rdf:resource="#StarsBlueStragglers"/>
+    <skos:narrower rdf:resource="#StarsCarbon"/>
+    <skos:narrower rdf:resource="#StarsChemicallyPeculiar"/>
+    <skos:narrower rdf:resource="#StarsChromospheres"/>
+    <skos:narrower rdf:resource="#StarsCircumstellarMatter"/>
+    <skos:narrower rdf:resource="#StarsCoronae"/>
+    <skos:narrower rdf:resource="#StarsDistances"/>
+    <skos:narrower rdf:resource="#StarsDwarfNovae"/>
+    <skos:narrower rdf:resource="#StarsEarlytype"/>
+    <skos:narrower rdf:resource="#StarsEmissionlineBe"/>
+    <skos:narrower rdf:resource="#StarsEvolution"/>
+    <skos:narrower rdf:resource="#StarsFlare"/>
+    <skos:narrower rdf:resource="#StarsFormation"/>
+    <skos:narrower rdf:resource="#StarsFundamentalParameters"/>
+    <skos:narrower rdf:resource="#StarsGeneral"/>
+    <skos:narrower rdf:resource="#StarsHertzsprungrussellAndCmDiagrams"/>
+    <skos:narrower rdf:resource="#StarsHorizontalbranch"/>
+    <skos:narrower rdf:resource="#StarsImaging"/>
+    <skos:narrower rdf:resource="#StarsInteriors"/>
+    <skos:narrower rdf:resource="#StarsKinematics"/>
+    <skos:narrower rdf:resource="#StarsLatetype"/>
+    <skos:narrower rdf:resource="#StarsLowmassBrownDwarfs"/>
+    <skos:narrower rdf:resource="#StarsLuminosityFunctionMassFunction"/>
+    <skos:narrower rdf:resource="#StarsMagneticFields"/>
+    <skos:narrower rdf:resource="#StarsMassloss"/>
+    <skos:narrower rdf:resource="#StarsNeutron"/>
+    <skos:narrower rdf:resource="#StarsNovaeCataclysmicVariables"/>
+    <skos:narrower rdf:resource="#StarsOscillations"/>
+    <skos:narrower rdf:resource="#StarsPeculiar"/>
+    <skos:narrower rdf:resource="#StarsPlanetarySystems"/>
+    <skos:narrower rdf:resource="#StarsPlanetarySystemsFormation"/>
+    <skos:narrower rdf:resource="#StarsPlanetarySystemsProtoplanetaryDisks"/>
+    <skos:narrower rdf:resource="#StarsPopulationIi"/>
+    <skos:narrower rdf:resource="#StarsPremainSequence"/>
+    <skos:narrower rdf:resource="#StarsPulsarsGeneral"/>
+    <skos:narrower rdf:resource="#StarsRotation"/>
+    <skos:narrower rdf:resource="#StarsStarspots"/>
+    <skos:narrower rdf:resource="#StarsStatistics"/>
+    <skos:narrower rdf:resource="#StarsSubdwarfs"/>
+    <skos:narrower rdf:resource="#StarsSupergiants"/>
+    <skos:narrower rdf:resource="#StarsSupernovaeGeneral"/>
+    <skos:narrower rdf:resource="#StarsVariablesCepheids"/>
+    <skos:narrower rdf:resource="#StarsVariablesDeltaSct"/>
+    <skos:narrower rdf:resource="#StarsVariablesGeneral"/>
+    <skos:narrower rdf:resource="#StarsVariablesRrLyr"/>
+    <skos:narrower rdf:resource="#StarsWhiteDwarfs"/>
+    <skos:narrower rdf:resource="#StarsWindsOutflows"/>
+    <skos:narrower rdf:resource="#StarsWolfrayet"/>
+    <skos:prefLabel xml:lang="en">Stars</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsAbundances">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: abundances</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsActivity">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: activity</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsAgbAndPostagb">
+    <skos:altLabel xml:lang="en">AGB</skos:altLabel>
+    <skos:altLabel xml:lang="en">post-AGB</skos:altLabel>
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: AGB and post-AGB</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsAtmospheres">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: atmospheres</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsBinariesClose">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Binaries: close</skos:prefLabel>
+    <skos:scopeNote>Including multiple</skos:scopeNote>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsBinariesEclipsing">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Binaries: eclipsing</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsBinariesGeneral">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Binaries: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsBinariesSpectroscopic">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Binaries: spectroscopic</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsBinariesSymbiotic">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Binaries: symbiotic</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsBinariesVisual">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Binaries: visual</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsBlueStragglers">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Blue stragglers</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsCarbon">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: carbon</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsChemicallyPeculiar">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: chemically peculiar</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsChromospheres">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: chromospheres</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsCircumstellarMatter">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Circumstellar matter</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsCoronae">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: coronae</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsDistances">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: distances</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsDwarfNovae">
+    <skos:altLabel xml:lang="en">star.variable.UGem-class</skos:altLabel>
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: dwarf novae</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsEarlytype">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: early-type</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsEmissionlineBe">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: emission-line, Be</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsEvolution">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: evolution</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsFlare">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: flare</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsFormation">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: formation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsFundamentalParameters">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: fundamental parameters</skos:prefLabel>
+    <skos:scopeNote>Classification, colors, luminosities, masses, radii, temperatures, etc.</skos:scopeNote>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsGeneral">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsHertzsprungrussellAndCmDiagrams">
+    <skos:altLabel xml:lang="en">Color-Magnitude diagrams</skos:altLabel>
+    <skos:altLabel xml:lang="en">H-R and C-M diagrams</skos:altLabel>
+    <skos:altLabel xml:lang="en">H-R and CM diagrams</skos:altLabel>
+    <skos:altLabel xml:lang="en">HR and C-M diagrams</skos:altLabel>
+    <skos:altLabel xml:lang="en">HR and CM diagrams</skos:altLabel>
+    <skos:altLabel xml:lang="en">Hertzsprung-Russel and Color-Magnitude diagrams</skos:altLabel>
+    <skos:altLabel xml:lang="en">Hertzsprung-Russel diagrams</skos:altLabel>
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Hertzsprung-Russell and C-M diagrams</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsHorizontalbranch">
+    <skos:altLabel xml:lang="en">HB</skos:altLabel>
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: horizontal-branch</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsImaging">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: imaging</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsInteriors">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: interiors</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsKinematics">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: kinematics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsLatetype">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: late-type</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsLowmassBrownDwarfs">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: low-mass, brown dwarfs</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsLuminosityFunctionMassFunction">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: luminosity function, mass function</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsMagneticFields">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: magnetic fields</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsMassloss">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: mass-loss</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsNeutron">
+    <skos:altLabel xml:lang="en">NS</skos:altLabel>
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: neutron</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsNovaeCataclysmicVariables">
+    <skos:altLabel xml:lang="en">CV</skos:altLabel>
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Novae, cataclysmic variables</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsOscillations">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: oscillations</skos:prefLabel>
+    <skos:scopeNote>Including pulsations</skos:scopeNote>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsPeculiar">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: peculiar</skos:prefLabel>
+    <skos:scopeNote>Except chemically peculiar</skos:scopeNote>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsPlanetarySystems">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Planetary systems</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsPlanetarySystemsFormation">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Planetary systems: formation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsPlanetarySystemsProtoplanetaryDisks">
+    <skos:altLabel xml:lang="en">proplyd</skos:altLabel>
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Planetary systems: protoplanetary disks</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsPopulationIi">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: Population II</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsPremainSequence">
+    <skos:altLabel xml:lang="en">PMS</skos:altLabel>
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: pre-main sequence</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsPulsarsGeneral">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Pulsars: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsRotation">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: rotation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsStarspots">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Starspots</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsStatistics">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: statistics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsSubdwarfs">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Subdwarfs</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsSupergiants">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Supergiants</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsSupernovaeGeneral">
+    <skos:altLabel xml:lang="en">SN</skos:altLabel>
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Supernovae: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsVariablesCepheids">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Cepheids</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsVariablesDeltaSct">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Delta Sct</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsVariablesGeneral">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: variables: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsVariablesRrLyr">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: variables: RR Lyr</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsWhiteDwarfs">
+    <skos:altLabel xml:lang="en">WD</skos:altLabel>
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">White dwarfs</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsWindsOutflows">
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: winds, outflows</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StarsWolfrayet">
+    <skos:altLabel xml:lang="en">WR</skos:altLabel>
+    <skos:broader rdf:resource="#Stars"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stars: Wolf-Rayet</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#StellarDynamics">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Stellar dynamics</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Submillimeter">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Submillimeter</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunAbundances">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: abundances</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunActivity">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: activity</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunAtmosphere">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: atmosphere</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunChromosphere">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: chromosphere</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunCorona">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: corona</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunCoronalMassEjections">
+    <skos:altLabel xml:lang="en">CMEs</skos:altLabel>
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: coronal mass ejections</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunEvolution">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: evolution</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunFaculaePlages">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: faculae, plages</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunFilaments">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: filaments</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunFlares">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: flares</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunFundamentalParameters">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: fundamental parameters</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunGeneral">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunGranulation">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: granulation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunHelioseismology">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: helioseismology</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunInfrared">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: infrared</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunInterior">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: interior</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunMagneticFields">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: magnetic fields</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunOscillations">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: oscillations</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunParticleEmission">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: particle emission</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunPhotosphere">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: photosphere</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunProminences">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: prominences</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunRadioRadiation">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: radio radiation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunRotation">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: rotation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunSolarWind">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Solar wind</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunSolarterrestrialRelations">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Solar-terrestrial relations</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunSunspots">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sunspots</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunTransitionRegion">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: transition region</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunUvRadiation">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: UV radiation</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#SunXraysGammaRays">
+    <skos:broader rdf:resource="#TheSun"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Sun: X-rays, gamma rays</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Surveys">
+    <skos:broader rdf:resource="#AstronomicalDataBases"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Surveys</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#TechniquesHighAngularResolution">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Techniques: high angular resolution</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#TechniquesImageProcessing">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Techniques: image processing</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#TechniquesInterferometric">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Techniques: interferometric</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#TechniquesMiscellaneous">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Techniques: miscellaneous</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#TechniquesPhotometric">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Techniques: photometric</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#TechniquesPolarimetric">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Techniques: polarimetric</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#TechniquesRadarAstronomy">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Techniques: radar astronomy</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#TechniquesRadialVelocities">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Techniques: radial velocities</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#TechniquesSpectroscopic">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Techniques: spectroscopic</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Telescopes">
+    <skos:broader rdf:resource="#AstronomicalInstrumentationMethodsAndTechniques"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Telescopes</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#TheGalaxy">
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#GalaxyAbundances"/>
+    <skos:narrower rdf:resource="#GalaxyBulge"/>
+    <skos:narrower rdf:resource="#GalaxyCenter"/>
+    <skos:narrower rdf:resource="#GalaxyDisk"/>
+    <skos:narrower rdf:resource="#GalaxyEvolution"/>
+    <skos:narrower rdf:resource="#GalaxyFormation"/>
+    <skos:narrower rdf:resource="#GalaxyFundamentalParameters"/>
+    <skos:narrower rdf:resource="#GalaxyGeneral"/>
+    <skos:narrower rdf:resource="#GalaxyGlobularClustersGeneral"/>
+    <skos:narrower rdf:resource="#GalaxyHalo"/>
+    <skos:narrower rdf:resource="#GalaxyKinematicsAndDynamics"/>
+    <skos:narrower rdf:resource="#GalaxyNucleus"/>
+    <skos:narrower rdf:resource="#GalaxyOpenClustersAndAssociationsgeneral"/>
+    <skos:narrower rdf:resource="#GalaxySolarNeighbourhood"/>
+    <skos:narrower rdf:resource="#GalaxyStellarContent"/>
+    <skos:narrower rdf:resource="#GalaxyStructure"/>
+    <skos:prefLabel xml:lang="en">The Galaxy</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#TheSun">
+    <skos:inScheme rdf:resource=""/>
+    <skos:narrower rdf:resource="#SunAbundances"/>
+    <skos:narrower rdf:resource="#SunActivity"/>
+    <skos:narrower rdf:resource="#SunAtmosphere"/>
+    <skos:narrower rdf:resource="#SunChromosphere"/>
+    <skos:narrower rdf:resource="#SunCorona"/>
+    <skos:narrower rdf:resource="#SunCoronalMassEjections"/>
+    <skos:narrower rdf:resource="#SunEvolution"/>
+    <skos:narrower rdf:resource="#SunFaculaePlages"/>
+    <skos:narrower rdf:resource="#SunFilaments"/>
+    <skos:narrower rdf:resource="#SunFlares"/>
+    <skos:narrower rdf:resource="#SunFundamentalParameters"/>
+    <skos:narrower rdf:resource="#SunGeneral"/>
+    <skos:narrower rdf:resource="#SunGranulation"/>
+    <skos:narrower rdf:resource="#SunHelioseismology"/>
+    <skos:narrower rdf:resource="#SunInfrared"/>
+    <skos:narrower rdf:resource="#SunInterior"/>
+    <skos:narrower rdf:resource="#SunMagneticFields"/>
+    <skos:narrower rdf:resource="#SunOscillations"/>
+    <skos:narrower rdf:resource="#SunParticleEmission"/>
+    <skos:narrower rdf:resource="#SunPhotosphere"/>
+    <skos:narrower rdf:resource="#SunProminences"/>
+    <skos:narrower rdf:resource="#SunRadioRadiation"/>
+    <skos:narrower rdf:resource="#SunRotation"/>
+    <skos:narrower rdf:resource="#SunSolarWind"/>
+    <skos:narrower rdf:resource="#SunSolarterrestrialRelations"/>
+    <skos:narrower rdf:resource="#SunSunspots"/>
+    <skos:narrower rdf:resource="#SunTransitionRegion"/>
+    <skos:narrower rdf:resource="#SunUvRadiation"/>
+    <skos:narrower rdf:resource="#SunXraysGammaRays"/>
+    <skos:prefLabel xml:lang="en">The Sun</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Time">
+    <skos:broader rdf:resource="#AstrometryAndCelestialMechanics"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Time</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Turbulence">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Turbulence</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#UltravioletGalaxies">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Ultraviolet: galaxies</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#UltravioletGeneral">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Ultraviolet: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#UltravioletIsm">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Ultraviolet: ISM</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#UltravioletSolarSystem">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Ultraviolet: solar system</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#UltravioletStars">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Ultraviolet: stars</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#Waves">
+    <skos:broader rdf:resource="#PhysicalDataAndProcesses"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">Waves</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#XraysBinaries">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">X-rays: binaries</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#XraysBursts">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">X-rays: bursts</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#XraysDiffuseBackground">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">X-rays: diffuse background</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#XraysGalaxies">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">X-rays: galaxies</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#XraysGalaxiesClusters">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">X-rays: galaxies: clusters</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#XraysGeneral">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">X-rays: general</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#XraysIsm">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">X-rays: ISM</skos:prefLabel>
+  </skos:Concept>
+  <skos:Concept rdf:about="#XraysStars">
+    <skos:broader rdf:resource="#SourcesAsAFunctionOfWavelength"/>
+    <skos:inScheme rdf:resource=""/>
+    <skos:prefLabel xml:lang="en">X-rays: stars</skos:prefLabel>
+  </skos:Concept>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Line</rdfs:label>
+    <skos:member rdf:resource="#LineFormation"/>
+    <skos:member rdf:resource="#LineIdentification"/>
+    <skos:member rdf:resource="#LineProfiles"/>
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Radiation mechanisms</rdfs:label>
+    <skos:member rdf:resource="#RadiationMechanismsGeneral"/>
+    <skos:member rdf:resource="#RadiationMechanismsNonthermal"/>
+    <skos:member rdf:resource="#RadiationMechanismsThermal"/>
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Instrumentation</rdfs:label>
+    <skos:member rdf:resource="#InstrumentationAdaptiveOptics"/>
+    <skos:member rdf:resource="#InstrumentationDetectors"/>
+    <skos:member rdf:resource="#InstrumentationHighAngularResolution"/>
+    <skos:member rdf:resource="#InstrumentationInterferometers"/>
+    <skos:member rdf:resource="#InstrumentationMiscellaneous"/>
+    <skos:member rdf:resource="#InstrumentationPhotometers"/>
+    <skos:member rdf:resource="#InstrumentationPolarimeters"/>
+    <skos:member rdf:resource="#InstrumentationSpectrographs"/>
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Methods</rdfs:label>
+    <skos:member rdf:resource="#MethodsAnalytical"/>
+    <skos:member rdf:resource="#MethodsDataAnalysis"/>
+    <skos:member rdf:resource="#MethodsLaboratory"/>
+    <skos:member rdf:resource="#MethodsMiscellaneous"/>
+    <skos:member rdf:resource="#MethodsNbodySimulations"/>
+    <skos:member rdf:resource="#MethodsNumerical"/>
+    <skos:member rdf:resource="#MethodsObservational"/>
+    <skos:member rdf:resource="#MethodsStatistical"/>
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Space vehicles</rdfs:label>
+    <skos:member rdf:resource="#SpaceVehicles"/>
+    <skos:member rdf:resource="#SpaceVehiclesInstruments"/>
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Techniques</rdfs:label>
+    <skos:member rdf:resource="#TechniquesHighAngularResolution"/>
+    <skos:member rdf:resource="#TechniquesImageProcessing"/>
+    <skos:member rdf:resource="#TechniquesInterferometric"/>
+    <skos:member rdf:resource="#TechniquesMiscellaneous"/>
+    <skos:member rdf:resource="#TechniquesPhotometric"/>
+    <skos:member rdf:resource="#TechniquesPolarimetric"/>
+    <skos:member rdf:resource="#TechniquesRadarAstronomy"/>
+    <skos:member rdf:resource="#TechniquesRadialVelocities"/>
+    <skos:member rdf:resource="#TechniquesSpectroscopic"/>
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Astronomical data bases</rdfs:label>
+    <skos:member rdf:resource="#AstronomicalDataBasesMiscellaneous"/>
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">The Sun</rdfs:label>
+    <skos:member rdf:resource="#SunAbundances"/>
+    <skos:member rdf:resource="#SunActivity"/>
+    <skos:member rdf:resource="#SunAtmosphere"/>
+    <skos:member rdf:resource="#SunChromosphere"/>
+    <skos:member rdf:resource="#SunCorona"/>
+    <skos:member rdf:resource="#SunCoronalMassEjections"/>
+    <skos:member rdf:resource="#SunEvolution"/>
+    <skos:member rdf:resource="#SunFaculaePlages"/>
+    <skos:member rdf:resource="#SunFilaments"/>
+    <skos:member rdf:resource="#SunFlares"/>
+    <skos:member rdf:resource="#SunFundamentalParameters"/>
+    <skos:member rdf:resource="#SunGeneral"/>
+    <skos:member rdf:resource="#SunGranulation"/>
+    <skos:member rdf:resource="#SunHelioseismology"/>
+    <skos:member rdf:resource="#SunInfrared"/>
+    <skos:member rdf:resource="#SunInterior"/>
+    <skos:member rdf:resource="#SunMagneticFields"/>
+    <skos:member rdf:resource="#SunOscillations"/>
+    <skos:member rdf:resource="#SunParticleEmission"/>
+    <skos:member rdf:resource="#SunPhotosphere"/>
+    <skos:member rdf:resource="#SunProminences"/>
+    <skos:member rdf:resource="#SunRadioRadiation"/>
+    <skos:member rdf:resource="#SunRotation"/>
+    <skos:member rdf:resource="#SunSolarWind"/>
+    <skos:member rdf:resource="#SunSolarterrestrialRelations"/>
+    <skos:member rdf:resource="#SunSunspots"/>
+    <skos:member rdf:resource="#SunTransitionRegion"/>
+    <skos:member rdf:resource="#SunUvRadiation"/>
+    <skos:member rdf:resource="#SunXraysGammaRays"/>
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Comets</rdfs:label>
+    <skos:member rdf:resource="#CometsGeneral"/>
+    <!--skos:member>
+      <skos:Collection>
+        <rdfs:label xml:lang="en">Comets: individual</rdfs:label>
+      </skos:Collection>
+    </skos:member-->
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Planets</rdfs:label>
+    <skos:member rdf:resource="#PlanetsRings"/>
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Planets and satellites</rdfs:label>
+    <skos:member rdf:resource="#PlanetsAndSatellitesFormation"/>
+    <skos:member rdf:resource="#PlanetsAndSatellitesGeneral"/>
+    <!--skos:member>
+      <skos:OrderedCollection>
+        <rdfs:label xml:lang="en">Planets and satellites: individual</rdfs:label>
+      </skos:Collection>
+      </skos:OrderedCollection>
+    </skos:member-->
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Solar system</rdfs:label>
+    <skos:member rdf:resource="#SolarSystemFormation"/>
+    <skos:member rdf:resource="#SolarSystemGeneral"/>
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Stars</rdfs:label>
+    <skos:member rdf:resource="#StarsAbundances"/>
+    <skos:member rdf:resource="#StarsActivity"/>
+    <skos:member rdf:resource="#StarsAgbAndPostagb"/>
+    <skos:member rdf:resource="#StarsAtmospheres"/>
+    <skos:member rdf:resource="#StarsBlueStragglers"/>
+    <skos:member rdf:resource="#StarsCarbon"/>
+    <skos:member rdf:resource="#StarsChemicallyPeculiar"/>
+    <skos:member rdf:resource="#StarsChromospheres"/>
+    <skos:member rdf:resource="#StarsCircumstellarMatter"/>
+    <skos:member rdf:resource="#StarsCoronae"/>
+    <skos:member rdf:resource="#StarsDistances"/>
+    <skos:member rdf:resource="#StarsDwarfNovae"/>
+    <skos:member rdf:resource="#StarsEarlytype"/>
+    <skos:member rdf:resource="#StarsEmissionlineBe"/>
+    <skos:member rdf:resource="#StarsEvolution"/>
+    <skos:member rdf:resource="#StarsFlare"/>
+    <skos:member rdf:resource="#StarsFormation"/>
+    <skos:member rdf:resource="#StarsFundamentalParameters"/>
+    <skos:member rdf:resource="#StarsGeneral"/>
+    <skos:member rdf:resource="#StarsHertzsprungrussellAndCmDiagrams"/>
+    <skos:member rdf:resource="#StarsHorizontalbranch"/>
+    <skos:member rdf:resource="#StarsImaging"/>
+    <skos:member rdf:resource="#StarsInteriors"/>
+    <skos:member rdf:resource="#StarsKinematics"/>
+    <skos:member rdf:resource="#StarsLatetype"/>
+    <skos:member rdf:resource="#StarsLowmassBrownDwarfs"/>
+    <skos:member rdf:resource="#StarsLuminosityFunctionMassFunction"/>
+    <skos:member rdf:resource="#StarsMagneticFields"/>
+    <skos:member rdf:resource="#StarsMassloss"/>
+    <skos:member rdf:resource="#StarsNeutron"/>
+    <skos:member rdf:resource="#StarsNovaeCataclysmicVariables"/>
+    <skos:member rdf:resource="#StarsOscillations"/>
+    <skos:member rdf:resource="#StarsPeculiar"/>
+    <skos:member rdf:resource="#StarsPopulationIi"/>
+    <skos:member rdf:resource="#StarsPremainSequence"/>
+    <skos:member rdf:resource="#StarsRotation"/>
+    <skos:member rdf:resource="#StarsStarspots"/>
+    <skos:member rdf:resource="#StarsStatistics"/>
+    <skos:member rdf:resource="#StarsSubdwarfs"/>
+    <skos:member rdf:resource="#StarsSupergiants"/>
+    <skos:member rdf:resource="#StarsWhiteDwarfs"/>
+    <skos:member rdf:resource="#StarsWindsOutflows"/>
+    <skos:member rdf:resource="#StarsWolfrayet"/>
+    <!--skos:member>
+      <skos:Collection>
+        <rdfs:label xml:lang="en">Stars: Binaries</rdfs:label>
+        <skos:member rdf:resource="#StarsBinariesClose"/>
+        <skos:member rdf:resource="#StarsBinariesEclipsing"/>
+        <skos:member rdf:resource="#StarsBinariesGeneral"/>
+        <skos:member rdf:resource="#StarsBinariesSpectroscopic"/>
+        <skos:member rdf:resource="#StarsBinariesSymbiotic"/>
+        <skos:member rdf:resource="#StarsBinariesVisual"/>
+      </skos:Collection>
+    </skos:member-->
+    <!--skos:member>
+      <skos:Collection>
+        <rdfs:label xml:lang="en">Stars: individual</rdfs:label>
+      </skos:Collection>
+    </skos:member-->
+    <!--skos:member>
+      <skos:Collection>
+        <rdfs:label xml:lang="en">Stars: Planetary systems</rdfs:label>
+        <skos:member rdf:resource="#StarsPlanetarySystems"/>
+        <skos:member rdf:resource="#StarsPlanetarySystemsFormation"/>
+        <skos:member rdf:resource="#StarsPlanetarySystemsProtoplanetaryDisks"/>
+      </skos:Collection>
+    </skos:member-->
+    <!--skos:member>
+      <skos:Collection>
+        <rdfs:label xml:lang="en">Stars: Pulsars</rdfs:label>
+        <skos:member rdf:resource="#StarsPulsarsGeneral"/>
+        <skos:member>
+          <skos:Collection>
+            <rdfs:label xml:lang="en">(Stars:) pulsars: individual</rdfs:label>
+          </skos:Collection>
+        </skos:member>
+      </skos:Collection>
+    </skos:member-->
+    <!--skos:member>
+      <skos:Collection>
+        <rdfs:label xml:lang="en">Stars: Supernovae</rdfs:label>
+        <skos:member rdf:resource="#StarsSupernovaeGeneral"/>
+        <skos:member>
+          <skos:Collection>
+            <rdfs:label xml:lang="en">(Stars:) supernovae: individual</rdfs:label>
+          </skos:Collection>
+        </skos:member>
+      </skos:Collection>
+    </skos:member-->
+    <!--skos:member>
+      <skos:Collection>
+        <rdfs:label xml:lang="en">Stars: Variables</rdfs:label>
+        <skos:member rdf:resource="#StarsVariablesCepheids"/>
+        <skos:member rdf:resource="#StarsVariablesDeltaSct"/>
+        <skos:member rdf:resource="#StarsVariablesGeneral"/>
+        <skos:member rdf:resource="#StarsVariablesRrLyr"/>
+      </skos:Collection>
+    </skos:member-->
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Interstellar medium</rdfs:label>
+    <skos:member rdf:resource="#IsmAbundances"/>
+    <skos:member rdf:resource="#IsmAtoms"/>
+    <skos:member rdf:resource="#IsmBubbles"/>
+    <skos:member rdf:resource="#IsmClouds"/>
+    <skos:member rdf:resource="#IsmCosmicRays"/>
+    <skos:member rdf:resource="#IsmDustExtinction"/>
+    <skos:member rdf:resource="#IsmEvolution"/>
+    <skos:member rdf:resource="#IsmGeneral"/>
+    <skos:member rdf:resource="#IsmHerbigharoObjects"/>
+    <skos:member rdf:resource="#IsmHiiRegions"/>
+    <skos:member rdf:resource="#IsmJetsAndOutflows"/>
+    <skos:member rdf:resource="#IsmKinematicsAndDynamics"/>
+    <skos:member rdf:resource="#IsmLinesAndBands"/>
+    <skos:member rdf:resource="#IsmMagneticFields"/>
+    <skos:member rdf:resource="#IsmMolecules"/>
+    <skos:member rdf:resource="#IsmReflectionNebulae"/>
+    <skos:member rdf:resource="#IsmStructure"/>
+    <skos:member rdf:resource="#IsmSupernovaRemnants"/>
+    <!--skos:member>
+      <skos:Collection>
+        <rdfs:label xml:lang="en">ISM: individual objects (except planetary nebulae)</rdfs:label>
+      </skos:Collection>
+    </skos:member-->
+    <!--skos:member>
+      <skos:Collection>
+        <rdfs:label xml:lang="en">ISM: Planetary nebulae</rdfs:label>
+        <skos:member rdf:resource="#IsmPlanetaryNebulaeGeneral"/>
+        <skos:member>
+          <skos:Collection>
+            <rdfs:label xml:lang="en">(ISM:) planetary nebulae: individual</rdfs:label>
+          </skos:Collection>
+        </skos:member>
+      </skos:Collection>
+    </skos:member-->
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Galaxy</rdfs:label>
+    <skos:member rdf:resource="#GalaxyAbundances"/>
+    <skos:member rdf:resource="#GalaxyBulge"/>
+    <skos:member rdf:resource="#GalaxyCenter"/>
+    <skos:member rdf:resource="#GalaxyDisk"/>
+    <skos:member rdf:resource="#GalaxyEvolution"/>
+    <skos:member rdf:resource="#GalaxyFormation"/>
+    <skos:member rdf:resource="#GalaxyFundamentalParameters"/>
+    <skos:member rdf:resource="#GalaxyGeneral"/>
+    <skos:member rdf:resource="#GalaxyHalo"/>
+    <skos:member rdf:resource="#GalaxyKinematicsAndDynamics"/>
+    <skos:member rdf:resource="#GalaxyNucleus"/>
+    <skos:member rdf:resource="#GalaxySolarNeighbourhood"/>
+    <skos:member rdf:resource="#GalaxyStellarContent"/>
+    <skos:member rdf:resource="#GalaxyStructure"/>
+    <!--skos:member>
+      <skos:Collection>
+        <rdfs:label xml:lang="en">Galaxy: Globular clusters</rdfs:label>
+        <skos:member rdf:resource="#GalaxyGlobularClustersGeneral"/>
+        <skos:member>
+          <skos:Collection>
+            <rdfs:label xml:lang="en">(Galaxy:) globular clusters: individual</rdfs:label>
+          </skos:Collection>
+        </skos:member>
+      </skos:Collection>
+    </skos:member-->
+    <!--skos:member>
+      <skos:Collection>
+        <rdfs:label xml:lang="en">Galaxy: Open clusters and associations</rdfs:label>
+        <skos:member rdf:resource="#GalaxyOpenClustersAndAssociationsgeneral"/>
+        <skos:member>
+          <skos:Collection>
+            <rdfs:label xml:lang="en">(Galaxy:) open clusters and associations:individual</rdfs:label>
+          </skos:Collection>
+        </skos:member>
+      </skos:Collection>
+    </skos:member-->
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Galaxies</rdfs:label>
+    <skos:member rdf:resource="#GalaxiesAbundances"/>
+    <skos:member rdf:resource="#GalaxiesActive"/>
+    <skos:member rdf:resource="#GalaxiesBulges"/>
+    <skos:member rdf:resource="#GalaxiesCoolingFlows"/>
+    <skos:member rdf:resource="#GalaxiesDistancesAndRedshifts"/>
+    <skos:member rdf:resource="#GalaxiesDwarf"/>
+    <skos:member rdf:resource="#GalaxiesEllipticalAndLenticularCd"/>
+    <skos:member rdf:resource="#GalaxiesEvolution"/>
+    <skos:member rdf:resource="#GalaxiesFormation"/>
+    <skos:member rdf:resource="#GalaxiesFundamentalParameters"/>
+    <skos:member rdf:resource="#GalaxiesGeneral"/>
+    <skos:member rdf:resource="#GalaxiesHalos"/>
+    <skos:member rdf:resource="#GalaxiesHighredshift"/>
+    <skos:member rdf:resource="#GalaxiesInteractions"/>
+    <skos:member rdf:resource="#GalaxiesIntergalacticMedium"/>
+    <skos:member rdf:resource="#GalaxiesIrregular"/>
+    <skos:member rdf:resource="#GalaxiesIsm"/>
+    <skos:member rdf:resource="#GalaxiesJets"/>
+    <skos:member rdf:resource="#GalaxiesKinematicsAndDynamics"/>
+    <skos:member rdf:resource="#GalaxiesLocalGroup"/>
+    <skos:member rdf:resource="#GalaxiesLuminosityFunctionMassFunction"/>
+    <skos:member rdf:resource="#GalaxiesMagellanicClouds"/>
+    <skos:member rdf:resource="#GalaxiesMagneticFields"/>
+    <skos:member rdf:resource="#GalaxiesNuclei"/>
+    <skos:member rdf:resource="#GalaxiesPeculiar"/>
+    <skos:member rdf:resource="#GalaxiesPhotometry"/>
+    <skos:member rdf:resource="#GalaxiesSeyfert"/>
+    <skos:member rdf:resource="#GalaxiesSpiral"/>
+    <skos:member rdf:resource="#GalaxiesStarClusters"/>
+    <skos:member rdf:resource="#GalaxiesStarburst"/>
+    <skos:member rdf:resource="#GalaxiesStatistics"/>
+    <skos:member rdf:resource="#GalaxiesStellarContent"/>
+    <skos:member rdf:resource="#GalaxiesStructure"/>
+    <!--skos:member>
+      <skos:Collection>
+        <rdfs:label xml:lang="en">Galaxies: BL Lacertae objects</rdfs:label>
+        <skos:member rdf:resource="#GalaxiesBlLacertaeObjectsGeneral"/>
+        <skos:member>
+          <skos:Collection>
+            <rdfs:label xml:lang="en">(Galaxies:) BL Lacertae objects: individual</rdfs:label>
+          </skos:Collection>
+        </skos:member>
+      </skos:Collection>
+    </skos:member-->
+    <!--skos:member>
+      <skos:Collection>
+        <rdfs:label xml:lang="en">Galaxies: Clusters</rdfs:label>
+        <skos:member rdf:resource="#GalaxiesClustersGeneral"/>
+        <skos:member>
+          <skos:Collection>
+            <rdfs:label xml:lang="en">Galaxies: clusters: indiviuals</rdfs:label>
+          </skos:Collection>
+        </skos:member>
+      </skos:Collection>
+    </skos:member-->
+    <!--skos:member>
+      <skos:Collection>
+        <rdfs:label xml:lang="en">Galaxies: individual</rdfs:label>
+      </skos:Collection>
+    </skos:member-->
+    <!--skos:member>
+      <skos:Collection>
+        <rdfs:label xml:lang="en">Galaxies: Quasars</rdfs:label>
+        <skos:member rdf:resource="#GalaxiesQuasarsAbsorptionLines"/>
+        <skos:member rdf:resource="#GalaxiesQuasarsEmissionLines"/>
+        <skos:member rdf:resource="#GalaxiesQuasarsGeneral"/>
+        <skos:member>
+          <skos:Collection>
+            <rdfs:label xml:lang="en">(Galaxies:) quasars: individual</rdfs:label>
+          </skos:Collection>
+        </skos:member>
+      </skos:Collection>
+    </skos:member-->
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Cosmology</rdfs:label>
+    <skos:member rdf:resource="#CosmologyCosmicMicrowaveBackground"/>
+    <skos:member rdf:resource="#CosmologyCosmologicalParameters"/>
+    <skos:member rdf:resource="#CosmologyDarkMatter"/>
+    <skos:member rdf:resource="#CosmologyDiffuseRadiation"/>
+    <skos:member rdf:resource="#CosmologyDistanceScale"/>
+    <skos:member rdf:resource="#CosmologyEarlyUniverse"/>
+    <skos:member rdf:resource="#CosmologyLargescaleStructureOfUniverse"/>
+    <skos:member rdf:resource="#CosmologyMiscellaneous"/>
+    <skos:member rdf:resource="#CosmologyObservations"/>
+    <skos:member rdf:resource="#CosmologyTheory"/>
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Gamma rays</rdfs:label>
+    <skos:member rdf:resource="#GammaRaysBursts"/>
+    <skos:member rdf:resource="#GammaRaysObservations"/>
+    <skos:member rdf:resource="#GammaRaysTheory"/>
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Infrared</rdfs:label>
+    <skos:member rdf:resource="#InfraredGalaxies"/>
+    <skos:member rdf:resource="#InfraredGeneral"/>
+    <skos:member rdf:resource="#InfraredIsm"/>
+    <skos:member rdf:resource="#InfraredSolarSystem"/>
+    <skos:member rdf:resource="#InfraredStars"/>
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Radio continuum</rdfs:label>
+    <skos:member rdf:resource="#RadioContinuumGalaxies"/>
+    <skos:member rdf:resource="#RadioContinuumGeneral"/>
+    <skos:member rdf:resource="#RadioContinuumIsm"/>
+    <skos:member rdf:resource="#RadioContinuumSolarSystem"/>
+    <skos:member rdf:resource="#RadioContinuumStars"/>
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Radio lines</rdfs:label>
+    <skos:member rdf:resource="#RadioLinesGalaxies"/>
+    <skos:member rdf:resource="#RadioLinesGeneral"/>
+    <skos:member rdf:resource="#RadioLinesIsm"/>
+    <skos:member rdf:resource="#RadioLinesSolarSystem"/>
+    <skos:member rdf:resource="#RadioLinesStars"/>
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">Ultraviolet</rdfs:label>
+    <skos:member rdf:resource="#UltravioletGalaxies"/>
+    <skos:member rdf:resource="#UltravioletGeneral"/>
+    <skos:member rdf:resource="#UltravioletIsm"/>
+    <skos:member rdf:resource="#UltravioletSolarSystem"/>
+    <skos:member rdf:resource="#UltravioletStars"/>
+  </skos:Collection>
+  <skos:Collection>
+    <rdfs:label xml:lang="en">X-rays</rdfs:label>
+    <skos:member rdf:resource="#XraysBinaries"/>
+    <skos:member rdf:resource="#XraysBursts"/>
+    <skos:member rdf:resource="#XraysDiffuseBackground"/>
+    <skos:member rdf:resource="#XraysGalaxies"/>
+    <skos:member rdf:resource="#XraysGalaxiesClusters"/>
+    <skos:member rdf:resource="#XraysGeneral"/>
+    <skos:member rdf:resource="#XraysIsm"/>
+    <skos:member rdf:resource="#XraysStars"/>
+    <!--skos:member>
+      <skos:Collection>
+        <rdfs:label xml:lang="en">X-rays: individuals</rdfs:label>
+      </skos:Collection>
+    </skos:member-->
+  </skos:Collection>
+</rdf:RDF>

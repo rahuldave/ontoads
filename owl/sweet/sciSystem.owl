@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE rdf:RDF [
+   <!ENTITY system "http://sweet.jpl.nasa.gov/2.0/sciSystem.owl">   
+   <!ENTITY rela "http://sweet.jpl.nasa.gov/2.0/mathRelation.owl">
+   <!ENTITY func "http://sweet.jpl.nasa.gov/2.0/mathFunction.owl">
+   <!ENTITY stat "http://sweet.jpl.nasa.gov/2.0/mathStatistics.owl">
+   <!ENTITY top "http://sweet.jpl.nasa.gov/2.0/top.owl">
+   <!ENTITY res "http://sweet.jpl.nasa.gov/2.0/sciResearch.owl">
+   <!ENTITY mod "http://sweet.jpl.nasa.gov/2.0/sciModel.owl">
+   <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+   <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+   <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+
+<rdf:RDF
+    xml:base = "&system;"
+    xmlns:rela = "&rela;"
+    xmlns:func = "&func;"
+    xmlns:stat = "&stat;"
+    xmlns:top = "&top;"
+    xmlns:res = "&res;"
+    xmlns:mod = "&mod;"
+    xmlns:owl = "&owl;"
+    xmlns:rdf = "&rdf;"
+    xmlns:rdfs = "&rdfs;"
+    xmlns:xsd = "&xsd;">
+
+<!-- Ontology Information -->
+  <owl:Ontology rdf:about=""
+                owl:versionInfo="2.0">
+    
+    <owl:imports rdf:resource = "&rela;"/>
+    <owl:imports rdf:resource = "&func;"/>
+    <owl:imports rdf:resource = "&stat;"/>
+    <owl:imports rdf:resource = "&top;"/>
+    <owl:imports rdf:resource = "&res;"/>
+    <owl:imports rdf:resource = "&mod;"/>
+  </owl:Ontology>
+
+<!-- Phenomena -->
+  <owl:Class rdf:about="#Active">
+    <rdfs:subClassOf rdf:resource="#ActivityLevel"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Budget">
+    <rdfs:subClassOf rdf:resource="#State"/>
+    <owl:equivalentClass rdf:resource="#Balance"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Balance"/>
+
+  <owl:Class rdf:about="#BudgetEquation">
+    <owl:equivalentClass rdf:resource="#BalanceEquation"/>
+    <rdfs:subClassOf rdf:resource="&rela;#Equation" />
+    <rdfs:comment xml:lang="en">In general, an equation expressing a balance of quantities in the sense that the local or individual rates of change are zero.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#BalanceEquation"/>
+
+  <owl:Class rdf:about="#Component">
+    <rdfs:subClassOf rdf:resource="&res;#Dimension"/>
+    <owl:equivalentClass rdf:resource="#SystemComponent"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SystemComponent"/>
+
+  <owl:Class rdf:about="#Demand">
+    <rdfs:subClassOf rdf:resource="#SystemPhenomena"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Direct">
+    <rdfs:subClassOf rdf:resource="#SystemComponent"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Environment">
+    <rdfs:subClassOf rdf:resource="#SystemComponent" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#Equilibrium">
+    <rdfs:subClassOf rdf:resource="#State" />
+    <rdfs:comment>In mechanics, a state in which the vector sum of all forces, that is, the acceleration vector, is zero. 
+In hydrodynamics, it is usually further required that a steady state exist throughout the atmospheric or fluid model. The equilibrium may be stable or unstable with respect to displacements therefrom. See also hydrostatic equilibrium, geostrophic equilibrium, instability. 2. In thermodynamics, any state of a system that would not undergo change if the system were to be isolated.</rdfs:comment>
+    <rdfs:label>Equilibrium</rdfs:label>
+  </owl:Class>
+
+  <owl:Class rdf:about="#External">
+    <rdfs:subClassOf rdf:resource="#SystemComponent" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#Feedback">
+    <rdfs:subClassOf rdf:resource="#SystemComponent" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#Gross">
+    <rdfs:subClassOf rdf:resource="#SystemComponent" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#Heterogeneous">
+    <rdfs:subClassOf rdf:resource="#SystemState"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Homogeneous">
+    <rdfs:subClassOf rdf:resource="#SystemState"/>
+    <owl:disjointWith rdf:resource="#Heterogeneous"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Resource">
+    <rdfs:subClassOf rdf:resource="#SystemComponent"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Internal">
+    <rdfs:subClassOf rdf:resource="#SystemComponent" />
+    <owl:disjointWith rdf:resource="#External" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#Net">
+    <rdfs:subClassOf rdf:resource="#SystemComponent" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#Network">
+    <rdfs:subClassOf rdf:resource="#SystemComponent" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#System">
+    <rdfs:subClassOf rdf:resource="&mod;#Model"/>
+    <rdfs:comment> System is a set of interacting or interdependent entities, real or abstract, forming an integrated whole.
+    </rdfs:comment>
+  </owl:Class>
+  
+  <owl:Class rdf:about="#SystemPhenomena">
+    <rdfs:subClassOf rdf:resource="#SystemComponent" />
+    <rdfs:subClassOf rdf:resource="&top;#Phenomena"/>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:about="#hasComponent">
+    <rdfs:range rdf:resource="#Component"/>
+  </owl:ObjectProperty>
+
+<!-- Properties -->
+  <owl:Class rdf:about="#ActivityLevel">
+    <rdfs:subClassOf rdf:resource="#Level"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Ambient">
+    <rdfs:subClassOf rdf:resource="#SystemState"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Broken">
+    <rdfs:subClassOf rdf:resource="#SystemState"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Closed">
+    <rdfs:subClassOf rdf:resource="#SystemState"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Inactive">
+    <owl:disjointWith rdf:resource="#Active"/>
+    <rdfs:subClassOf rdf:resource="#SystemState"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Level">
+    <rdfs:subClassOf rdf:resource="#SystemState"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Artificial">
+    <rdfs:subClassOf rdf:resource="#SystemState"/>
+    <owl:disjointWith rdf:resource="#Natural" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#Natural">
+    <rdfs:subClassOf rdf:resource="#SystemState"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Open">
+    <owl:disjointWith rdf:resource="#Closed" />
+    <rdfs:subClassOf rdf:resource="#SystemState"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Role">
+    <rdfs:subClassOf rdf:resource="#Component"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Saturate">
+    <rdfs:subClassOf rdf:resource="#SystemState"/>
+    <owl:equivalentClass rdf:resource="#Saturated"/>
+    <owl:equivalentClass rdf:resource="#Saturation"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Saturation"/>
+  <owl:Class rdf:about="#Saturated"/>
+
+  <owl:Class rdf:about="#Stable">
+    <rdfs:subClassOf rdf:resource="#SystemState"/>
+    <owl:equivalentClass rdf:resource="#Stability"/>
+    <rdfs:comment xml:lang="en">The characteristic of a system if sufficiently small disturbances have only small effects, either decreasing in amplitude or oscillating periodically; it is asymptotically stable if the effect of small disturbances vanishes for long time periods.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Stability"/>
+
+  <owl:Class rdf:about="#State">
+    <rdfs:subClassOf rdf:resource="#SystemProperty"/>
+    <owl:equivalentClass rdf:resource="#SystemState"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SystemState"/>
+
+  <owl:Class rdf:about="#SystemProperty">
+    <rdfs:subClassOf rdf:resource="&top;#Property"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Unsaturated">
+    <owl:disjointWith rdf:resource="#Saturated" />
+    <rdfs:subClassOf rdf:resource="#SystemState"/>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:about="#hasRole">
+    <rdfs:range rdf:resource="#Role"/>
+  </owl:ObjectProperty>
+
+  <owl:Class rdf:about="#Storage">
+    <rdfs:subClassOf rdf:resource="#SystemComponent"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Unstable">
+    <owl:disjointWith rdf:resource="#Stable" />
+    <rdfs:subClassOf rdf:resource="#SystemState"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#ComplexSystem">
+    <rdfs:subClassOf rdf:resource="#System"/>
+    <rdfs:comment>A complex system is a system composed of interconnected parts that as a whole exhibit one or more properties (behavior among the possible properties) not obvious from the properties</rdfs:comment>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:about="#hasSystemState">
+    <rdfs:range rdf:resource="#SystemState"/>
+  </owl:ObjectProperty>
+
+</rdf:RDF>

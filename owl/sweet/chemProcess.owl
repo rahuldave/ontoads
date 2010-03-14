@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+  <!ENTITY proc "http://sweet.jpl.nasa.gov/2.0/chemProcess.owl">
+  <!ENTITY top "http://sweet.jpl.nasa.gov/2.0/top.owl">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+
+<rdf:RDF xml:base="&proc;"
+         xmlns:proc="&proc;"
+         xmlns:top="&top;"
+         xmlns:owl="&owl;"
+         xmlns:rdf="&rdf;"
+         xmlns:rdfs="&rdfs;"
+ 	 xmlns:xsd="&xsd;">
+
+<!-- Ontology Information -->
+  <owl:Ontology rdf:about="" owl:versionInfo="2.0">
+     <owl:imports rdf:resource="&top;"/>
+  </owl:Ontology>
+
+  <owl:Class rdf:about="#Absorption">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Adsorption">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+    <rdfs:comment xml:lang="en">Adsorption is the accumulation of atoms or molecules on the surface of a material. This process creates a film of the adsorbate (the molecules or atoms being accumulated) on the adsorbent's surface. [Wikipedia]</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Aeration">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+    <rdfs:comment xml:lang="en">Aeration (also called aerification) is the process by which air is circulated through, mixed with or dissolved in a liquid or substance. [Wikipedia]</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Calcification">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+    <rdfs:comment xml:lang="en">Any process that increases the calcium concentration of a subtance.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#ChemicalProcess">
+    <rdfs:subClassOf rdf:resource="&top;#Process"/>
+    <rdfs:comment xml:lang="en">A chemical process is a method or means of somehow changing one or more chemicals or chemical compounds.  [Wikipedia]</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Corrode">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+    <owl:equivalentClass rdf:resource="#Corrosion"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Corrosion"/>
+
+  <owl:Class rdf:about="#Desalinization">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Dilute">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+    <owl:equivalentClass rdf:resource="#Dilution"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Dilution"/>
+
+  <owl:Class rdf:about="#Dissolve">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+    <owl:equivalentClass rdf:resource="#Dissolution"/>
+    <owl:equivalentClass rdf:resource="#Solvation"/>
+    <rdfs:comment xml:lang="en">Dissolution or solvation is the process of dissolving a solid substance into a solvent to yield a solution. [Wikipedia]</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Dissolution"/>
+  <owl:Class rdf:about="#Solvation"/>
+
+  <owl:Class rdf:about="#Electrolysis">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+    <rdfs:comment xml:lang="en">Electrolysis is a method of using an electric current to drive an otherwise non-spontaneous chemical reaction.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Endothermic">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+    <owl:disjointWith rdf:resource="#Exothermic" />
+  </owl:Class>
+
+  <owl:Class rdf:about="#Exothermic">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Fixation">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Flare">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+    <owl:equivalentClass rdf:resource="#Flaring"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Flaring"/>
+
+  <owl:Class rdf:about="#Leach">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+    <rdfs:comment xml:lang="en">In general, leaching is the extraction of certain materials from a carrier into a liquid (usually, but not always a solvent).</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Mix">
+    <owl:equivalentClass rdf:resource="#Mixing"/>
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Mixing"/>
+
+  <owl:Class rdf:about="#Outgassing">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Oxidize">
+    <rdfs:subClassOf rdf:resource="#Reaction" />
+    <owl:equivalentClass rdf:resource="#Oxidation"/>
+    <rdfs:comment xml:lang="en">Reaction of a substance with oxygen or incorporation of oxygen into a molecule.
+    </rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Oxidation"/>
+
+  <owl:Class rdf:about="#Photolysis">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+    <owl:equivalentClass rdf:resource="#Photodissociation"/>
+    <owl:equivalentClass rdf:resource="#Photodecomposition"/>
+    <rdfs:comment xml:lang="en">Photodissociation, photolysis, or photodecomposition is a chemical reaction in which a chemical compound is broken down by photons. It is defined as the interaction of one or more photons with one target molecule. [Wikipedia]</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Photodissociation"/>
+  <owl:Class rdf:about="#Photodecomposition"/>
+
+  <owl:Class rdf:about="#Reaction">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Reduce">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+    <owl:equivalentClass rdf:resource="#Reduction"/>
+    <owl:disjointWith rdf:resource="#Oxidation" />
+  </owl:Class>
+  <owl:Class rdf:about="#Reduction"/>
+
+  <owl:Class rdf:about="#Solidify">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Sorption">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="#Absorption"/>
+          <rdf:Description rdf:about="#Adsorption"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Titration">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+    <rdfs:comment xml:lang="en">Titration is a common laboratory method of quantitative chemical analysis that is used to determine the unknown concentration of a known reactant.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Transmutation">
+    <rdfs:subClassOf rdf:resource="#ChemicalProcess"/>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:about="#hasChemicalProcess">
+    <rdfs:subPropertyOf rdf:resource="&top;#hasProcess"/>
+    <rdfs:range rdf:resource="#ChemicalProcess"/>
+  </owl:ObjectProperty>
+
+</rdf:RDF>

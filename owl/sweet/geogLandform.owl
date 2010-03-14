@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [
+  <!ENTITY sed "http://sweet.jpl.nasa.gov/2.0/geogSediment.owl">
+  <!ENTITY planet "http://sweet.jpl.nasa.gov/2.0/astroPlanet.owl">
+  <!ENTITY geomor "http://sweet.jpl.nasa.gov/2.0/geogGeomorphology.owl">
+  <!ENTITY geom "http://sweet.jpl.nasa.gov/2.0/spaceObject.owl">
+  <!ENTITY chem "http://sweet.jpl.nasa.gov/2.0/chem.owl">
+  <!ENTITY obj "http://sweet.jpl.nasa.gov/2.0/spaceObject.owl">
+  <!ENTITY phys "http://sweet.jpl.nasa.gov/2.0/phys.owl">
+  <!ENTITY land "http://sweet.jpl.nasa.gov/2.0/geogLandform.owl">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+
+<rdf:RDF xml:base="&land;"
+         xmlns:owl="&owl;"
+         xmlns:rdf="&rdf;"
+         xmlns:rdfs="&rdfs;"
+         xmlns:xsd="&xsd;"
+         xmlns:obj="&obj;"
+         xmlns:chem="&chem;"
+         xmlns:phys="&phys;"
+         xmlns:planet="&planet;"
+         xmlns:geomor="&geomor;"
+         xmlns:geom="&geom;"
+         xmlns:sed="&sed;">
+
+<!-- Ontology Information -->
+  <owl:Ontology rdf:about=""
+                owl:versionInfo="2.0">
+     <owl:imports rdf:resource="&chem;"/>
+     <owl:imports rdf:resource="&obj;"/>
+     <owl:imports rdf:resource="&phys;"/>
+     <owl:imports rdf:resource="&planet;"/>
+     <owl:imports rdf:resource="&geomor;"/>
+     <owl:imports rdf:resource="&geom;"/>
+     <owl:imports rdf:resource="&sed;"/>
+  </owl:Ontology>
+
+<!-- Realms -->
+  <owl:Class rdf:about="#Continent">
+    <rdfs:subClassOf rdf:resource="#LandRegion"/>
+    <rdfs:comment xml:lang="en">A continent is one of several large landmasses on Earth. [Wikipedia]</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Crater">
+    <rdfs:subClassOf rdf:resource="#Landform"/>
+    <rdfs:subClassOf rdf:resource="&obj;#Cavity"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#DeflationZone">
+    <rdfs:subClassOf rdf:resource="#LandRegion"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#DryLand">
+    <rdfs:subClassOf rdf:resource="#LandRegion"/>
+  </owl:Class>
+
+ <owl:Class rdf:about="#Desert">
+    <rdfs:subClassOf rdf:resource="#Landform"/>
+    <rdfs:comment xml:lang="en">A desert is a landscape form or region that receives very little precipitation.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Dune">
+    <rdfs:subClassOf rdf:resource="#AeolianLandform"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="&chem;#hasSubstance" />
+        <owl:allValuesFrom rdf:resource="&sed;#Sand" />
+      </owl:Restriction>
+    </rdfs:subClassOf>
+   <rdfs:comment xml:lang="en">A dune is a hill of sand built by eolian processes. Dunes are subject to different forms and sizes based on their interaction with the wind. Most kinds of dune are longer on the windward side where the sand is pushed up the dune, and a shorter slip face in the lee of the wind. The valley or trough between dunes is called a slack. A dune field is an area covered by extensive sand dunes. Large dune fields are known as ergs </rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#AeolianLandform">
+    <rdfs:subClassOf rdf:resource="#Landform"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="&phys;#hasPhysicalProcess" />
+        <owl:allValuesFrom rdf:resource="&geomor;#Eolian" />
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+ <owl:Class rdf:about="#Field">
+    <rdfs:subClassOf rdf:resource="#Landform"/>
+    <rdfs:comment xml:lang="en">Field (agriculture), an area of land used to cultivate crops, or to keep livestock [Wikipedia]</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#GiantDikeSwarm">
+    <rdfs:subClassOf rdf:resource="#Landform"/>
+    <rdfs:comment xml:lang="en">A dike swarm or dyke swarm in geology is a major group of parallel, linear, or radially oriented dikes intruded within continental crust. [Wikipedia]</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Hinterland">
+    <rdfs:subClassOf rdf:resource="#LandRegion"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#KarstLandform">
+    <rdfs:subClassOf rdf:resource="#Landform"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="&phys;#hasPhysicalProcess" />
+        <owl:allValuesFrom rdf:resource="&geomor;#Karst" />
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">Karst topography is a landscape shaped by the dissolution of a layer or layers of soluble bedrock, usually carbonate rock such as limestone or dolomite. [Wikipedia]</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Land">
+    <rdfs:subClassOf rdf:resource="&geom;#Region"/>
+    <owl:equivalentClass rdf:resource="#LandRegion"/>
+    <owl:equivalentClass rdf:resource="#SurfaceRegion"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SurfaceRegion"/>
+  <owl:Class rdf:about="#LandRegion"/>
+
+  <owl:Class rdf:about="#LandCover">
+    <rdfs:subClassOf rdf:resource="#Landform"/>
+    <rdfs:comment xml:lang="en">Land cover is the physical material at the surface of the earth. Land covers include grass, asphalt, trees, bare ground, water, etc. [Wikipedia]</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Landscape">
+    <rdfs:subClassOf rdf:resource="#Landform"/>
+    <rdfs:comment xml:lang="en">A landscape comprises the visible features of an area of land, including physical elements such as landforms, living elements of flora and fauna, abstract elements such as lighting and weather conditions, and human elements, for instance human activity or the built environment. Landscape may also signify the objects around one in a building. </rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Landform">
+    <rdfs:subClassOf rdf:resource="#LandRegion"/>
+    <rdfs:comment xml:lang="en">A landform comprises a geomorphological unit, and is largely defined by its surface form and location in the landscape, as part of the terrain, and as such, is typically an element of topography. Landforms are categorised by features such as elevation, slope, orientation, stratification, rock exposure, and soil type. They include berms, mounds, hills, cliffs, valleys, rivers and numerous other elements.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#LavaPlain">
+    <rdfs:subClassOf rdf:resource="#Plain"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Montane">
+    <rdfs:subClassOf rdf:resource="#LandRegion"/>
+    <rdfs:comment xml:lang="en">Montane is a biogeographic term which refers to highland areas located below the subalpine zone.[1] Montane regions generally have cooler temperatures and often have higher rainfall than the adjacent lowland regions, and are frequently home to distinct communities of plants and animals. [Wikipedia]</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Plain">
+    <rdfs:subClassOf rdf:resource="#Landform"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Steppe">
+    <rdfs:subClassOf rdf:resource="#Plain"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Talus">
+    <rdfs:subClassOf rdf:resource="#Landform"/>
+    <rdfs:comment xml:lang="en">A slope formed at the base of a steeper slope, made of fallen and disintegrated materials.</rdfs:comment>
+  </owl:Class>
+  
+  <owl:Class rdf:about="#Tumulus">
+    <rdfs:subClassOf rdf:resource="#Landform"/>
+    <rdfs:comment xml:lang="en">A doming or small mound on the crest of a lava flow caused by pressure due to the difference in the rate of flow between the cooler crust and the more fluid lava below.</rdfs:comment>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:about="#hasGeomorphologicalType">
+  </owl:ObjectProperty>
+
+</rdf:RDF>

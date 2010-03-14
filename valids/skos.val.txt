@@ -1,0 +1,21 @@
+Input file: file:///home/rdave/Projects/adsonto/packages/pellet-1.3/skos-essential.owl
+OWL Species: DL
+DL Expressivity: SHI(D)
+Consistent: Yes
+Time: 825 ms (Loading: 694 Species Validation: 115 Consistency: 7 Classification: 8 Realization: 1 )
+
+Classification:
+
+ owl:Thing
+    skos:ConceptScheme
+    skos:Collection
+    skos:Concept
+
+
+Non OWL-Lite features used:
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(skos:ConceptScheme skos:Collection)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(skos:Concept skos:Collection)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(skos:ConceptScheme skos:Concept)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(skos:Concept skos:ConceptScheme)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(skos:Collection skos:ConceptScheme)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(skos:Collection skos:Concept)

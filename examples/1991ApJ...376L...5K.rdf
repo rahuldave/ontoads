@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:ads="http://ads.harvard.edu/schema/abs/1.0/abstracts#"
+   xmlns:bibo="http://purl.org/ontology/bibo/"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:dct="http://purl.org/dc/terms/"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>
+  <rdf:Description rdf:about="http://adsset:8080/contributor/Kashlinsky%2C+A">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <foaf:name>Kashlinsky, A</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://adsset:8080/keyword/galaxies+evolution#concept">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel>galaxies evolution</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://adsset:8080/1991ApJ...376L...5K">
+    <dct:subject rdf:resource="http://adsset:8080/keyword/cosmology+miscellaneous#concept"/>
+    <dct:subject rdf:resource="http://adsset:8080/keyword/gravitation#concept"/>
+    <dct:subject rdf:resource="http://adsset:8080/keyword/normal+density+functions#concept"/>
+    <dct:subject rdf:resource="http://adsset:8080/keyword/methods+data+analysis#concept"/>
+    <dct:subject rdf:resource="http://adsset:8080/keyword/galaxies+clusters#concept"/>
+    <dct:subject rdf:resource="http://adsset:8080/keyword/power+spectra#concept"/>
+    <dct:subject rdf:resource="http://adsset:8080/keyword/galaxies+evolution#concept"/>
+    <bibo:volume>376</bibo:volume>
+    <dc:creator rdf:resource="http://adsset:8080/contributor/Kashlinsky%2C+A"/>
+    <rdf:type rdf:resource="http://purl.org/ontology/bibo/Article"/>
+    <bibo:doi>10.1086/186090</bibo:doi>
+    <dc:title>Gravitational clustering of Gaussian density fluctuations and the origin of hierarchy correlations</dc:title>
+    <bibo:abstract>The present theory of gravitational pulsing, which identifies galaxies and groups and clusters of galaxies with regions of assumed Gaussian primordial density fluctuations (PDFs) having a smaller turnaround time than the age of the universe, shows that the properties of the hierarchy created uniquely depend on the PDF power spectrum. The resulting distribution of galaxies and groups and clusters is non-Gaussian; the theory successfully reproduces both the observed two- and three-point correlation functions for clusters of galaxies of n = -1 spectrum. The hierarchy thus constructed specifies unique higher-order correlations.</bibo:abstract>
+    <bibo:cites rdf:resource="http://adsset:8080/1989Natur.338..562S"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1984ApJ...285L..45B"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1986ApJ...304...15B"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1979MNRAS.186..145W"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1987ApJ...317...19K"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1984ApJ...285L...1P"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1989ApJ...343L...5K"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1984ApJ...284L...9K"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1987ApJ...313L..37D"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1983ApJ...267..465D"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1988MNRAS.234..159S"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1990MNRAS.242P..43M"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1989MNRAS.239..513C"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1989ApJ...344...75T"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1989Natur.342..251R"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1991Natur.349..753K"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1980lssu.book.....P"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1975A&amp;A....45..365G"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1983ApJ...270...20B"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1984ApJ...279..499F"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1986ApJ...305L...5J"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1986ApJ...308L..71F"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1974ApJ...187..425P"/>
+    <bibo:cites rdf:resource="http://adsset:8080/1988ApJ...333...21S"/>
+    <bibo:pageEnd>L9</bibo:pageEnd>
+    <ads:bibcode>1991ApJ...376L...5K</ads:bibcode>
+    <bibo:pageStart>L5</bibo:pageStart>
+    <bibo:authorList rdf:nodeID="ZvHNYliO11"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://adsset:8080/keyword/gravitation#concept">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel>gravitation</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://adsset:8080/keyword/normal+density+functions#concept">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel>normal density functions</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://adsset:8080/keyword/galaxies+clusters#concept">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel>galaxies clusters</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://adsset:8080/keyword/methods+data+analysis#concept">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel>methods data analysis</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="ZvHNYliO11">
+    <rdf:_1 rdf:resource="http://adsset:8080/contributor/Kashlinsky%2C+A"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://adsset:8080/keyword/power+spectra#concept">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel>power spectra</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://adsset:8080/keyword/cosmology+miscellaneous#concept">
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:prefLabel>cosmology miscellaneous</skos:prefLabel>
+  </rdf:Description>
+</rdf:RDF>

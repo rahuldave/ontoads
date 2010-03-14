@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE rdf:RDF [  
+  <!ENTITY human "http://sweet.jpl.nasa.gov/2.0/human.owl#">
+  <!ENTITY reg "http://sweet.jpl.nasa.gov/2.0/envirRegulation.owl#">
+  <!ENTITY top "http://sweet.jpl.nasa.gov/2.0/top.owl#">
+  <!ENTITY owl "http://www.w3.org/2002/07/owl#">
+  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+  <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+
+<rdf:RDF 
+   xml:base = "&reg;"
+   xmlns:reg = "&reg;"
+   xmlns:human = "&human;"
+   xmlns:top = "&top;"
+   xmlns:owl = "&owl;"
+   xmlns:rdf = "&rdf;"
+   xmlns:rdfs = "&rdfs;"
+   xmlns:xsd = "&xsd;">
+
+<!-- Ontology Information -->
+  <owl:Ontology rdf:about="" owl:versionInfo="2.0">
+     <owl:imports rdf:resource="http://sweet.jpl.nasa.gov/2.0/human.owl"/>
+     <owl:imports rdf:resource="http://sweet.jpl.nasa.gov/2.0/top.owl"/>
+  </owl:Ontology>
+
+  <owl:Class rdf:about="#Abatement">
+    <rdfs:subClassOf rdf:resource="&human;HumanActivity"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#HumanLaw">
+    <rdfs:subClassOf rdf:resource="#GoverningBodyProduct"/>
+    <rdfs:subClassOf rdf:resource="&top;Knowledge"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Compliance">
+    <rdfs:subClassOf rdf:resource="&human;HumanActivity"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Enforcement">
+    <rdfs:subClassOf rdf:resource="#GovtActivity"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#EnvironmentalLaw">
+    <rdfs:subClassOf rdf:resource="#HumanLaw"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Government">
+    <rdfs:subClassOf rdf:resource="&human;HumanActivity"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#GoverningBody">
+    <rdfs:subClassOf rdf:resource="&human;HumanActivity"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#GoverningBodyProduct">
+    <rdfs:subClassOf rdf:resource="&human;HumanActivity"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#GovtActivity">
+    <rdfs:subClassOf rdf:resource="&human;HumanActivity"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Penalty">
+    <rdfs:subClassOf rdf:resource="#Enforcement"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Permit">
+    <rdfs:subClassOf rdf:resource="#GovtActivity"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Regulation">
+    <rdfs:subClassOf rdf:resource="#HumanLaw"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Policy">
+    <rdfs:subClassOf rdf:resource="#GoverningBodyProduct"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Standard">
+    <rdfs:subClassOf rdf:resource="#GoverningBodyProduct"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#StandardsBody">
+    <rdfs:subClassOf rdf:resource="#GoverningBody"/>
+  </owl:Class>
+
+  <owl:Class rdf:about="#Treaty">
+    <rdfs:subClassOf rdf:resource="#HumanLaw"/>
+  </owl:Class>
+
+</rdf:RDF>

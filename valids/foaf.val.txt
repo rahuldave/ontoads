@@ -1,0 +1,51 @@
+Input file: file:///home/rdave/Projects/adsonto/packages/pellet-1.3/foaf-essential.owl
+OWL Species: DL
+DL Expressivity: ALCHIF(D)
+Consistent: Yes
+Time: 801 ms (Loading: 671 Species Validation: 108 Consistency: 8 Classification: 14 Realization: 0 )
+
+Classification:
+
+ owl:Thing
+    foaf:Document
+       foaf:PersonalProfileDocument
+       foaf:Image
+    foaf:Project
+    foaf:OnlineAccount
+    foaf:Agent
+       foaf:Group
+       foaf:Person
+       foaf:Organization
+
+
+Non OWL-Lite features used:
+Complement Class: owl:complementOf construct is used complementOf(unionOf(foaf:Agent foaf:Project foaf:Document))
+Complement Class: owl:complementOf construct is used complementOf(unionOf(foaf:Agent foaf:Project foaf:Document foaf:OnlineAccount))
+Complement Class: owl:complementOf construct is used complementOf(unionOf(foaf:Document foaf:OnlineAccount))
+Complement Class: owl:complementOf construct is used complementOf(foaf:Agent)
+Complement Class: owl:complementOf construct is used complementOf(unionOf(foaf:Agent foaf:OnlineAccount))
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(foaf:Agent foaf:OnlineAccount)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(foaf:Agent foaf:Project)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(foaf:Image foaf:PersonalProfileDocument)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(foaf:Group foaf:Organization)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(foaf:Project foaf:Agent)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(foaf:OnlineAccount foaf:Agent)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(foaf:Document foaf:Agent)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(foaf:Person foaf:Organization)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(foaf:PersonalProfileDocument foaf:Image)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(foaf:Person foaf:Group)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(foaf:Organization foaf:Group)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(foaf:Project foaf:Document)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(foaf:OnlineAccount foaf:Document)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(foaf:Group foaf:Person)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(foaf:Project foaf:OnlineAccount)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(foaf:Document foaf:OnlineAccount)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(foaf:OnlineAccount foaf:Project)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(foaf:Document foaf:Project)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(foaf:Organization foaf:Person)
+Disjoint Classes: owl:disjointWith construct is used DisjointClasses(foaf:Agent foaf:Document)
+Union Class: owl:unionOf construct is used unionOf(foaf:Document foaf:OnlineAccount)
+Union Class: owl:unionOf construct is used unionOf(foaf:Agent foaf:Project)
+Union Class: owl:unionOf construct is used unionOf(foaf:Agent foaf:Project foaf:Document)
+Union Class: owl:unionOf construct is used unionOf(foaf:Agent foaf:Project foaf:Document foaf:OnlineAccount)
+Union Class: owl:unionOf construct is used unionOf(foaf:Agent foaf:OnlineAccount)
