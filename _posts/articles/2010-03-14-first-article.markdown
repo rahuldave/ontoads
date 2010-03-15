@@ -2,7 +2,7 @@
 layout: article
 title: This is an article
 category: article
-permalink: none
+permalink: 'none'
 ---
 
 This is the first article.

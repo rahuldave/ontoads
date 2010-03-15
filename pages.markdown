@@ -3,7 +3,6 @@ layout: default
 title: Pages
 ---
 
-### {{ page.title }}
 
 <p>
   {% for post in site.categories.article %} 

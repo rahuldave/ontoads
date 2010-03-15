@@ -15,13 +15,13 @@ a[href] {
 #wrapper { /* IE workaround */
 	margin: 0 auto;
 	padding: 0;
-	width: 750px;
+	/*width: 750px;*/
 }
 html>body #wrapper {
 	margin: 0 auto;
 	padding: 0;
 	width: auto;
-	max-width: 750px;
+	/*max-width: 750px;*/
 }
 
 #header {
@@ -64,6 +64,9 @@ html>body #wrapper {
 
 #intro		#navi_intro			a,
 #blog			#navi_blog			a,
+#pages			#navi_pages			a,
+#why			#navi_why			a,
+#source			#navi_source		a,
 #toc			#navi_manual		a,
 #chapter		#navi_manual		a,
 #wiki			#navi_wiki			a,
@@ -83,7 +86,7 @@ html>body #wrapper {
 #content { /* IE workaround */
 	margin: 0;
 	padding: 25px;
-	width: 430px;
+	/*width: 430px;*/
 	height: 584px; /* (64+2*20+2)*6 - 2 - 2*25 */
 	background: #fff;
 }
@@ -92,7 +95,7 @@ html>body #content {
 	padding: 25px;
 	width: auto;
 	height: auto;
-	max-width: 430px;
+	/*max-width: 430px;*/
 	min-height: 584px; /* (64+2*20+2)*6 - 2 - 2*25 */
 	background: #fff;
 }
