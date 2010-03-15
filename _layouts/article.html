@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width = 750">
-    <link rel="stylesheet" type="text/css" href="../../../css/stylesheet.css" charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/ontoads/css/stylesheet.css" charset="utf-8">
     <title>{{ page.title }}</title>
   </head>
   <body id="intro">
@@ -45,7 +45,7 @@
           <div class="item">
             <!-- Blog   -->
             <a href="../../../atom.xml" id="rss_feed" name="rss_feed">Blog Posts</a>
-            <h4>Blog Posts</h4>
+            <h4>Article Posts</h4>
             <p>
               {% for post in site.catyegories.articles %} 
                 <span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}">{{ post.title }}</a><br>
