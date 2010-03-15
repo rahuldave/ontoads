@@ -5,3 +5,7 @@ category: blog
 ---
 
 ADS Ontologies is going to be an awesome project.
+
+	Yeah!
+	
+Dont you think?
