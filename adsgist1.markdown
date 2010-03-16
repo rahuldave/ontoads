@@ -1,3 +1,8 @@
+---
+layout: default
+title: ADS Ontologies
+---
+
 # ADS Ontologies
 
 ## Prelim
