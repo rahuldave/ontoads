@@ -7,7 +7,7 @@ category: article
 This page collects top-level information about the ontologies we will use. More
 details are linked in under each heading.
 
-## Base Vocabularies
+### Base Vocabularies
 
 	1. Dublin Core : Used via namespace trick at multiple spots
 	
