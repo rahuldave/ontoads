@@ -28,4 +28,8 @@ Important Points:
 
 ### Keeping it simple: Completeness VS Usability
 
-	Even though in our modelling we'll go all the way down to mathematics terms from SWEET we will never use these in our documents. They exist solely as support infrastructure. And even if we do have such assertions we will not expose them on queries. They are more appropriate for one-off details pages rather than for SPARQL or inferencing.
+	Even though in our modelling we'll go all the way down to mathematics terms 
+	from SWEET we will never use these in our documents. They exist solely as 
+	support infrastructure. And even if we do have such assertions we will not 
+	expose them on queries. They are more appropriate for one-off details pages 
+	rather than for SPARQL or inferencing.
