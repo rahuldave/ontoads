@@ -23,7 +23,7 @@ vocabularies are never imported.
 
 	
 A SWAN product, slightly hacked by me to be OWL-DL compatible: 
-[view-source:http://bitbucket.org/adsonto/adsontologies/raw/6719c72e4944/owl/foaf-essential.owl](view-source:http://bitbucket.org/adsonto/adsontologies/raw/6719c72e4944/owl/foaf-essential.owl)
+[http://github.com/rahuldave/ontoads/blob/master/owl/foaf-essential.owl](http://github.com/rahuldave/ontoads/blob/master/owl/foaf-essential.owl)
 
 There are some issues with `foaf:mbox` needing solving here.
 	
@@ -32,13 +32,13 @@ There are some issues with `foaf:mbox` needing solving here.
 These are a base. I carefully picked formats so as to be modular, in the notion 
 of an onion like fashion.
 
-[view-source:http://bitbucket.org/adsonto/adsontologies/raw/6719c72e4944/owl/sweetSome.owl](view-source:http://bitbucket.org/adsonto/adsontologies/raw/6719c72e4944/owl/sweetSome.owl)
+[http://github.com/rahuldave/ontoads/blob/master/owl/sweetSome.owl](http://github.com/rahuldave/ontoads/blob/master/owl/sweetSome.owl)
 	
 SWEET is otherwise too interconnected. I left out ontologies which relied on 
 prior astro, physics, chem, and geo stuff. Specifically, I would have liked to 
 have sciInstrument.owl (which wasnt particularly deep) and spaceCoordinates.owl 
 which imported but didnt use astroPlanet. 
-All Sweet ontologies can be seen [here](http://bitbucket.org/adsonto/adsontologies/src/tip/owl/sweet/).
+All Sweet ontologies can be seen [here](http://github.com/rahuldave/ontoads/blob/master/owl/sweet/).
 
 Ed Chaya's ontologies have some Base, observational, and instrumental stuff, 
 but they are not online any more. He reused SWEET where he found appropriate. 
@@ -47,7 +47,7 @@ VSTO defined their own terms, all in one big ontology.
 
 	5. SKOS-essential
 	
-[view-source:http://bitbucket.org/adsonto/adsontologies/raw/6719c72e4944/owl/skos-essential.owl](view-source:http://bitbucket.org/adsonto/adsontologies/raw/6719c72e4944/owl/skos-essential.owl)	
+[http://github.com/rahuldave/ontoads/blob/master/owl/skos-essential.owl](http://github.com/rahuldave/ontoads/blob/master/owl/skos-essential.owl)	
 
 This is not enough for our needs. I am investigating alternatives that allow 
 (a) `OrderedCollections` and (b) allow representing both `Concepts` and 
@@ -62,20 +62,20 @@ the documents.
 
 	6. AVM in SKOS-Essential
 	
-[view-source:http://bitbucket.org/adsonto/adsontologies/raw/6719c72e4944/owl/AVM.rdf](view-source:http://bitbucket.org/adsonto/adsontologies/raw/6719c72e4944/owl/AVM.rdf)
+[http://github.com/rahuldave/ontoads/blob/master/owl/AVM.rdf](http://github.com/rahuldave/ontoads/blob/master/owl/AVM.rdf)
 
 	7. AAKeys in SKOS-Essential
 
-[view-source:http://bitbucket.org/adsonto/adsontologies/raw/6719c72e4944/owl/AAkeys.rdf](view-source:http://bitbucket.org/adsonto/adsontologies/raw/6719c72e4944/owl/AAkeys.rdf)
+[http://github.com/rahuldave/ontoads/blob/master/owl/AAkeys.rdf](http://github.com/rahuldave/ontoads/blob/master/owl/AAkeys.rdf)
 
 ### Agents and Provenance
 
 These also depend on some other SWAN ontologies:
 ![Dependencies](http://swan.mindinformatics.org/spec/1.2/images/SWAN-Agents-Module.png)
 
-* [Provenance, Authoring and Versioning](http://swan.mindinformatics.org/ontologies/1.2/pav.owl)
-* [Collections](http://swan.mindinformatics.org/ontologies/1.2/collections.owl)
-* [Reification](http://swan.mindinformatics.org/ontologies/1.2/reification.owl)
+* [Provenance, Authoring and Versioning](view-source:http://swan.mindinformatics.org/ontologies/1.2/pav.owl)
+* [Collections](view-source:http://swan.mindinformatics.org/ontologies/1.2/collections.owl)
+* [Reification](view-source:http://swan.mindinformatics.org/ontologies/1.2/reification.owl)
 
 ![Person Names](http://swan.mindinformatics.org/imgs/agents-fig-1.png)
 ![mapping to foaf](http://swan.mindinformatics.org/imgs/agents-fig-3.png)
@@ -85,7 +85,7 @@ Using these we have:
 
 	8. SWAN Agents
 	
-[view-source:http://swan.mindinformatics.org/ontologies/1.2/agents.owl](view-source:http://swan.mindinformatics.org/ontologies/1.2/agents.owl)
+[http://swan.mindinformatics.org/ontologies/1.2/agents.owl](view-source:http://swan.mindinformatics.org/ontologies/1.2/agents.owl)
 
 The SWAN folks are **willing to make changes we might want to these ontologies** 
 to accomodate our needs.
@@ -99,7 +99,7 @@ needs.
 
 	9. BIBO Ontology: Modified for OWL-DL
 	
-[view-source:http://bitbucket.org/adsonto/adsontologies/raw/6719c72e4944/owl/bibo.xml.owl](view-source:http://bitbucket.org/adsonto/adsontologies/raw/6719c72e4944/owl/bibo.xml.owl)
+[http://github.com/rahuldave/ontoads/blob/master/owl/bibo.xml.owl](http://github.com/rahuldave/ontoads/blob/master/owl/bibo.xml.owl)
 
 CITO adds a whole parallel set of terms. So does SWAN. We dont need this. We 
 need to extract just that much which uses SWAN provenance and agents to 'type' 
