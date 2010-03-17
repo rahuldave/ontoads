@@ -1,5 +1,5 @@
 ---
 layout: article
-title: ADS Bibliohraphic Ontology
+title: ADS Bibliographic Ontology
 category: article
 ---
