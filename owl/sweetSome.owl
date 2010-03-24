@@ -14,6 +14,7 @@
          xmlns:rdfs="&rdfs;"
 	 xmlns:xsd = "&xsd;">
 
+  <!--owl:Ontology rdf:about="" owl:versionInfo="2.0"-->
   <owl:Ontology rdf:about="" owl:versionInfo="2.0">
      <owl:imports rdf:resource="http://sweet.jpl.nasa.gov/2.0/info.owl"/>
      <owl:imports rdf:resource="http://sweet.jpl.nasa.gov/2.0/infoFile.owl"/>
