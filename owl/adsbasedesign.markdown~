@@ -17,12 +17,11 @@ From our discussion:
 And from ads:
 	
     ads:Observatory
-        ads:SpaceCraft
-        ads:GroundBasedObservatory
+    ads:SpaceCraft
     ads:Instrument
-        ads:Telescope
+       ads:Telescope
     ads:Observation
-    --ads:DataArchive
+    ads:DataArchive
     ads:Dataset
     ads:DataProduct
     
