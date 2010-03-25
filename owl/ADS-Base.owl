@@ -8,6 +8,8 @@
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY agents "http://swan.mindinformatics.org/ontologies/1.2/agents/" >
+    <!ENTITY collections "http://swan.mindinformatics.org/ontologies/1.2/collections/" >
     <!ENTITY ADS-Base "http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#" >
 ]>
 
@@ -18,12 +20,222 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:agents="http://swan.mindinformatics.org/ontologies/1.2/agents/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:collections="http://swan.mindinformatics.org/ontologies/1.2/collections/">
     <owl:Ontology rdf:about="">
         <owl:imports rdf:resource="http://swan.mindinformatics.org/ontologies/1.2/agents.owl"/>
     </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#asAResultOfProposal -->
+
+    <owl:ObjectProperty rdf:about="#asAResultOfProposal">
+        <rdfs:domain rdf:resource="#Grant"/>
+        <rdfs:range rdf:resource="#Proposal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#atObservatory -->
+
+    <owl:ObjectProperty rdf:about="#atObservatory">
+        <rdfs:domain rdf:resource="#ObservationSchedule"/>
+        <rdfs:range rdf:resource="#Observatory"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#inResponseToObservationProposal -->
+
+    <owl:ObjectProperty rdf:about="#inResponseToObservationProposal">
+        <rdfs:range rdf:resource="#ObservationProposal"/>
+        <rdfs:domain rdf:resource="#ObservationSchedule"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#operatedBy -->
+
+    <owl:ObjectProperty rdf:about="#operatedBy">
+        <rdfs:range rdf:resource="#ObservationAgency"/>
+        <rdfs:domain rdf:resource="#Observatory"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#principalInvestigator -->
+
+    <owl:ObjectProperty rdf:about="#principalInvestigator">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&agents;PersonName"/>
+                    <rdf:Description rdf:about="&foaf;Person"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Grant"/>
+                    <rdf:Description rdf:about="#Proposal"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#sponsoredBy -->
+
+    <owl:ObjectProperty rdf:about="#sponsoredBy">
+        <rdfs:domain rdf:resource="#Program"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Collaboration"/>
+                    <rdf:Description rdf:about="&foaf;Organization"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#toFundingAgency -->
+
+    <owl:ObjectProperty rdf:about="#toFundingAgency">
+        <rdfs:range rdf:resource="#FundingAgency"/>
+        <rdfs:domain rdf:resource="#Proposal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#toObservingAgency -->
+
+    <owl:ObjectProperty rdf:about="#toObservingAgency">
+        <rdfs:range rdf:resource="#ObservationAgency"/>
+        <rdfs:domain rdf:resource="#ObservationProposal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#underFundingProgram -->
+
+    <owl:ObjectProperty rdf:about="#underFundingProgram">
+        <rdfs:range rdf:resource="#FundingProgram"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Grant"/>
+                    <rdf:Description rdf:about="#Proposal"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#underObservationProgram -->
+
+    <owl:ObjectProperty rdf:about="#underObservationProgram">
+        <rdfs:range rdf:resource="#ObservationProgram"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#ObservationProposal"/>
+                    <rdf:Description rdf:about="#ObservationSchedule"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#fundingRequired? -->
+
+    <owl:DatatypeProperty rdf:about="#fundingRequired?">
+        <rdfs:domain rdf:resource="#ObservationProposal"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#grantId -->
+
+    <owl:DatatypeProperty rdf:about="#grantId">
+        <rdfs:domain rdf:resource="#Grant"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#location -->
+
+    <owl:DatatypeProperty rdf:about="#location">
+        <rdfs:domain rdf:resource="#GroundBasedObservatory"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#name -->
+
+    <owl:DatatypeProperty rdf:about="#name">
+        <rdfs:domain rdf:resource="#Observatory"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#observationScheduleId -->
+
+    <owl:DatatypeProperty rdf:about="#observationScheduleId">
+        <rdfs:domain rdf:resource="#ObservationSchedule"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#title -->
+
+    <owl:DatatypeProperty rdf:about="#title">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Program"/>
+                    <rdf:Description rdf:about="#Proposal"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
     
 
 
@@ -41,7 +253,11 @@
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Collaboration -->
 
     <owl:Class rdf:about="#Collaboration">
-        <rdfs:subClassOf rdf:resource="&foaf;Group"/>
+        <rdfs:label
+            >(adsbase) Collaboration</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&foaf;Agent"/>
+        <rdfs:comment
+            >A collaboration is an unincorporated buch of people who work on a project. People may enter or leave it, but it has a non-legal standing in the community. Eg TAOS collaboration. Notice we have not made it entirely disjoint to organization. TODO: revisit this</rdfs:comment>
     </owl:Class>
     
 
@@ -60,17 +276,11 @@
     
 
 
-    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#FundingInitiative -->
-
-    <owl:Class rdf:about="#FundingInitiative">
-        <rdfs:subClassOf rdf:resource="#FundingProgram"/>
-    </owl:Class>
-    
-
-
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#FundingProgram -->
 
-    <owl:Class rdf:about="#FundingProgram"/>
+    <owl:Class rdf:about="#FundingProgram">
+        <rdfs:subClassOf rdf:resource="#Program"/>
+    </owl:Class>
     
 
 
@@ -102,6 +312,14 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#ObservationProgram -->
+
+    <owl:Class rdf:about="#ObservationProgram">
+        <rdfs:subClassOf rdf:resource="#Program"/>
+    </owl:Class>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#ObservationProposal -->
 
     <owl:Class rdf:about="#ObservationProposal">
@@ -122,9 +340,17 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Program -->
+
+    <owl:Class rdf:about="#Program"/>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Proposal -->
 
-    <owl:Class rdf:about="#Proposal"/>
+    <owl:Class rdf:about="#Proposal">
+        <rdfs:subClassOf rdf:resource="&foaf;Document"/>
+    </owl:Class>
     
 
 
@@ -144,15 +370,33 @@
     
 
 
-    <!-- http://xmlns.com/foaf/0.1/Group -->
+    <!-- http://swan.mindinformatics.org/ontologies/1.2/agents/PersonName -->
 
-    <owl:Class rdf:about="&foaf;Group"/>
+    <owl:Class rdf:about="&agents;PersonName"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <owl:Class rdf:about="&foaf;Agent"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Document -->
+
+    <owl:Class rdf:about="&foaf;Document"/>
     
 
 
     <!-- http://xmlns.com/foaf/0.1/Organization -->
 
     <owl:Class rdf:about="&foaf;Organization"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="&foaf;Person"/>
 </rdf:RDF>
 
 
