@@ -3,3 +3,21 @@ layout: article
 title: ADS Base Ontology
 category: article
 ---
+
+So this is the first try at the ADS base ontology. You can view the
+[Owl File](view-source:http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl).
+
+This is very preliminary work, with no facet restrictions or cardinality yet. The facets all need a bit of tightening, and all documentation is in comments.
+
+The idea is to capture the base astronomy research process. All ADS object, bib,
+and observation ontologies will be built on this. As such the idea would be that
+future classes such as `Dataset` and `Observation` and `Paper` can be the domain
+of ObjectProperties in this ontology with the range some of the Classes in this
+ontology.
+
+This ontology is based off the SWAN agents ontology. Please pay particular attention to both the new terms added to model the grant and observation process
+and how the SWAN ontology allows both ADS and
+other organizations to curate data (see `curated_by` and related object properties).
+
+You can see the Ontology Browser representation of the ontology [here](http://owl.cs.manchester.ac.uk/browser/ontologies/?session=1279987203d-23612-12799882fde). This
+is a much better representation than the OWL file.
