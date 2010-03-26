@@ -42,10 +42,31 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#affiliation -->
+
+    <owl:ObjectProperty rdf:about="#affiliation">
+        <rdfs:comment
+            >Currently we only allow one affiliation for a say, Person, but we should change range to be a Bag or change cardinality. TODO.</rdfs:comment>
+        <rdfs:range rdf:resource="&foaf;Organization"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Collaboration"/>
+                    <rdf:Description rdf:about="&agents;Person"/>
+                    <rdf:Description rdf:about="&agents;PersonName"/>
+                    <rdf:Description rdf:about="&foaf;Group"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#asAResultOfProposal -->
 
     <owl:ObjectProperty rdf:about="#asAResultOfProposal">
-        <rdfs:domain rdf:resource="#Grant"/>
+        <rdfs:comment
+            >Usual Domain is Grant and we may care to restrict it in overlay ontologies but papers, datasets, datacenters all could be as a result of a proposal. This could also be used as Observation as a result of observationPropsal by inheritance</rdfs:comment>
         <rdfs:range rdf:resource="#Proposal"/>
     </owl:ObjectProperty>
     
@@ -54,7 +75,8 @@
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#atObservatory -->
 
     <owl:ObjectProperty rdf:about="#atObservatory">
-        <rdfs:domain rdf:resource="#ObservationSchedule"/>
+        <rdfs:comment
+            >Generally domain is ObservationSchedule but later we may want to allow observations to be at an observatory.</rdfs:comment>
         <rdfs:range rdf:resource="#Observatory"/>
     </owl:ObjectProperty>
     
@@ -72,8 +94,17 @@
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#operatedBy -->
 
     <owl:ObjectProperty rdf:about="#operatedBy">
-        <rdfs:range rdf:resource="#ObservationAgency"/>
+        <rdfs:comment
+            >Typically an observatory is operated by an observation agency. But if its small enough a collaboration might be running it. TODO: What if a collaboration is only running some telescopes/instruments in it?</rdfs:comment>
         <rdfs:domain rdf:resource="#Observatory"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Collaboration"/>
+                    <rdf:Description rdf:about="#ObservationAgency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -138,6 +169,8 @@
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#underFundingProgram -->
 
     <owl:ObjectProperty rdf:about="#underFundingProgram">
+        <rdfs:comment
+            >the funding program under which a grant or proposal is applied for</rdfs:comment>
         <rdfs:range rdf:resource="#FundingProgram"/>
         <rdfs:domain>
             <owl:Class>
@@ -154,15 +187,9 @@
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#underObservationProgram -->
 
     <owl:ObjectProperty rdf:about="#underObservationProgram">
+        <rdfs:comment
+            >ObservationProposal or ObservationSchedule is the usual domain. But observations, datasets etc could be related to Observation Programs so leave domain empty.</rdfs:comment>
         <rdfs:range rdf:resource="#ObservationProgram"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#ObservationProposal"/>
-                    <rdf:Description rdf:about="#ObservationSchedule"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -262,16 +289,12 @@
     
 
 
-    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#DataArchive -->
-
-    <owl:Class rdf:about="#DataArchive"/>
-    
-
-
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#FundingAgency -->
 
     <owl:Class rdf:about="#FundingAgency">
         <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
+        <rdfs:comment
+            >A funding agency like NASA</rdfs:comment>
     </owl:Class>
     
 
@@ -280,13 +303,18 @@
 
     <owl:Class rdf:about="#FundingProgram">
         <rdfs:subClassOf rdf:resource="#Program"/>
+        <rdfs:comment
+            >A funding program is something like a NASA AISRP or similar..a call for prosals which are then granted for a fixed amount of money. This is perhaps best done at the finest granularity, as a program may have sub-programs. TODO..get that modelling in as it will be needed for metrics.</rdfs:comment>
     </owl:Class>
     
 
 
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Grant -->
 
-    <owl:Class rdf:about="#Grant"/>
+    <owl:Class rdf:about="#Grant">
+        <rdfs:comment
+            >A grant to carry out an observation or write a paper: to generally involve in an astronomy activity. The foaf:fundedBy property should be in a modular fashion be used to have this as domain and FundingAgency as range</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -298,16 +326,12 @@
     
 
 
-    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Instrument -->
-
-    <owl:Class rdf:about="#Instrument"/>
-    
-
-
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#ObservationAgency -->
 
     <owl:Class rdf:about="#ObservationAgency">
         <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
+        <rdfs:comment
+            >An agency maintaining observatories and allowing observation proposals..like the HST folks.</rdfs:comment>
     </owl:Class>
     
 
@@ -316,6 +340,8 @@
 
     <owl:Class rdf:about="#ObservationProgram">
         <rdfs:subClassOf rdf:resource="#Program"/>
+        <rdfs:comment
+            >An observation program created by an observationagency for an observatory. Includes things like the directors-choice.</rdfs:comment>
     </owl:Class>
     
 
@@ -324,25 +350,36 @@
 
     <owl:Class rdf:about="#ObservationProposal">
         <rdfs:subClassOf rdf:resource="#Proposal"/>
+        <rdfs:comment
+            >A proposal for an ObservationSchedule to an Observing Agency, possiblybut not necessarily involving funding.</rdfs:comment>
     </owl:Class>
     
 
 
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#ObservationSchedule -->
 
-    <owl:Class rdf:about="#ObservationSchedule"/>
+    <owl:Class rdf:about="#ObservationSchedule">
+        <rdfs:comment
+            >An observationgrant or observationschedule for time at a telescope (or other instruments) at an observatory.</rdfs:comment>
+    </owl:Class>
     
 
 
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Observatory -->
 
-    <owl:Class rdf:about="#Observatory"/>
+    <owl:Class rdf:about="#Observatory">
+        <rdfs:comment
+            >A physical installation which involves instruments and telescopes, terrestrial or otherwise. We may want to relate this to infrastructure in SWEET. TODO (perhaps using an overlay ontology not normally included)</rdfs:comment>
+    </owl:Class>
     
 
 
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Program -->
 
-    <owl:Class rdf:about="#Program"/>
+    <owl:Class rdf:about="#Program">
+        <rdfs:comment
+            >A program under which stuff is funded, educated, observed..the result of some planning</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -350,6 +387,8 @@
 
     <owl:Class rdf:about="#Proposal">
         <rdfs:subClassOf rdf:resource="&foaf;Document"/>
+        <rdfs:comment
+            >A proposal, possibly for funding or for observation. we are choosing to put funding info directly in base proposal but must make sure that observation proposals dont need to fill any funding related facets if they dont need to (TODO: is there a better way to model this?)</rdfs:comment>
     </owl:Class>
     
 
@@ -362,11 +401,9 @@
     
 
 
-    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Telescope -->
+    <!-- http://swan.mindinformatics.org/ontologies/1.2/agents/Person -->
 
-    <owl:Class rdf:about="#Telescope">
-        <rdfs:subClassOf rdf:resource="#Instrument"/>
-    </owl:Class>
+    <owl:Class rdf:about="&agents;Person"/>
     
 
 
@@ -385,6 +422,12 @@
     <!-- http://xmlns.com/foaf/0.1/Document -->
 
     <owl:Class rdf:about="&foaf;Document"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Group -->
+
+    <owl:Class rdf:about="&foaf;Group"/>
     
 
 
