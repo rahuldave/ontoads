@@ -94,16 +94,38 @@
 
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#asAResultOfProposals -->
 
-    <owl:ObjectProperty rdf:about="#asAResultOfProposals"/>
+    <owl:ObjectProperty rdf:about="#asAResultOfProposals">
+        <rdfs:range rdf:resource="#ProposalList"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#atLaboratory -->
+
+    <owl:ObjectProperty rdf:about="#atLaboratory">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#Laboratory"/>
+        <rdfs:subPropertyOf rdf:resource="#atScienceInfrastructure"/>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#atObservatory -->
 
     <owl:ObjectProperty rdf:about="#atObservatory">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:comment
             >Generally domain is Observation but it could be anything we want</rdfs:comment>
         <rdfs:range rdf:resource="#Observatory"/>
+        <rdfs:subPropertyOf rdf:resource="#atScienceInfrastructure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#atScienceInfrastructure -->
+
+    <owl:ObjectProperty rdf:about="#atScienceInfrastructure">
+        <rdfs:range rdf:resource="#ScienceInfrastructure"/>
     </owl:ObjectProperty>
     
 
@@ -111,14 +133,15 @@
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#operatedBy -->
 
     <owl:ObjectProperty rdf:about="#operatedBy">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:comment
             >Typically an observatory is operated by an observation agency. But if its small enough a collaboration might be running it. TODO: What if a collaboration is only running some telescopes/instruments in it?</rdfs:comment>
-        <rdfs:domain rdf:resource="#Observatory"/>
+        <rdfs:domain rdf:resource="#ScienceInfrastructure"/>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Collaboration"/>
-                    <rdf:Description rdf:about="#ObservationAgency"/>
+                    <rdf:Description rdf:about="#ScienceInfrastructureAgency"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
@@ -154,6 +177,7 @@
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#sponsoredBy -->
 
     <owl:ObjectProperty rdf:about="#sponsoredBy">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:domain rdf:resource="#Program"/>
         <rdfs:range rdf:resource="&foaf;Organization"/>
     </owl:ObjectProperty>
@@ -163,6 +187,7 @@
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#toFundingAgency -->
 
     <owl:ObjectProperty rdf:about="#toFundingAgency">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:comment
             >this can be inferred and is not fundamental</rdfs:comment>
         <rdfs:range rdf:resource="#FundingAgency"/>
@@ -171,11 +196,36 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#toLaboratoryAgency -->
+
+    <owl:ObjectProperty rdf:about="#toLaboratoryAgency">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#LabTimeProposal"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Collaboration"/>
+                    <rdf:Description rdf:about="#LaboratoryAgency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#toObservingAgency -->
 
     <owl:ObjectProperty rdf:about="#toObservingAgency">
-        <rdfs:range rdf:resource="#ObservationAgency"/>
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:domain rdf:resource="#ObservationProposal"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Collaboration"/>
+                    <rdf:Description rdf:about="#ObservationAgency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -186,6 +236,15 @@
         <rdfs:comment
             >the funding program under which a grant or proposal is applied for, or under which a paper is written or a piece of research is carried out</rdfs:comment>
         <rdfs:range rdf:resource="#FundingProgram"/>
+        <rdfs:subPropertyOf rdf:resource="#underProgram"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#underLaboratoryProgram -->
+
+    <owl:ObjectProperty rdf:about="#underLaboratoryProgram">
+        <rdfs:range rdf:resource="#LaboratoryProgram"/>
         <rdfs:subPropertyOf rdf:resource="#underProgram"/>
     </owl:ObjectProperty>
     
@@ -358,10 +417,42 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#LabTimeProposal -->
+
+    <owl:Class rdf:about="#LabTimeProposal">
+        <rdfs:subClassOf rdf:resource="#Proposal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Laboratory -->
+
+    <owl:Class rdf:about="#Laboratory">
+        <rdfs:subClassOf rdf:resource="#ScienceInfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#LaboratoryAgency -->
+
+    <owl:Class rdf:about="#LaboratoryAgency">
+        <rdfs:subClassOf rdf:resource="#ScienceInfrastructureAgency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#LaboratoryProgram -->
+
+    <owl:Class rdf:about="#LaboratoryProgram">
+        <rdfs:subClassOf rdf:resource="#Program"/>
+    </owl:Class>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#ObservationAgency -->
 
     <owl:Class rdf:about="#ObservationAgency">
-        <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
+        <rdfs:subClassOf rdf:resource="#ScienceInfrastructureAgency"/>
         <rdfs:comment
             >An agency maintaining observatories and allowing observation proposals..like the HST folks.</rdfs:comment>
     </owl:Class>
@@ -391,6 +482,7 @@
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Observatory -->
 
     <owl:Class rdf:about="#Observatory">
+        <rdfs:subClassOf rdf:resource="#ScienceInfrastructure"/>
         <rdfs:comment
             >A physical installation which involves instruments and telescopes, terrestrial or otherwise. We may want to relate this to infrastructure in SWEET. TODO (perhaps using an overlay ontology not normally included)</rdfs:comment>
     </owl:Class>
@@ -417,8 +509,8 @@
         <rdfs:subClassOf rdf:resource="&collections;ListItem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;itemContent"/>
-                <owl:allValuesFrom rdf:resource="&foaf;Organization"/>
+                <owl:onProperty rdf:resource="&collections;previousItem"/>
+                <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -429,8 +521,8 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;previousItem"/>
-                <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
+                <owl:onProperty rdf:resource="&collections;itemContent"/>
+                <owl:allValuesFrom rdf:resource="&foaf;Organization"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -478,8 +570,8 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
         <rdfs:subClassOf rdf:resource="&collections;ListItem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;itemContent"/>
-                <owl:allValuesFrom rdf:resource="#Proposal"/>
+                <owl:onProperty rdf:resource="&collections;nextItem"/>
+                <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -490,10 +582,24 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;nextItem"/>
-                <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
+                <owl:onProperty rdf:resource="&collections;itemContent"/>
+                <owl:allValuesFrom rdf:resource="#Proposal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#ScienceInfrastructure -->
+
+    <owl:Class rdf:about="#ScienceInfrastructure"/>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#ScienceInfrastructureAgency -->
+
+    <owl:Class rdf:about="#ScienceInfrastructureAgency">
+        <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
     </owl:Class>
     
 
