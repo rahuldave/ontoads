@@ -114,6 +114,7 @@
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#hasAffiliation -->
 
     <owl:ObjectProperty rdf:about="#hasAffiliation">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
         <rdfs:range rdf:resource="#Affiliation"/>
         <rdfs:domain>
             <owl:Class>
@@ -129,9 +130,27 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#hasMember -->
+
+    <owl:ObjectProperty rdf:about="#hasMember">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&agents;Person"/>
+                    <rdf:Description rdf:about="&agents;PersonName"/>
+                    <rdf:Description rdf:about="&foaf;Group"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#hasMembership -->
 
     <owl:ObjectProperty rdf:about="#hasMembership">
+        <rdfs:comment
+            >TODO: should we specify hasMembership incerseOf hasMembership?</rdfs:comment>
         <rdfs:range rdf:resource="#Membership"/>
         <rdfs:domain>
             <owl:Class>
@@ -342,7 +361,9 @@
 
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#atTime -->
 
-    <owl:DatatypeProperty rdf:about="#atTime"/>
+    <owl:DatatypeProperty rdf:about="#atTime">
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
     
 
 
@@ -350,6 +371,7 @@
 
     <owl:DatatypeProperty rdf:about="#fromTime">
         <rdfs:subPropertyOf rdf:resource="#atTime"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
     </owl:DatatypeProperty>
     
 
@@ -410,6 +432,7 @@
 
     <owl:DatatypeProperty rdf:about="#toTime">
         <rdfs:subPropertyOf rdf:resource="#atTime"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
     </owl:DatatypeProperty>
     
 
@@ -436,6 +459,13 @@
     <owl:Class rdf:about="#Affiliation">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&pav;createdOn"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="#affiliation"/>
                 <owl:onClass rdf:resource="&foaf;Organization"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -447,12 +477,8 @@
                 <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&pav;createdOn"/>
-                <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <rdfs:comment
+            >TODO or BUG: No 1-1 relationship specifiable between afilliationn and person. Only done as an inverseFunctional property on hasAffiliation</rdfs:comment>
     </owl:Class>
     
 
@@ -534,12 +560,6 @@
     <owl:Class rdf:about="#Membership">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#fromTime"/>
-                <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="#inCollaboration"/>
                 <owl:onClass rdf:resource="#Collaboration"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -547,10 +567,21 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#toTime"/>
-                <owl:someValuesFrom rdf:resource="&xsd;dateTime"/>
+                <owl:onProperty rdf:resource="#hasMember"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&agents;Person"/>
+                            <rdf:Description rdf:about="&agents;PersonName"/>
+                            <rdf:Description rdf:about="&foaf;Group"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment
+            >excatly one member so that we can model to and from times if we have them. Thus a collaboration has multiple memberships.</rdfs:comment>
     </owl:Class>
     
 
@@ -676,6 +707,12 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
         <rdfs:subClassOf rdf:resource="&collections;ListItem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&collections;nextItem"/>
+                <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&collections;previousItem"/>
                 <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
             </owl:Restriction>
@@ -684,12 +721,6 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&collections;itemContent"/>
                 <owl:allValuesFrom rdf:resource="#Proposal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;nextItem"/>
-                <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
