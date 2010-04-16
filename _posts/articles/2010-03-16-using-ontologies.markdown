@@ -44,6 +44,11 @@ Ed Chaya's ontologies have some Base, observational, and instrumental stuff,
 but they are not online any more. He reused SWEET where he found appropriate. 
 VSTO defined their own terms, all in one big ontology. 
 
+	CURRENTLY I have decided not to use SWEET.
+	
+This is to keep the number of terms small. In general I want to keep the complexity low, and 
+allow interoperability with other vocabularies by using equivalence ontologies which
+define mapping layers and are used only in script-like computations, rather than online ones.
 
 	5. SKOS-essential
 	
@@ -113,3 +118,7 @@ non peer-reviews from an A and A article. We'll use SWAN `pav` and `agents` for
 these too.
 
 This is where some of the effort in the **ADS biblio Ontology** will go.
+
+Stock BIBO has Dublin Core redefinition issues, on the line of what is talked about
+[base](/ontoads/article/ontologies.html). We also need to investigate the compatability of
+BIBO with SWAN agent `Person` and `PersonName` usage.

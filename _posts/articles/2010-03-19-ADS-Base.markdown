@@ -7,7 +7,7 @@ category: article
 So this is the first try at the ADS base ontology. You can view the
 [Owl File](view-source:http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl).
 
-This is very preliminary work, with no facet restrictions or cardinality yet. The facets all need a bit of tightening, and all documentation is in comments.
+This is very preliminary work.. The facets all need a bit of tightening, and all documentation is in comments. Specifically choices need to be made between subclassing and using equivalent classes in objectproperty restrictions. OWL-DL compatability also needs to be worked on.
 
 The idea is to capture the base astronomy research process. All ADS object, bib,
 and observation ontologies will be built on this. As such the idea would be that

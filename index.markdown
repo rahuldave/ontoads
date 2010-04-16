@@ -15,6 +15,7 @@ Also read [base](/ontoads/article/ADS-Base.html) for the ADS Base Ontology.
 
 The pages link takes you
 to the various pages about base ontologies and the ADS ontologies. The posts section is about various
-relevant blog posts we find and stuff about the semantic web that is interesting in our context.
+relevant blog posts we find and stuff about the semantic web that is interesting in our context
+(nothing there yet.
 	
 	
