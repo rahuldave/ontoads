@@ -19,10 +19,7 @@ This ontology is based off the SWAN agents ontology. Please pay particular atten
 and how the SWAN ontology allows both ADS and
 other organizations to curate data (see `curated_by` and related object properties).
 
-You can see the Ontology Browser representation of the ontology [here](http://owl.cs.manchester.ac.uk/browser/ontologies/?session=1279987203d-23612-12799882fde). This
-is a much better representation than the OWL file.
-
-Just the class structure can be seen below:
+The class structure can be seen below:
 
 ![class structure](http://github.com/rahuldave/ontoads/raw/master/supportdocs/protege.png)
 
