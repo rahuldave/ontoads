@@ -658,8 +658,8 @@
         <rdfs:subClassOf rdf:resource="&collections;ListItem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;itemContent"/>
-                <owl:allValuesFrom rdf:resource="&foaf;Organization"/>
+                <owl:onProperty rdf:resource="&collections;previousItem"/>
+                <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -670,8 +670,8 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;previousItem"/>
-                <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
+                <owl:onProperty rdf:resource="&collections;itemContent"/>
+                <owl:allValuesFrom rdf:resource="&foaf;Organization"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -696,7 +696,6 @@
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Proposal -->
 
     <owl:Class rdf:about="#Proposal">
-        <rdfs:subClassOf rdf:resource="&foaf;Document"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#toAgency"/>
@@ -731,6 +730,12 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
         <rdfs:subClassOf rdf:resource="&collections;ListItem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&collections;itemContent"/>
+                <owl:allValuesFrom rdf:resource="#Proposal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&collections;nextItem"/>
                 <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
             </owl:Restriction>
@@ -739,12 +744,6 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&collections;previousItem"/>
                 <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;itemContent"/>
-                <owl:allValuesFrom rdf:resource="#Proposal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -826,12 +825,6 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
     <!-- http://xmlns.com/foaf/0.1/Agent -->
 
     <owl:Class rdf:about="&foaf;Agent"/>
-    
-
-
-    <!-- http://xmlns.com/foaf/0.1/Document -->
-
-    <owl:Class rdf:about="&foaf;Document"/>
     
 
 
