@@ -174,6 +174,15 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#isAbout -->
+
+    <owl:ObjectProperty rdf:about="#isAbout">
+        <rdfs:range rdf:resource="#ScienceProcess"/>
+        <rdfs:domain rdf:resource="#ScienceProduct"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#operatedBy -->
 
     <owl:ObjectProperty rdf:about="#operatedBy">
@@ -471,6 +480,13 @@
     <owl:Class rdf:about="#Affiliation">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&pav;createdOn"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="#affiliationContext"/>
                 <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
@@ -480,13 +496,6 @@
                 <owl:onProperty rdf:resource="#affiliation"/>
                 <owl:onClass rdf:resource="&foaf;Organization"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&pav;createdOn"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;dateTime"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment
@@ -503,6 +512,22 @@
         <rdfs:subClassOf rdf:resource="&foaf;Agent"/>
         <rdfs:comment
             >A collaboration is an unincorporated buch of people who work on a project. People may enter or leave it, but it has a non-legal standing in the community. Eg TAOS collaboration. Notice we have not made it entirely disjoint to organization. TODO: revisit this</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#DataProduct -->
+
+    <owl:Class rdf:about="#DataProduct">
+        <rdfs:subClassOf rdf:resource="#ScienceProduct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Experiment -->
+
+    <owl:Class rdf:about="#Experiment">
+        <rdfs:subClassOf rdf:resource="#ScienceProcess"/>
     </owl:Class>
     
 
@@ -531,6 +556,14 @@
 
     <owl:Class rdf:about="#GroundBasedObservatory">
         <rdfs:subClassOf rdf:resource="#Observatory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Instrument -->
+
+    <owl:Class rdf:about="#Instrument">
+        <rdfs:subClassOf rdf:resource="#ScienceInfrastructure"/>
     </owl:Class>
     
 
@@ -594,6 +627,14 @@
         </rdfs:subClassOf>
         <rdfs:comment
             >excatly one member so that we can model to and from times if we have them. Thus a collaboration has multiple memberships.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Observation -->
+
+    <owl:Class rdf:about="#Observation">
+        <rdfs:subClassOf rdf:resource="#ScienceProcess"/>
     </owl:Class>
     
 
@@ -730,6 +771,12 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
         <rdfs:subClassOf rdf:resource="&collections;ListItem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&collections;previousItem"/>
+                <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&collections;itemContent"/>
                 <owl:allValuesFrom rdf:resource="#Proposal"/>
             </owl:Restriction>
@@ -740,12 +787,14 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
                 <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;previousItem"/>
-                <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#PublicationProduct -->
+
+    <owl:Class rdf:about="#PublicationProduct">
+        <rdfs:subClassOf rdf:resource="#ScienceProduct"/>
     </owl:Class>
     
 
@@ -778,10 +827,56 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#ScienceProcess -->
+
+    <owl:Class rdf:about="#ScienceProcess"/>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#ScienceProduct -->
+
+    <owl:Class rdf:about="#ScienceProduct">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Simulation -->
+
+    <owl:Class rdf:about="#Simulation">
+        <rdfs:subClassOf rdf:resource="#ScienceProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#SoftwareProduct -->
+
+    <owl:Class rdf:about="#SoftwareProduct">
+        <rdfs:subClassOf rdf:resource="#ScienceProduct"/>
+    </owl:Class>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#SpaceCraft -->
 
     <owl:Class rdf:about="#SpaceCraft">
         <rdfs:subClassOf rdf:resource="#Observatory"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Survey -->
+
+    <owl:Class rdf:about="#Survey">
+        <rdfs:subClassOf rdf:resource="#Collaboration"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Theory -->
+
+    <owl:Class rdf:about="#Theory">
+        <rdfs:subClassOf rdf:resource="#ScienceProcess"/>
     </owl:Class>
     
 
