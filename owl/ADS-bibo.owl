@@ -88,14 +88,6 @@
     
 
 
-    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#publishedBy -->
-
-    <owl:ObjectProperty rdf:about="#publishedBy">
-        <rdfs:range rdf:resource="#Publisher"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#publishedIn -->
 
     <owl:ObjectProperty rdf:about="#publishedIn">
@@ -130,6 +122,14 @@
     <!-- http://swan.mindinformatics.org/ontologies/1.2/pav/contributors -->
 
     <owl:ObjectProperty rdf:about="&pav;contributors"/>
+    
+
+
+    <!-- http://swan.mindinformatics.org/ontologies/1.2/pav/publishedBy -->
+
+    <owl:ObjectProperty rdf:about="&pav;publishedBy">
+        <rdfs:range rdf:resource="#Publisher"/>
+    </owl:ObjectProperty>
     
 
 
@@ -264,7 +264,14 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#DocumentPart -->
 
     <owl:Class rdf:about="#DocumentPart">
-        <rdfs:subClassOf rdf:resource="&cito;Document"/>
+        <rdfs:subClassOf rdf:resource="&cito;Expression"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isPartOf"/>
+                <owl:onClass rdf:resource="&cito;Document"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
