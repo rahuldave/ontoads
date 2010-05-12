@@ -45,6 +45,35 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#aggregatedAt -->
+
+    <owl:ObjectProperty rdf:about="#aggregatedAt">
+        <rdfs:domain rdf:resource="#Aggregation"/>
+        <rdfs:range rdf:resource="#Aggregator"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#alsoHasEprint -->
+
+    <owl:ObjectProperty rdf:about="#alsoHasEprint">
+        <rdfs:range rdf:resource="#EPrint"/>
+        <owl:inverseOf rdf:resource="#alsoPublishedIn"/>
+        <rdfs:domain rdf:resource="&cito;Expression"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#alsoPublishedIn -->
+
+    <owl:ObjectProperty rdf:about="#alsoPublishedIn">
+        <owl:inverseOf rdf:resource="#alsoPublishedIn"/>
+        <rdfs:domain rdf:resource="&cito;Expression"/>
+        <rdfs:range rdf:resource="&cito;Expression"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#editedBy -->
 
     <owl:ObjectProperty rdf:about="#editedBy">
@@ -70,6 +99,34 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasAggregatorMetadata -->
+
+    <owl:ObjectProperty rdf:about="#hasAggregatorMetadata">
+        <rdfs:domain rdf:resource="#Aggregation"/>
+        <rdfs:range rdf:resource="&cito;Metadata"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasDocumentPart -->
+
+    <owl:ObjectProperty rdf:about="#hasDocumentPart">
+        <rdfs:range rdf:resource="#DocumentPart"/>
+        <rdfs:subPropertyOf rdf:resource="#hasPart"/>
+        <rdfs:domain rdf:resource="&cito;Document"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasMetadata -->
+
+    <owl:ObjectProperty rdf:about="#hasMetadata">
+        <rdfs:range rdf:resource="&cito;Metadata"/>
+        <rdfs:domain rdf:resource="&cito;Work"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasPart -->
 
     <owl:ObjectProperty rdf:about="#hasPart">
@@ -82,8 +139,20 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#isPartOf -->
 
     <owl:ObjectProperty rdf:about="#isPartOf">
+        <owl:inverseOf rdf:resource="#hasPart"/>
         <rdfs:domain rdf:resource="&cito;Expression"/>
         <rdfs:range rdf:resource="&cito;Expression"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#isPartOfDocument -->
+
+    <owl:ObjectProperty rdf:about="#isPartOfDocument">
+        <rdfs:domain rdf:resource="#DocumentPart"/>
+        <owl:inverseOf rdf:resource="#hasDocumentPart"/>
+        <rdfs:subPropertyOf rdf:resource="#isPartOf"/>
+        <rdfs:range rdf:resource="&cito;Document"/>
     </owl:ObjectProperty>
     
 
@@ -144,10 +213,30 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#aggregationIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="#aggregationIdentifier">
+        <rdfs:domain rdf:resource="#Aggregation"/>
+        <rdfs:subPropertyOf rdf:resource="#identifier"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#bibcode -->
 
     <owl:DatatypeProperty rdf:about="#bibcode">
-        <rdfs:subPropertyOf rdf:resource="#identifier"/>
+        <rdfs:subPropertyOf rdf:resource="#aggregationIdentifier"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#channel -->
+
+    <owl:DatatypeProperty rdf:about="#channel">
+        <rdfs:domain rdf:resource="#EPrint"/>
+        <rdfs:subPropertyOf rdf:resource="#locator"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
 
@@ -155,7 +244,7 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#doi -->
 
     <owl:DatatypeProperty rdf:about="#doi">
-        <rdfs:subPropertyOf rdf:resource="#identifier"/>
+        <rdfs:subPropertyOf rdf:resource="#expressionIdentifier"/>
     </owl:DatatypeProperty>
     
 
@@ -163,7 +252,23 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#eprintid -->
 
     <owl:DatatypeProperty rdf:about="#eprintid">
+        <rdfs:subPropertyOf rdf:resource="#expressionIdentifier"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#expressionIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="#expressionIdentifier">
         <rdfs:subPropertyOf rdf:resource="#identifier"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#expressionURI -->
+
+    <owl:DatatypeProperty rdf:about="#expressionURI">
+        <rdfs:subPropertyOf rdf:resource="#expressionIdentifier"/>
     </owl:DatatypeProperty>
     
 
@@ -171,7 +276,6 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#identifier -->
 
     <owl:DatatypeProperty rdf:about="#identifier">
-        <rdfs:domain rdf:resource="&cito;Expression"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
@@ -180,7 +284,7 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#isbn -->
 
     <owl:DatatypeProperty rdf:about="#isbn">
-        <rdfs:subPropertyOf rdf:resource="#identifier"/>
+        <rdfs:subPropertyOf rdf:resource="#expressionIdentifier"/>
     </owl:DatatypeProperty>
     
 
@@ -188,7 +292,15 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#issn -->
 
     <owl:DatatypeProperty rdf:about="#issn">
-        <rdfs:subPropertyOf rdf:resource="#identifier"/>
+        <rdfs:subPropertyOf rdf:resource="#expressionIdentifier"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#issue -->
+
+    <owl:DatatypeProperty rdf:about="#issue">
+        <rdfs:subPropertyOf rdf:resource="#locator"/>
     </owl:DatatypeProperty>
     
 
@@ -196,7 +308,7 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#locator -->
 
     <owl:DatatypeProperty rdf:about="#locator">
-        <rdfs:domain rdf:resource="&cito;Document"/>
+        <rdfs:domain rdf:resource="&cito;Expression"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
@@ -234,18 +346,20 @@
     
 
 
-    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#uri -->
-
-    <owl:DatatypeProperty rdf:about="#uri">
-        <rdfs:subPropertyOf rdf:resource="#identifier"/>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#volume -->
 
     <owl:DatatypeProperty rdf:about="#volume">
         <rdfs:subPropertyOf rdf:resource="#locator"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#workIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="#workIdentifier">
+        <rdfs:subPropertyOf rdf:resource="#identifier"/>
+        <rdfs:domain rdf:resource="&cito;Work"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
 
@@ -258,6 +372,20 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#Aggregation -->
+
+    <owl:Class rdf:about="#Aggregation"/>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#Aggregator -->
+
+    <owl:Class rdf:about="#Aggregator">
+        <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
+    </owl:Class>
     
 
 
@@ -287,7 +415,7 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#EPrint -->
 
     <owl:Class rdf:about="#EPrint">
-        <rdfs:subClassOf rdf:resource="&cito;Preprint"/>
+        <rdfs:subClassOf rdf:resource="&cito;Document"/>
     </owl:Class>
     
 
@@ -336,9 +464,15 @@
     
 
 
-    <!-- http://purl.org/net/cito/Preprint -->
+    <!-- http://purl.org/net/cito/Metadata -->
 
-    <owl:Class rdf:about="&cito;Preprint"/>
+    <owl:Class rdf:about="&cito;Metadata"/>
+    
+
+
+    <!-- http://purl.org/net/cito/Work -->
+
+    <owl:Class rdf:about="&cito;Work"/>
     
 
 

@@ -89,6 +89,15 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#atComputingCenter -->
+
+    <owl:ObjectProperty rdf:about="#atComputingCenter">
+        <rdfs:range rdf:resource="#ComputingCenter"/>
+        <rdfs:subPropertyOf rdf:resource="#usingScienceInfrastructure"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#atLaboratory -->
 
     <owl:ObjectProperty rdf:about="#atLaboratory">
@@ -253,6 +262,15 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#toComputingAgency -->
+
+    <owl:ObjectProperty rdf:about="#toComputingAgency">
+        <rdfs:range rdf:resource="#ComputingAgency"/>
+        <rdfs:subPropertyOf rdf:resource="#toAgency"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#toFundingAgency -->
 
     <owl:ObjectProperty rdf:about="#toFundingAgency">
@@ -302,6 +320,15 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#underComputingProgram -->
+
+    <owl:ObjectProperty rdf:about="#underComputingProgram">
+        <rdfs:range rdf:resource="#ComputingProgram"/>
+        <rdfs:subPropertyOf rdf:resource="#underProgram"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#underFundingProgram -->
 
     <owl:ObjectProperty rdf:about="#underFundingProgram">
@@ -339,6 +366,15 @@
         <rdfs:comment
             >something that happens under a program</rdfs:comment>
         <rdfs:range rdf:resource="#Program"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#usingInstrument -->
+
+    <owl:ObjectProperty rdf:about="#usingInstrument">
+        <rdfs:range rdf:resource="#Instrument"/>
+        <rdfs:subPropertyOf rdf:resource="#usingScienceInfrastructure"/>
     </owl:ObjectProperty>
     
 
@@ -495,6 +531,13 @@
     <owl:Class rdf:about="#Affiliation">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&pav;createdOn"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="#affiliation"/>
                 <owl:onClass rdf:resource="&foaf;Organization"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -506,15 +549,16 @@
                 <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&pav;createdOn"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;dateTime"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:comment
             >TODO or BUG: No 1-1 relationship specifiable between afilliationn and person. Only done as an inverseFunctional property on hasAffiliation</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Analysis -->
+
+    <owl:Class rdf:about="#Analysis">
+        <rdfs:subClassOf rdf:resource="#ScienceProcess"/>
     </owl:Class>
     
 
@@ -527,6 +571,38 @@
         <rdfs:subClassOf rdf:resource="&foaf;Agent"/>
         <rdfs:comment
             >A collaboration is an unincorporated buch of people who work on a project. People may enter or leave it, but it has a non-legal standing in the community. Eg TAOS collaboration. Notice we have not made it entirely disjoint to organization. TODO: revisit this</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#ComputerTimeProposal -->
+
+    <owl:Class rdf:about="#ComputerTimeProposal">
+        <rdfs:subClassOf rdf:resource="#Proposal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#ComputingAgency -->
+
+    <owl:Class rdf:about="#ComputingAgency">
+        <rdfs:subClassOf rdf:resource="#ScienceInfrastructureAgency"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#ComputingCenter -->
+
+    <owl:Class rdf:about="#ComputingCenter">
+        <rdfs:subClassOf rdf:resource="#ScienceInfrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#ComputingProgram -->
+
+    <owl:Class rdf:about="#ComputingProgram">
+        <rdfs:subClassOf rdf:resource="#Program"/>
     </owl:Class>
     
 
@@ -644,6 +720,13 @@
     <owl:Class rdf:about="#Membership">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="#inCollaboration"/>
+                <owl:onClass rdf:resource="#Collaboration"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="#hasMember"/>
                 <owl:onClass>
                     <owl:Class>
@@ -654,13 +737,6 @@
                         </owl:unionOf>
                     </owl:Class>
                 </owl:onClass>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#inCollaboration"/>
-                <owl:onClass rdf:resource="#Collaboration"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -738,14 +814,14 @@
         <rdfs:subClassOf rdf:resource="&collections;ListItem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;itemContent"/>
-                <owl:allValuesFrom rdf:resource="&foaf;Organization"/>
+                <owl:onProperty rdf:resource="&collections;previousItem"/>
+                <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;previousItem"/>
-                <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
+                <owl:onProperty rdf:resource="&collections;itemContent"/>
+                <owl:allValuesFrom rdf:resource="&foaf;Organization"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -810,13 +886,13 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
         <rdfs:subClassOf rdf:resource="&collections;ListItem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;previousItem"/>
+                <owl:onProperty rdf:resource="&collections;nextItem"/>
                 <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;nextItem"/>
+                <owl:onProperty rdf:resource="&collections;previousItem"/>
                 <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
