@@ -99,11 +99,11 @@
     
 
 
-    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasAggregatorMetadata -->
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasAggregation -->
 
-    <owl:ObjectProperty rdf:about="#hasAggregatorMetadata">
-        <rdfs:domain rdf:resource="#Aggregation"/>
-        <rdfs:range rdf:resource="&cito;Metadata"/>
+    <owl:ObjectProperty rdf:about="#hasAggregation">
+        <rdfs:range rdf:resource="#Aggregation"/>
+        <rdfs:domain rdf:resource="&cito;Work"/>
     </owl:ObjectProperty>
     
 
@@ -118,11 +118,28 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasExpression -->
+
+    <owl:ObjectProperty rdf:about="#hasExpression">
+        <rdfs:domain rdf:resource="#Aggregation"/>
+        <rdfs:range rdf:resource="&cito;Expression"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasMetadata -->
 
     <owl:ObjectProperty rdf:about="#hasMetadata">
         <rdfs:range rdf:resource="&cito;Metadata"/>
-        <rdfs:domain rdf:resource="&cito;Work"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Aggregation"/>
+                    <rdf:Description rdf:about="&cito;Expression"/>
+                    <rdf:Description rdf:about="&core;Work"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -216,9 +233,17 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#aggregationIdentifier -->
 
     <owl:DatatypeProperty rdf:about="#aggregationIdentifier">
-        <rdfs:domain rdf:resource="#Aggregation"/>
         <rdfs:subPropertyOf rdf:resource="#identifier"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Aggregation"/>
+                    <rdf:Description rdf:about="&cito;Expression"/>
+                    <rdf:Description rdf:about="&cito;Work"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -479,6 +504,12 @@
     <!-- http://purl.org/vocab/frbr/core#Expression -->
 
     <owl:Class rdf:about="&core;Expression"/>
+    
+
+
+    <!-- http://purl.org/vocab/frbr/core#Work -->
+
+    <owl:Class rdf:about="&core;Work"/>
     
 
 
