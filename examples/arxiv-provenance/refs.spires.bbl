@@ -1,0 +1,225 @@
+#extracted from spires: 2010-05-20 14:36:12 
+@Article{Banks:1981nn,
+     author    = "Banks, Tom and Zaks, A.",
+     title     = "{On the Phase Structure of Vector-Like Gauge Theories with
+                  Massless Fermions}",
+     journal   = "Nucl. Phys.",
+     volume    = "B196",
+     year      = "1982",
+     pages     = "189",
+     doi       = "10.1016/0550-3213(82)90035-9",
+     SLACcitation  = "%%CITATION = NUPHA,B196,189;%%"
+}
+@Article{Wilson:1970pq,
+     author    = "Wilson, Kenneth G.",
+     title     = "{OPERATOR PRODUCT EXPANSIONS AND ANOMALOUS DIMENSIONS IN
+                  THE THIRRING MODEL}",
+     journal   = "Phys. Rev.",
+     volume    = "D2",
+     year      = "1970",
+     pages     = "1473",
+     doi       = "10.1103/PhysRevD.2.1473",
+     SLACcitation  = "%%CITATION = PHRVA,D2,1473;%%"
+}
+@Article{Intriligator:1995au,
+     author    = "Intriligator, Kenneth A. and Seiberg, N.",
+     title     = "{Lectures on supersymmetric gauge theories and electric-
+                  magnetic  duality}",
+     journal   = "Nucl. Phys. Proc. Suppl.",
+     volume    = "45BC",
+     year      = "1996",
+     pages     = "1-28",
+     eprint    = "hep-th/9509066",
+     archivePrefix = "arXiv",
+     SLACcitation  = "%%CITATION = HEP-TH/9509066;%%"
+}
+@Article{Aharony:1999ti,
+     author    = "Aharony, Ofer and Gubser, Steven S. and Maldacena, Juan
+                  Martin and Ooguri, Hirosi and Oz, Yaron",
+     title     = "{Large N field theories, string theory and gravity}",
+     journal   = "Phys. Rept.",
+     volume    = "323",
+     year      = "2000",
+     pages     = "183-386",
+     eprint    = "hep-th/9905111",
+     archivePrefix = "arXiv",
+     doi       = "10.1016/S0370-1573(99)00083-6",
+     SLACcitation  = "%%CITATION = HEP-TH/9905111;%%"
+}
+@Article{Maldacena:2003nj,
+     author    = "Maldacena, Juan Martin",
+     title     = "{Lectures on AdS/CFT}",
+     year      = "2003",
+     eprint    = "hep-th/0309246",
+     archivePrefix = "arXiv",
+     SLACcitation  = "%%CITATION = HEP-TH/0309246;%%"
+}
+@Article{Randall:1999vf,
+     author    = "Randall, Lisa and Sundrum, Raman",
+     title     = "{An alternative to compactification}",
+     journal   = "Phys. Rev. Lett.",
+     volume    = "83",
+     year      = "1999",
+     pages     = "4690-4693",
+     eprint    = "hep-th/9906064",
+     archivePrefix = "arXiv",
+     doi       = "10.1103/PhysRevLett.83.4690",
+     SLACcitation  = "%%CITATION = HEP-TH/9906064;%%"
+}
+@Article{Georgi:1994qn,
+     author    = "Georgi, H.",
+     title     = "{Effective field theory}",
+     journal   = "Ann. Rev. Nucl. Part. Sci.",
+     volume    = "43",
+     year      = "1993",
+     pages     = "209-252",
+     SLACcitation  = "%%CITATION = ARNUA,43,209;%%"
+}
+@Article{Ginsparg:1988ui,
+     author    = "Ginsparg, Paul H.",
+     title     = "{APPLIED CONFORMAL FIELD THEORY}",
+     year      = "1988",
+     eprint    = "hep-th/9108028",
+     archivePrefix = "arXiv",
+     SLACcitation  = "%%CITATION = HEP-TH/9108028;%%"
+}
+@Article{ArkaniHamed:2000ds,
+     author    = "Arkani-Hamed, Nima and Porrati, Massimo and Randall, Lisa",
+     title     = "{Holography and phenomenology}",
+     journal   = "JHEP",
+     volume    = "08",
+     year      = "2001",
+     pages     = "017",
+     eprint    = "hep-th/0012148",
+     archivePrefix = "arXiv",
+     SLACcitation  = "%%CITATION = HEP-TH/0012148;%%"
+}
+@Article{Mack:1975je,
+     author    = "Mack, G.",
+     title     = "{All Unitary Ray Representations of the Conformal Group
+                  SU(2,2) with Positive Energy}",
+     journal   = "Commun. Math. Phys.",
+     volume    = "55",
+     year      = "1977",
+     pages     = "1",
+     doi       = "10.1007/BF01613145",
+     SLACcitation  = "%%CITATION = CMPHA,55,1;%%"
+}
+@Article{Georgi:2007si,
+     author    = "Georgi, Howard",
+     title     = "{Another Odd Thing About Unparticle Physics}",
+     journal   = "Phys. Lett.",
+     volume    = "B650",
+     year      = "2007",
+     pages     = "275-278",
+     eprint    = "0704.2457",
+     archivePrefix = "arXiv",
+     primaryClass  =  "hep-ph",
+     doi       = "10.1016/j.physletb.2007.05.037",
+     SLACcitation  = "%%CITATION = 0704.2457;%%"
+}
+@Article{Cheung:2007zza,
+     author    = "Cheung, Kingman and Keung, Wai-Yee and Yuan, Tzu-Chiang",
+     title     = "{Collider signals of unparticle physics}",
+     journal   = "Phys. Rev. Lett.",
+     volume    = "99",
+     year      = "2007",
+     pages     = "051803",
+     eprint    = "0704.2588",
+     archivePrefix = "arXiv",
+     primaryClass  =  "hep-ph",
+     doi       = "10.1103/PhysRevLett.99.051803",
+     SLACcitation  = "%%CITATION = 0704.2588;%%"
+}
+@Article{Luo:2007bq,
+     author    = "Luo, Mingxing and Zhu, Guohuai",
+     title     = "{Some phenomenologies of unparticle physics}",
+     journal   = "Phys. Lett.",
+     volume    = "B659",
+     year      = "2008",
+     pages     = "341-344",
+     eprint    = "0704.3532",
+     archivePrefix = "arXiv",
+     primaryClass  =  "hep-ph",
+     doi       = "10.1016/j.physletb.2007.10.058",
+     SLACcitation  = "%%CITATION = 0704.3532;%%"
+}
+@Article{Chen:2007vv,
+     author    = "Chen, Chuan-Hung and Geng, Chao-Qiang",
+     title     = "{Unparticle physics on direct CP violation}",
+     journal   = "Phys. Rev.",
+     volume    = "D76",
+     year      = "2007",
+     pages     = "115003",
+     eprint    = "0705.0689",
+     archivePrefix = "arXiv",
+     primaryClass  =  "hep-ph",
+     doi       = "10.1103/PhysRevD.76.115003",
+     SLACcitation  = "%%CITATION = 0705.0689;%%"
+}
+@Article{Ding:2007bm,
+     author    = "Ding, Gui-Jun and Yan, Mu-Lin",
+     title     = "{Unparticle Physics in DIS}",
+     journal   = "Phys. Rev.",
+     volume    = "D76",
+     year      = "2007",
+     pages     = "075005",
+     eprint    = "0705.0794",
+     archivePrefix = "arXiv",
+     primaryClass  =  "hep-ph",
+     doi       = "10.1103/PhysRevD.76.075005",
+     SLACcitation  = "%%CITATION = 0705.0794;%%"
+}
+@Article{Liao:2007bx,
+     author    = "Liao, Yi",
+     title     = "{Bounds on Unparticles Couplings to Electrons: from
+                  Electron g-2 to Positronium Decays}",
+     journal   = "Phys. Rev.",
+     volume    = "D76",
+     year      = "2007",
+     pages     = "056006",
+     eprint    = "0705.0837",
+     archivePrefix = "arXiv",
+     primaryClass  =  "hep-ph",
+     doi       = "10.1103/PhysRevD.76.056006",
+     SLACcitation  = "%%CITATION = 0705.0837;%%"
+}
+@Article{Aliev:2007qw,
+     author    = "Aliev, T. M. and Cornell, Alan S. and Gaur, Naveen",
+     title     = "{Lepton Flavour Violation in Unparticle Physics}",
+     journal   = "Phys. Lett.",
+     volume    = "B657",
+     year      = "2007",
+     pages     = "77-80",
+     eprint    = "0705.1326",
+     archivePrefix = "arXiv",
+     primaryClass  =  "hep-ph",
+     doi       = "10.1016/j.physletb.2007.09.055",
+     SLACcitation  = "%%CITATION = 0705.1326;%%"
+}
+@Article{Catterall:2007yx,
+     author    = "Catterall, Simon and Sannino, Francesco",
+     title     = "{Minimal walking on the lattice}",
+     journal   = "Phys. Rev.",
+     volume    = "D76",
+     year      = "2007",
+     pages     = "034504",
+     eprint    = "0705.1664",
+     archivePrefix = "arXiv",
+     primaryClass  =  "hep-lat",
+     doi       = "10.1103/PhysRevD.76.034504",
+     SLACcitation  = "%%CITATION = 0705.1664;%%"
+}
+@Article{Li:2007by,
+     author    = "Li, Xue-Qian and Wei, Zheng-Tao",
+     title     = "{Unparticle physics effects on D0 - anti-D0 mixing}",
+     journal   = "Phys. Lett.",
+     volume    = "B651",
+     year      = "2007",
+     pages     = "380-383",
+     eprint    = "0705.1821",
+     archivePrefix = "arXiv",
+     primaryClass  =  "hep-ph",
+     doi       = "10.1016/j.physletb.2007.06.045",
+     SLACcitation  = "%%CITATION = 0705.1821;%%"
+}

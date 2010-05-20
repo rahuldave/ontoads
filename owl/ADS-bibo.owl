@@ -74,6 +74,23 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#citationFrom -->
+
+    <owl:ObjectProperty rdf:about="#citationFrom">
+        <rdfs:domain rdf:resource="#Citation"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Aggregation"/>
+                    <rdf:Description rdf:about="&cito;Expression"/>
+                    <rdf:Description rdf:about="&core;Work"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#editedBy -->
 
     <owl:ObjectProperty rdf:about="#editedBy">
@@ -104,6 +121,24 @@
     <owl:ObjectProperty rdf:about="#hasAggregation">
         <rdfs:range rdf:resource="#Aggregation"/>
         <rdfs:domain rdf:resource="&cito;Work"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasCitation -->
+
+    <owl:ObjectProperty rdf:about="#hasCitation">
+        <rdfs:range rdf:resource="#Citation"/>
+        <owl:inverseOf rdf:resource="#citationFrom"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Aggregation"/>
+                    <rdf:Description rdf:about="&cito;Expression"/>
+                    <rdf:Description rdf:about="&core;Work"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -266,6 +301,15 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#citationText -->
+
+    <owl:DatatypeProperty rdf:about="#citationText">
+        <rdfs:domain rdf:resource="#Citation"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#doi -->
 
     <owl:DatatypeProperty rdf:about="#doi">
@@ -286,6 +330,7 @@
 
     <owl:DatatypeProperty rdf:about="#expressionIdentifier">
         <rdfs:subPropertyOf rdf:resource="#identifier"/>
+        <rdfs:domain rdf:resource="&cito;Expression"/>
     </owl:DatatypeProperty>
     
 
@@ -411,6 +456,12 @@
     <owl:Class rdf:about="#Aggregator">
         <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
     </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#Citation -->
+
+    <owl:Class rdf:about="#Citation"/>
     
 
 

@@ -1,0 +1,35 @@
+ADS page for Georgi's paper:
+
+http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G
+
+@ARTICLE{2007PhRvL..98v1601G,
+   author = {{Georgi}, H.},
+    title = "{Unparticle Physics}",
+  journal = {Physical Review Letters},
+   eprint = {arXiv:hep-ph/0703260},
+ keywords = {Other nonperturbative techniques, Other particles},
+     year = 2007,
+    month = jun,
+   volume = 98,
+   number = 22,
+    pages = {221601-+},
+      doi = {10.1103/PhysRevLett.98.221601},
+   adsurl = {http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+http://www.slac.stanford.edu/spires/find/hep/www?rawcmd=FIND+EPRINT+HEP-PH/0703260
+
+@Article{Georgi:2007ek,
+     author    = "Georgi, Howard",
+     title     = "{Unparticle Physics}",
+     journal   = "Phys. Rev. Lett.",
+     volume    = "98",
+     year      = "2007",
+     pages     = "221601",
+     eprint    = "hep-ph/0703260",
+     archivePrefix = "arXiv",
+     doi       = "10.1103/PhysRevLett.98.221601",
+     SLACcitation  = "%%CITATION = HEP-PH/0703260;%%"
+}
+
