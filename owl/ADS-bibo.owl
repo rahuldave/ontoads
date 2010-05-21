@@ -54,6 +54,15 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#alsoAggregatedAs -->
+
+    <owl:ObjectProperty rdf:about="#alsoAggregatedAs">
+        <rdfs:domain rdf:resource="#Aggregation"/>
+        <rdfs:range rdf:resource="#Aggregation"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#alsoHasEprint -->
 
     <owl:ObjectProperty rdf:about="#alsoHasEprint">
@@ -139,6 +148,15 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasCorrespondingExpression -->
+
+    <owl:ObjectProperty rdf:about="#hasCorrespondingExpression">
+        <rdfs:domain rdf:resource="#Citation"/>
+        <rdfs:range rdf:resource="&cito;Expression"/>
     </owl:ObjectProperty>
     
 
@@ -296,6 +314,15 @@
     <owl:DatatypeProperty rdf:about="#channel">
         <rdfs:domain rdf:resource="#EPrint"/>
         <rdfs:subPropertyOf rdf:resource="#locator"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#citationProcessSource -->
+
+    <owl:DatatypeProperty rdf:about="#citationProcessSource">
+        <rdfs:domain rdf:resource="#Citation"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
