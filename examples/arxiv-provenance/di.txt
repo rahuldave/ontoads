@@ -1,0 +1,93 @@
+###
+@prefix cito: 	<http://purl.org/net/cito/>.
+@prefix rdf: 	<http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#>.
+@prefix dc:  	<http://purl.org/dc/elements/1.1/>.
+@prefix foaf:	<http://xmlns.com/foaf/0.1/>. 	
+@prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix adsbase: <http://github.com/rahuldave/ontoads/owl/adsbase.owl#>.
+@prefix agent: <http://swan.mindinformatics.org/ontologies/1.2/agents/>
+@prefix ads: <http://github.com/rahuldave/ontoads/owl/adsbib.owl#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix aakeys: <http://github.com/rahuldave/ontoads/owl/AAKeys.rdf#>.
+
+
+#@ARTICLE{2007PhRvL..98v1601G,
+#   author = {{Georgi}, H.},
+#    title = "{Unparticle Physics}",
+#  journal = {Physical Review Letters},
+#   eprint = {arXiv:hep-ph/0703260},
+# keywords = {Other nonperturbative techniques, Other particles},
+#     year = 2007,
+#    month = jun,
+#   volume = 98,
+#   number = 22,
+#    pages = {221601-+},
+#      doi = {10.1103/PhysRevLett.98.221601},
+#   adsurl = {http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G},
+#  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+#}
+
+# about this metadata...
+<>  a cito:BibliographicMetadata ; # work
+    a cito:EntityMetadata ; # work
+    #add something here for expression versioning
+	cito:cites <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> ;  
+	cito:citesAsSourceDocument <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> ;  
+	dc:creator [ 
+	                a foaf:Person ; 
+	                foaf:name "Rahul Dave" ; 
+	                foaf:mbox <mailto:rahuldave@gmail.com> ; 
+	           ] ;
+	dc:date	"05/26/2010 "^^xsd:date ;
+.
+
+# about the document...
+<http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>	
+    a cito:ResearchPaper ; # work ( we seem to have repurposed a metadata url into a work)
+    #what about a default expression.
+    #a cito:JournalArticle; # expression..we have multiple so this should get out of here
+    cito:peerReviewed "true"^^xsd:boolean ; # peer review status  
+	dc:title				"Unparticle Physics";
+	dc:language				"en", "pt"; # only one in list how to do this?
+	dcterms:publisher		[
+								a 				dcterms:Agent ;
+								foaf:homepage	<http://www.plos.org/> ;
+								dc:title 		"Public Library of Science" ;
+							];
+	dcterms:issued			"2008";	
+	cito:abstract 		"""
+					    I discuss some simple aspects of the low-energy physics of a nontrivial scale invariant sector of an effective field theory—physics that cannot be described in terms of particles. I argue that it is important to take seriously the possibility that the unparticle stuff described by such a theory might actually exist in our world. I suggest a scenario in which some details of the production of unparticle stuff can be calculated. I find that in the appropriate low-energy limit, unparticle stuff with scale dimension dU looks like a nonintegral number dU of invisible particles. Thus dramatic evidence for a nontrivial scale invariant sector could show up experimentally in missing energy distributions.
+                            """^^rdfs:XMLLiteral ; 
+	## Authors: TODO: change to PersonName..do we use list?Get rid of asmuch DC as possible.
+	dc:creator [ a foaf:Person ; foaf:name "Georgi, Howard" ; ] ;
+	
+	#need biblio description, preferred quoting, tags
+
+	dcterms:bibliographicCitation	"Reis RB, Ribeiro GS, Felzemburgh RDM, Santana FS, Mohr S, et al. (2008) Impact of Environment and Social Gradient on Leptospira Infection in Urban Slums. PLoS Negl Trop Dis 2(4): e228. doi:10.1371/journal.pntd.0000228";
+			
+	## Tags 																	
+	
+	## Eprint Stuff for Arxiv: we have v1, v2, v3 down, but how do we get the general notion of eprint, not just as an expression?							
+.
+
+#How do we, and do we, track the directional history of provenance
+
+<http://prl.aps.org/abstract/PRL/v98/i22/e221601> 
+    a cito:JournalArticle;#expression
+    isRealizationOf <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>.
+    
+<http://arxiv.org/abs/hep-ph/0703260v3> 
+    a cito:JournalArticle;#expression
+    isRealizationOf <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>.
+    
+<http://arxiv.org/abs/hep-ph/0703260v2> 
+    a cito:Eprint;#expression
+    isRealizationOf <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>.
+    
+<http://arxiv.org/abs/hep-ph/0703260v1> 
+    a cito:Eprint;#expression
+    isRealizationOf <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>.
+                            
+# /end 
