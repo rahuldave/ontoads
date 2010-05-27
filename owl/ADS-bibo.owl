@@ -100,6 +100,15 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#defaultRealizedThrough -->
+
+    <owl:ObjectProperty rdf:about="#defaultRealizedThrough">
+        <rdfs:range rdf:resource="&cito;Expression"/>
+        <rdfs:domain rdf:resource="&cito;Work"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#editedBy -->
 
     <owl:ObjectProperty rdf:about="#editedBy">
@@ -175,6 +184,15 @@
 
     <owl:ObjectProperty rdf:about="#hasExpression">
         <rdfs:domain rdf:resource="#Aggregation"/>
+        <rdfs:range rdf:resource="&cito;Expression"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasExpressionForVersion -->
+
+    <owl:ObjectProperty rdf:about="#hasExpressionForVersion">
+        <rdfs:domain rdf:resource="#ExpressionVersion"/>
         <rdfs:range rdf:resource="&cito;Expression"/>
     </owl:ObjectProperty>
     
@@ -534,6 +552,14 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#Equation -->
 
     <owl:Class rdf:about="#Equation">
+        <rdfs:subClassOf rdf:resource="&cito;Expression"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#ExpressionVersion -->
+
+    <owl:Class rdf:about="#ExpressionVersion">
         <rdfs:subClassOf rdf:resource="&cito;Expression"/>
     </owl:Class>
     

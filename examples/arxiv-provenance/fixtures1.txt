@@ -1,0 +1,42 @@
+#fixtures1: aggregations abd oublishers in our system.
+
+###
+@prefix cito: 	<http://purl.org/net/cito/>.
+@prefix rdf: 	<http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#>.
+@prefix dc:  	<http://purl.org/dc/elements/1.1/>.
+@prefix foaf:	<http://xmlns.com/foaf/0.1/>. 	
+@prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix adsbase: <http://github.com/rahuldave/ontoads/owl/adsbase.owl#>.
+@prefix agent: <http://swan.mindinformatics.org/ontologies/1.2/agents/>.
+@prefix pav: <http://swan.mindinformatics.org/ontologies/1.2/pav/>.
+@prefix ads: <http://github.com/rahuldave/ontoads/owl/adsbib.owl#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix aakeys: <http://github.com/rahuldave/ontoads/owl/AAKeys.rdf#>.
+
+@prefix : <#>
+
+:ADS a ads:Aggregator;
+    foaf:name "Astrophysical Data System";
+.
+
+:SPIRES a ads:Aggregator;
+    foaf:name "Spires";
+.
+
+:APS a foaf:Publisher;
+    foaf:name "American Physical Society";
+.
+    
+:PRL a cito:Journal;
+    publishedBy :APS;
+.
+
+:ARXIV a ads:EPrintArchive;
+.
+
+:adsrdf001 a agent:Software;
+    softwareVersion "0.01";
+.
+    

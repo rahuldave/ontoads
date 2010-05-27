@@ -7,11 +7,23 @@
 @prefix dcterms: <http://purl.org/dc/terms/>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix adsbase: <http://github.com/rahuldave/ontoads/owl/adsbase.owl#>.
-@prefix agent: <http://swan.mindinformatics.org/ontologies/1.2/agents/>
+@prefix agent: <http://swan.mindinformatics.org/ontologies/1.2/agents/>.
+@prefix pav: <http://swan.mindinformatics.org/ontologies/1.2/pav/>.
 @prefix ads: <http://github.com/rahuldave/ontoads/owl/adsbib.owl#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix aakeys: <http://github.com/rahuldave/ontoads/owl/AAKeys.rdf#>.
+#get basic configuration instances from below
+@prefix fix1: <http://github.com/rahuldave/ontoads/owl/fixtures1.txt#>.
+@prefix : <#>
 
+#shouldnt a person be created at another url where person instances live?
+#rather than in the scope of the document?
+
+:howardgeorgi a agent:PersonName;
+    fullName "Howard Georgi";
+    firstName "Howard";
+    lastName "Georgi";
+.
 
 #@ARTICLE{2007PhRvL..98v1601G,
 #   author = {{Georgi}, H.},
@@ -28,19 +40,17 @@
 #   adsurl = {http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G},
 #  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
 #}
+#from prl site  Received 24 March 2007; revised 20 May 2007; published 29 May 2007
 
 # about this metadata...
 <>  a cito:BibliographicMetadata ; # work
     a cito:EntityMetadata ; # work
     #add something here for expression versioning
 	cito:cites <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> ;  
-	cito:citesAsSourceDocument <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> ;  
-	dc:creator [ 
-	                a foaf:Person ; 
-	                foaf:name "Rahul Dave" ; 
-	                foaf:mbox <mailto:rahuldave@gmail.com> ; 
-	           ] ;
-	dc:date	"05/26/2010 "^^xsd:date ;
+	cito:citesAsSourceDocument <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> ;
+	pav:importedFromSource  fix1:ADS;
+	pav:importedBy fix1:adsrdf001; #if we had manual data entry how would we model?
+	pav:importedOn	"Thu 27 May 2010 16:35:43 EDT"^^xsd:dateTime ;
 .
 
 # about the document...
@@ -48,46 +58,102 @@
     a cito:ResearchPaper ; # work ( we seem to have repurposed a metadata url into a work)
     #what about a default expression.
     #a cito:JournalArticle; # expression..we have multiple so this should get out of here
-    cito:peerReviewed "true"^^xsd:boolean ; # peer review status  
 	dc:title				"Unparticle Physics";
-	dc:language				"en", "pt"; # only one in list how to do this?
-	dcterms:publisher		[
-								a 				dcterms:Agent ;
-								foaf:homepage	<http://www.plos.org/> ;
-								dc:title 		"Public Library of Science" ;
-							];
-	dcterms:issued			"2008";	
-	cito:abstract 		"""
+	dc:language				"en";
+	cito:peerReviewed "true"^^xsd:boolean ; # peer review status  
+	#What should below be? should be have a abstract in ads?
+	ads:workIdentifier "2007PhRvL..98v1601G";
+	hasAggregation [
+	        a ads:Aggregation;
+	        ads:aggregatedAt fix1:ADS;
+	        ads:bibcode "2007PhRvL..98v1601G";
+	        ads:hasExpression <http://prl.aps.org/abstract/PRL/v98/i22/e221601>;
+	        ads:alsoAggregatedAs [
+	            a ads:Aggregation;
+	            ads:AggregatedAt fix1:SPIRES;
+	            ads:hasExpression <http://prl.aps.org/abstract/PRL/v98/i22/e221601>;
+	            ads:aggregationIdentifier "eprint=hep-ph/0703260";
+	        ];
+	        
+	];
+	cito:abstract 		[
+	                        a cito:Abstract;
+	                        dcterms:abstract 
+	"""
 					    I discuss some simple aspects of the low-energy physics of a nontrivial scale invariant sector of an effective field theory—physics that cannot be described in terms of particles. I argue that it is important to take seriously the possibility that the unparticle stuff described by such a theory might actually exist in our world. I suggest a scenario in which some details of the production of unparticle stuff can be calculated. I find that in the appropriate low-energy limit, unparticle stuff with scale dimension dU looks like a nonintegral number dU of invisible particles. Thus dramatic evidence for a nontrivial scale invariant sector could show up experimentally in missing energy distributions.
-                            """^^rdfs:XMLLiteral ; 
-	## Authors: TODO: change to PersonName..do we use list?Get rid of asmuch DC as possible.
-	dc:creator [ a foaf:Person ; foaf:name "Georgi, Howard" ; ] ;
+                            """;#should we use rdfs:xmlliteral or just string? 
+    ];
+                            
+	#why do we not use a bnode here? is it for affiliation reasons? DO AFFILIATION
+	pav:authoredBy :howardgeorgi;
 	
-	#need biblio description, preferred quoting, tags
-
-	dcterms:bibliographicCitation	"Reis RB, Ribeiro GS, Felzemburgh RDM, Santana FS, Mohr S, et al. (2008) Impact of Environment and Social Gradient on Leptospira Infection in Urban Slums. PLoS Negl Trop Dis 2(4): e228. doi:10.1371/journal.pntd.0000228";
-			
-	## Tags 																	
-	
+	#need biblio description (also known as citeas or below), preferred quoting, tags
+	#dcterms:bibliographicCitation	"Reis RB, Ribeiro GS, Felzemburgh RDM, Santana FS, Mohr S, et al. (2008) Impact of Environment and Social Gradient on Leptospira Infection in Urban Slums. PLoS Negl Trop Dis 2(4): e228. doi:10.1371/journal.pntd.0000228";		
+	## Tags: SKOS																
 	## Eprint Stuff for Arxiv: we have v1, v2, v3 down, but how do we get the general notion of eprint, not just as an expression?							
 .
 
+
+
 #How do we, and do we, track the directional history of provenance
 
+#DO LOCATORS
 <http://prl.aps.org/abstract/PRL/v98/i22/e221601> 
     a cito:JournalArticle;#expression
-    isRealizationOf <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>.
+    ads:publishedIn fix1:PRL;
+    ads:doi "10.1103/PhysRevLett.98.221601";
+    ads:expressionURI "http://link.aps.org/doi/10.1103/PhysRevLett.98.22160";
+    pav:submittedOn "24 March 2007"^^xsd:dateTime;
+    pav:publishedOn "29 May 2007"^^xsd:dateTime;
+    #we have a revised on but not an accepted on date but 
+    #should we use revisedOn as acceptedOn?
+    cito:isRealizationOf <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
+
+#Should the next two really be two different expressions?    
+<http://arxiv.org/abs/hep-ph/0703260> 
+    a ads:Eprint;#expression
+    ads:publishedIn fix1:ARXIV;
+    ads:channel "hep-ph";
+    ads:eprintid "arXiv:hep-ph/0703260v3";
+    cito:isRealizationOf <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
     
 <http://arxiv.org/abs/hep-ph/0703260v3> 
-    a cito:JournalArticle;#expression
-    isRealizationOf <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>.
+    a ads:Eprint;#expression
+    a ads:ExpressionVersion;
+    ads:publishedIn fix1:ARXIV;
+    ads:channel "hep-ph";
+    ads:eprintid "arXiv:hep-ph/0703260v3";
+    pav:submittedOn "Sun, 20 May 2007 18:38:36 GMT"^^xsd:dateTime;
+    #should these be in all? cant we infer? (on other hand we'll autogen these
+    #files so why not keep it redundancy wont hurt)
+    ads:hasExpressionForVersion <http://arxiv.org/abs/hep-ph/0703260>;
+    #isRealizationOf <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+    pav:previousVersion <http://arxiv.org/abs/hep-ph/0703260v2>;
+.
     
 <http://arxiv.org/abs/hep-ph/0703260v2> 
-    a cito:Eprint;#expression
-    isRealizationOf <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>.
+    a ads:Eprint;#expression
+    a ads:ExpressionVersion;
+    ads:publishedIn fix1:ARXIV;
+    ads:channel "hep-ph";
+    ads:eprintid "arXiv:hep-ph/0703260v2";
+    pav:submittedOn "Sat, 24 Mar 2007 15:55:56 GMT"^^xsd:dateTime;
+    ads:hasExpressionForVersion <http://arxiv.org/abs/hep-ph/0703260>;
+    #isRealizationOf <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+    pav:previousVersion <http://arxiv.org/abs/hep-ph/0703260v1>;
+.
     
 <http://arxiv.org/abs/hep-ph/0703260v1> 
     a cito:Eprint;#expression
-    isRealizationOf <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>.
+    a ads:ExpressionVersion;
+    ads:publishedIn fix1:ARXIV;
+    ads:channel "hep-ph";
+    ads:eprintid "arXiv:hep-ph/0703260v1";
+    pav:submittedOn "Fri, 23 Mar 2007 19:30:08 GMT"^^xsd:dateTime;
+    ads:hasExpressionForVersion <http://arxiv.org/abs/hep-ph/0703260>;
+    #isRealizationOf <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
                             
 # /end 
