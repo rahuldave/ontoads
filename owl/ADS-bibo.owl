@@ -12,12 +12,14 @@
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY pav "http://swan.mindinformatics.org/ontologies/1.2/pav/" >
     <!ENTITY ADS-bibo "http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#" >
+    <!ENTITY ADS-Base "http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#" >
 ]>
 
 
 <rdf:RDF xmlns="http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#"
      xml:base="http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl"
      xmlns:ADS-bibo="http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#"
+     xmlns:ADS-Base="http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
      xmlns:pav="http://swan.mindinformatics.org/ontologies/1.2/pav/"
@@ -130,6 +132,14 @@
     <owl:ObjectProperty rdf:about="#eprintAt">
         <rdfs:domain rdf:resource="#EPrint"/>
         <rdfs:range rdf:resource="#EPrintArchive"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasAbstract -->
+
+    <owl:ObjectProperty rdf:about="#hasAbstract">
+        <rdfs:range rdf:resource="&cito;Abstract"/>
     </owl:ObjectProperty>
     
 
@@ -301,6 +311,16 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#abstractText -->
+
+    <owl:DatatypeProperty rdf:about="#abstractText">
+        <rdfs:domain rdf:resource="&cito;Abstract"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#aggregationIdentifier -->
 
     <owl:DatatypeProperty rdf:about="#aggregationIdentifier">
@@ -350,6 +370,14 @@
 
     <owl:DatatypeProperty rdf:about="#citationText">
         <rdfs:domain rdf:resource="#Citation"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#citeMeAs -->
+
+    <owl:DatatypeProperty rdf:about="#citeMeAs">
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
@@ -429,6 +457,31 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#manifestationIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="#manifestationIdentifier">
+        <rdfs:subPropertyOf rdf:resource="#identifier"/>
+        <rdfs:domain rdf:resource="&cito;Manifestation"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#month -->
+
+    <owl:DatatypeProperty rdf:about="#month">
+        <rdfs:subPropertyOf rdf:resource="#locator"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#number -->
+
+    <owl:DatatypeProperty rdf:about="#number">
+        <rdfs:subPropertyOf rdf:resource="#locator"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#pageEnd -->
 
     <owl:DatatypeProperty rdf:about="#pageEnd">
@@ -475,6 +528,14 @@
         <rdfs:subPropertyOf rdf:resource="#identifier"/>
         <rdfs:domain rdf:resource="&cito;Work"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#year -->
+
+    <owl:DatatypeProperty rdf:about="#year">
+        <rdfs:subPropertyOf rdf:resource="#locator"/>
     </owl:DatatypeProperty>
     
 
@@ -581,6 +642,12 @@
     
 
 
+    <!-- http://purl.org/net/cito/Abstract -->
+
+    <owl:Class rdf:about="&cito;Abstract"/>
+    
+
+
     <!-- http://purl.org/net/cito/Document -->
 
     <owl:Class rdf:about="&cito;Document"/>
@@ -590,6 +657,12 @@
     <!-- http://purl.org/net/cito/Expression -->
 
     <owl:Class rdf:about="&cito;Expression"/>
+    
+
+
+    <!-- http://purl.org/net/cito/Manifestation -->
+
+    <owl:Class rdf:about="&cito;Manifestation"/>
     
 
 

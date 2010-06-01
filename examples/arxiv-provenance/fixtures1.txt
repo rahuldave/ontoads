@@ -11,32 +11,36 @@
 @prefix adsbase: <http://github.com/rahuldave/ontoads/owl/adsbase.owl#>.
 @prefix agent: <http://swan.mindinformatics.org/ontologies/1.2/agents/>.
 @prefix pav: <http://swan.mindinformatics.org/ontologies/1.2/pav/>.
-@prefix ads: <http://github.com/rahuldave/ontoads/owl/adsbib.owl#>.
+@prefix adsbib: <http://github.com/rahuldave/ontoads/owl/adsbib.owl#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix aakeys: <http://github.com/rahuldave/ontoads/owl/AAKeys.rdf#>.
 
-@prefix : <#>
+@prefix : <http://adsadbs.cfa.harvard.edu/ads/adsconfig#>
 
-:ADS a ads:Aggregator;
+:ADS a adsbib:Aggregator;
     foaf:name "Astrophysical Data System";
 .
 
-:SPIRES a ads:Aggregator;
+:SPIRES a adsbib:Aggregator;
     foaf:name "Spires";
 .
 
-:APS a foaf:Publisher;
+:APS a adsbase:Publisher;
     foaf:name "American Physical Society";
 .
     
 :PRL a cito:Journal;
-    publishedBy :APS;
+    adsbib:publishedBy :APS;
 .
 
-:ARXIV a ads:EPrintArchive;
+:ARXIV a adsbib:EPrintArchive;
+       a adsbase:Publisher;
 .
 
 :adsrdf001 a agent:Software;
-    softwareVersion "0.01";
+    agent:softwareVersion "0.01";
 .
     
+:HARVARD a foaf:Organization;
+    foaf:name "Harvard University";
+.
