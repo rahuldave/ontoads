@@ -1,0 +1,313 @@
+
+@prefix cito: 	<http://purl.org/net/cito/>.
+@prefix rdf: 	<http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#>.
+@prefix dc:  	<http://purl.org/dc/elements/1.1/>.
+@prefix foaf:	<http://xmlns.com/foaf/0.1/>. 	
+@prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix adsbase: <http://github.com/rahuldave/ontoads/owl/adsbase.owl#>.
+@prefix agent: <http://swan.mindinformatics.org/ontologies/1.2/agents/>.
+@prefix pav: <http://swan.mindinformatics.org/ontologies/1.2/pav/>.
+@prefix adsbib: <http://github.com/rahuldave/ontoads/owl/adsbib.owl#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix aakeys: <http://github.com/rahuldave/ontoads/owl/AAKeys.rdf#>.
+@prefix pacs: <http://github.com/rahuldave/ontoads/owl/pacs.rdf#>.
+#get basic configuration instances from below
+@prefix adsconfig: <http://adsadbs.cfa.harvard.edu/ads/adsconfig#>.
+@prefix : <http://adsadbs.cfa.harvard.edu/ads/adsbibdata#>
+
+:Georgi__1994qn a adsbib:Citation;
+	adsbib:citationText """
+		title : {Effective field theory}
+		journal : Ann. Rev. Nucl. Part. Sci.
+		volume : 43
+		slaccitation : %%CITATION = ARNUA,43,209;%%
+		year : 1993
+		pages : 209-252
+	""";
+	 adsbib:citationFrom <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
+<http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> adsbib:hasCitation :Georgi__1994qn .
+#=======================
+:Georgi__2007si a adsbib:Citation;
+	adsbib:citationText """
+		doi : 10.1016/j.physletb.2007.05.037
+		slaccitation : %%CITATION = 0704.2457;%%
+		title : {Another Odd Thing About Unparticle Physics}
+		journal : Phys. Lett.
+		volume : B650
+		eprint : 0704.2457
+		primaryclass : hep-ph
+		year : 2007
+		archiveprefix : arXiv
+		pages : 275-278
+	""";
+	 adsbib:citationFrom <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
+<http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> adsbib:hasCitation :Georgi__2007si .
+#=======================
+:ArkaniHamed__2000ds a adsbib:Citation;
+	adsbib:citationText """
+		title : {Holography and phenomenology}
+		journal : JHEP
+		volume : 08
+		eprint : hep-th/0012148
+		slaccitation : %%CITATION = HEP-TH/0012148;%%
+		year : 2001
+		archiveprefix : arXiv
+		pages : 017
+	""";
+	 adsbib:citationFrom <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
+<http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> adsbib:hasCitation :ArkaniHamed__2000ds .
+#=======================
+:Li__2007by a adsbib:Citation;
+	adsbib:citationText """
+		doi : 10.1016/j.physletb.2007.06.045
+		slaccitation : %%CITATION = 0705.1821;%%
+		title : {Unparticle physics effects on D0 - anti-D0 mixing}
+		journal : Phys. Lett.
+		volume : B651
+		eprint : 0705.1821
+		primaryclass : hep-ph
+		year : 2007
+		archiveprefix : arXiv
+		pages : 380-383
+	""";
+	 adsbib:citationFrom <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
+<http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> adsbib:hasCitation :Li__2007by .
+#=======================
+:Luo__2007bq a adsbib:Citation;
+	adsbib:citationText """
+		doi : 10.1016/j.physletb.2007.10.058
+		slaccitation : %%CITATION = 0704.3532;%%
+		title : {Some phenomenologies of unparticle physics}
+		journal : Phys. Lett.
+		volume : B659
+		eprint : 0704.3532
+		primaryclass : hep-ph
+		year : 2008
+		archiveprefix : arXiv
+		pages : 341-344
+	""";
+	 adsbib:citationFrom <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
+<http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> adsbib:hasCitation :Luo__2007bq .
+#=======================
+:Ginsparg__1988ui a adsbib:Citation;
+	adsbib:citationText """
+		year : 1988
+		eprint : hep-th/9108028
+		archiveprefix : arXiv
+		slaccitation : %%CITATION = HEP-TH/9108028;%%
+		title : {APPLIED CONFORMAL FIELD THEORY}
+	""";
+	 adsbib:citationFrom <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
+<http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> adsbib:hasCitation :Ginsparg__1988ui .
+#=======================
+:Cheung__2007zza a adsbib:Citation;
+	adsbib:citationText """
+		doi : 10.1103/PhysRevLett.99.051803
+		slaccitation : %%CITATION = 0704.2588;%%
+		title : {Collider signals of unparticle physics}
+		journal : Phys. Rev. Lett.
+		volume : 99
+		eprint : 0704.2588
+		primaryclass : hep-ph
+		year : 2007
+		archiveprefix : arXiv
+		pages : 051803
+	""";
+	 adsbib:citationFrom <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
+<http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> adsbib:hasCitation :Cheung__2007zza .
+#=======================
+:Maldacena__2003nj a adsbib:Citation;
+	adsbib:citationText """
+		year : 2003
+		eprint : hep-th/0309246
+		archiveprefix : arXiv
+		slaccitation : %%CITATION = HEP-TH/0309246;%%
+		title : {Lectures on AdS/CFT}
+	""";
+	 adsbib:citationFrom <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
+<http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> adsbib:hasCitation :Maldacena__2003nj .
+#=======================
+:Wilson__1970pq a adsbib:Citation;
+	adsbib:citationText """
+		doi : 10.1103/PhysRevD.2.1473
+		title : {OPERATOR PRODUCT EXPANSIONS AND ANOMALOUS DIMENSIONS IN THE THIRRING MODEL}
+		journal : Phys. Rev.
+		volume : D2
+		slaccitation : %%CITATION = PHRVA,D2,1473;%%
+		year : 1970
+		pages : 1473
+	""";
+	 adsbib:citationFrom <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
+<http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> adsbib:hasCitation :Wilson__1970pq .
+#=======================
+:Banks__1981nn a adsbib:Citation;
+	adsbib:citationText """
+		doi : 10.1016/0550-3213(82)90035-9
+		title : {On the Phase Structure of Vector-Like Gauge Theories with Massless Fermions}
+		journal : Nucl. Phys.
+		volume : B196
+		slaccitation : %%CITATION = NUPHA,B196,189;%%
+		year : 1982
+		pages : 189
+	""";
+	 adsbib:citationFrom <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
+<http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> adsbib:hasCitation :Banks__1981nn .
+#=======================
+:Ding__2007bm a adsbib:Citation;
+	adsbib:citationText """
+		doi : 10.1103/PhysRevD.76.075005
+		slaccitation : %%CITATION = 0705.0794;%%
+		title : {Unparticle Physics in DIS}
+		journal : Phys. Rev.
+		volume : D76
+		eprint : 0705.0794
+		primaryclass : hep-ph
+		year : 2007
+		archiveprefix : arXiv
+		pages : 075005
+	""";
+	 adsbib:citationFrom <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
+<http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> adsbib:hasCitation :Ding__2007bm .
+#=======================
+:Liao__2007bx a adsbib:Citation;
+	adsbib:citationText """
+		doi : 10.1103/PhysRevD.76.056006
+		slaccitation : %%CITATION = 0705.0837;%%
+		title : {Bounds on Unparticles Couplings to Electrons: from Electron g-2 to Positronium Decays}
+		journal : Phys. Rev.
+		volume : D76
+		eprint : 0705.0837
+		primaryclass : hep-ph
+		year : 2007
+		archiveprefix : arXiv
+		pages : 056006
+	""";
+	 adsbib:citationFrom <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
+<http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> adsbib:hasCitation :Liao__2007bx .
+#=======================
+:Aliev__2007qw a adsbib:Citation;
+	adsbib:citationText """
+		doi : 10.1016/j.physletb.2007.09.055
+		slaccitation : %%CITATION = 0705.1326;%%
+		title : {Lepton Flavour Violation in Unparticle Physics}
+		journal : Phys. Lett.
+		volume : B657
+		eprint : 0705.1326
+		primaryclass : hep-ph
+		year : 2007
+		archiveprefix : arXiv
+		pages : 77-80
+	""";
+	 adsbib:citationFrom <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
+<http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> adsbib:hasCitation :Aliev__2007qw .
+#=======================
+:Mack__1975je a adsbib:Citation;
+	adsbib:citationText """
+		doi : 10.1007/BF01613145
+		title : {All Unitary Ray Representations of the Conformal Group SU(2,2) with Positive Energy}
+		journal : Commun. Math. Phys.
+		volume : 55
+		slaccitation : %%CITATION = CMPHA,55,1;%%
+		year : 1977
+		pages : 1
+	""";
+	 adsbib:citationFrom <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
+<http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> adsbib:hasCitation :Mack__1975je .
+#=======================
+:Intriligator__1995au a adsbib:Citation;
+	adsbib:citationText """
+		title : {Lectures on supersymmetric gauge theories and electric- magnetic duality}
+		journal : Nucl. Phys. Proc. Suppl.
+		volume : 45BC
+		eprint : hep-th/9509066
+		slaccitation : %%CITATION = HEP-TH/9509066;%%
+		year : 1996
+		archiveprefix : arXiv
+		pages : 1-28
+	""";
+	 adsbib:citationFrom <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
+<http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> adsbib:hasCitation :Intriligator__1995au .
+#=======================
+:Chen__2007vv a adsbib:Citation;
+	adsbib:citationText """
+		doi : 10.1103/PhysRevD.76.115003
+		slaccitation : %%CITATION = 0705.0689;%%
+		title : {Unparticle physics on direct CP violation}
+		journal : Phys. Rev.
+		volume : D76
+		eprint : 0705.0689
+		primaryclass : hep-ph
+		year : 2007
+		archiveprefix : arXiv
+		pages : 115003
+	""";
+	 adsbib:citationFrom <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
+<http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> adsbib:hasCitation :Chen__2007vv .
+#=======================
+:Catterall__2007yx a adsbib:Citation;
+	adsbib:citationText """
+		doi : 10.1103/PhysRevD.76.034504
+		slaccitation : %%CITATION = 0705.1664;%%
+		title : {Minimal walking on the lattice}
+		journal : Phys. Rev.
+		volume : D76
+		eprint : 0705.1664
+		primaryclass : hep-lat
+		year : 2007
+		archiveprefix : arXiv
+		pages : 034504
+	""";
+	 adsbib:citationFrom <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
+<http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> adsbib:hasCitation :Catterall__2007yx .
+#=======================
+:Randall__1999vf a adsbib:Citation;
+	adsbib:citationText """
+		doi : 10.1103/PhysRevLett.83.4690
+		title : {An alternative to compactification}
+		journal : Phys. Rev. Lett.
+		volume : 83
+		eprint : hep-th/9906064
+		slaccitation : %%CITATION = HEP-TH/9906064;%%
+		year : 1999
+		archiveprefix : arXiv
+		pages : 4690-4693
+	""";
+	 adsbib:citationFrom <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
+<http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> adsbib:hasCitation :Randall__1999vf .
+#=======================
+:Aharony__1999ti a adsbib:Citation;
+	adsbib:citationText """
+		doi : 10.1016/S0370-1573(99)00083-6
+		title : {Large N field theories, string theory and gravity}
+		journal : Phys. Rept.
+		volume : 323
+		eprint : hep-th/9905111
+		slaccitation : %%CITATION = HEP-TH/9905111;%%
+		year : 2000
+		archiveprefix : arXiv
+		pages : 183-386
+	""";
+	 adsbib:citationFrom <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G>;
+.
+<http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> adsbib:hasCitation :Aharony__1999ti .
+#=======================
