@@ -24,6 +24,17 @@ preamble="""
 #get basic configuration instances from below
 @prefix adsconfig: <http://adsadbs.cfa.harvard.edu/ads/adsconfig#>.
 @prefix : <http://adsadbs.cfa.harvard.edu/ads/adsbibdata#>
+
+<>  a cito:CitationMetadata ; # work
+    a cito:EntityMetadata ; # work
+    #add something here for expression versioning
+	cito:cites <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> ;  
+	cito:citesAsSourceDocument <http://adsabs.harvard.edu/abs/2007PhRvL..98v1601G> ;
+	pav:importedFromSource  adsconfig:ADS;
+	pav:importedBy adsconfig:adsrdf002; #if we had manual data entry how would we model?
+	pav:importedOn	"Wed Jun  2 22:23:55 EDT 2010"^^xsd:dateTime ;
+	pav:lastUpdateOn	"Wed Jun  2 22:24:41 EDT 2010"^^xsd:dateTime ;
+.
 """
 
 print preamble
