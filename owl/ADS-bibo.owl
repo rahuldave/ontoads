@@ -12,19 +12,21 @@
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY pav "http://swan.mindinformatics.org/ontologies/1.2/pav/" >
     <!ENTITY ADS-bibo "http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#" >
+    <!ENTITY agents "http://swan.mindinformatics.org/ontologies/1.2/agents/" >
     <!ENTITY ADS-Base "http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#" >
 ]>
 
 
 <rdf:RDF xmlns="http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#"
      xml:base="http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl"
-     xmlns:ADS-bibo="http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#"
      xmlns:ADS-Base="http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:cito="http://purl.org/net/cito/"
+     xmlns:agents="http://swan.mindinformatics.org/ontologies/1.2/agents/"
+     xmlns:ADS-bibo="http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
      xmlns:pav="http://swan.mindinformatics.org/ontologies/1.2/pav/"
-     xmlns:foaf="http://xmlns.com/foaf/0.1/"
-     xmlns:cito="http://purl.org/net/cito/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -474,6 +476,15 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#normName -->
+
+    <owl:DatatypeProperty rdf:about="#normName">
+        <rdfs:domain rdf:resource="&agents;PersonName"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#number -->
 
     <owl:DatatypeProperty rdf:about="#number">
@@ -687,6 +698,12 @@
     <!-- http://purl.org/vocab/frbr/core#Work -->
 
     <owl:Class rdf:about="&core;Work"/>
+    
+
+
+    <!-- http://swan.mindinformatics.org/ontologies/1.2/agents/PersonName -->
+
+    <owl:Class rdf:about="&agents;PersonName"/>
     
 
 
