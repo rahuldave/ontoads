@@ -467,6 +467,37 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#dataType -->
+
+    <owl:DatatypeProperty rdf:about="#dataType">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DataProduct"/>
+                    <rdf:Description rdf:about="#DataTemplate"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#dataURL -->
+
+    <owl:DatatypeProperty rdf:about="#dataURL">
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DataProduct"/>
+                    <rdf:Description rdf:about="#DataTemplate"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#fromTime -->
 
     <owl:DatatypeProperty rdf:about="#fromTime">
@@ -490,6 +521,22 @@
     <owl:DatatypeProperty rdf:about="#grantId">
         <rdfs:domain rdf:resource="#Proposal"/>
         <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#isOriginalSource -->
+
+    <owl:DatatypeProperty rdf:about="#isOriginalSource">
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DataProduct"/>
+                    <rdf:Description rdf:about="#DataTemplate"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -566,9 +613,9 @@
     <owl:Class rdf:about="#Affiliation">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#affiliation"/>
-                <owl:onClass rdf:resource="&foaf;Organization"/>
+                <owl:onProperty rdf:resource="&pav;createdOn"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;dateTime"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -579,9 +626,9 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&pav;createdOn"/>
+                <owl:onProperty rdf:resource="#affiliation"/>
+                <owl:onClass rdf:resource="&foaf;Organization"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;dateTime"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment
@@ -646,6 +693,28 @@
 
     <owl:Class rdf:about="#DataProduct">
         <rdfs:subClassOf rdf:resource="#ScienceProduct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#DataSet -->
+
+    <owl:Class rdf:about="#DataSet">
+        <rdfs:subClassOf rdf:resource="#DataProduct"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#DataTemplate -->
+
+    <owl:Class rdf:about="#DataTemplate"/>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Datum -->
+
+    <owl:Class rdf:about="#Datum">
+        <rdfs:subClassOf rdf:resource="#DataProduct"/>
     </owl:Class>
     
 
@@ -750,9 +819,24 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#LightcurveDataTemplate -->
+
+    <owl:Class rdf:about="#LightcurveDataTemplate">
+        <rdfs:subClassOf rdf:resource="#DataTemplate"/>
+    </owl:Class>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Membership -->
 
     <owl:Class rdf:about="#Membership">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#inCollaboration"/>
+                <owl:onClass rdf:resource="#Collaboration"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#hasMember"/>
@@ -768,15 +852,16 @@
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#inCollaboration"/>
-                <owl:onClass rdf:resource="#Collaboration"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:comment
             >excatly one member so that we can model to and from times if we have them. Thus a collaboration has multiple memberships.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#ObjectDataTemplate -->
+
+    <owl:Class rdf:about="#ObjectDataTemplate">
+        <rdfs:subClassOf rdf:resource="#DataTemplate"/>
     </owl:Class>
     
 
@@ -849,12 +934,6 @@
         <rdfs:subClassOf rdf:resource="&collections;ListItem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;nextItem"/>
-                <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&collections;itemContent"/>
                 <owl:allValuesFrom rdf:resource="&foaf;Organization"/>
             </owl:Restriction>
@@ -862,6 +941,12 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&collections;previousItem"/>
+                <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&collections;nextItem"/>
                 <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -921,12 +1006,6 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
         <rdfs:subClassOf rdf:resource="&collections;ListItem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;itemContent"/>
-                <owl:allValuesFrom rdf:resource="#Proposal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&collections;previousItem"/>
                 <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
             </owl:Restriction>
@@ -935,6 +1014,12 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&collections;nextItem"/>
                 <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&collections;itemContent"/>
+                <owl:allValuesFrom rdf:resource="#Proposal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
