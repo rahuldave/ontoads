@@ -182,6 +182,24 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasDataProduct -->
+
+    <owl:ObjectProperty rdf:about="#hasDataProduct">
+        <rdfs:range rdf:resource="&ADS-Base;DataProduct"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Aggregation"/>
+                    <rdf:Description rdf:about="&cito;Expression"/>
+                    <rdf:Description rdf:about="&core;Manifestation"/>
+                    <rdf:Description rdf:about="&core;Work"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasDocumentPart -->
 
     <owl:ObjectProperty rdf:about="#hasDocumentPart">
@@ -195,7 +213,6 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasExpression -->
 
     <owl:ObjectProperty rdf:about="#hasExpression">
-        <rdfs:domain rdf:resource="#Aggregation"/>
         <rdfs:range rdf:resource="&cito;Expression"/>
     </owl:ObjectProperty>
     
@@ -253,6 +270,23 @@
         <owl:inverseOf rdf:resource="#hasDocumentPart"/>
         <rdfs:subPropertyOf rdf:resource="#isPartOf"/>
         <rdfs:range rdf:resource="&cito;Document"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#manifestationOwner -->
+
+    <owl:ObjectProperty rdf:about="#manifestationOwner">
+        <rdfs:domain rdf:resource="&core;Manifestation"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Aggregator"/>
+                    <rdf:Description rdf:about="#EPrintArchive"/>
+                    <rdf:Description rdf:about="#Publisher"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -418,6 +452,24 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasRelatedData -->
+
+    <owl:DatatypeProperty rdf:about="#hasRelatedData">
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Aggregation"/>
+                    <rdf:Description rdf:about="&cito;Expression"/>
+                    <rdf:Description rdf:about="&core;Manifestation"/>
+                    <rdf:Description rdf:about="&core;Work"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#identifier -->
 
     <owl:DatatypeProperty rdf:about="#identifier">
@@ -464,6 +516,32 @@
     <owl:DatatypeProperty rdf:about="#manifestationIdentifier">
         <rdfs:subPropertyOf rdf:resource="#identifier"/>
         <rdfs:domain rdf:resource="&cito;Manifestation"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#manifestationType -->
+
+    <owl:DatatypeProperty rdf:about="#manifestationType">
+        <rdfs:domain rdf:resource="&core;Manifestation"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#manifestationURI -->
+
+    <owl:DatatypeProperty rdf:about="#manifestationURI">
+        <rdfs:subPropertyOf rdf:resource="#manifestationIdentifier"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#manifestationURL -->
+
+    <owl:DatatypeProperty rdf:about="#manifestationURL">
+        <rdfs:domain rdf:resource="&core;Manifestation"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
 
@@ -653,6 +731,12 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#DataProduct -->
+
+    <owl:Class rdf:about="&ADS-Base;DataProduct"/>
+    
+
+
     <!-- http://purl.org/net/cito/Abstract -->
 
     <owl:Class rdf:about="&cito;Abstract"/>
@@ -692,6 +776,12 @@
     <!-- http://purl.org/vocab/frbr/core#Expression -->
 
     <owl:Class rdf:about="&core;Expression"/>
+    
+
+
+    <!-- http://purl.org/vocab/frbr/core#Manifestation -->
+
+    <owl:Class rdf:about="&core;Manifestation"/>
     
 
 
