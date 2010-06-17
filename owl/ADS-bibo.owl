@@ -150,7 +150,6 @@
 
     <owl:ObjectProperty rdf:about="#hasAggregation">
         <rdfs:range rdf:resource="#Aggregation"/>
-        <rdfs:domain rdf:resource="&cito;Work"/>
     </owl:ObjectProperty>
     
 
