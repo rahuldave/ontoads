@@ -55,6 +55,14 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#aboutSource -->
+
+    <owl:ObjectProperty rdf:about="#aboutSource">
+        <rdfs:range rdf:resource="#AstronomicalSource"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#affiliation -->
 
     <owl:ObjectProperty rdf:about="#affiliation">
@@ -223,6 +231,21 @@
 
     <owl:ObjectProperty rdf:about="#keywordConceptScheme">
         <rdfs:range rdf:resource="&skos2;ConceptScheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#minedBy -->
+
+    <owl:ObjectProperty rdf:about="#minedBy">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&agents;PersonName"/>
+                    <rdf:Description rdf:about="&foaf;Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -645,6 +668,12 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#AstronomicalSource -->
+
+    <owl:Class rdf:about="#AstronomicalSource"/>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Collaboration -->
 
     <owl:Class rdf:about="#Collaboration">
@@ -858,6 +887,14 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#NEDSource -->
+
+    <owl:Class rdf:about="#NEDSource">
+        <rdfs:subClassOf rdf:resource="#AstronomicalSource"/>
+    </owl:Class>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#ObjectDataTemplate -->
 
     <owl:Class rdf:about="#ObjectDataTemplate">
@@ -934,8 +971,8 @@
         <rdfs:subClassOf rdf:resource="&collections;ListItem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;itemContent"/>
-                <owl:allValuesFrom rdf:resource="&foaf;Organization"/>
+                <owl:onProperty rdf:resource="&collections;nextItem"/>
+                <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -946,8 +983,8 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;nextItem"/>
-                <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
+                <owl:onProperty rdf:resource="&collections;itemContent"/>
+                <owl:allValuesFrom rdf:resource="&foaf;Organization"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1006,13 +1043,13 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
         <rdfs:subClassOf rdf:resource="&collections;ListItem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;previousItem"/>
+                <owl:onProperty rdf:resource="&collections;nextItem"/>
                 <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;nextItem"/>
+                <owl:onProperty rdf:resource="&collections;previousItem"/>
                 <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1022,6 +1059,14 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
                 <owl:allValuesFrom rdf:resource="#Proposal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#SIMBADSource -->
+
+    <owl:Class rdf:about="#SIMBADSource">
+        <rdfs:subClassOf rdf:resource="#AstronomicalSource"/>
     </owl:Class>
     
 
@@ -1098,6 +1143,14 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
 
     <owl:Class rdf:about="#Survey">
         <rdfs:subClassOf rdf:resource="#Collaboration"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#SurveySource -->
+
+    <owl:Class rdf:about="#SurveySource">
+        <rdfs:subClassOf rdf:resource="#AstronomicalSource"/>
     </owl:Class>
     
 
