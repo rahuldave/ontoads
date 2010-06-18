@@ -154,6 +154,14 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasAstronomicalSource -->
+
+    <owl:ObjectProperty rdf:about="#hasAstronomicalSource">
+        <rdfs:range rdf:resource="&ADS-Base;AstronomicalSource"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasCitation -->
 
     <owl:ObjectProperty rdf:about="#hasCitation">
@@ -382,6 +390,14 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#caption -->
+
+    <owl:DatatypeProperty rdf:about="#caption">
+        <rdfs:range rdf:resource="&rdf;XMLLiteral"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#channel -->
 
     <owl:DatatypeProperty rdf:about="#channel">
@@ -532,15 +548,6 @@
 
     <owl:DatatypeProperty rdf:about="#manifestationURI">
         <rdfs:subPropertyOf rdf:resource="#manifestationIdentifier"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#manifestationURL -->
-
-    <owl:DatatypeProperty rdf:about="#manifestationURL">
-        <rdfs:domain rdf:resource="&core;Manifestation"/>
-        <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
 
@@ -727,6 +734,12 @@
     <owl:Class rdf:about="#Series">
         <rdfs:subClassOf rdf:resource="&cito;Expression"/>
     </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#AstronomicalSource -->
+
+    <owl:Class rdf:about="&ADS-Base;AstronomicalSource"/>
     
 
 
