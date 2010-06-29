@@ -677,12 +677,6 @@
     <owl:Class rdf:about="#Affiliation">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#affiliationContext"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="#affiliation"/>
                 <owl:onClass rdf:resource="&foaf;Organization"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -693,6 +687,12 @@
                 <owl:onProperty rdf:resource="&pav;createdOn"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#affiliationContext"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment
@@ -711,7 +711,10 @@
 
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#AstronomicalSource -->
 
-    <owl:Class rdf:about="#AstronomicalSource"/>
+    <owl:Class rdf:about="#AstronomicalSource">
+        <rdfs:comment
+            >An Astronomical Source is a sky object as catalogued by a survey, a curator like NED/SIMBAD, or a catalog.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -777,7 +780,10 @@
 
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#DataTemplate -->
 
-    <owl:Class rdf:about="#DataTemplate"/>
+    <owl:Class rdf:about="#DataTemplate">
+        <rdfs:comment
+            >A data template is a template GET url to fetch data. Regexes are allowed, and built in variables are the following.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -902,6 +908,13 @@
     <owl:Class rdf:about="#Membership">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="#inCollaboration"/>
+                <owl:onClass rdf:resource="#Collaboration"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="#hasMember"/>
                 <owl:onClass>
                     <owl:Class>
@@ -912,13 +925,6 @@
                         </owl:unionOf>
                     </owl:Class>
                 </owl:onClass>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#inCollaboration"/>
-                <owl:onClass rdf:resource="#Collaboration"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1018,14 +1024,14 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;itemContent"/>
-                <owl:allValuesFrom rdf:resource="&foaf;Organization"/>
+                <owl:onProperty rdf:resource="&collections;nextItem"/>
+                <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;nextItem"/>
-                <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
+                <owl:onProperty rdf:resource="&collections;itemContent"/>
+                <owl:allValuesFrom rdf:resource="&foaf;Organization"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1128,6 +1134,8 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment
+            >An Infrastructure used in the Science Process</rdfs:comment>
     </owl:Class>
     
 
@@ -1136,6 +1144,8 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
 
     <owl:Class rdf:about="#ScienceInfrastructureAgency">
         <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
+        <rdfs:comment
+            >An agency which provides support for a key part of the Science Process.</rdfs:comment>
     </owl:Class>
     
 
@@ -1144,6 +1154,8 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
 
     <owl:Class rdf:about="#ScienceProcess">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >The process via which research is done</rdfs:comment>
     </owl:Class>
     
 
@@ -1152,6 +1164,8 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
 
     <owl:Class rdf:about="#ScienceProduct">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >The product of the science process</rdfs:comment>
     </owl:Class>
     
 
@@ -1184,6 +1198,8 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
 
     <owl:Class rdf:about="#Survey">
         <rdfs:subClassOf rdf:resource="#Collaboration"/>
+        <rdfs:comment
+            >A survey is modelled as a child of Collaboration as it is a structure ment to model the people in it rather than the organization that those people may be in. It would generally make sense to model the organization too, if it is an incorporated organization</rdfs:comment>
     </owl:Class>
     
 
