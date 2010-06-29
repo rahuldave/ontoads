@@ -648,7 +648,10 @@
 
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#Aggregation -->
 
-    <owl:Class rdf:about="#Aggregation"/>
+    <owl:Class rdf:about="#Aggregation">
+        <rdfs:comment
+            >An aggregation is the representation of a work or an expression at an Aggregator, such as ADS or SPIRES. There will be identifiers such as bibcodes, and perhaps other metadata associated with the aggregation. To support the research lifecycle, the aggregation should start at eprint stage and then finally get to work. In other words associate with expressions as well as work.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -656,13 +659,18 @@
 
     <owl:Class rdf:about="#Aggregator">
         <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
+        <rdfs:comment
+            >An aggregator is an organization like ADS or SPIRES, which aggregates papers and identifies them.</rdfs:comment>
     </owl:Class>
     
 
 
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#Citation -->
 
-    <owl:Class rdf:about="#Citation"/>
+    <owl:Class rdf:about="#Citation">
+        <rdfs:comment
+            >The citation object works at the level of the citation in an expression of the paper. Each expression has a buch of citations which carry forward to the work. After ADS ingestion, the citations become cito:cites between works or expressions, The ADS ingestion is done for separate expressions, and while multiple expressions might share citation objects, the cites network is rediscovered for each expression. Do we store the cites objects finally in the work or just use it from the latest expression? I say the latter.</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -701,6 +709,8 @@
 
     <owl:Class rdf:about="#EPrintArchive">
         <rdfs:subClassOf rdf:resource="&cito;Expression"/>
+        <rdfs:comment
+            >EPrintArchive is like a journal but should we be modelling channel directly in here? We put it here as journals are here, but since arxiv is both publisher and archive, it might make sense to get down to individual arxiv channels, atleast to the level of astro-ph here. TODO</rdfs:comment>
     </owl:Class>
     
 
@@ -725,6 +735,8 @@
 
     <owl:Class rdf:about="#Publisher">
         <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
+        <rdfs:comment
+            >Publisher, like AJ or ARXIV, or similar</rdfs:comment>
     </owl:Class>
     
 
