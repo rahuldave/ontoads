@@ -71,14 +71,7 @@
         <rdfs:comment
             >Currently we only allow one affiliation for a say, Person, but we should change range to be a Bag or change cardinality. TODO.</rdfs:comment>
         <rdfs:domain rdf:resource="#Affiliation"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#OrganizationName"/>
-                    <rdf:Description rdf:about="&foaf;Organization"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
+        <rdfs:range rdf:resource="&foaf;Organization"/>
     </owl:ObjectProperty>
     
 
@@ -105,6 +98,14 @@
 
     <owl:ObjectProperty rdf:about="#asAResultOfProposals">
         <rdfs:range rdf:resource="#ProposalList"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#associatedWith -->
+
+    <owl:ObjectProperty rdf:about="#associatedWith">
+        <rdfs:range rdf:resource="&foaf;Organization"/>
     </owl:ObjectProperty>
     
 
@@ -136,6 +137,29 @@
             >Generally domain is Observation but it could be anything we want</rdfs:comment>
         <rdfs:range rdf:resource="#Observatory"/>
         <rdfs:subPropertyOf rdf:resource="#usingScienceInfrastructure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#currentAffiliation -->
+
+    <owl:ObjectProperty rdf:about="#currentAffiliation">
+        <rdfs:range rdf:resource="&foaf;Organization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#for -->
+
+    <owl:ObjectProperty rdf:about="#for">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&agents;PersonName"/>
+                    <rdf:Description rdf:about="&foaf;Agent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -307,6 +331,23 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#organizationName -->
+
+    <owl:ObjectProperty rdf:about="#organizationName">
+        <rdfs:domain rdf:resource="#Affiliation"/>
+        <rdfs:range rdf:resource="#OrganizationName"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#partOf -->
+
+    <owl:ObjectProperty rdf:about="#partOf">
+        <rdfs:range rdf:resource="&foaf;Organization"/>
     </owl:ObjectProperty>
     
 
@@ -668,11 +709,18 @@
     
 
 
-    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#orgNameText -->
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#organizationText -->
 
-    <owl:DatatypeProperty rdf:about="#orgNameText">
-        <rdfs:domain rdf:resource="#OrganizationName"/>
+    <owl:DatatypeProperty rdf:about="#organizationText">
         <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#OrganizationName"/>
+                    <rdf:Description rdf:about="&foaf;Organization"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -694,12 +742,6 @@
     
 
 
-    <!-- http://swan.mindinformatics.org/ontologies/1.2/pav/createdOn -->
-
-    <owl:DatatypeProperty rdf:about="&pav;createdOn"/>
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -716,9 +758,9 @@
     <owl:Class rdf:about="#Affiliation">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#affiliation"/>
-                <owl:onClass rdf:resource="&foaf;Organization"/>
+                <owl:onProperty rdf:resource="#atTime"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;dateTime"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -729,14 +771,20 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&pav;createdOn"/>
+                <owl:onProperty rdf:resource="#organizationName"/>
+                <owl:onClass rdf:resource="#OrganizationName"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                <owl:onDataRange rdf:resource="&xsd;dateTime"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment
             >TODO or BUG: No 1-1 relationship specifiable between afilliationn and person. Only done as an inverseFunctional property on hasAffiliation</rdfs:comment>
     </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#AffiliationHistory -->
+
+    <owl:Class rdf:about="#AffiliationHistory"/>
     
 
 
@@ -1057,8 +1105,8 @@
         <rdfs:subClassOf rdf:resource="&collections;ListItem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;itemContent"/>
-                <owl:allValuesFrom rdf:resource="&foaf;Organization"/>
+                <owl:onProperty rdf:resource="&collections;nextItem"/>
+                <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1069,8 +1117,8 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;nextItem"/>
-                <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
+                <owl:onProperty rdf:resource="&collections;itemContent"/>
+                <owl:allValuesFrom rdf:resource="&foaf;Organization"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1135,12 +1183,6 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
         <rdfs:subClassOf rdf:resource="&collections;ListItem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;itemContent"/>
-                <owl:allValuesFrom rdf:resource="#Proposal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&collections;nextItem"/>
                 <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
             </owl:Restriction>
@@ -1149,6 +1191,12 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&collections;previousItem"/>
                 <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&collections;itemContent"/>
+                <owl:allValuesFrom rdf:resource="#Proposal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
