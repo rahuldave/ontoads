@@ -189,24 +189,6 @@
     
 
 
-    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasDataProduct -->
-
-    <owl:ObjectProperty rdf:about="#hasDataProduct">
-        <rdfs:range rdf:resource="&ADS-Base;DataProduct"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Aggregation"/>
-                    <rdf:Description rdf:about="&cito;Expression"/>
-                    <rdf:Description rdf:about="&core;Manifestation"/>
-                    <rdf:Description rdf:about="&core;Work"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasDocumentPart -->
 
     <owl:ObjectProperty rdf:about="#hasDocumentPart">
@@ -752,12 +734,6 @@
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#AstronomicalSource -->
 
     <owl:Class rdf:about="&ADS-Base;AstronomicalSource"/>
-    
-
-
-    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#DataProduct -->
-
-    <owl:Class rdf:about="&ADS-Base;DataProduct"/>
     
 
 
