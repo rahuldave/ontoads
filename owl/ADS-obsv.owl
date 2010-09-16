@@ -157,7 +157,8 @@
 
     <owl:DatatypeProperty rdf:about="#dataBand">
         <rdfs:domain rdf:resource="&ADS-Base;DataProduct"/>
-        <rdfs:range rdf:resource="&xsd;double"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
@@ -358,7 +359,7 @@
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#wavelength -->
 
     <owl:DatatypeProperty rdf:about="#wavelength">
-        <rdfs:domain rdf:resource="&ADS-Base;DataProduct"/>
+        <rdfs:domain rdf:resource="#SingularDataProduct"/>
         <rdfs:range rdf:resource="&xsd;double"/>
     </owl:DatatypeProperty>
     
@@ -368,6 +369,15 @@
 
     <owl:DatatypeProperty rdf:about="#wavelengthEnd">
         <rdfs:subPropertyOf rdf:resource="#wavelength"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#wavelengthFilterFunction -->
+
+    <owl:DatatypeProperty rdf:about="#wavelengthFilterFunction">
+        <rdfs:domain rdf:resource="#SingularDataProduct"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
