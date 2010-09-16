@@ -97,6 +97,24 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#isComposedOfDatum -->
+
+    <owl:ObjectProperty rdf:about="#isComposedOfDatum">
+        <rdfs:domain rdf:resource="#DataSet"/>
+        <rdfs:range rdf:resource="#Datum"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#isComposedOfSingularDataProduct -->
+
+    <owl:ObjectProperty rdf:about="#isComposedOfSingularDataProduct">
+        <rdfs:domain rdf:resource="#CompositeDataProduct"/>
+        <rdfs:range rdf:resource="#SingularDataProduct"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#observationMadeBy -->
 
     <owl:ObjectProperty rdf:about="#observationMadeBy">
