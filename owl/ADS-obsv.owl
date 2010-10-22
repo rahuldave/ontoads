@@ -26,7 +26,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="">
-        <owl:imports rdf:resource="http://github.com/rahuldave/ontoads/raw/master/owl/ADS-bibo.owl"/>
+        <owl:imports rdf:resource="http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl"/>
     </owl:Ontology>
     
 
