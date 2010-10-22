@@ -338,7 +338,6 @@
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:comment
             >Typically an observatory is operated by an observation agency. But if its small enough a collaboration might be running it. TODO: What if a collaboration is only running some telescopes/instruments in it?</rdfs:comment>
-        <rdfs:domain rdf:resource="#ScienceInfrastructure"/>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -347,6 +346,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#ScienceInfrastructure"/>
+                    <rdf:Description rdf:about="&foaf;Project"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -528,6 +535,40 @@
     
 
 
+    <!-- http://swan.mindinformatics.org/ontologies/1.2/collections/item -->
+
+    <owl:ObjectProperty rdf:about="&collections;item"/>
+    
+
+
+    <!-- http://swan.mindinformatics.org/ontologies/1.2/collections/itemContent -->
+
+    <owl:ObjectProperty rdf:about="&collections;itemContent"/>
+    
+
+
+    <!-- http://swan.mindinformatics.org/ontologies/1.2/collections/nextItem -->
+
+    <owl:ObjectProperty rdf:about="&collections;nextItem"/>
+    
+
+
+    <!-- http://swan.mindinformatics.org/ontologies/1.2/collections/previousItem -->
+
+    <owl:ObjectProperty rdf:about="&collections;previousItem"/>
+    
+
+
+    <!-- http://swan.mindinformatics.org/ontologies/1.2/reification/object -->
+
+    <owl:ObjectProperty rdf:about="&reification;object"/>
+    
+
+
+    <!-- http://swan.mindinformatics.org/ontologies/1.2/reification/subject -->
+
+    <owl:ObjectProperty rdf:about="&reification;subject"/>
+    
 
 
     <!-- 
@@ -764,13 +805,6 @@
     <owl:Class rdf:about="#Affiliation">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#organizationName"/>
-                <owl:onClass rdf:resource="#OrganizationName"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="#affiliationContext"/>
                 <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
@@ -780,6 +814,13 @@
                 <owl:onProperty rdf:resource="#atTime"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#organizationName"/>
+                <owl:onClass rdf:resource="#OrganizationName"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment
@@ -1017,6 +1058,13 @@
     <owl:Class rdf:about="#Membership">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="#inCollaboration"/>
+                <owl:onClass rdf:resource="#Collaboration"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="#hasMember"/>
                 <owl:onClass>
                     <owl:Class>
@@ -1027,13 +1075,6 @@
                         </owl:unionOf>
                     </owl:Class>
                 </owl:onClass>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#inCollaboration"/>
-                <owl:onClass rdf:resource="#Collaboration"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1119,6 +1160,12 @@
         <rdfs:subClassOf rdf:resource="&collections;ListItem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&collections;nextItem"/>
+                <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&collections;itemContent"/>
                 <owl:allValuesFrom rdf:resource="&foaf;Organization"/>
             </owl:Restriction>
@@ -1126,12 +1173,6 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&collections;previousItem"/>
-                <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;nextItem"/>
                 <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1164,6 +1205,14 @@
         </rdfs:subClassOf>
         <rdfs:comment
             >A program under which stuff is funded, educated, observed..the result of some planning</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#ProjectSource -->
+
+    <owl:Class rdf:about="#ProjectSource">
+        <rdfs:subClassOf rdf:resource="#AstronomicalSource"/>
     </owl:Class>
     
 
@@ -1211,14 +1260,14 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;previousItem"/>
-                <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
+                <owl:onProperty rdf:resource="&collections;itemContent"/>
+                <owl:allValuesFrom rdf:resource="#Proposal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;itemContent"/>
-                <owl:allValuesFrom rdf:resource="#Proposal"/>
+                <owl:onProperty rdf:resource="&collections;previousItem"/>
+                <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1332,7 +1381,7 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Survey -->
 
     <owl:Class rdf:about="#Survey">
-        <rdfs:subClassOf rdf:resource="#Collaboration"/>
+        <rdfs:subClassOf rdf:resource="&foaf;Project"/>
         <rdfs:comment
             >A survey is modelled as a child of Collaboration as it is a structure ment to model the people in it rather than the organization that those people may be in. It would generally make sense to model the organization too, if it is an incorporated organization</rdfs:comment>
     </owl:Class>
@@ -1342,7 +1391,7 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#SurveySource -->
 
     <owl:Class rdf:about="#SurveySource">
-        <rdfs:subClassOf rdf:resource="#AstronomicalSource"/>
+        <rdfs:subClassOf rdf:resource="#ProjectSource"/>
     </owl:Class>
     
 
@@ -1440,6 +1489,12 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
     <!-- http://xmlns.com/foaf/0.1/Person -->
 
     <owl:Class rdf:about="&foaf;Person"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Project -->
+
+    <owl:Class rdf:about="&foaf;Project"/>
 </rdf:RDF>
 
 
