@@ -10,6 +10,7 @@
     <!ENTITY agents "http://swan.mindinformatics.org/ontologies/1.2/agents/" >
     <!ENTITY ADS-obsv "http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#" >
     <!ENTITY ADS-Base "http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#" >
+    <!ENTITY ADS-bibo "http://github.com/rahuldave/ontoads/raw/master/owl/ADS-bibo.owl#" >
 ]>
 
 
@@ -17,6 +18,7 @@
      xml:base="http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl"
      xmlns:ADS-obsv="http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#"
      xmlns:ADS-Base="http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#"
+     xmlns:ADS-bibo="http://github.com/rahuldave/ontoads/raw/master/owl/ADS-bibo.owl#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
      xmlns:agents="http://swan.mindinformatics.org/ontologies/1.2/agents/"
@@ -24,7 +26,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
     <owl:Ontology rdf:about="">
-        <owl:imports rdf:resource="http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl"/>
+        <owl:imports rdf:resource="http://github.com/rahuldave/ontoads/raw/master/owl/ADS-bibo.owl"/>
     </owl:Ontology>
     
 
@@ -39,17 +41,6 @@
 
     
 
-
-    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#hasDataProduct -->
-
-    <owl:ObjectProperty rdf:about="&ADS-Base;hasDataProduct"/>
-    
-
-
-    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#usingScienceInfrastructure -->
-
-    <owl:ObjectProperty rdf:about="&ADS-Base;usingScienceInfrastructure"/>
-    
 
 
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#associatedPosition -->
@@ -148,18 +139,6 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#dataProduct? -->
-
-    <owl:DatatypeProperty rdf:about="&ADS-Base;dataProduct?"/>
-    
-
-
-    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#dataType -->
-
-    <owl:DatatypeProperty rdf:about="&ADS-Base;dataType"/>
     
 
 
@@ -443,25 +422,6 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#DataProduct -->
-
-    <owl:Class rdf:about="&ADS-Base;DataProduct"/>
-    
-
-
-    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Instrument -->
-
-    <owl:Class rdf:about="&ADS-Base;Instrument"/>
-    
-
-
-    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Observation -->
-
-    <owl:Class rdf:about="&ADS-Base;Observation"/>
-    
 
 
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#ComplexObservation -->
@@ -566,15 +526,6 @@
     
 
 
-    <!-- http://swan.mindinformatics.org/ontologies/1.2/agents/Person -->
-
-    <owl:Class rdf:about="&agents;Person"/>
-    
-
-
-    <!-- http://swan.mindinformatics.org/ontologies/1.2/agents/PersonName -->
-
-    <owl:Class rdf:about="&agents;PersonName"/>
 </rdf:RDF>
 
 

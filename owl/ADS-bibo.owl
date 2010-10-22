@@ -2,8 +2,9 @@
 
 
 <!DOCTYPE rdf:RDF [
-    <!ENTITY cito "http://purl.org/net/cito/" >
+    <!ENTITY cito "http://purl.org/spar/cito/" >
     <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY fabio "http://purl.org/spar/fabio/" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY core "http://purl.org/vocab/frbr/core#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
@@ -21,19 +22,21 @@
      xml:base="http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl"
      xmlns:ADS-Base="http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
-     xmlns:cito="http://purl.org/net/cito/"
+     xmlns:cito="http://purl.org/spar/cito/"
      xmlns:agents="http://swan.mindinformatics.org/ontologies/1.2/agents/"
-     xmlns:ADS-bibo="http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#"
+     xmlns:fabio="http://purl.org/spar/fabio/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ADS-bibo="http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
      xmlns:pav="http://swan.mindinformatics.org/ontologies/1.2/pav/"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:core="http://purl.org/vocab/frbr/core#">
     <owl:Ontology rdf:about="">
         <owl:imports rdf:resource="http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl"/>
-        <owl:imports rdf:resource="http://purl.org/net/cito/"/>
+        <owl:imports rdf:resource="http://purl.org/spar/cito/"/>
+        <owl:imports rdf:resource="http://purl.org/spar/fabio"/>
     </owl:Ontology>
     
 
@@ -72,7 +75,7 @@
     <owl:ObjectProperty rdf:about="#alsoHasEprint">
         <rdfs:range rdf:resource="#EPrint"/>
         <owl:inverseOf rdf:resource="#alsoPublishedIn"/>
-        <rdfs:domain rdf:resource="&cito;Expression"/>
+        <rdfs:domain rdf:resource="&fabio;Expression"/>
     </owl:ObjectProperty>
     
 
@@ -81,8 +84,8 @@
 
     <owl:ObjectProperty rdf:about="#alsoPublishedIn">
         <owl:inverseOf rdf:resource="#alsoPublishedIn"/>
-        <rdfs:domain rdf:resource="&cito;Expression"/>
-        <rdfs:range rdf:resource="&cito;Expression"/>
+        <rdfs:domain rdf:resource="&fabio;Expression"/>
+        <rdfs:range rdf:resource="&fabio;Expression"/>
     </owl:ObjectProperty>
     
 
@@ -95,7 +98,7 @@
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Aggregation"/>
-                    <rdf:Description rdf:about="&cito;Expression"/>
+                    <rdf:Description rdf:about="&fabio;Expression"/>
                     <rdf:Description rdf:about="&core;Work"/>
                 </owl:unionOf>
             </owl:Class>
@@ -107,8 +110,8 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#defaultRealizedThrough -->
 
     <owl:ObjectProperty rdf:about="#defaultRealizedThrough">
-        <rdfs:range rdf:resource="&cito;Expression"/>
-        <rdfs:domain rdf:resource="&cito;Work"/>
+        <rdfs:range rdf:resource="&fabio;Expression"/>
+        <rdfs:domain rdf:resource="&fabio;Work"/>
     </owl:ObjectProperty>
     
 
@@ -141,7 +144,7 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasAbstract -->
 
     <owl:ObjectProperty rdf:about="#hasAbstract">
-        <rdfs:range rdf:resource="&cito;Abstract"/>
+        <rdfs:range rdf:resource="&fabio;Abstract"/>
     </owl:ObjectProperty>
     
 
@@ -171,7 +174,7 @@
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Aggregation"/>
-                    <rdf:Description rdf:about="&cito;Expression"/>
+                    <rdf:Description rdf:about="&fabio;Expression"/>
                     <rdf:Description rdf:about="&core;Work"/>
                 </owl:unionOf>
             </owl:Class>
@@ -184,7 +187,7 @@
 
     <owl:ObjectProperty rdf:about="#hasCorrespondingExpression">
         <rdfs:domain rdf:resource="#Citation"/>
-        <rdfs:range rdf:resource="&cito;Expression"/>
+        <rdfs:range rdf:resource="&fabio;Expression"/>
     </owl:ObjectProperty>
     
 
@@ -202,7 +205,7 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasExpression -->
 
     <owl:ObjectProperty rdf:about="#hasExpression">
-        <rdfs:range rdf:resource="&cito;Expression"/>
+        <rdfs:range rdf:resource="&fabio;Expression"/>
     </owl:ObjectProperty>
     
 
@@ -211,7 +214,7 @@
 
     <owl:ObjectProperty rdf:about="#hasExpressionForVersion">
         <rdfs:domain rdf:resource="#ExpressionVersion"/>
-        <rdfs:range rdf:resource="&cito;Expression"/>
+        <rdfs:range rdf:resource="&fabio;Expression"/>
     </owl:ObjectProperty>
     
 
@@ -224,7 +227,7 @@
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Aggregation"/>
-                    <rdf:Description rdf:about="&cito;Expression"/>
+                    <rdf:Description rdf:about="&fabio;Expression"/>
                     <rdf:Description rdf:about="&core;Work"/>
                 </owl:unionOf>
             </owl:Class>
@@ -236,8 +239,8 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasPart -->
 
     <owl:ObjectProperty rdf:about="#hasPart">
-        <rdfs:range rdf:resource="&cito;Expression"/>
-        <rdfs:domain rdf:resource="&cito;Expression"/>
+        <rdfs:range rdf:resource="&fabio;Expression"/>
+        <rdfs:domain rdf:resource="&fabio;Expression"/>
     </owl:ObjectProperty>
     
 
@@ -246,8 +249,8 @@
 
     <owl:ObjectProperty rdf:about="#isPartOf">
         <owl:inverseOf rdf:resource="#hasPart"/>
-        <rdfs:domain rdf:resource="&cito;Expression"/>
-        <rdfs:range rdf:resource="&cito;Expression"/>
+        <rdfs:domain rdf:resource="&fabio;Expression"/>
+        <rdfs:range rdf:resource="&fabio;Expression"/>
     </owl:ObjectProperty>
     
 
@@ -283,7 +286,7 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#publishedIn -->
 
     <owl:ObjectProperty rdf:about="#publishedIn">
-        <rdfs:domain rdf:resource="&cito;Expression"/>
+        <rdfs:domain rdf:resource="&fabio;Expression"/>
         <rdfs:range rdf:resource="&core;Expression"/>
     </owl:ObjectProperty>
     
@@ -303,19 +306,6 @@
         <rdfs:subPropertyOf rdf:resource="&pav;contributors"/>
     </owl:ObjectProperty>
     
-
-
-    <!-- http://swan.mindinformatics.org/ontologies/1.2/pav/contributedBy -->
-
-    <owl:ObjectProperty rdf:about="&pav;contributedBy"/>
-    
-
-
-    <!-- http://swan.mindinformatics.org/ontologies/1.2/pav/contributors -->
-
-    <owl:ObjectProperty rdf:about="&pav;contributors"/>
-    
-
 
     <!-- http://swan.mindinformatics.org/ontologies/1.2/pav/publishedBy -->
 
@@ -339,7 +329,7 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#abstractText -->
 
     <owl:DatatypeProperty rdf:about="#abstractText">
-        <rdfs:domain rdf:resource="&cito;Abstract"/>
+        <rdfs:domain rdf:resource="&fabio;Abstract"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
         <rdfs:range rdf:resource="&xsd;float"/>
     </owl:DatatypeProperty>
@@ -355,8 +345,8 @@
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Aggregation"/>
-                    <rdf:Description rdf:about="&cito;Expression"/>
-                    <rdf:Description rdf:about="&cito;Work"/>
+                    <rdf:Description rdf:about="&fabio;Expression"/>
+                    <rdf:Description rdf:about="&fabio;Work"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -436,7 +426,7 @@
 
     <owl:DatatypeProperty rdf:about="#expressionIdentifier">
         <rdfs:subPropertyOf rdf:resource="#identifier"/>
-        <rdfs:domain rdf:resource="&cito;Expression"/>
+        <rdfs:domain rdf:resource="&fabio;Expression"/>
     </owl:DatatypeProperty>
     
 
@@ -457,7 +447,7 @@
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="#Aggregation"/>
-                    <rdf:Description rdf:about="&cito;Expression"/>
+                    <rdf:Description rdf:about="&fabio;Expression"/>
                     <rdf:Description rdf:about="&core;Manifestation"/>
                     <rdf:Description rdf:about="&core;Work"/>
                 </owl:unionOf>
@@ -502,7 +492,7 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#locator -->
 
     <owl:DatatypeProperty rdf:about="#locator">
-        <rdfs:domain rdf:resource="&cito;Expression"/>
+        <rdfs:domain rdf:resource="&fabio;Expression"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
@@ -512,7 +502,7 @@
 
     <owl:DatatypeProperty rdf:about="#manifestationIdentifier">
         <rdfs:subPropertyOf rdf:resource="#identifier"/>
-        <rdfs:domain rdf:resource="&cito;Manifestation"/>
+        <rdfs:domain rdf:resource="&fabio;Manifestation"/>
     </owl:DatatypeProperty>
     
 
@@ -603,7 +593,7 @@
 
     <owl:DatatypeProperty rdf:about="#workIdentifier">
         <rdfs:subPropertyOf rdf:resource="#identifier"/>
-        <rdfs:domain rdf:resource="&cito;Work"/>
+        <rdfs:domain rdf:resource="&fabio;Work"/>
         <rdfs:range rdf:resource="&rdfs;Literal"/>
     </owl:DatatypeProperty>
     
@@ -659,11 +649,11 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#DocumentPart -->
 
     <owl:Class rdf:about="#DocumentPart">
-        <rdfs:subClassOf rdf:resource="&cito;Expression"/>
+        <rdfs:subClassOf rdf:resource="&fabio;Expression"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#isPartOf"/>
-                <owl:onClass rdf:resource="&cito;Document"/>
+                <owl:onClass rdf:resource="&fabio;Document"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -682,7 +672,7 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#EPrint -->
 
     <owl:Class rdf:about="#EPrint">
-        <rdfs:subClassOf rdf:resource="&cito;Document"/>
+        <rdfs:subClassOf rdf:resource="&fabio;Document"/>
     </owl:Class>
     
 
@@ -690,7 +680,7 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#EPrintArchive -->
 
     <owl:Class rdf:about="#EPrintArchive">
-        <rdfs:subClassOf rdf:resource="&cito;Expression"/>
+        <rdfs:subClassOf rdf:resource="&fabio;Expression"/>
         <rdfs:comment
             >EPrintArchive is like a journal but should we be modelling channel directly in here? We put it here as journals are here, but since arxiv is both publisher and archive, it might make sense to get down to individual arxiv channels, atleast to the level of astro-ph here. TODO</rdfs:comment>
     </owl:Class>
@@ -700,7 +690,7 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#Equation -->
 
     <owl:Class rdf:about="#Equation">
-        <rdfs:subClassOf rdf:resource="&cito;Expression"/>
+        <rdfs:subClassOf rdf:resource="&fabio;Expression"/>
     </owl:Class>
     
 
@@ -708,7 +698,7 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#ExpressionVersion -->
 
     <owl:Class rdf:about="#ExpressionVersion">
-        <rdfs:subClassOf rdf:resource="&cito;Expression"/>
+        <rdfs:subClassOf rdf:resource="&fabio;Expression"/>
     </owl:Class>
     
 
@@ -726,80 +716,12 @@
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#Series -->
 
     <owl:Class rdf:about="#Series">
-        <rdfs:subClassOf rdf:resource="&cito;Expression"/>
+        <rdfs:subClassOf rdf:resource="&fabio;Expression"/>
     </owl:Class>
     
 
 
-    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#AstronomicalSource -->
 
-    <owl:Class rdf:about="&ADS-Base;AstronomicalSource"/>
-    
-
-
-    <!-- http://purl.org/net/cito/Abstract -->
-
-    <owl:Class rdf:about="&cito;Abstract"/>
-    
-
-
-    <!-- http://purl.org/net/cito/Document -->
-
-    <owl:Class rdf:about="&cito;Document"/>
-    
-
-
-    <!-- http://purl.org/net/cito/Expression -->
-
-    <owl:Class rdf:about="&cito;Expression"/>
-    
-
-
-    <!-- http://purl.org/net/cito/Manifestation -->
-
-    <owl:Class rdf:about="&cito;Manifestation"/>
-    
-
-
-    <!-- http://purl.org/net/cito/Metadata -->
-
-    <owl:Class rdf:about="&cito;Metadata"/>
-    
-
-
-    <!-- http://purl.org/net/cito/Work -->
-
-    <owl:Class rdf:about="&cito;Work"/>
-    
-
-
-    <!-- http://purl.org/vocab/frbr/core#Expression -->
-
-    <owl:Class rdf:about="&core;Expression"/>
-    
-
-
-    <!-- http://purl.org/vocab/frbr/core#Manifestation -->
-
-    <owl:Class rdf:about="&core;Manifestation"/>
-    
-
-
-    <!-- http://purl.org/vocab/frbr/core#Work -->
-
-    <owl:Class rdf:about="&core;Work"/>
-    
-
-
-    <!-- http://swan.mindinformatics.org/ontologies/1.2/agents/PersonName -->
-
-    <owl:Class rdf:about="&agents;PersonName"/>
-    
-
-
-    <!-- http://xmlns.com/foaf/0.1/Organization -->
-
-    <owl:Class rdf:about="&foaf;Organization"/>
 </rdf:RDF>
 
 
