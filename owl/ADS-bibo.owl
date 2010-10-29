@@ -56,7 +56,7 @@
 
     <owl:ObjectProperty rdf:about="#aggregatedAt">
         <rdfs:domain rdf:resource="#Aggregation"/>
-        <rdfs:range rdf:resource="#Aggregator"/>
+        <rdfs:range rdf:resource="&ADS-Base;CurationAgency"/>
     </owl:ObjectProperty>
     
 
@@ -205,15 +205,6 @@
 
     <owl:ObjectProperty rdf:about="#manifestationOwner">
         <rdfs:domain rdf:resource="&core;Manifestation"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#Aggregator"/>
-                    <rdf:Description rdf:about="#EPrintArchive"/>
-                    <rdf:Description rdf:about="#Publisher"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -572,16 +563,6 @@
     
 
 
-    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#Aggregator -->
-
-    <owl:Class rdf:about="#Aggregator">
-        <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
-        <rdfs:comment
-            >An aggregator is an organization like ADS or SPIRES, which aggregates papers and identifies them.</rdfs:comment>
-    </owl:Class>
-    
-
-
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#Citation -->
 
     <owl:Class rdf:about="#Citation">
@@ -632,6 +613,12 @@
     <owl:Class rdf:about="#Series">
         <rdfs:subClassOf rdf:resource="&fabio;Expression"/>
     </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#CurationAgency -->
+
+    <owl:Class rdf:about="&ADS-Base;CurationAgency"/>
     
 
 
