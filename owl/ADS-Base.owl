@@ -821,6 +821,13 @@
     <owl:Class rdf:about="#Affiliation">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="#organizationName"/>
+                <owl:onClass rdf:resource="#OrganizationName"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="#atTime"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;dateTime"/>
@@ -830,13 +837,6 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="#affiliationContext"/>
                 <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#organizationName"/>
-                <owl:onClass rdf:resource="#OrganizationName"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment
@@ -940,6 +940,14 @@
 
     <owl:Class rdf:about="#CurationAgency">
         <rdfs:subClassOf rdf:resource="&foaf;Organization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#DataCenter -->
+
+    <owl:Class rdf:about="#DataCenter">
+        <rdfs:subClassOf rdf:resource="#ComputingCenter"/>
     </owl:Class>
     
 
@@ -1090,6 +1098,13 @@
     <owl:Class rdf:about="#Membership">
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="#inCollaboration"/>
+                <owl:onClass rdf:resource="#Collaboration"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="#hasMember"/>
                 <owl:onClass>
                     <owl:Class>
@@ -1100,13 +1115,6 @@
                         </owl:unionOf>
                     </owl:Class>
                 </owl:onClass>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="#inCollaboration"/>
-                <owl:onClass rdf:resource="#Collaboration"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1184,14 +1192,14 @@
         <rdfs:subClassOf rdf:resource="&collections;ListItem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;previousItem"/>
-                <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
+                <owl:onProperty rdf:resource="&collections;itemContent"/>
+                <owl:allValuesFrom rdf:resource="&foaf;Organization"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;itemContent"/>
-                <owl:allValuesFrom rdf:resource="&foaf;Organization"/>
+                <owl:onProperty rdf:resource="&collections;previousItem"/>
+                <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
