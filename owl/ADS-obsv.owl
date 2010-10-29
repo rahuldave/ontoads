@@ -70,6 +70,31 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#belongsToOrbit -->
+
+    <owl:ObjectProperty rdf:about="#belongsToOrbit">
+        <rdfs:range rdf:resource="#Orbit"/>
+        <rdfs:domain rdf:resource="#Position"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#curatedAt -->
+
+    <owl:ObjectProperty rdf:about="#curatedAt">
+        <rdfs:domain rdf:resource="#DataCuration"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ADS-Base;CurationAgency"/>
+                    <rdf:Description rdf:about="&ADS-Base;Project"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#forObservation -->
 
     <owl:ObjectProperty rdf:about="#forObservation">
@@ -89,6 +114,14 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#hasDataCuration -->
+
+    <owl:ObjectProperty rdf:about="#hasDataCuration">
+        <rdfs:range rdf:resource="#DataCuration"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#hasDataset -->
 
     <owl:ObjectProperty rdf:about="#hasDataset">
@@ -103,6 +136,16 @@
     <owl:ObjectProperty rdf:about="#hasDatum">
         <rdfs:subPropertyOf rdf:resource="&ADS-Base;hasDataProduct"/>
         <rdfs:range rdf:resource="#Datum"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#hasOrbitalElement -->
+
+    <owl:ObjectProperty rdf:about="#hasOrbitalElement">
+        <rdfs:domain rdf:resource="#Orbit"/>
+        <rdfs:range rdf:resource="#Position"/>
+        <owl:inverseOf rdf:resource="#belongsToOrbit"/>
     </owl:ObjectProperty>
     
 
@@ -551,6 +594,12 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#CurationAgency -->
+
+    <owl:Class rdf:about="&ADS-Base;CurationAgency"/>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#DataProduct -->
 
     <owl:Class rdf:about="&ADS-Base;DataProduct"/>
@@ -575,6 +624,20 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Project -->
+
+    <owl:Class rdf:about="&ADS-Base;Project"/>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#Catalog -->
+
+    <owl:Class rdf:about="#Catalog">
+        <rdfs:subClassOf rdf:resource="#DataCollection"/>
+    </owl:Class>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#ComplexObservation -->
 
     <owl:Class rdf:about="#ComplexObservation">
@@ -596,6 +659,12 @@
     <owl:Class rdf:about="#DataCollection">
         <rdfs:subClassOf rdf:resource="&ADS-Base;DataProduct"/>
     </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#DataCuration -->
+
+    <owl:Class rdf:about="#DataCuration"/>
     
 
 
@@ -626,6 +695,22 @@
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#Footprint -->
 
     <owl:Class rdf:about="#Footprint">
+        <rdfs:subClassOf rdf:resource="#SkyThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#MovingAstronomicalSource -->
+
+    <owl:Class rdf:about="#MovingAstronomicalSource">
+        <rdfs:subClassOf rdf:resource="&ADS-Base;AstronomicalSource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#Orbit -->
+
+    <owl:Class rdf:about="#Orbit">
         <rdfs:subClassOf rdf:resource="#SkyThing"/>
     </owl:Class>
     
