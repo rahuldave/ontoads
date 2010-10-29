@@ -54,6 +54,15 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#alsoCuratedAs -->
+
+    <owl:ObjectProperty rdf:about="#alsoCuratedAs">
+        <rdfs:range rdf:resource="#SourceCuration"/>
+        <rdfs:domain rdf:resource="#SourceCuration"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#associatedFootprint -->
 
     <owl:ObjectProperty rdf:about="#associatedFootprint">
@@ -82,7 +91,14 @@
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#curatedAt -->
 
     <owl:ObjectProperty rdf:about="#curatedAt">
-        <rdfs:domain rdf:resource="#DataCuration"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ADS-Base;AstronomicalSource"/>
+                    <rdf:Description rdf:about="#SourceCuration"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -114,14 +130,6 @@
     
 
 
-    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#hasDataCuration -->
-
-    <owl:ObjectProperty rdf:about="#hasDataCuration">
-        <rdfs:range rdf:resource="#DataCuration"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#hasDataset -->
 
     <owl:ObjectProperty rdf:about="#hasDataset">
@@ -146,6 +154,15 @@
         <rdfs:domain rdf:resource="#Orbit"/>
         <rdfs:range rdf:resource="#Position"/>
         <owl:inverseOf rdf:resource="#belongsToOrbit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#hasSourceCuration -->
+
+    <owl:ObjectProperty rdf:about="#hasSourceCuration">
+        <rdfs:domain rdf:resource="&ADS-Base;AstronomicalSource"/>
+        <rdfs:range rdf:resource="#SourceCuration"/>
     </owl:ObjectProperty>
     
 
@@ -662,12 +679,6 @@
     
 
 
-    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#DataCuration -->
-
-    <owl:Class rdf:about="#DataCuration"/>
-    
-
-
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#DataSet -->
 
     <owl:Class rdf:about="#DataSet">
@@ -762,6 +773,14 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#SourceCuration -->
+
+    <owl:Class rdf:about="#SourceCuration">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#Telescope -->
 
     <owl:Class rdf:about="#Telescope">
@@ -779,6 +798,12 @@
     <!-- http://swan.mindinformatics.org/ontologies/1.2/agents/PersonName -->
 
     <owl:Class rdf:about="&agents;PersonName"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
 </rdf:RDF>
 
 
