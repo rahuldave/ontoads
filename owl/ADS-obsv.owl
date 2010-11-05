@@ -79,11 +79,11 @@
     
 
 
-    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#belongsToOrbit -->
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#belongsToTrack -->
 
-    <owl:ObjectProperty rdf:about="#belongsToOrbit">
-        <rdfs:range rdf:resource="#Orbit"/>
+    <owl:ObjectProperty rdf:about="#belongsToTrack">
         <rdfs:domain rdf:resource="#Position"/>
+        <rdfs:range rdf:resource="#Track"/>
     </owl:ObjectProperty>
     
 
@@ -91,14 +91,6 @@
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#curatedAt -->
 
     <owl:ObjectProperty rdf:about="#curatedAt">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ADS-Base;AstronomicalSource"/>
-                    <rdf:Description rdf:about="#SourceCuration"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -107,6 +99,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ADS-Base;AstronomicalSource"/>
+                    <rdf:Description rdf:about="#SourceCuration"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -130,6 +130,23 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#fromCatalog -->
+
+    <owl:ObjectProperty rdf:about="#fromCatalog">
+        <rdfs:range rdf:resource="#Catalog"/>
+        <rdfs:subPropertyOf rdf:resource="#fromDataCollection"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#fromDataCollection -->
+
+    <owl:ObjectProperty rdf:about="#fromDataCollection">
+        <rdfs:range rdf:resource="#DataCollection"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#hasDataset -->
 
     <owl:ObjectProperty rdf:about="#hasDataset">
@@ -148,21 +165,21 @@
     
 
 
-    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#hasOrbitalElement -->
-
-    <owl:ObjectProperty rdf:about="#hasOrbitalElement">
-        <rdfs:domain rdf:resource="#Orbit"/>
-        <rdfs:range rdf:resource="#Position"/>
-        <owl:inverseOf rdf:resource="#belongsToOrbit"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#hasSourceCuration -->
 
     <owl:ObjectProperty rdf:about="#hasSourceCuration">
         <rdfs:domain rdf:resource="&ADS-Base;AstronomicalSource"/>
         <rdfs:range rdf:resource="#SourceCuration"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#hasTrackElement -->
+
+    <owl:ObjectProperty rdf:about="#hasTrackElement">
+        <rdfs:range rdf:resource="#Position"/>
+        <rdfs:domain rdf:resource="#Track"/>
+        <owl:inverseOf rdf:resource="#belongsToTrack"/>
     </owl:ObjectProperty>
     
 
@@ -181,14 +198,6 @@
     <owl:ObjectProperty rdf:about="#isComposedOfSingularDataProduct">
         <rdfs:domain rdf:resource="#CompositeDataProduct"/>
         <rdfs:range rdf:resource="#SingularDataProduct"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#obsCollection -->
-
-    <owl:ObjectProperty rdf:about="#obsCollection">
-        <rdfs:range rdf:resource="#DataCollection"/>
     </owl:ObjectProperty>
     
 
@@ -452,6 +461,15 @@
 
     <owl:DatatypeProperty rdf:about="#observedTime">
         <rdfs:subPropertyOf rdf:resource="#lengthOfTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#orbitalParamString -->
+
+    <owl:DatatypeProperty rdf:about="#orbitalParamString">
+        <rdfs:domain rdf:resource="#Orbit"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
@@ -722,7 +740,7 @@
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#Orbit -->
 
     <owl:Class rdf:about="#Orbit">
-        <rdfs:subClassOf rdf:resource="#SkyThing"/>
+        <rdfs:subClassOf rdf:resource="#Track"/>
     </owl:Class>
     
 
@@ -785,6 +803,14 @@
 
     <owl:Class rdf:about="#Telescope">
         <rdfs:subClassOf rdf:resource="&ADS-Base;Instrument"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#Track -->
+
+    <owl:Class rdf:about="#Track">
+        <rdfs:subClassOf rdf:resource="#SkyThing"/>
     </owl:Class>
     
 

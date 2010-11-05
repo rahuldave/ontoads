@@ -384,6 +384,15 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#finalExpression? -->
+
+    <owl:DatatypeProperty rdf:about="#finalExpression?">
+        <rdfs:domain rdf:resource="&fabio;Expression"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#hasRelatedData -->
 
     <owl:DatatypeProperty rdf:about="#hasRelatedData">
