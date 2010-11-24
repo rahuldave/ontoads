@@ -149,6 +149,15 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#belongsToProposalSet -->
+
+    <owl:ObjectProperty rdf:about="#belongsToProposalSet">
+        <rdfs:domain rdf:resource="#Proposal"/>
+        <rdfs:range rdf:resource="#ProposalSet"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#currentAffiliation -->
 
     <owl:ObjectProperty rdf:about="#currentAffiliation">
@@ -338,14 +347,6 @@
         <rdf:type rdf:resource="&owl;FunctionalProperty"/>
         <rdfs:comment
             >Typically an observatory is operated by an observation agency. But if its small enough a collaboration might be running it. TODO: What if a collaboration is only running some telescopes/instruments in it?</rdfs:comment>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="#ScienceInfrastructure"/>
-                    <rdf:Description rdf:about="&foaf;Project"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -354,6 +355,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#ScienceInfrastructure"/>
+                    <rdf:Description rdf:about="&foaf;Project"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -821,9 +830,8 @@
     <owl:Class rdf:about="#Affiliation">
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#organizationName"/>
-                <owl:onClass rdf:resource="#OrganizationName"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onProperty rdf:resource="#affiliationContext"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -835,8 +843,9 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="#affiliationContext"/>
-                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                <owl:onProperty rdf:resource="#organizationName"/>
+                <owl:onClass rdf:resource="#OrganizationName"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment
@@ -1192,14 +1201,14 @@
         <rdfs:subClassOf rdf:resource="&collections;ListItem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;itemContent"/>
-                <owl:allValuesFrom rdf:resource="&foaf;Organization"/>
+                <owl:onProperty rdf:resource="&collections;previousItem"/>
+                <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;previousItem"/>
-                <owl:someValuesFrom rdf:resource="#OrganizationListItem"/>
+                <owl:onProperty rdf:resource="&collections;itemContent"/>
+                <owl:allValuesFrom rdf:resource="&foaf;Organization"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1286,6 +1295,12 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
         <rdfs:subClassOf rdf:resource="&collections;ListItem"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&collections;previousItem"/>
+                <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&collections;nextItem"/>
                 <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
             </owl:Restriction>
@@ -1296,13 +1311,13 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
                 <owl:allValuesFrom rdf:resource="#Proposal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&collections;previousItem"/>
-                <owl:someValuesFrom rdf:resource="#ProposalListItem"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#ProposalSet -->
+
+    <owl:Class rdf:about="#ProposalSet"/>
     
 
 
@@ -1312,14 +1327,14 @@ An accepted proposal is a grant (maybe an overlay for this), funding  proposal o
         <rdfs:subClassOf rdf:resource="&reification;BinaryRelationship"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&reification;object"/>
-                <owl:allValuesFrom rdf:resource="#OrganizationName"/>
+                <owl:onProperty rdf:resource="&reification;subject"/>
+                <owl:allValuesFrom rdf:resource="&foaf;Organization"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&reification;subject"/>
-                <owl:allValuesFrom rdf:resource="&foaf;Organization"/>
+                <owl:onProperty rdf:resource="&reification;object"/>
+                <owl:allValuesFrom rdf:resource="#OrganizationName"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>

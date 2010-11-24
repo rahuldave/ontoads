@@ -56,7 +56,14 @@
 
     <owl:ObjectProperty rdf:about="#aggregatedAt">
         <rdfs:domain rdf:resource="#Aggregation"/>
-        <rdfs:range rdf:resource="&ADS-Base;CurationAgency"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#BibGroup"/>
+                    <rdf:Description rdf:about="&ADS-Base;CurationAgency"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -572,6 +579,14 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#BibGroup -->
+
+    <owl:Class rdf:about="#BibGroup">
+        <rdfs:subClassOf rdf:resource="&ADS-Base;Collaboration"/>
+    </owl:Class>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#Citation -->
 
     <owl:Class rdf:about="#Citation">
@@ -622,6 +637,12 @@
     <owl:Class rdf:about="#Series">
         <rdfs:subClassOf rdf:resource="&fabio;Expression"/>
     </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Collaboration -->
+
+    <owl:Class rdf:about="&ADS-Base;Collaboration"/>
     
 
 

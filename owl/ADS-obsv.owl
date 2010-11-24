@@ -184,6 +184,15 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#inRegion -->
+
+    <owl:ObjectProperty rdf:about="#inRegion">
+        <rdfs:range rdf:resource="#RegionOfSky"/>
+        <rdfs:subPropertyOf rdf:resource="#associatedFootprint"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#isComposedOfDatum -->
 
     <owl:ObjectProperty rdf:about="#isComposedOfDatum">
@@ -623,6 +632,12 @@
     
 
 
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Analysis -->
+
+    <owl:Class rdf:about="&ADS-Base;Analysis"/>
+    
+
+
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#AstronomicalSource -->
 
     <owl:Class rdf:about="&ADS-Base;AstronomicalSource"/>
@@ -662,6 +677,14 @@
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#Project -->
 
     <owl:Class rdf:about="&ADS-Base;Project"/>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#Calibration -->
+
+    <owl:Class rdf:about="#Calibration">
+        <rdfs:subClassOf rdf:resource="&ADS-Base;Analysis"/>
+    </owl:Class>
     
 
 
@@ -764,6 +787,14 @@
     <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#ProjectionTile -->
 
     <owl:Class rdf:about="#ProjectionTile">
+        <rdfs:subClassOf rdf:resource="#Footprint"/>
+    </owl:Class>
+    
+
+
+    <!-- http://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#RegionOfSky -->
+
+    <owl:Class rdf:about="#RegionOfSky">
         <rdfs:subClassOf rdf:resource="#Footprint"/>
     </owl:Class>
     
