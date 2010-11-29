@@ -58,7 +58,14 @@
 
     <owl:ObjectProperty rdf:about="#alsoCuratedAs">
         <rdfs:range rdf:resource="#SourceCuration"/>
-        <rdfs:domain rdf:resource="#SourceCuration"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ADS-Base;AstronomicalSource"/>
+                    <rdf:Description rdf:about="#SourceCuration"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
