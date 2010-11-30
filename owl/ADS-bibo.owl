@@ -12,15 +12,15 @@
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
     <!ENTITY pav "http://swan.mindinformatics.org/ontologies/1.2/pav/" >
-    <!ENTITY ADS-bibo "http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#" >
+    <!ENTITY ADS-bibo "https://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#" >
     <!ENTITY agents "http://swan.mindinformatics.org/ontologies/1.2/agents/" >
-    <!ENTITY ADS-Base "http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#" >
+    <!ENTITY ADS-Base "https://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#" >
 ]>
 
 
-<rdf:RDF xmlns="http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#"
-     xml:base="http://github.com/rahuldave/ontoads/owl/ADS-bibo.owl"
-     xmlns:ADS-Base="http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#"
+<rdf:RDF xmlns="https://github.com/rahuldave/ontoads/owl/ADS-bibo.owl#"
+     xml:base="https://github.com/rahuldave/ontoads/owl/ADS-bibo.owl"
+     xmlns:ADS-Base="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:cito="http://purl.org/spar/cito/"
      xmlns:agents="http://swan.mindinformatics.org/ontologies/1.2/agents/"
@@ -34,7 +34,7 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:core="http://purl.org/vocab/frbr/core#">
     <owl:Ontology rdf:about="">
-        <owl:imports rdf:resource="http://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl"/>
+        <owl:imports rdf:resource="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl"/>
         <owl:imports rdf:resource="http://purl.org/spar/cito/"/>
         <owl:imports rdf:resource="http://purl.org/spar/fabio"/>
     </owl:Ontology>
