@@ -3,6 +3,7 @@
 
 <!DOCTYPE rdf:RDF [
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY skos2 "http://www.w3.org/2008/05/skos#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
@@ -19,6 +20,7 @@
      xmlns:ADS-Base="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-Base.owl#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:skos2="http://www.w3.org/2008/05/skos#"
      xmlns:agents="http://swan.mindinformatics.org/ontologies/1.2/agents/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
@@ -66,6 +68,18 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://www.w3.org/2008/05/skos#broader -->
+
+    <owl:ObjectProperty rdf:about="&skos2;broader"/>
+    
+
+
+    <!-- http://www.w3.org/2008/05/skos#inScheme -->
+
+    <owl:ObjectProperty rdf:about="&skos2;inScheme"/>
     
 
 
@@ -125,14 +139,6 @@
     <!-- https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#curatedAt -->
 
     <owl:ObjectProperty rdf:about="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#curatedAt">
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ADS-Base;CurationAgency"/>
-                    <rdf:Description rdf:about="&ADS-Base;Project"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -141,6 +147,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ADS-Base;CurationAgency"/>
+                    <rdf:Description rdf:about="&ADS-Base;Project"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -297,6 +311,24 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://www.w3.org/2008/05/skos#altLabel -->
+
+    <owl:DatatypeProperty rdf:about="&skos2;altLabel"/>
+    
+
+
+    <!-- http://www.w3.org/2008/05/skos#definition -->
+
+    <owl:DatatypeProperty rdf:about="&skos2;definition"/>
+    
+
+
+    <!-- http://www.w3.org/2008/05/skos#prefLabel -->
+
+    <owl:DatatypeProperty rdf:about="&skos2;prefLabel"/>
     
 
 
@@ -656,7 +688,9 @@ physangSize;instr.fov UCD? Doug 25 Feb 2011</rdfs:comment>
     <!-- https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#wavelengthDomain -->
 
     <owl:DatatypeProperty rdf:about="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#wavelengthDomain">
-        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:comment xml:lang="en">DJB has removed the string restriction on the Domain of this predicate
+so that it can be used with the EMDOMAIN SKOS concept.
+</rdfs:comment>
     </owl:DatatypeProperty>
     
 
@@ -746,6 +780,18 @@ physangSize;instr.fov UCD? Doug 25 Feb 2011</rdfs:comment>
     <!-- http://www.w3.org/2002/07/owl#Thing -->
 
     <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- http://www.w3.org/2008/05/skos#Concept -->
+
+    <owl:Class rdf:about="&skos2;Concept"/>
+    
+
+
+    <!-- http://www.w3.org/2008/05/skos#ConceptScheme -->
+
+    <owl:Class rdf:about="&skos2;ConceptScheme"/>
     
 
 
@@ -972,6 +1018,150 @@ physangSize;instr.fov UCD? Doug 25 Feb 2011</rdfs:comment>
     <owl:Class rdf:about="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#Track">
         <rdfs:subClassOf rdf:resource="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#SkyThing"/>
     </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN -->
+
+    <skos2:Concept rdf:about="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos2:altLabel>EMDOMAIN</skos2:altLabel>
+        <skos2:altLabel>Coverage.Spectral</skos2:altLabel>
+        <skos2:definition xml:lang="en">A named spectral region of the electro-magnetic spectrum that the resource&#39;s spectral coverage overlaps with. A resource may contain
+multiple entries. This provides a general sense of what part of the spectrum the data covers; more specific predicates, such as
+wavelengthStart and wavelengthEnd can also be used.
+
+This corresponds to the waveband entry in version 1.1 of the
+VODataService IVOA recommendation or the RM name
+Coverage.Spectral.</skos2:definition>
+        <skos2:prefLabel xml:lang="en">Electromagnetic Domain</skos2:prefLabel>
+        <rdfs:comment xml:lang="en">It is not clear whether it makes sense to make EMDOMAIN a Concept or 
+a skos:Collection, containing the EMDOMAIN_xxx concepts as skos:member&#39;s,
+or even a skos:OrderedCollection.
+
+For now leave as a Concept.
+
+We do not currently have a ConceptScheme for this concept.
+</rdfs:comment>
+    </skos2:Concept>
+    
+
+
+    <!-- https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_EUV -->
+
+    <skos2:Concept rdf:about="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_EUV">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos2:definition xml:lang="en">100 Angstroms &lt;= wavelength &lt;= 1000 Angstroms; 
+12 eV &lt;= energy &lt;= 120 eV
+</skos2:definition>
+        <skos2:altLabel>EUV</skos2:altLabel>
+        <skos2:altLabel>EXTREME-UV</skos2:altLabel>
+        <skos2:prefLabel xml:lang="en">Extreme Ultraviolet</skos2:prefLabel>
+        <skos2:broader rdf:resource="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN"/>
+    </skos2:Concept>
+    
+
+
+    <!-- https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_GAMMA-RAY -->
+
+    <skos2:Concept rdf:about="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_GAMMA-RAY">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos2:definition xml:lang="en">energy &gt;= 120 keV</skos2:definition>
+        <skos2:altLabel>GAMMA-RAY</skos2:altLabel>
+        <skos2:prefLabel xml:lang="en">Gamma Ray</skos2:prefLabel>
+        <skos2:altLabel>GAMMA RAY</skos2:altLabel>
+        <skos2:broader rdf:resource="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN"/>
+    </skos2:Concept>
+    
+
+
+    <!-- https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_INFRARED -->
+
+    <skos2:Concept rdf:about="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_INFRARED">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos2:definition xml:lang="en">1 micron &lt;= wavelength &lt;= 100 microns</skos2:definition>
+        <skos2:altLabel>INFRARED</skos2:altLabel>
+        <skos2:prefLabel xml:lang="en">Infra-red</skos2:prefLabel>
+        <skos2:broader rdf:resource="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN"/>
+    </skos2:Concept>
+    
+
+
+    <!-- https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_MILLIMETER -->
+
+    <skos2:Concept rdf:about="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_MILLIMETER">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos2:definition xml:lang="en">0.1 mm &lt;= wavelength &lt;= 10 mm; 
+3000 GHz &gt;= frequency &gt;= 30 GHz.</skos2:definition>
+        <skos2:altLabel>MILLIMETER</skos2:altLabel>
+        <skos2:prefLabel xml:lang="en">Millimeter</skos2:prefLabel>
+        <skos2:broader rdf:resource="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN"/>
+    </skos2:Concept>
+    
+
+
+    <!-- https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_OPTICAL -->
+
+    <skos2:Concept rdf:about="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_OPTICAL">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos2:definition xml:lang="en">0.3 microns &lt;= wavelength &lt;= 1 micron; 
+300 nm &lt;= wavelength &lt;= 1000 nm; 
+3000 Angstroms &lt;= wavelength &lt;= 10000 Angstroms</skos2:definition>
+        <skos2:altLabel>OPTICAL</skos2:altLabel>
+        <skos2:prefLabel xml:lang="en">Optical</skos2:prefLabel>
+        <skos2:broader rdf:resource="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN"/>
+    </skos2:Concept>
+    
+
+
+    <!-- https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_RADIO -->
+
+    <skos2:Concept rdf:about="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_RADIO">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos2:altLabel>RADIO</skos2:altLabel>
+        <skos2:prefLabel xml:lang="en">Radio</skos2:prefLabel>
+        <skos2:definition xml:lang="en">any wavelength &gt; 10 mm (or frequency &lt; 30 GHz)</skos2:definition>
+        <skos2:broader rdf:resource="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN"/>
+    </skos2:Concept>
+    
+
+
+    <!-- https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_UV -->
+
+    <skos2:Concept rdf:about="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_UV">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos2:definition xml:lang="en">0.1 micron &lt;= wavelength &lt;= 0.3 microns; 
+100 nm &lt;= wavelength &lt;= 300 nm; 
+1000 Angstroms &lt;= wavelength &lt;= 3000 Angstroms</skos2:definition>
+        <skos2:altLabel>UV</skos2:altLabel>
+        <skos2:prefLabel xml:lang="en">Ultraviolet</skos2:prefLabel>
+        <skos2:broader rdf:resource="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN"/>
+    </skos2:Concept>
+    
+
+
+    <!-- https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_X-RAY -->
+
+    <skos2:Concept rdf:about="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_X-RAY">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos2:definition xml:lang="en">0.1 Angstroms &lt;= wavelength &lt;= 100 Angstroms; 
+0.12 keV &lt;= energy &lt;= 120 keV</skos2:definition>
+        <skos2:altLabel>X-RAY</skos2:altLabel>
+        <skos2:prefLabel xml:lang="en">X-ray</skos2:prefLabel>
+        <skos2:hiddenLabel>XRAY</skos2:hiddenLabel>
+        <skos2:broader rdf:resource="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN"/>
+    </skos2:Concept>
 </rdf:RDF>
 
 
