@@ -326,6 +326,12 @@
     
 
 
+    <!-- http://www.w3.org/2008/05/skos#hiddenLabel -->
+
+    <owl:DatatypeProperty rdf:about="&skos2;hiddenLabel"/>
+    
+
+
     <!-- http://www.w3.org/2008/05/skos#prefLabel -->
 
     <owl:DatatypeProperty rdf:about="&skos2;prefLabel"/>
@@ -1053,7 +1059,11 @@ or even a skos:OrderedCollection.
 For now leave as a Concept.
 
 We do not currently have a ConceptScheme for this concept.
-</rdfs:comment>
+
+This entity (and narrower concepts) should not be defined in the ADS-obsv.owl
+ontology; this is done as a quick hack.
+
+DJB 2011-03-07</rdfs:comment>
     </skos2:Concept>
     
 
@@ -1062,11 +1072,11 @@ We do not currently have a ConceptScheme for this concept.
 
     <skos2:Concept rdf:about="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_EUV">
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos2:altLabel>EXTREME-UV</skos2:altLabel>
         <skos2:definition xml:lang="en">100 Angstroms &lt;= wavelength &lt;= 1000 Angstroms; 
 12 eV &lt;= energy &lt;= 120 eV
 </skos2:definition>
         <skos2:altLabel>EUV</skos2:altLabel>
-        <skos2:altLabel>EXTREME-UV</skos2:altLabel>
         <skos2:prefLabel xml:lang="en">Extreme Ultraviolet</skos2:prefLabel>
         <skos2:broader rdf:resource="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN"/>
     </skos2:Concept>
@@ -1077,10 +1087,10 @@ We do not currently have a ConceptScheme for this concept.
 
     <skos2:Concept rdf:about="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_GAMMA-RAY">
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
-        <skos2:definition xml:lang="en">energy &gt;= 120 keV</skos2:definition>
         <skos2:altLabel>GAMMA-RAY</skos2:altLabel>
-        <skos2:prefLabel xml:lang="en">Gamma Ray</skos2:prefLabel>
         <skos2:altLabel>GAMMA RAY</skos2:altLabel>
+        <skos2:prefLabel xml:lang="en">Gamma Ray</skos2:prefLabel>
+        <skos2:definition xml:lang="en">energy &gt;= 120 keV</skos2:definition>
         <skos2:broader rdf:resource="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN"/>
     </skos2:Concept>
     
@@ -1115,10 +1125,10 @@ We do not currently have a ConceptScheme for this concept.
 
     <skos2:Concept rdf:about="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_OPTICAL">
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos2:altLabel>OPTICAL</skos2:altLabel>
         <skos2:definition xml:lang="en">0.3 microns &lt;= wavelength &lt;= 1 micron; 
 300 nm &lt;= wavelength &lt;= 1000 nm; 
 3000 Angstroms &lt;= wavelength &lt;= 10000 Angstroms</skos2:definition>
-        <skos2:altLabel>OPTICAL</skos2:altLabel>
         <skos2:prefLabel xml:lang="en">Optical</skos2:prefLabel>
         <skos2:broader rdf:resource="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN"/>
     </skos2:Concept>
@@ -1141,10 +1151,10 @@ We do not currently have a ConceptScheme for this concept.
 
     <skos2:Concept rdf:about="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_UV">
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos2:altLabel>UV</skos2:altLabel>
         <skos2:definition xml:lang="en">0.1 micron &lt;= wavelength &lt;= 0.3 microns; 
 100 nm &lt;= wavelength &lt;= 300 nm; 
 1000 Angstroms &lt;= wavelength &lt;= 3000 Angstroms</skos2:definition>
-        <skos2:altLabel>UV</skos2:altLabel>
         <skos2:prefLabel xml:lang="en">Ultraviolet</skos2:prefLabel>
         <skos2:broader rdf:resource="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN"/>
     </skos2:Concept>
@@ -1155,11 +1165,11 @@ We do not currently have a ConceptScheme for this concept.
 
     <skos2:Concept rdf:about="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN_X-RAY">
         <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <skos2:hiddenLabel>XRAY</skos2:hiddenLabel>
         <skos2:definition xml:lang="en">0.1 Angstroms &lt;= wavelength &lt;= 100 Angstroms; 
 0.12 keV &lt;= energy &lt;= 120 keV</skos2:definition>
         <skos2:altLabel>X-RAY</skos2:altLabel>
         <skos2:prefLabel xml:lang="en">X-ray</skos2:prefLabel>
-        <skos2:hiddenLabel>XRAY</skos2:hiddenLabel>
         <skos2:broader rdf:resource="https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#EMDOMAIN"/>
     </skos2:Concept>
 </rdf:RDF>
