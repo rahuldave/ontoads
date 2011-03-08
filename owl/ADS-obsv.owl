@@ -110,14 +110,6 @@
     <!-- https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#curatedAt -->
 
     <owl:ObjectProperty rdf:about="#curatedAt">
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&ADS-Base;CurationAgency"/>
-                    <rdf:Description rdf:about="&ADS-Base;Project"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -126,6 +118,14 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ADS-Base;CurationAgency"/>
+                    <rdf:Description rdf:about="&ADS-Base;Project"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -322,16 +322,6 @@
     <owl:DatatypeProperty rdf:about="#coordSystem">
         <rdfs:range rdf:resource="&xsd;string"/>
         <rdfs:domain rdf:resource="#SkyThing"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- https://github.com/rahuldave/ontoads/raw/master/owl/ADS-obsv.owl#dataBand -->
-
-    <owl:DatatypeProperty rdf:about="#dataBand">
-        <rdfs:range rdf:resource="&rdfs;Literal"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-        <rdfs:domain rdf:resource="&ADS-Base;DataProduct"/>
     </owl:DatatypeProperty>
     
 
